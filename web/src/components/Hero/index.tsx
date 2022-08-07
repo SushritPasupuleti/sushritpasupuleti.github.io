@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { Grid, Card, Text, Button } from "@nextui-org/react";
+import { Download } from "react-iconly";
 
 const Hero = (props: any) => {
 	return (
@@ -19,7 +20,11 @@ const Hero = (props: any) => {
 					</div>
 				</Grid>
 				<Grid xs>
-					<Button shadow color="primary" auto>
+					<Button shadow color="primary" auto
+						icon={
+							<Download set="bold" primaryColor="white" />
+						}
+					>
 						Download My Resume
 					</Button>
 				</Grid>
