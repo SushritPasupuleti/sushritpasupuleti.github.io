@@ -10,8 +10,9 @@ import {
 	Link
 } from '@nextui-org/react';
 import Hero from '../src/components/Hero';
-import TedxSection from '../src/components/Sections/TedX'
-	;
+import TedxSection from '../src/components/Sections/TedX';
+import SkillsSection from '../src/components/Sections/Skills';
+
 const Home: NextPage = () => {
 	return (
 		<div className={styles.container}>
@@ -42,7 +43,12 @@ const Home: NextPage = () => {
 				}}>
 					<TedxSection />
 				</section>
-				<Spacer />
+				<Spacer y={3} />
+				<section style={{
+					maxWidth: '1000px',
+				}}>
+					<SkillsSection />
+				</section>
 			</Container>
 		</div>
 	)
