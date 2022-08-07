@@ -1,6 +1,5 @@
 import type { NextPage } from 'next'
 import Head from 'next/head';
-import Image from 'next/image';
 import styles from '../styles/Home.module.css';
 import {
 	Container,
@@ -10,6 +9,7 @@ import {
 	Text,
 	Link
 } from '@nextui-org/react';
+import Hero from '../src/components/Hero';
 
 const Home: NextPage = () => {
 	return (
@@ -32,40 +32,8 @@ const Home: NextPage = () => {
 				style={{ height: '100vh' }}
 			>
 				<Spacer />
-				<Image src="/logo.svg" alt="Vercel Logo" width={200} height={200} />
+				<Hero />
 				<Spacer />
-				<Text h1 className={styles.title}>
-					Welcome to&nbsp;
-					<Link
-						color={"primary"}
-						href="https://nextjs.org"
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						Next.js
-					</Link>
-					&nbsp;&&nbsp;
-					<Link
-						color={"primary"}
-						href="https://nextui.org"
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						NextUI
-					</Link>
-				</Text>
-				<Spacer />
-				<Input clearable labelPlaceholder="Type something" />
-				<Spacer />
-				<Button>
-					<a
-						href="https://github.com/nextui-org/nextui"
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						Show on Github
-					</a>
-				</Button>
 			</Container>
 		</div>
 	)
