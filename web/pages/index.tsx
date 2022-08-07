@@ -29,7 +29,7 @@ const Home: NextPage = () => {
 				direction="column"
 				justify="center"
 				alignItems="center"
-				style={{ height: '100vh' }}
+				// style={{ height: '100vh' }}
 			>
 				<Spacer />
 				<Hero />

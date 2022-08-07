@@ -1,10 +1,20 @@
 import * as React from 'react'
-import { Grid, Card, Text, Button } from "@nextui-org/react";
+import { Grid, Card, Text, Button, Table } from "@nextui-org/react";
 import { Download } from "react-iconly";
+import { useMediaQuery } from '../../../src/hooks/useMediaQuery';
+// import heroImg from '../../../public/assets/hero-2.jpg';
+import Image from 'next/image';
+// import Image from '../../../src/components/Image';
 
 const Hero = (props: any) => {
+	const isMobile = useMediaQuery(650);
+
 	return (
-		<div>
+		<div
+			style={{
+				maxWidth: '1000px',
+			}}
+		>
 			<Grid.Container gap={2} justify="center">
 				<Grid xs>
 					<div>
@@ -16,10 +26,15 @@ const Hero = (props: any) => {
 						>
 							Sushrit Pasupuleti
 						</Text>
-						<Text h4>Fullstack Unicorn | Coder | Blogger | Speaker | Sketcher | Entrepreneur... err 🤔 Student and more 🙃</Text>
+						<Text blockquote>
+							Fullstack Unicorn | Coder | Blogger | Speaker | Sketcher | Entrepreneur... err 🤔 Student and more 🙃
+						</Text>
 					</div>
 				</Grid>
-				<Grid xs>
+				<Grid xs
+					alignItems="center"
+					justify={isMobile ? "flex-start" : "flex-end"}
+				>
 					<Button shadow color="primary" auto
 						icon={
 							<Download set="bold" primaryColor="white" />
@@ -29,7 +44,130 @@ const Hero = (props: any) => {
 					</Button>
 				</Grid>
 			</Grid.Container>
-		</div>
+			<Grid.Container gap={2}>
+				<Grid xs>
+					<div>
+						<Text
+							style={{
+								marginBottom: '0.5rem',
+							}}
+							weight="semibold"
+						>
+							{"Hey there, it's Sushrit. I'm an AI enthusiast, self taught programmer and designer who builds insane projects by throwing AI into the mix."}
+						</Text>
+						<Text
+							style={{
+								marginBottom: '0.5rem',
+							}}
+							weight="semibold"
+						>
+							Currently building my startup <a href="https://www.skillshack.dev/"
+								rel="noopener noreferrer"
+								target="_blank">
+								{"skillShack(⚡);"}
+							</a>
+						</Text>
+						<Text
+
+							style={{
+								marginBottom: '0.5rem',
+							}}
+							weight="semibold"
+						>
+							{"skillShack(⚡); is a community for software professionals looking to share the projects they are working on and get feedback. From side projects to startups!"}
+						</Text>
+						<br />
+						<Table>
+							<Table.Header>
+								<Table.Column>
+									Basic Information
+								</Table.Column>
+								<Table.Column>
+								</Table.Column>
+							</Table.Header>
+							<Table.Body>
+								<Table.Row key="1">
+									<Table.Cell>
+										<Text weight="semibold">
+											Date of Birth
+										</Text>
+									</Table.Cell>
+									<Table.Cell>
+										<Text>
+											Apr 21, 1999
+										</Text>
+									</Table.Cell>
+								</Table.Row>
+								<Table.Row key="2">
+									<Table.Cell>
+										<Text weight="semibold">
+											E-mail
+										</Text>
+									</Table.Cell>
+									<Table.Cell>
+										<Text>
+											<a href="mailto:sushrit@skillshack.dev">
+												sushrit@skillshack.dev
+											</a>
+										</Text>
+									</Table.Cell>
+								</Table.Row>
+								<Table.Row key="3">
+									<Table.Cell>
+										<Text weight="semibold">
+											Phone
+										</Text>
+									</Table.Cell>
+									<Table.Cell>
+										<Text>
+											<a href="tel:+919182362040">
+												+91 9182362040
+											</a>
+										</Text>
+									</Table.Cell>
+								</Table.Row>
+								<Table.Row key="4">
+									<Table.Cell>
+										<Text weight="semibold">
+											CEO & CTO
+										</Text>
+									</Table.Cell>
+									<Table.Cell>
+										<Text>
+											<a href="https://www.skillshack.dev/">
+												Braggi Solutions
+											</a>
+										</Text>
+									</Table.Cell>
+								</Table.Row>
+							</Table.Body>
+						</Table>
+					</div>
+				</Grid>
+				<Grid xs={0} md>
+					<div>
+						<Card>
+							<Card.Body css={{ p: 0 }}>
+								<img src={"assets/hero-2.jpg"} alt="Sushrit Pasupuleti" />
+							</Card.Body>
+						</Card>
+					</div>
+				</Grid>
+			</Grid.Container>
+			<Grid xs md={0}>
+				<div>
+					<Card
+						style={{
+							// display: !isMobile ? 'none' : 'block',
+						}}
+					>
+						<Card.Body css={{ p: 0 }}>
+							<img src={"assets/hero-2.jpg"} alt="Sushrit Pasupuleti" />
+						</Card.Body>
+					</Card>
+				</div>
+			</Grid>
+		</div >
 	)
 }
 
