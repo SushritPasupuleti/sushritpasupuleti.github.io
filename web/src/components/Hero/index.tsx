@@ -5,6 +5,8 @@ import { useMediaQuery } from '../../../src/hooks/useMediaQuery';
 // import heroImg from '../../../public/assets/hero-2.jpg';
 import Image from 'next/image';
 // import Image from '../../../src/components/Image';
+import { BsTwitter, BsGithub, BsYoutube, BsMedium, BsFacebook, BsLinkedin } from "react-icons/bs";
+import { SiBlogger } from "react-icons/si";
 
 const Hero = (props: any) => {
 	const isMobile = useMediaQuery(650);
@@ -167,6 +169,121 @@ const Hero = (props: any) => {
 					</Card>
 				</div>
 			</Grid>
+			<Grid.Container
+				// display="flex"
+				justify="center"
+				alignItems="center"
+				css={{
+					// margin: '1rem',
+				}}
+				gap={2}
+			>
+				<Grid>
+					<a href="https://twitter.com/sushrit_lawliet">
+						<Button
+							auto
+							light
+							// size="lg"
+							icon={
+								<BsTwitter style={{
+									height: '1.5rem',
+									width: '1.5rem',
+								}} />
+							}>
+						</Button>
+					</a>
+				</Grid>
+				<Grid>
+					<a href="https://github.com/SushritPasupuleti">
+						<Button
+							auto
+							light
+							// size="lg"
+							icon={
+								<BsGithub style={{
+									height: '1.5rem',
+									width: '1.5rem',
+								}} />
+							}>
+						</Button>
+					</a>
+				</Grid>
+				<Grid>
+					<a href="https://www.youtube.com/channel/UCUDlGMaGAQctgQJTRoBHgAw">
+						<Button
+							auto
+							light
+							// size="lg"
+							icon={
+								<BsYoutube style={{
+									height: '1.5rem',
+									width: '1.5rem',
+								}} />
+							}>
+						</Button>
+					</a>
+				</Grid>
+				<Grid>
+					<a href="https://medium.com/@sushrit.pk21">
+						<Button
+							auto
+							light
+							// size="lg"
+							icon={
+								<BsMedium style={{
+									height: '1.5rem',
+									width: '1.5rem',
+								}} />
+							}>
+						</Button>
+					</a>
+				</Grid>
+				<Grid>
+					<a href="https://sushritpasupuleti.blogspot.com/">
+						<Button
+							auto
+							light
+							// size="lg"
+							icon={
+								<SiBlogger style={{
+									height: '1.5rem',
+									width: '1.5rem',
+								}} />
+							}>
+						</Button>
+					</a>
+				</Grid>
+				<Grid>
+					<a href="https://www.linkedin.com/in/sushritpasupuleti/">
+						<Button
+							auto
+							light
+							// size="lg"
+							icon={
+								<BsLinkedin style={{
+									height: '1.5rem',
+									width: '1.5rem',
+								}} />
+							}>
+						</Button>
+					</a>
+				</Grid>
+				<Grid>
+					<a href="https://www.facebook.com/SushritLawliet/">
+						<Button
+							auto
+							light
+							// size="lg"
+							icon={
+								<BsFacebook style={{
+									height: '1.5rem',
+									width: '1.5rem',
+								}} />
+							}>
+						</Button>
+					</a>
+				</Grid>
+			</Grid.Container>
 		</div >
 	)
 }
