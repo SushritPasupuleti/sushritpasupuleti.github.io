@@ -14,7 +14,7 @@ const Hero = (props: any) => {
 	return (
 		<div
 			style={{
-				maxWidth: '1000px',
+				maxWidth: '1280px',
 			}}
 		>
 			<Grid.Container gap={2} justify="center">
