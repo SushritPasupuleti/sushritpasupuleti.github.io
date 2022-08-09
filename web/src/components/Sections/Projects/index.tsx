@@ -107,7 +107,7 @@ const projectsList: any = [
 		],
 		images: [
 			"assets/P7.png",
-			"assets/P11.png",
+			// "assets/P11.png",
 			"assets/P12.png",
 			"assets/P13.png",
 		],
