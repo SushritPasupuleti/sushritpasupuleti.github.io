@@ -1,21 +1,67 @@
-import { Grid, Card, Text, Button, Table, Spacer } from "@nextui-org/react";
+import React from "react";
+import { Grid, Card, Text, Button, Table, Spacer, Modal } from "@nextui-org/react";
 import { Send } from "react-iconly";
 import Tags from "../Skills/Keywords";
 
-const GalleryItem = (props: any): JSX.Element => {
+const Preview = (props: any): JSX.Element => {
+
+	const closeHandler = () => {
+		props.setVisible(false);
+	};
+
 	return (
 		<div>
+			<Modal noPadding open={props.visible} onClose={closeHandler}
+				aria-labelledby="image-preview-modal"
+				blur
+				// width="90%"
+				// closeButton
+				width="70%"
+			// fullScreen
+			>
+				<Modal.Header
+					css={{ position: "absolute", zIndex: "$1", top: 5, right: 8 }}
+				>
+				</Modal.Header>
+				<Modal.Body>
+					<img src={props.url}
+						style={{
+							width: "auto",
+							// maxWidth: "80vh",
+							height: "auto",
+							// maxHeight: "80vh",
+						}}
+					/>
+				</Modal.Body>
+			</Modal>
+		</div>
+	);
+}
+
+const GalleryItem = (props: any): JSX.Element => {
+
+	const handler = () => {
+		props.setUrl(props.img);
+		props.setVisible(true);
+	}
+
+	return (
+		<div
+			onClick={() => handler()}
+		>
 			<Card
 				style={{
 					// display: !isMobile ? 'none' : 'block',
 				}}
 			>
-				<Card.Body css={{ p: 0 }}>
+				<Card.Body css={{ p: 0 }}
+				>
 					<img src={props.img} alt={props.product} style={{
 						// maxHeight: '30vh',
 						// width: 'auto',
 						// height: 'auto',
-					}} />
+					}}
+					/>
 				</Card.Body>
 			</Card>
 		</div>
@@ -24,6 +70,12 @@ const GalleryItem = (props: any): JSX.Element => {
 }
 
 const Project = (props: any): JSX.Element => {
+
+	const [visible, setVisible] = React.useState(false);
+	const [url, setUrl] = React.useState("");
+
+	const handler = () => setVisible(true);
+
 	return (
 		<div>
 			<Grid.Container gap={2} style={{
@@ -76,7 +128,13 @@ const Project = (props: any): JSX.Element => {
 					props.projectInfo.images && props.projectInfo.images.length > 0 && props.projectInfo.images.map((img: string, index: number) => {
 						return (
 							<Grid xs key={index}>
-								<GalleryItem key={index} img={img} product={props.projectInfo.product} />
+								<GalleryItem
+									key={index}
+									img={img}
+									product={props.projectInfo.product}
+									setVisible={setVisible}
+									setUrl={setUrl}
+								/>
 							</Grid>
 						)
 					})
@@ -103,6 +161,7 @@ const Project = (props: any): JSX.Element => {
 				}
 			</div>
 			<Spacer />
+			<Preview visible={visible} setVisible={setVisible} url={url} />
 		</div>
 	)
 }
