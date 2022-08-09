@@ -7,6 +7,7 @@ import { Work } from 'react-iconly';
 import { BiTestTube } from "react-icons/bi";
 import { BsCodeSlash } from "react-icons/bs";
 import SkillsList from './SkillsList';
+import SkillKeywords from './Keywords';
 
 const frontendSkills: Array<String> = [
 	'ReactJS',
@@ -66,8 +67,8 @@ const testingSkills: Array<String> = [
 ]
 
 const devopsSkills: Array<String> = [
-	'AWS',
-	'Azure',
+	'AWS (EC2, RDS, S3, ELB, Amplify)',
+	'Azure App Service, Functions, Docker Functions, Database)',
 	'Docker',
 	'Kubernetes',
 	'Netlify',
@@ -131,16 +132,31 @@ const miscSkills: Array<String> = [
 	"Apache Airflow"
 ]
 
+const keywords: Array<String> = [
+	"web dev", "tech", "app dev", "project management", "ml", "AI", "hybrid apps", "linux", "chatbots", "MERN Stack", "JAM Stack", "monorepos", "self hosting", "neovim"
+];
+
 export default function Skills() {
 	return (
-		<>
+		<div style={{
+			// display: 'flex',
+			// flexDirection: 'column',
+			// alignItems: 'center',
+		}}>
 			<Text h1>
 				{`
 				Skills & Technologies
 				`}
 			</Text>
+			<div>
+				<SkillKeywords skills={keywords} />
+			</div>
 			<Spacer y={1} />
-			<Grid.Container gap={2}>
+			<Grid.Container gap={2}
+				style={{
+					justifyContent: 'center',
+				}}
+			>
 				<Grid>
 					<Collapse
 						title={<Text h4>Project Management</Text>}
@@ -272,7 +288,7 @@ export default function Skills() {
 					</Collapse>
 				</Grid>
 			</Grid.Container>
-		</>
+		</div>
 	);
 }
 

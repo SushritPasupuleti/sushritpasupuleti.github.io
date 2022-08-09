@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Grid, Card, Text, Button, Table } from "@nextui-org/react";
+import { Grid, Card, Text, Button, Table, Spacer } from "@nextui-org/react";
 import { Download } from "react-iconly";
 import { useMediaQuery } from '../../../src/hooks/useMediaQuery';
 // import heroImg from '../../../public/assets/hero-2.jpg';
@@ -29,7 +29,7 @@ const Hero = (props: any) => {
 							Sushrit Pasupuleti
 						</Text>
 						<Text blockquote>
-							Fullstack Unicorn | Coder | Blogger | Speaker | Sketcher | Entrepreneur... err 🤔 Student and more 🙃
+							Fullstack Unicorn | Coder | Blogger | Speaker | Sketcher | Entrepreneur... err 🤔 and more 🙃
 						</Text>
 					</div>
 				</Grid>
@@ -37,13 +37,15 @@ const Hero = (props: any) => {
 					alignItems="center"
 					justify={isMobile ? "flex-start" : "flex-end"}
 				>
-					<Button shadow color="primary" auto
-						icon={
-							<Download set="bold" primaryColor="white" />
-						}
-					>
-						Download My Resume
-					</Button>
+					<a href="https://skillshack.dev/generators/user-resume?user_name=sushrit_lawliet">
+						<Button shadow color="primary" auto
+							icon={
+								<Download set="bold" primaryColor="white" />
+							}
+						>
+							Download My Resume
+						</Button>
+					</a>
 				</Grid>
 			</Grid.Container>
 			<Grid.Container gap={2}>
@@ -54,14 +56,17 @@ const Hero = (props: any) => {
 								marginBottom: '0.5rem',
 							}}
 							weight="semibold"
+							blockquote
 						>
-							{"Hey there, it's Sushrit. I'm an AI enthusiast, self taught programmer and designer who builds insane projects by throwing AI into the mix."}
+							{"Hey there, it's Sushrit, a technical and business focused solo-entrepreneur who has been building, managing and scaling products for 7 years now. I’m quick to learn, adapt, innovate, and get scrappy when needed to ensure the product and I evolve as we should."}
 						</Text>
+						<Spacer />
 						<Text
 							style={{
 								marginBottom: '0.5rem',
 							}}
 							weight="semibold"
+						// em
 						>
 							Currently building my startup <a href="https://www.skillshack.dev/"
 								rel="noopener noreferrer"
