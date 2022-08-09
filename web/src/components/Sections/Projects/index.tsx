@@ -56,7 +56,7 @@ const projectsList: any = [
 			'Build new features and made bug fixes based on user feedback.',
 			'Identified gap in the market for hospital slot reservation and refactored the project for it',
 			'Product Management',
-			'Maintaing this Project to this day'
+			'Maintaining this Project to this day'
 		],
 		start: 'March 2020',
 		end: 'Present',
@@ -87,7 +87,9 @@ const projectsList: any = [
 			'Handled user studies and user research.',
 			'Build new features and made bug fixes based on user feedback.',
 			'Product Management',
-			'Maintaing this Project to this day'
+			'Maintaining this Project to this day',
+			'MERN Stack + React Native w/ React Bootstrap',
+			'AWS (EC2), GitHub Actions for CI/CD',
 		],
 		start: 'March 2017',
 		end: 'Present',
@@ -120,7 +122,7 @@ const projectsList: any = [
 			'Build new features and made bug fixes based on user feedback.',
 			'Iterated through multiple versions & implementations of the product over the years to ensure that it was stable and reliable.',
 			'Product Management',
-			'Maintaing this Project to this day',
+			'Maintaining this Project to this day',
 			'Machine learning and Natural Language Processing Pipeline development',
 			'Handing training and testing of the chatbot',
 			'Open Sourced a community version',
@@ -152,7 +154,7 @@ const projectsList: any = [
 	{
 		product: 'Tesla+ Smart Electric Meter',
 		position: 'Product',
-		description: `A smart electric meter add-on that connects to a standard electric meter and reports all usage metrics to a local hub which makes the data available via a mobile app and also to administration.`,
+		description: `A smart electric meter add-on that connects to a standard electric meter and reports all usage metrics to a local hub which makes the data available via a mobile app and also to administration. Qualified for the CBSE National Science Fair's National level with this project!`,
 		keywords: [
 			'Handled user studies and user research.',
 			'Identified a gap in the market for lack of alternatives to paper bills and lack of accessibility to meter-readings',

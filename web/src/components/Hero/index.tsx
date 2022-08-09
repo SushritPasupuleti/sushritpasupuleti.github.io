@@ -5,7 +5,7 @@ import { useMediaQuery } from '../../../src/hooks/useMediaQuery';
 // import heroImg from '../../../public/assets/hero-2.jpg';
 import Image from 'next/image';
 // import Image from '../../../src/components/Image';
-import { BsTwitter, BsGithub, BsYoutube, BsMedium, BsFacebook, BsLinkedin } from "react-icons/bs";
+import { BsTwitter, BsGithub, BsYoutube, BsMedium, BsFacebook, BsLinkedin, BsWhatsapp } from "react-icons/bs";
 import { SiBlogger } from "react-icons/si";
 
 const Hero = (props: any) => {
@@ -46,6 +46,21 @@ const Hero = (props: any) => {
 							Download My Resume
 						</Button>
 					</a>
+					<a href="https://wa.me/919182362040">
+						<Button shadow color="success" auto
+							icon={
+								<BsWhatsapp style={{
+									height: '1.5rem',
+									width: '1.5rem',
+								}} />
+							}
+							style={{
+								marginLeft: '0.5rem',
+							}}
+						>
+							{`Let's Talk`}
+						</Button>
+					</a>
 				</Grid>
 			</Grid.Container>
 			<Grid.Container gap={2}>
@@ -58,7 +73,7 @@ const Hero = (props: any) => {
 							weight="semibold"
 							blockquote
 						>
-							{"Hey there, it's Sushrit, a technical and business focused solo-entrepreneur who has been building, managing and scaling products for 7 years now. I’m quick to learn, adapt, innovate, and get scrappy when needed to ensure the product and I evolve as we should."}
+							{"Hey there, it's Sushrit, a technical and business-focused solo entrepreneur who has been building, managing, and scaling products for 7 years now. I’m quick to learn, adapt, innovate, and get scrappy when needed to ensure the product and I evolve as we should."}
 						</Text>
 						<Spacer />
 						<Text

@@ -7,6 +7,7 @@ import {
 	Input,
 	Spacer,
 	Text,
+	Card,
 	Link
 } from '@nextui-org/react';
 import Hero from '../src/components/Hero';
@@ -82,6 +83,16 @@ const Home: NextPage = () => {
 					<VideosSection />
 				</section>
 				<Spacer y={3} />
+				<Card.Divider style={{
+					width: '100%',
+				}} />
+				<footer>
+					<Spacer y={1} />
+					<Text>
+						Copyright &copy; {new Date().getFullYear()} Sushrit Pasupuleti. All rights reserved.
+					</Text>
+					<Spacer y={1} />
+				</footer>
 			</Container>
 		</div>
 	)
