@@ -15,6 +15,8 @@ import SkillsSection from '../src/components/Sections/Skills';
 import ToolsSection from '../src/components/Sections/Tools';
 import WorkExperienceSection from '../src/components/Sections/WorkExperience';
 import ProjectsSection from '../src/components/Sections/Projects';
+import VideosSection from '../src/components/Sections/Videos';
+import BlogsSection from '../src/components/Sections/Blogs';
 
 const Home: NextPage = () => {
 	return (
@@ -69,6 +71,18 @@ const Home: NextPage = () => {
 					maxWidth: '1000px',
 				}}>
 					<ProjectsSection />
+				</section>
+				<Spacer y={3} />
+				<section style={{
+					maxWidth: '1000px',
+				}}>
+					<VideosSection />
+				</section>
+				<Spacer y={3} />
+				<section style={{
+					maxWidth: '1000px',
+				}}>
+					<BlogsSection />
 				</section>
 				<Spacer y={3} />
 			</Container>

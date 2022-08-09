@@ -41,15 +41,19 @@ const projectsList: any = [
 		end: 'Present',
 		link: 'https://skillshack.dev/',
 		linkText: 'See Live',
+		images: [
+			"assets/P10.png",
+		]
 	},
 	{
-		product: 'Braggi Shopping Slots',
+		product: 'Braggi Shopping & Medical Slots',
 		position: 'Solo Founder & Product',
 		description: `During the lockdown, marketing is difficult, and getting work done remotely has been equally difficult, so I started working on a new project. Braggi's Shopping Slots platform took 2 weeks to build, it allows it's users to book a slot to shop at their local grocery store, the platform handles queues and allows shop owners to decide how many people they can accomodate on an hourly basis at their store, while ensuring that social distancing is followed. This was a fun project, because I deployed it much more quickly than anything before, while constantly working with the changing situations due to the pandemic, it's helped me greatly with my ability to understand the market as a whole and it's needs during times like these.`,
 		keywords: [
 			'Lead Developer',
 			'Handled user studies and user research.',
 			'Build new features and made bug fixes based on user feedback.',
+			'Identified gap in the market for hospital slot reservation and refactored the project for it',
 			'Product Management',
 			'Maintaing this Project to this day'
 		],
@@ -67,6 +71,11 @@ const projectsList: any = [
 			'MongoDB',
 			'Docker'
 		],
+		images: [
+			"assets/P6.png",
+			"assets/P8.png",
+			"assets/P9.png",
+		]
 	},
 	{
 		product: 'Braggi Election Management System - MeeVote',
@@ -93,7 +102,12 @@ const projectsList: any = [
 			'MongoDB',
 			'Docker'
 		],
-
+		images: [
+			"assets/P7.png",
+			"assets/P11.png",
+			"assets/P12.png",
+			"assets/P13.png",
+		],
 	},
 	{
 		product: 'Braggi Chatbot Platform',
@@ -103,6 +117,7 @@ const projectsList: any = [
 			'Lead Developer',
 			'Handled user studies and user research.',
 			'Build new features and made bug fixes based on user feedback.',
+			'Iterated through multiple versions & implementations of the product over the years to ensure that it was stable and reliable.',
 			'Product Management',
 			'Maintaing this Project to this day',
 			'Machine learning and Natural Language Processing Pipeline development',
@@ -123,8 +138,35 @@ const projectsList: any = [
 			'MongoDB',
 			'Docker',
 			'TensoFlow',
+			'WPF',
+			'WinForms',
+			'Flutter',
 		],
-
+		images: [
+			"assets/video-bg2.png",
+			"assets/P3.jpg",
+			"assets/P4.png",
+		],
+	},
+	{
+		product: 'Tesla+ Smart Electric Meter',
+		position: 'Product',
+		description: `A smart electric meter add-on that connects to a standard electric meter and reports all usage metrics to a local hub which makes the data available via a mobile app and also to administration.`,
+		keywords: [
+			'Handled user studies and user research.',
+			'Identified a gap in the market for lack of alternatives to paper bills and lack of accessibility to meter-readings',
+			'Build new features and made bug fixes based on user feedback.',
+			'Product Management',
+		],
+		start: 'March 2015',
+		end: 'Present',
+		tags: [
+			'ReactJS',
+			'Arduino',
+		],
+		images: [
+			"assets/P1.png",
+		],
 	}
 ]
 

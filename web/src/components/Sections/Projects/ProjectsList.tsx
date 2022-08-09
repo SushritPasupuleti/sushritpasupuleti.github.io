@@ -2,6 +2,27 @@ import { Grid, Card, Text, Button, Table, Spacer } from "@nextui-org/react";
 import { Send } from "react-iconly";
 import Tags from "../Skills/Keywords";
 
+const GalleryItem = (props: any): JSX.Element => {
+	return (
+		<div>
+			<Card
+				style={{
+					// display: !isMobile ? 'none' : 'block',
+				}}
+			>
+				<Card.Body css={{ p: 0 }}>
+					<img src={props.img} alt={props.product} style={{
+						// maxHeight: '30vh',
+						// width: 'auto',
+						// height: 'auto',
+					}} />
+				</Card.Body>
+			</Card>
+		</div>
+
+	)
+}
+
 const Project = (props: any): JSX.Element => {
 	return (
 		<div>
@@ -50,24 +71,36 @@ const Project = (props: any): JSX.Element => {
 				}
 			</div>
 			<Spacer />
+			<Grid.Container gap={2}>
+				{
+					props.projectInfo.images && props.projectInfo.images.length > 0 && props.projectInfo.images.map((img: string, index: number) => {
+						return (
+							<Grid xs key={index}>
+								<GalleryItem key={index} img={img} product={props.projectInfo.product} />
+							</Grid>
+						)
+					})
+				}
+			</Grid.Container>
+			<Spacer />
 			<div>
-			{
-				props.projectInfo.link && (
-					<a href={props.projectInfo.link}>
-					<Button
-					style={{
-						marginLeft: '1rem',
-					}}
-					auto
-					color="secondary"
-					shadow
-					icon={<Send set="bold" primaryColor="white" />}
-					>
-					{props.projectInfo.linkText}
-					</Button>
-					</a>
-				)
-			}
+				{
+					props.projectInfo.link && (
+						<a href={props.projectInfo.link}>
+							<Button
+								style={{
+									marginLeft: '1rem',
+								}}
+								auto
+								color="secondary"
+								shadow
+								icon={<Send set="bold" primaryColor="white" />}
+							>
+								{props.projectInfo.linkText}
+							</Button>
+						</a>
+					)
+				}
 			</div>
 			<Spacer />
 		</div>
