@@ -17,17 +17,14 @@ import WorkExperienceSection from '../src/components/Sections/WorkExperience';
 import ProjectsSection from '../src/components/Sections/Projects';
 import VideosSection from '../src/components/Sections/Videos';
 import BlogsSection from '../src/components/Sections/Blogs';
+import HomeSEO from '../src/components/SEO';
 
 const Home: NextPage = () => {
 	return (
 		<div className={styles.container}>
+			<HomeSEO />
 			<Head>
 				<title>Sushrit Pasupuleti - Resume</title>
-				<meta
-					name="description"
-					content="Fullstack Unicorn | Coder | Blogger | Speaker | Sketcher | Entrepreneur... err 🤔 Student and more 🙃
-"
-				/>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<Container
@@ -76,13 +73,13 @@ const Home: NextPage = () => {
 				<section style={{
 					maxWidth: '1000px',
 				}}>
-					<VideosSection />
+					<BlogsSection />
 				</section>
 				<Spacer y={3} />
 				<section style={{
 					maxWidth: '1000px',
 				}}>
-					<BlogsSection />
+					<VideosSection />
 				</section>
 				<Spacer y={3} />
 			</Container>

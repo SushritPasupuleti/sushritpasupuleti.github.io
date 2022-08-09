@@ -43,6 +43,7 @@ const projectsList: any = [
 		linkText: 'See Live',
 		images: [
 			"assets/P10.png",
+			"assets/P17.png",
 		]
 	},
 	{
