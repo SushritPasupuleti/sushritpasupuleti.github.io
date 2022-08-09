@@ -14,6 +14,7 @@ import TedxSection from '../src/components/Sections/TedX';
 import SkillsSection from '../src/components/Sections/Skills';
 import ToolsSection from '../src/components/Sections/Tools';
 import WorkExperienceSection from '../src/components/Sections/WorkExperience';
+import ProjectsSection from '../src/components/Sections/Projects';
 
 const Home: NextPage = () => {
 	return (
@@ -62,6 +63,12 @@ const Home: NextPage = () => {
 					maxWidth: '1000px',
 				}}>
 					<WorkExperienceSection />
+				</section>
+				<Spacer y={3} />
+				<section style={{
+					maxWidth: '1000px',
+				}}>
+					<ProjectsSection />
 				</section>
 				<Spacer y={3} />
 			</Container>
