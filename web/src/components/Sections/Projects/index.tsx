@@ -168,7 +168,7 @@ const projectsList: any = [
 			'Arduino',
 		],
 		images: [
-			"assets/P1.png",
+			"assets/P1.PNG",
 		],
 	}
 ]
