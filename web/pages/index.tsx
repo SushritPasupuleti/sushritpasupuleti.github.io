@@ -40,12 +40,12 @@ const Home: NextPage = () => {
 				<header>
 					<Hero />
 				</header>
-				<Spacer y={3} />
 				<section style={{
 					maxWidth: '1000px',
 				}}>
-					<TedxSection />
+				<TedxSection />
 				</section>
+				<Spacer y={3} />
 				<Spacer y={3} />
 				<section style={{
 					maxWidth: '1000px',

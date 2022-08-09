@@ -1,8 +1,19 @@
-import { Card, Col, Row, Button, Text } from "@nextui-org/react";
+import { Card, Col, Row, Button, Text, Spacer } from "@nextui-org/react";
 import { Play } from "react-iconly";
 
 const TedX = (props: any) => (
 	<>
+		<Text h1
+			css={{
+				textGradient: "45deg, $yellow600 -20%, $red600 100%",
+			}}
+		>
+			Featured
+		</Text>
+		<Text h1>
+			My TEDx Talk
+		</Text>
+		<Spacer y={1} />
 		<Card css={{ w: "100%", h: "auto" }}>
 			<Card.Header css={{ position: "absolute", zIndex: 1, top: 5 }}>
 				{/*<Col>

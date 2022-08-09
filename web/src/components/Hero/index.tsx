@@ -24,6 +24,7 @@ const Hero = (props: any) => {
 							h1
 							css={{
 								textGradient: "45deg, $purple600 20%, $blue600 50%",
+								whiteSpace: 'nowrap',
 							}}
 						>
 							Sushrit Pasupuleti
