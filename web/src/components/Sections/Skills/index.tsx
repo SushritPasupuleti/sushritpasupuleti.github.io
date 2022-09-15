@@ -51,7 +51,7 @@ const databaseSkills: Array<String> = [
 	'MongoDB',
 	'Redis',
 	"Neo4J",
-	'Firebase',
+	'Firebase (Firestore)',
 	'Sequelize',
 	'Mongoose',
 	'SQLAlchemy',
@@ -63,18 +63,18 @@ const testingSkills: Array<String> = [
 	'Jest',
 	'supertest',
 	'cypress',
-	'supertest'
+	'playwright'
 ]
 
 const devopsSkills: Array<String> = [
-	'AWS (EC2, RDS, S3, ELB, Amplify)',
+	'AWS (EC2, RDS, S3, ELB, Amplify, Fargate, Lambda)',
 	'Azure App Service, Functions, Docker Functions, Database)',
 	'Docker',
 	'Kubernetes',
 	'Netlify',
 	'Vercel',
 	'GitHub Actions',
-	'Self Hosting via Proxmox',
+	'Self Hosting via Proxmox (LXCs and Docker)',
 ]
 
 const mlSkills: Array<String> = [
@@ -91,11 +91,12 @@ const mlSkills: Array<String> = [
 ]
 
 const pmSkills: Array<String> = [
-	'Asana',
 	'Jira',
+	'Asana',
 	'GitHub',
 	'n8n for Automation',
 	'GSuite',
+	'Office 365',
 ]
 
 const miscSkills: Array<String> = [

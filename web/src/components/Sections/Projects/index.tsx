@@ -90,6 +90,8 @@ const projectsList: any = [
 			'Maintaining this Project to this day',
 			'MERN Stack + React Native w/ React Bootstrap',
 			'AWS (EC2), GitHub Actions for CI/CD',
+			'Currently Rebuilding the Application to scale to Nation-Party Level for more minute control capable of handling Country-wide voter data.',
+			'2.0 Stack: AWS (Fargate, ELB, RDS) with React Native (Expo) Monorepo that houses Mobile and Web (NextJS) Platforms with 90% code sharing',
 		],
 		start: 'March 2017',
 		end: 'Present',
