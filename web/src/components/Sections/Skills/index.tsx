@@ -134,7 +134,7 @@ const miscSkills: Array<String> = [
 ]
 
 const keywords: Array<String> = [
-	"web dev", "tech", "app dev", "project management", "ml", "AI", "hybrid apps", "linux", "chatbots", "MERN Stack", "JAM Stack", "monorepos", "self hosting", "neovim"
+	"Product Management", "Full Stack Dev", "Cross-platform Dev", "tech", "app dev", "ml", "AI", "hybrid apps", "linux", "chatbots", "MERN Stack", "JAM Stack", "monorepos", "self hosting", "neovim"
 ];
 
 export default function Skills() {

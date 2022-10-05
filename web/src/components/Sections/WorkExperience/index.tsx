@@ -9,8 +9,8 @@ const workExperience: any = [
 		description: `Built, deployed, scaled and managed numerous projects for numerous clients and self.
 				Projects listed below ⬇️`,
 		keywords: [
-			'Fullstack Development',
 			'Product Management',
+			'Fullstack Development',
 			'Business Development',
 			'Software Engineering',
 			'Machine Learning and Data Science',

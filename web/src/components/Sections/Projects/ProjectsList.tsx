@@ -104,6 +104,27 @@ const Project = (props: any): JSX.Element => {
 				{props.projectInfo.description}
 			</Text>
 			<Spacer />
+			{
+				props.projectInfo.highlightImage && (
+					<>
+						<div
+							style={{
+								padding: '2rem',
+								marginTop: '-2rem',
+								marginBottom: '-2rem',
+							}}
+						>
+							<GalleryItem
+								img={props.projectInfo.highlightImage}
+								product={props.projectInfo.product}
+								setUrl={setUrl}
+								setVisible={setVisible}
+							/>
+						</div>
+						<Spacer />
+					</>
+				)
+			}
 			<Tags skills={props.projectInfo.tags} />
 			<Spacer />
 			<div style={{

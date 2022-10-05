@@ -10,7 +10,7 @@ const projectsList: any = [
 		keywords: [
 			'Scaled to users from over 130+ countries.',
 			'Handled user studies and user research.',
-			'Build new features and made bug fixes based on user feedback.',
+			'Utilised Google Analytics to track user behaviour, and prioritise features and bug fixes.',
 			'Product Management',
 			'NextJS based SEO Optimized Website (included support for Open Graph Protocol and JSON+LD).',
 			'GitHub Integration for users to showcase their Open Source Projects along with Code.',
@@ -44,7 +44,8 @@ const projectsList: any = [
 		images: [
 			"assets/P10.png",
 			"assets/P17.png",
-		]
+		],
+		highlightImage: "assets/startups_wordmark_purple.png"
 	},
 	{
 		product: 'Braggi Shopping & Medical Slots',

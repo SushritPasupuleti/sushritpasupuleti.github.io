@@ -10,8 +10,21 @@ const tools: Array<String> = [
 	"proxmox",
 	"pgAdmin",
 	"Postman",
+	"iTerm2",
+	"zsh",
 	"And More..."
 ];
+
+const toolsPM: Array<String> = [
+	"Jira",
+	"Confluence",
+	"Asana",
+	"Slack w/ Webhooks",
+	"GSuite",
+	"Office 365",
+	"GitHub Actions",
+	"And More..."
+]
 
 export default function Tools() {
 	return (
@@ -30,7 +43,17 @@ export default function Tools() {
 					alignItems: "center",
 				}}
 			>
+				<Text h3>
+					Editors, Terminals, Servers, and More
+				</Text>
+				<Spacer y={0.5} />
 				<SkillKeywords skills={tools} />
+				<Spacer y={1.5} />
+				<Text h3>
+					Productivity & Product Management
+				</Text>
+				<Spacer y={0.5} />
+				<SkillKeywords skills={toolsPM} />
 				<a href="https://github.com/SushritPasupuleti/My-DevTools">
 					<Button
 						shadow
