@@ -21,9 +21,9 @@ function ExtraSection() {
 
 	return (
 		<div>
-			<Text h1>
+			<Text h2>
 				{`
-					Accomplishments/Brags and Hobbies!
+					Accomplishments, Brags and Hobbies!
 				`}
 			</Text>
 			<Spacer y={0.5} />
@@ -45,6 +45,10 @@ function ExtraSection() {
 			<Text size="$xl">
 				<a target="_blank" href="https://knowyourmeme.com/memes/btw-i-use-arch"
 					rel="noreferrer"
+				style={{
+					color: "inherit",
+					textDecoration: "none",
+				}}
 				>
 					<li>
 						<b>
