@@ -58,7 +58,7 @@ function Videos() {
 				`}
 			</Text>
 			<Text>
-				{`Some of the Blogs I have published.`}
+				{`Some of the Blogs I have published. Together they make up for over 150K+ views.`}
 			</Text>
 			<a href="https://medium.com/@sushrit.pk21">
 				<Button

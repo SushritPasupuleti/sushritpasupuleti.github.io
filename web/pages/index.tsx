@@ -19,6 +19,7 @@ import ProjectsSection from '../src/components/Sections/Projects';
 import VideosSection from '../src/components/Sections/Videos';
 import BlogsSection from '../src/components/Sections/Blogs';
 import HomeSEO from '../src/components/SEO';
+import ExtraSection from '../src/components/Sections/Extra';
 
 const Home: NextPage = () => {
 	return (
@@ -43,7 +44,7 @@ const Home: NextPage = () => {
 				<section style={{
 					maxWidth: '1000px',
 				}}>
-				<TedxSection />
+					<TedxSection />
 				</section>
 				<Spacer y={3} />
 				<Spacer y={3} />
@@ -69,6 +70,12 @@ const Home: NextPage = () => {
 					maxWidth: '1000px',
 				}}>
 					<ProjectsSection />
+				</section>
+				<Spacer y={3} />
+				<section style={{
+					maxWidth: '1000px',
+				}}>
+					<ExtraSection />
 				</section>
 				<Spacer y={3} />
 				<section style={{
