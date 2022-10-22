@@ -15,7 +15,9 @@ function MyApp({ Component, pageProps }: AppProps) {
 			}}
 		>
 			<NextUIProvider>
-				<Component {...pageProps} />
+				<Component
+					{...pageProps}
+				/>
 			</NextUIProvider>
 		</NextThemesProvider>
 	);

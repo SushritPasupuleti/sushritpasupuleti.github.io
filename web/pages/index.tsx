@@ -20,6 +20,7 @@ import VideosSection from '../src/components/Sections/Videos';
 import BlogsSection from '../src/components/Sections/Blogs';
 import HomeSEO from '../src/components/SEO';
 import ExtraSection from '../src/components/Sections/Extra';
+import CertificatesSection from '../src/components/Sections/Certificates';
 
 const Home: NextPage = () => {
 	return (
@@ -70,6 +71,12 @@ const Home: NextPage = () => {
 					maxWidth: '1000px',
 				}}>
 					<ProjectsSection />
+				</section>
+				<Spacer y={3} />
+				<section style={{
+					maxWidth: '1000px',
+				}}>
+					<CertificatesSection />
 				</section>
 				<Spacer y={3} />
 				<section style={{
