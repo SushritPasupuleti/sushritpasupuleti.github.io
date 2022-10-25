@@ -91,12 +91,13 @@ const mlSkills: Array<String> = [
 ]
 
 const pmSkills: Array<String> = [
-	'Jira',
-	'Asana',
-	'GitHub',
-	'n8n for Automation',
-	'GSuite',
-	'Office 365',
+	'Highly skilled in Agile Product Management, and business processes.',
+	'Experience Leading/Mentoring distributed and cross-functional teams.',
+	'Business Analytics and Agile Methodologies.',
+	'Defining User Stories, Work Delegation, Sprint Planning and Mentoring.',
+	'Strong Technical Background and business acumen.',
+	'Experience delivering on time and within scope, with good Risk Mitigation.',
+	'Exhaustive experience with: Jira, Asana, GitHub Projects, n8n for Automation, GSuite, Office 365.',
 ]
 
 const miscSkills: Array<String> = [

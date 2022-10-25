@@ -54,7 +54,7 @@ export default function Tools() {
 				</Text>
 				<Spacer y={0.5} />
 				<SkillKeywords skills={toolsPM} />
-				<a href="https://github.com/SushritPasupuleti/My-DevTools">
+				<a href="https://github.com/SushritPasupuleti/dots">
 					<Button
 						shadow
 						auto
