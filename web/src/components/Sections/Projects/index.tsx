@@ -48,6 +48,46 @@ const projectsList: any = [
 		highlightImage: "assets/startups_wordmark_purple.png"
 	},
 	{
+		product: 'Braggi Election Management System - MeeVote',
+		position: 'Solo Founder & Product',
+		description: `This was the first project that I built, which was out of my domain, the platform "MeeVote", is an Election Management System, built for those contesting in elections. MeeVote aims to help leaders better manage their party workers to ensure faster reach and acquisition of voters. Also since it's me, under the hood there's some fancy AI magic happening too!
+
+			This is currently under going a major rewrite for Country-wide deployment and support for multiple national parties.`,
+		keywords: [
+			'Lead Developer',
+			'Handled user studies and user research.',
+			'Build new features and made bug fixes based on user feedback.',
+			'Product Management',
+			'Maintaining this Project to this day',
+			'MERN Stack + React Native w/ React Bootstrap',
+			'AWS (EC2), GitHub Actions for CI/CD',
+			'Currently Rebuilding the Application to scale to Nation-Party Level for more minute control capable of handling Country-wide voter data.',
+			'2.0 Stack: AWS (Fargate, ELB, RDS) with React Native (Expo) Monorepo that houses Mobile and Web (NextJS) Platforms with 90% code sharing',
+		],
+		start: 'March 2017',
+		end: 'Present',
+		tags: [
+			'ReactJS',
+			'NextJS',
+			'React-Redux',
+			'Redux',
+			'AWS',
+			'ExpressJS',
+			'NodeJS',
+			'GitHub',
+			'GitHub Actions',
+			'MongoDB',
+			'PostgreSQL',
+			'Docker'
+		],
+		images: [
+			"assets/P7.png",
+			// "assets/P11.png",
+			"assets/P12.png",
+			"assets/P13.png",
+		],
+	},
+	{
 		product: 'Braggi Shopping & Medical Slots',
 		position: 'Solo Founder & Product',
 		description: `During the lockdown, marketing is difficult, and getting work done remotely has been equally difficult, so I started working on a new project. Braggi's Shopping Slots platform took 2 weeks to build, it allows it's users to book a slot to shop at their local grocery store, the platform handles queues and allows shop owners to decide how many people they can accomodate on an hourly basis at their store, while ensuring that social distancing is followed. This was a fun project, because I deployed it much more quickly than anything before, while constantly working with the changing situations due to the pandemic, it's helped me greatly with my ability to understand the market as a whole and it's needs during times like these.`,
@@ -60,7 +100,7 @@ const projectsList: any = [
 			'Maintaining this Project to this day'
 		],
 		start: 'March 2020',
-		end: 'Present',
+		end: 'January 2021',
 		tags: [
 			'ReactJS',
 			'React-Redux',
@@ -80,42 +120,6 @@ const projectsList: any = [
 		]
 	},
 	{
-		product: 'Braggi Election Management System - MeeVote',
-		position: 'Solo Founder & Product',
-		description: `This was the first project that I built, which was out of my domain, the platform "MeeVote", is an Election Management System, built for those contesting in elections. MeeVote aims to help leaders better manage their party workers to ensure faster reach and acquisition of voters. Also since it's me, under the hood there's some fancy AI magic happening too!`,
-		keywords: [
-			'Lead Developer',
-			'Handled user studies and user research.',
-			'Build new features and made bug fixes based on user feedback.',
-			'Product Management',
-			'Maintaining this Project to this day',
-			'MERN Stack + React Native w/ React Bootstrap',
-			'AWS (EC2), GitHub Actions for CI/CD',
-			'Currently Rebuilding the Application to scale to Nation-Party Level for more minute control capable of handling Country-wide voter data.',
-			'2.0 Stack: AWS (Fargate, ELB, RDS) with React Native (Expo) Monorepo that houses Mobile and Web (NextJS) Platforms with 90% code sharing',
-		],
-		start: 'March 2017',
-		end: 'Present',
-		tags: [
-			'ReactJS',
-			'React-Redux',
-			'Redux',
-			'AWS',
-			'ExpressJS',
-			'NodeJS',
-			'GitHub',
-			'GitHub Actions',
-			'MongoDB',
-			'Docker'
-		],
-		images: [
-			"assets/P7.png",
-			// "assets/P11.png",
-			"assets/P12.png",
-			"assets/P13.png",
-		],
-	},
-	{
 		product: 'Braggi Chatbot Platform',
 		position: 'Solo Founder & Product',
 		description: `Built a production quality chatbot service paired with cross-platform apps build on React and Flutter.`,
@@ -131,7 +135,7 @@ const projectsList: any = [
 			'Open Sourced a community version',
 		],
 		start: 'March 2015',
-		end: 'Present',
+		end: 'March 2017',
 		tags: [
 			'ReactJS',
 			'React-Redux',
@@ -165,7 +169,7 @@ const projectsList: any = [
 			'Product Management',
 		],
 		start: 'March 2015',
-		end: 'Present',
+		end: 'September 2015',
 		tags: [
 			'ReactJS',
 			'Arduino',

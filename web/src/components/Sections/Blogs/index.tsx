@@ -18,6 +18,12 @@ const blogList: any = [
 		thumbnail: 'https://miro.medium.com/max/1400/1*zXLl7IPt8lxhkTxndxNceQ.jpeg',
 	},
 	{
+		title: 'ChatGPT, Copilot and the future of Coding Interviews — A Technical Founder’s Perspective',
+		description: `This article will talk about how OpenAI’s ChatGPT and GitHub Copilot are going to change the way we interview, and why it’s a good thing.`,
+		url: 'https://medium.com/@sushrit.pk21/chatgpt-copilot-and-the-future-of-coding-interviews-a-technical-founders-perspective-8628c7102a9b',
+		thumbnail: 'https://miro.medium.com/max/640/1*_VBzZYI4FKBF_XPqoOR76g.gif',
+	},
+	{
 		title: 'Featured on Towards Data Science - How to Build Software like Tony Stark',
 		description: 'This article will walk you through a process in which you can either get started with projects and break the cycle of just learning endlessly or change your ways and improve your workflow and efficiency while coding, so that you can stop feeling that this ain’t your thing and decide to learn Excel instead. We’ll do this by drawing inspiration from Tony Stark AKA Iron Man and how he builds things. I’ll also share some tips I follow personally to always be at 100%.',
 		url: 'https://towardsdatascience.com/how-to-build-software-like-tony-stark-95484a2d2173',

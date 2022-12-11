@@ -30,7 +30,7 @@ const Hero = (props: any) => {
 							Sushrit Pasupuleti
 						</Text>
 						<Text blockquote>
-							Fullstack Unicorn | Coder | Blogger | Speaker | Sketcher | Entrepreneur... err 🤔 and more 🙃
+							Product Manager | Fullstack Unicorn | Coder | Blogger | Speaker | Sketcher | Entrepreneur... err 🤔 and more 🙃
 						</Text>
 					</div>
 				</Grid>
