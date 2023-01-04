@@ -24,6 +24,12 @@ const blogList: any = [
 		thumbnail: 'https://miro.medium.com/max/640/1*_VBzZYI4FKBF_XPqoOR76g.gif',
 	},
 	{
+		title: 'Using ChatGPT to fully plan a Realtime Dashboard App (Architecture, Stack, Implementation and Deployment as a Technical Founder)',
+		description: `This article continues my series on working with ChatGPT, and just seeing for myself how far I can push it, and what a 2.0 could do better. This time, I’m going to look at it from the perspective of a Product Manager.`,
+		url: 'https://medium.com/@sushrit.pk21/using-chatgpt-to-fully-plan-a-realtime-dashboard-app-architecture-stack-implementation-and-16e322c0a2ec',
+		thumbnail: 'https://miro.medium.com/max/640/0*eqakU-b6284U_48D.webp',
+	},
+	{
 		title: 'Featured on Towards Data Science - How to Build Software like Tony Stark',
 		description: 'This article will walk you through a process in which you can either get started with projects and break the cycle of just learning endlessly or change your ways and improve your workflow and efficiency while coding, so that you can stop feeling that this ain’t your thing and decide to learn Excel instead. We’ll do this by drawing inspiration from Tony Stark AKA Iron Man and how he builds things. I’ll also share some tips I follow personally to always be at 100%.',
 		url: 'https://towardsdatascience.com/how-to-build-software-like-tony-stark-95484a2d2173',
