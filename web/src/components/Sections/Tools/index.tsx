@@ -1,6 +1,6 @@
 import { Collapse, Text, Grid, Avatar, Link, Spacer, Table, Col, Row, User, Button } from "@nextui-org/react";
 import SkillKeywords from "../Skills/Keywords";
-import { Send, Setting } from "react-iconly";
+import { Send, Setting, Paper } from "react-iconly";
 
 const tools: Array<String> = [
 	"Neovim",
@@ -69,6 +69,23 @@ export default function Tools() {
 						}
 					>
 						See my complete tool config on GitHub
+					</Button>
+				</a>
+				<a href="https://sushritpasupuleti.github.io/personal-docs/">
+					<Button
+						shadow
+						auto
+						style={{
+							marginTop: "1rem",
+							width: "auto",
+							// alignSelf: "start",
+							// marginLeft: "1rem",
+						}}
+						iconRight={
+							<Paper set="bold" primaryColor="white" />
+						}
+					>
+						Check out my new Docs site where I store all my notes and resources
 					</Button>
 				</a>
 			</div>

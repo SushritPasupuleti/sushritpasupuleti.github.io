@@ -7,6 +7,7 @@ import Image from 'next/image';
 // import Image from '../../../src/components/Image';
 import { BsTwitter, BsGithub, BsYoutube, BsMedium, BsFacebook, BsLinkedin, BsWhatsapp } from "react-icons/bs";
 import { SiBlogger } from "react-icons/si";
+import { Paper } from "react-iconly";
 
 const Hero = (props: any) => {
 	const isMobile = useMediaQuery(650);
@@ -305,6 +306,30 @@ const Hero = (props: any) => {
 					</a>
 				</Grid>
 			</Grid.Container>
+			<div style={{
+				display: 'flex',
+				justifyContent: 'center',
+				alignItems: 'center',
+				// padding: '1rem',
+			}}>
+				<a href="https://sushritpasupuleti.github.io/personal-docs/">
+					<Button
+						shadow
+						auto
+						style={{
+							marginTop: "1rem",
+							width: "auto",
+							// alignSelf: "start",
+							// marginLeft: "1rem",
+						}}
+						iconRight={
+							<Paper set="bold" primaryColor="white" />
+						}
+					>
+						My Knowledge Hub
+					</Button>
+				</a>
+			</div>
 		</div >
 	)
 }
