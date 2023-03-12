@@ -33,6 +33,7 @@ const frontendSkills: Array<String> = [
 const backendSkills: Array<String> = [
 	'ExpressJS',
 	'FastAPI',
+	'ASP.NET Core',
 	'Django',
 	'Flask',
 	'Sanic',
@@ -54,6 +55,8 @@ const databaseSkills: Array<String> = [
 	'Firebase (Firestore)',
 	'Sequelize',
 	'Mongoose',
+	'Prisma',
+	'Entity Framework',
 	'SQLAlchemy',
 	'DjangoORM',
 	'Gorm',
@@ -63,7 +66,8 @@ const testingSkills: Array<String> = [
 	'Jest',
 	'supertest',
 	'cypress',
-	'playwright'
+	'playwright',
+	'XUnit',
 ]
 
 const devopsSkills: Array<String> = [
@@ -101,11 +105,15 @@ const pmSkills: Array<String> = [
 ]
 
 const miscSkills: Array<String> = [
+	'SignalR',
+	'WebSockets',
+	'WebRTC',
+	'gRPC',
+	"Socket.IO",
 	"material-ui",
 	"react-native-paper",
 	"React NativeBase",
 	"RNUILib",
-	"Socket.IO",
 	"React-Redux",
 	"Redux-Form",
 	"Formik",
@@ -135,7 +143,7 @@ const miscSkills: Array<String> = [
 ]
 
 const keywords: Array<String> = [
-	"Product Management", "Full Stack Dev", "Cross-platform Dev", "tech", "app dev", "ml", "AI", "hybrid apps", "linux", "chatbots", "MERN Stack", "JAM Stack", "monorepos", "self hosting", "neovim"
+	"Product Management", "Full Stack Dev", "Cross-platform Dev", "tech", "app dev", "ml", "AI", "hybrid apps", "linux", "chatbots", "MERN Stack", "JAM Stack", ".NET Core", "monorepos", "self hosting", "neovim"
 ];
 
 export default function Skills() {
