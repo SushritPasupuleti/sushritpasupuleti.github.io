@@ -69,7 +69,7 @@ export default function Tools() {
 							<Setting set="bold" primaryColor="white" />
 						}
 					>
-						See my complete tool config on GitHub
+						View on GitHub
 					</Button>
 				</a>
 				<a href="https://sushritpasupuleti.github.io/personal-docs/">
@@ -86,7 +86,7 @@ export default function Tools() {
 							<Paper set="bold" primaryColor="white" />
 						}
 					>
-						Check out my new Docs site where I store all my notes and resources
+						My Personal Docs
 					</Button>
 				</a>
 			</div>
