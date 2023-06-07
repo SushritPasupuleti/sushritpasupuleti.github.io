@@ -3,6 +3,7 @@ import SkillKeywords from "../Skills/Keywords";
 import { Send, Setting, Paper } from "react-iconly";
 
 const tools: Array<String> = [
+	"Fedora Linux",
 	"Neovim",
 	"tmux",
 	"lazygit",
@@ -10,8 +11,8 @@ const tools: Array<String> = [
 	"proxmox",
 	"pgAdmin",
 	"Postman",
-	"iTerm2",
-	"zsh",
+	"fish",
+	"kitty",
 	"And More..."
 ];
 
@@ -31,7 +32,7 @@ export default function Tools() {
 		<div>
 			<Text h1>
 				{`
-			Tools I Use
+			Tools I use
 			`}
 				<Spacer y={0.5} />
 			</Text>
@@ -44,7 +45,7 @@ export default function Tools() {
 				}}
 			>
 				<Text h3>
-					Editors, Terminals, Servers, and More
+					OS, Editors, Terminals, Servers, and More
 				</Text>
 				<Spacer y={0.5} />
 				<SkillKeywords skills={tools} />

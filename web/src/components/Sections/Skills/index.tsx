@@ -171,6 +171,10 @@ export default function Skills() {
 			>
 				<Grid>
 					<Collapse
+						shadow
+						style={{
+							marginBottom: '1rem',
+						}}
 						title={<Text h4>Project Management</Text>}
 						subtitle={`From kick-off to delivery`}
 						expanded={true}
@@ -187,6 +191,10 @@ export default function Skills() {
 						<SkillsList skills={pmSkills} />
 					</Collapse>
 					<Collapse
+						shadow
+						style={{
+							marginBottom: '1rem',
+						}}
 						title={<Text h4>Front-end</Text>}
 						subtitle="Web, Mobile, Native and Cross-platform"
 						expanded={true}
@@ -203,6 +211,10 @@ export default function Skills() {
 						<SkillsList skills={frontendSkills} />
 					</Collapse>
 					<Collapse
+						shadow
+						style={{
+							marginBottom: '1rem',
+						}}
 						title={<Text h4>Back-end</Text>}
 						subtitle="API Servers, Serverless, and Microservices"
 						expanded={true}
@@ -219,6 +231,10 @@ export default function Skills() {
 						<SkillsList skills={backendSkills} />
 					</Collapse>
 					<Collapse
+						shadow
+						style={{
+							marginBottom: '1rem',
+						}}
 						title={<Text h4>Databases</Text>}
 						subtitle="Databases, ORMs etc."
 						expanded={true}
@@ -235,6 +251,10 @@ export default function Skills() {
 						<SkillsList skills={databaseSkills} />
 					</Collapse>
 					<Collapse
+						shadow
+						style={{
+							marginBottom: '1rem',
+						}}
 						title={<Text h4>Testing</Text>}
 						subtitle="Unit, Integration, and E2E"
 						expanded={true}
@@ -251,6 +271,10 @@ export default function Skills() {
 						<SkillsList skills={testingSkills} />
 					</Collapse>
 					<Collapse
+						shadow
+						style={{
+							marginBottom: '1rem',
+						}}
 						title={<Text h4>DevOps</Text>}
 						subtitle="CI/CD, Docker, and more"
 						expanded={true}
@@ -267,6 +291,10 @@ export default function Skills() {
 						<SkillsList skills={devopsSkills} />
 					</Collapse>
 					<Collapse
+						shadow
+						style={{
+							marginBottom: '1rem',
+						}}
 						title={<Text h4>Machine Learning & Data Science</Text>}
 						subtitle={`From NLP, NLU to everything else that's ML`}
 						expanded={true}
@@ -283,6 +311,10 @@ export default function Skills() {
 						<SkillsList skills={mlSkills} />
 					</Collapse>
 					<Collapse
+						shadow
+						style={{
+							marginBottom: '1rem',
+						}}
 						title={<Text h4>Other Frameworks & Technologies</Text>}
 						subtitle={`Sprinkled on top of the above!`}
 						expanded={true}
