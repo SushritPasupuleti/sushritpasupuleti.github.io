@@ -31,6 +31,7 @@ const frontendSkills: Array<String> = [
 ]
 
 const backendSkills: Array<String> = [
+	'Axum',
 	'ExpressJS',
 	'FastAPI',
 	'ASP.NET Core',
@@ -39,6 +40,7 @@ const backendSkills: Array<String> = [
 	'Sanic',
 	'Gin',
 	'NodeJS',
+	'Rust',
 	'JavaScript',
 	'TypeScript',
 	'Dart',
@@ -58,6 +60,7 @@ const databaseSkills: Array<String> = [
 	'Prisma',
 	'Entity Framework',
 	'SQLAlchemy',
+	'sqlx',
 	'DjangoORM',
 	'Gorm',
 ]

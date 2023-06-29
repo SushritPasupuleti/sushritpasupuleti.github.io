@@ -3,7 +3,7 @@ import SkillKeywords from "../Skills/Keywords";
 import { Send, Setting, Paper } from "react-iconly";
 
 const tools: Array<String> = [
-	"Fedora Linux",
+	"NixOS",
 	"Neovim",
 	"tmux",
 	"lazygit",
