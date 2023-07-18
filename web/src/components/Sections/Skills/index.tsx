@@ -63,6 +63,7 @@ const databaseSkills: Array<String> = [
 	'sqlx',
 	'DjangoORM',
 	'Gorm',
+	'Kysley',
 ]
 
 const testingSkills: Array<String> = [
@@ -114,6 +115,7 @@ const miscSkills: Array<String> = [
 	'WebSockets',
 	'WebRTC',
 	'gRPC',
+	'ActivityPub',
 	"Socket.IO",
 	"material-ui",
 	"react-native-paper",
@@ -144,11 +146,12 @@ const miscSkills: Array<String> = [
 	"Webhooks",
 	"OpenAI API",
 	"Puppeteer",
-	"Apache Airflow"
+	"Apache Airflow",
+	"Arduino",
 ]
 
 const keywords: Array<String> = [
-	"Product Management", "Full Stack Dev", "Cross-platform Dev", "tech", "app dev", "ml", "AI", "hybrid apps", "linux", "chatbots", "MERN Stack", "JAM Stack", ".NET Core", "monorepos", "self hosting", "neovim"
+	"Product Management", "Full Stack Dev", "Cross-platform Dev", "tech", "app dev", "ml", "AI", "hybrid apps", "linux", "chatbots", "MERN Stack", "JAM Stack", ".NET Core", "monorepos", "self hosting", "neovim", "Embedded Systems", "IoT",
 ];
 
 export default function Skills() {

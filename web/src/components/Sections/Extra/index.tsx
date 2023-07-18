@@ -15,6 +15,8 @@ const extra: any = [
 	"Gave a TedX talk at the age of 17 (Mentioned above)",
 	"I mentor students and help them with their projects and career guidance. Also host webinars for colleges (Mentioned below).",
 	"I daily drive Neovim as my main editor, with a custom config that I've been working putting together to act as an IDE replacement for my needs.",
+	"I started using NixOS as my daily driver recently, and have a hyper-customized setup for my needs, that can be deployed on any machine with a single command.",
+	"Newest Side Project: Working on an ActivityPub based social network, that is completely decentralized and self-hostable, with a focus on privacy and security.",
 ]
 
 function ExtraSection() {
