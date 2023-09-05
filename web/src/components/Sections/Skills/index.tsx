@@ -34,10 +34,10 @@ const backendSkills: Array<String> = [
 	'Axum',
 	'ExpressJS',
 	'FastAPI',
+	'Chi',
 	'ASP.NET Core',
 	'Django',
 	'Flask',
-	'Chi',
 	'Fiber',
 	'Gin',
 	'Sanic',
@@ -93,6 +93,7 @@ const mlSkills: Array<String> = [
 	'TensorFlow',
 	'TensorFlowJS',
 	'Pytorch',
+	'Langchain',
 	'Keras',
 	'TFLearn',
 	'scikit-learn',
@@ -113,12 +114,12 @@ const pmSkills: Array<String> = [
 ]
 
 const miscSkills: Array<String> = [
-	'SignalR',
 	'WebSockets',
 	'WebRTC',
 	'gRPC',
 	'ActivityPub',
 	"Socket.IO",
+	'SignalR',
 	"material-ui",
 	"react-native-paper",
 	"React NativeBase",
@@ -153,7 +154,7 @@ const miscSkills: Array<String> = [
 ]
 
 const keywords: Array<String> = [
-	"Product Management", "Full Stack Dev", "Cross-platform Dev", "tech", "app dev", "ml", "AI", "hybrid apps", "linux", "chatbots", "MERN Stack", "JAM Stack", ".NET Core", "monorepos", "self hosting", "neovim", "Embedded Systems", "IoT",
+	"Product Management", "Full Stack Dev", "Cross-platform Dev", "tech", "app dev", "ml", "AI", "hybrid apps", "linux", "chatbots", "MERN Stack", "JAM Stack", ".NET Core", "monorepos", "self hosting", "neovim", "Embedded Systems", "IoT"
 ];
 
 export default function Skills() {
