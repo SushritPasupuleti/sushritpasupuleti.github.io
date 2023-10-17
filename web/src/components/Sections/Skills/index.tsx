@@ -22,6 +22,7 @@ const frontendSkills: Array<String> = [
 	'Bootstrap',
 	'tailwindcss',
 	'jinja2',
+	'HTMX',
 	'HTML',
 	'CSS',
 	'SASS',

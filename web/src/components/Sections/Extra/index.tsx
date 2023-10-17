@@ -16,7 +16,8 @@ const extra: any = [
 	"I mentor students and help them with their projects and career guidance. Also host webinars for colleges (Mentioned below).",
 	"I daily drive Neovim as my main editor, with a custom config that I've been working putting together to act as an IDE replacement for my needs.",
 	"I started using NixOS as my daily driver recently, and have a hyper-customized setup for my needs, that can be deployed on any machine with a single command.",
-	"Newest Side Project: Working on an ActivityPub based social network, that is completely decentralized and self-hostable, with a focus on privacy and security.",
+	"Side Project of Note: Working on an ActivityPub based social network, that is completely decentralized and self-hostable, with a focus on privacy and security.",
+	"Side Project of Note: Actively working on a Server Driven UI template for React Native, with complete ReactJS code sharing.",
 ]
 
 function ExtraSection() {
@@ -47,10 +48,10 @@ function ExtraSection() {
 			<Text size="$xl">
 				<a target="_blank" href="https://knowyourmeme.com/memes/btw-i-use-arch"
 					rel="noreferrer"
-				style={{
-					color: "inherit",
-					textDecoration: "none",
-				}}
+					style={{
+						color: "inherit",
+						textDecoration: "none",
+					}}
 				>
 					<li>
 						<b>
