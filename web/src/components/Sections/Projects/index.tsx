@@ -102,7 +102,7 @@ const projectsList: any = [
 	{
 		product: 'Stealth Project',
 		position: 'Solo Founder & Product',
-		description: `A stealth project that I am currently on in parallel with my other projects, this is a project that I am very excited about.`,
+		description: `A stealth project that I am currently working on in parallel with my other projects, It is in the Health & Fitness domain. This is a project that I am very excited about.`,
 		keywords: [
 			'Lead Developer',
 			'Handling user studies and user research.',
