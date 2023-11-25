@@ -1,6 +1,7 @@
 import * as React from 'react'
-import { Grid, Card, Text, Button, Table, Spacer } from "@nextui-org/react";
+import { Grid, Card, Text, Button, Table, Spacer, Row, Col } from "@nextui-org/react";
 import ProjectsList from './ProjectsList';
+import { Send } from "react-iconly";
 
 const projectsList: any = [
 	{
@@ -302,6 +303,35 @@ function Projects() {
 					Projects
 				`}
 			</Text>
+			<Spacer y={1} />
+
+			<Text>
+				<b>Note: </b>
+				{`I work on a lot of projects, and listing all of them here would make this page too long. So if you're interested in seeing more of my work, check out my GitHub profile.`}
+			</Text>
+			<Spacer y={1} />
+			<Text>
+				{`The most recent repositories should show you where most of my efforts are going, as well as my experiments with new languages/technologies. Some repositories may also be private, as such, feel free to contact me to learn more!`}
+			</Text>
+			<Spacer y={1} />
+			<a href={`https://github.com/SushritPasupuleti?tab=repositories`}>
+				<Button shadow auto rounded color="secondary"
+					iconRight={
+						<Send set="bold" primaryColor="white" />
+					}
+				>
+					<Text
+						css={{ color: "inherit" }}
+						size={12}
+						weight="bold"
+						transform="uppercase"
+					>
+						Visit GitHub
+					</Text>
+				</Button>
+			</a>
+			<Spacer y={1} />
+			<Card.Divider />
 			<Spacer y={1} />
 			<ProjectsList projectsList={projectsList} />
 		</div>
