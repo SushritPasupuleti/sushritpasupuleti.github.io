@@ -200,26 +200,7 @@ export default function Skills() {
 					>
 						<SkillsList skills={pmSkills} />
 					</Collapse>
-					<Collapse
-						shadow
-						style={{
-							marginBottom: '1rem',
-						}}
-						title={<Text h4>Front-end</Text>}
-						subtitle="Web, Mobile, Native and Cross-platform"
-						expanded={true}
-						contentLeft={
-							<Avatar
-								color="primary"
-								bordered
-								icon={
-									<MdDevicesOther size={24} />
-								}
-							/>
-						}
-					>
-						<SkillsList skills={frontendSkills} />
-					</Collapse>
+
 					<Collapse
 						shadow
 						style={{
@@ -239,6 +220,26 @@ export default function Skills() {
 						}
 					>
 						<SkillsList skills={backendSkills} />
+					</Collapse>
+					<Collapse
+						shadow
+						style={{
+							marginBottom: '1rem',
+						}}
+						title={<Text h4>Front-end</Text>}
+						subtitle="Web, Mobile, Native and Cross-platform"
+						expanded={true}
+						contentLeft={
+							<Avatar
+								color="primary"
+								bordered
+								icon={
+									<MdDevicesOther size={24} />
+								}
+							/>
+						}
+					>
+						<SkillsList skills={frontendSkills} />
 					</Collapse>
 					<Collapse
 						shadow
