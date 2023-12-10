@@ -39,13 +39,16 @@ const Hero = (props: any) => {
 					alignItems="center"
 					justify={isMobile ? "flex-start" : "flex-end"}
 				>
-					<a href="https://skillshack.dev/generators/user-resume?user_name=sushrit_lawliet">
+					<a
+						// href="https://skillshack.dev/generators/user-resume?user_name=sushrit_lawliet"
+						href="/resume/resume.pdf"
+					>
 						<Button shadow color="primary" auto
 							icon={
 								<Download set="bold" primaryColor="white" />
 							}
 						>
-							Download My Resume
+							View Resume (PDF)
 						</Button>
 					</a>
 					<a href="https://wa.me/919182362040">
