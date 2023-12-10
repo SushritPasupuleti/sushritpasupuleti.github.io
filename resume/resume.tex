@@ -91,7 +91,7 @@
 
 % resumeItem renders a bullet point
 \newcommand{\resumeItem}[1]{
-  \item\small{#1}
+  \item\large{#1}
 }
 
 % commands to start and end itemization of resumeItem, rightmargin set to 0.11in to avoid the overflow of resumetItem beyond whatever resumeItemHeading is being used
@@ -109,7 +109,7 @@
 
 % resumeTrioHeading renders three elements in three columns with second element being italicized and first element bolded, can be used for projects with three elements
 \newcommand{\resumeTrioHeading}[3]{
-  \item\small{
+  \item\large{
     \begin{tabular*}{0.96\textwidth}[t]{
       l@{\extracolsep{\fill}}c@{\extracolsep{\fill}}r
     }
@@ -123,7 +123,7 @@
   \item
   \begin{tabular*}{0.96\textwidth}[t]{l@{\extracolsep{\fill}}r}
     \textbf{#1} & #2 \\
-    \textit{\small#3} & \textit{\small #4} \\
+    \textit{\large#3} & \textit{\large #4} \\
   \end{tabular*}
 }
 
@@ -131,7 +131,7 @@
 \newcommand{\resumeQuadHeadingChild}[2]{
   \item
   \begin{tabular*}{0.96\textwidth}[t]{l@{\extracolsep{\fill}}r}
-    \textbf{\small#1} & {\small#2} \\
+    \textbf{\large#1} & {\large#2} \\
   \end{tabular*}
 }
 
@@ -165,12 +165,12 @@
 %-----------SUMMARY--------------------------
 % Keep this short, simple and straigth to point
 
-\section{Full Stack Engineer | Product | DevOps}
-\small{
+\section{\LARGE{Full Stack Engineer | Product | DevOps}}
+\large{
   Hey there, it's Sushrit, a technical and business-focused solo entrepreneur who has been building, managing, and scaling products for \textbf{7 years} now. I’m quick to learn, adapt, innovate, and get scrappy when needed to ensure the product and I evolve as we should.
 }
 \newline
-\small{
+\large{
 
 Currently building my startup \textbf{skillShack();}, which is a community for software professionals looking to share the projects they are working on and get feedback. From side projects to startups!
 }
@@ -180,7 +180,7 @@ Currently building my startup \textbf{skillShack();}, which is a community for s
 %--------------SKILLS------------------------
 % Add or remove resumeSectionTypes according to your needs
 
-\section{Technical Skills}
+\section{\LARGE{Technical Skills}}
   \resumeHeadingListStart{}
     \resumeSectionType{Languages}{:}{Go, Rust, Python, TypeScript (Node.js), JavaScript, C++, C, C\#, Dart, Kotlin, Java}
     \resumeSectionType{Frontend}{:}{React.js, Next.js, React Native, Expo, Flutter, HTMX, Tailwind CSS, Bootstrap, Material UI, Chakra UI, Styled Components}
@@ -199,7 +199,7 @@ Currently building my startup \textbf{skillShack();}, which is a community for s
 %-----------EXPERIENCE-----------------------
 % Distill all your talking points to small bullet points which follow the pattern "challenge-action-result" for maximum efficiency. Try to quantify (use numbers) your points whenver possible, highlist words of importance
 
-\section{Experience}
+\section{\LARGE{Experience}}
 \resumeHeadingListStart{}
   \resumeQuadHeading{Solo Founder \& Product}{Jun 2014 -- Present}
   {Braggi Solutions}{Hyderabad, Telangana, India}
@@ -232,7 +232,7 @@ Currently building my startup \textbf{skillShack();}, which is a community for s
 %-----------EDUCATION-------------------------
 % Mention your CGPA, if its good, in the first row of second column
 
-\section{Education}
+\section{\LARGE{Education}}
   \resumeHeadingListStart{}
     \resumeQuadHeading{Sreyas Institute of Engineering and Technology}{Hyderabad, Telangana, India}
     {Bachelor of Computer Science}{2017 -- 2021}
@@ -252,12 +252,12 @@ Currently building my startup \textbf{skillShack();}, which is a community for s
 %-----------PROJECTS--------------------------
 % Use resumeQuadHeading if four elements are feasible (ex: demo video link), else use resumeTrioHeading. Keep the bullet points simple and concise and try to cover wide variety of skills you have used to build these projects
 
-\section{Projects}
+\section{\LARGE{Projects}}
   \resumeHeadingListStart{}
   \resumeQuadHeading{\href{https://skillshack.dev/}{\uline{skillShack();}}}{Feb 2021 -- Present}
   {Solo Founder \& Product}{}
       \resumeItemListStart{}
-		\small{skillShack(); is a community for software professionals looking to share the projects they are working on and get feedback. From side projects to startups.}
+		\large{skillShack(); is a community for software professionals looking to share the projects they are working on and get feedback. From side projects to startups.}
 		\resumeItem{Stack: \textbf{React.js, React-Redux, Redux, TensorFlow, AWS, Azure, ExpressJS, Node.js, GitHub, GitHub Actions, PostgreSQL, NextJS, Docker}}
 		\resumeItem{\textbf{Part of Microsoft for Startups}}
         \resumeItem{Scaled to users from over \textbf{130+ countries}.}
@@ -280,7 +280,7 @@ Currently building my startup \textbf{skillShack();}, which is a community for s
   \resumeQuadHeading{\href{https://braggi-ems.com/}{\uline{Braggi Election Management System (2.0)}}}{August 2022 -- Present}
   {Solo Founder \& Product}{}
       \resumeItemListStart{}
-		\small{Braggi Election Management System is built for those contesting in elections. It aims to help leaders better manage their party workers to ensure faster reach and acquisition of voters. After undergoing a major rewrite and taking the learnings from the success of the previous iteration, this is now capable of handling Country-wide voter data as well as multiple national parties from a single platform, while offering Machine Learning Powered Algorithms to offer Analytics.}
+		\large{Braggi Election Management System is built for those contesting in elections. It aims to help leaders better manage their party workers to ensure faster reach and acquisition of voters. After undergoing a major rewrite and taking the learnings from the success of the previous iteration, this is now capable of handling Country-wide voter data as well as multiple national parties from a single platform, while offering Machine Learning Powered Algorithms to offer Analytics.}
 		\resumeItem{Stack: \textbf{ReactJS, NextJS, React-Redux, Redux, ExpressJS, Expo, Node.js, GitHub, GitHub Actions, PostgreSQL, Sequelize, Docker, TypeScript, AWS Lambda, AWS SQS, AWS S3, AWS RDS, AWS EC2, Terraform, Turborepo, Jira, Confluence}}
 		\resumeItem{Lead Developer}
 		\resumeItem{Handled \textbf{user studies} and \textbf{user research}.}
@@ -299,7 +299,7 @@ Currently building my startup \textbf{skillShack();}, which is a community for s
   \resumeQuadHeading{{\uline{Stealth Project}}}{August 2023 -- Present}
   {Solo Founder \& Product}{}
       \resumeItemListStart{}
-		\small{A stealth project that I am currently working on in parallel with my other projects, It is in the Health \& Fitness domain. This is a project that I am very excited about.}
+		\large{A stealth project that I am currently working on in parallel with my other projects, It is in the Health \& Fitness domain. This is a project that I am very excited about.}
 		\resumeItem{Stack: \textbf{Go,
 			Go-chi,
 			PostgreSQL,
@@ -333,7 +333,7 @@ Currently building my startup \textbf{skillShack();}, which is a community for s
 }}}{April 2023 -- Present}
   {Solo Founder \& Product}{}
       \resumeItemListStart{}
-		\small{A full ActivityPub Server Implementation built in Rust, without any external dependencies. the ActivityPub protocol is a W3C standard, this allows for interoperability with other ActivityPub implementations such as Mastodon, Pleroma, Pixelfed, etc. This repo could be used to bootstrap a basic ActivityPub platform that could sync with the previously mention services as well.
+		\large{A full ActivityPub Server Implementation built in Rust, without any external dependencies. the ActivityPub protocol is a W3C standard, this allows for interoperability with other ActivityPub implementations such as Mastodon, Pleroma, Pixelfed, etc. This repo could be used to bootstrap a basic ActivityPub platform that could sync with the previously mention services as well.
 }
 		\resumeItem{Stack: \textbf{Rust,
 			SQLx,
@@ -355,7 +355,7 @@ Currently building my startup \textbf{skillShack();}, which is a community for s
 }}}{March 2017 -- August 2022}
   {Solo Founder \& Product}{}
       \resumeItemListStart{}
-		\small{This was the first project that I built, which was out of my domain, the platform "MeeVote", is an Election Management System, built for those contesting in elections. MeeVote aims to help leaders better manage their party workers to ensure faster reach and acquisition of voters. Also since it's me, under the hood there's some fancy AI magic happening too! This is currently under going a major rewrite for Country-wide deployment and support for multiple national parties.
+		\large{This was the first project that I built, which was out of my domain, the platform "MeeVote", is an Election Management System, built for those contesting in elections. MeeVote aims to help leaders better manage their party workers to ensure faster reach and acquisition of voters. Also since it's me, under the hood there's some fancy AI magic happening too! This is currently under going a major rewrite for Country-wide deployment and support for multiple national parties.
 }
 		\resumeItem{Stack: \textbf{ReactJS,
 			NextJS,
@@ -385,7 +385,7 @@ Currently building my startup \textbf{skillShack();}, which is a community for s
 }}}{March 2020 -- January 2021}
   {Solo Founder \& Product}{}
       \resumeItemListStart{}
-		\small{During the lockdown, marketing is difficult, and getting work done remotely has been equally difficult, so I started working on a new project. Braggi's Shopping Slots platform took 2 weeks to build, it allows it's users to book a slot to shop at their local grocery store, the platform handles queues and allows shop owners to decide how many people they can accomodate on an hourly basis at their store, while ensuring that social distancing is followed. This was a fun project, because I deployed it much more quickly than anything before, while constantly working with the changing situations due to the pandemic, it's helped me greatly with my ability to understand the market as a whole and it's needs during times like these.}
+		\large{During the lockdown, marketing is difficult, and getting work done remotely has been equally difficult, so I started working on a new project. Braggi's Shopping Slots platform took 2 weeks to build, it allows it's users to book a slot to shop at their local grocery store, the platform handles queues and allows shop owners to decide how many people they can accomodate on an hourly basis at their store, while ensuring that social distancing is followed. This was a fun project, because I deployed it much more quickly than anything before, while constantly working with the changing situations due to the pandemic, it's helped me greatly with my ability to understand the market as a whole and it's needs during times like these.}
 		\resumeItem{Stack: \textbf{ReactJS,
 			React-Redux,
 			Redux,
@@ -410,7 +410,7 @@ Currently building my startup \textbf{skillShack();}, which is a community for s
 }}}{March 2015 -- March 2017}
   {Solo Founder \& Product}{}
       \resumeItemListStart{}
-		\small{Built a production quality chatbot service paired with cross-platform apps build on React and Flutter.}
+		\large{Built a production quality chatbot service paired with cross-platform apps build on React and Flutter.}
 		\resumeItem{Stack: \textbf{ReactJS,
 			React-Redux,
 			Redux,
@@ -443,7 +443,7 @@ Currently building my startup \textbf{skillShack();}, which is a community for s
 }
   {Product}{}
       \resumeItemListStart{}
-		\small{A smart electric meter add-on that connects to a standard electric meter and reports all usage metrics to a local hub which makes the data available via a mobile app and also to administration. Qualified for the CBSE National Science Fair's National level with this project!}
+		\large{A smart electric meter add-on that connects to a standard electric meter and reports all usage metrics to a local hub which makes the data available via a mobile app and also to administration. Qualified for the CBSE National Science Fair's National level with this project!}
 		\resumeItem{Stack: \textbf{ReactJS,
 		Arduino}}
 		\resumeItem{Handled \textbf{user studies} and \textbf{user research}.}
@@ -458,8 +458,8 @@ Currently building my startup \textbf{skillShack();}, which is a community for s
 %----------------OTHERS----------------------
 % You can add your acheivements, accolades, certifications etc. here.
 
-\section{Certifications}
-  \small{I usually teach myself thing online over first-party Docs or FreeCodeCamp and avoid taking courses so that I can move at my pace. Sometimes however if a course is really good and worth the time I do get into it, like the ones below.
+\section{\LARGE{Certifications}}
+  \large{I usually teach myself thing online over first-party Docs or FreeCodeCamp and avoid taking courses so that I can move at my pace. Sometimes however if a course is really good and worth the time I do get into it, like the ones below.
 	}
   \resumeItemListStart{}
     \resumeItem{\href{https://www.coursera.org/account/accomplishments/specialization/certificate/HYKASZDT4AXM}{\uline{Google Project Management}} - Took sometime out after my graduation to standarize my project management skills. This course was a great help in that regard.}
@@ -468,8 +468,8 @@ Currently building my startup \textbf{skillShack();}, which is a community for s
 
 %-----------------Accomplishments------------
 
-\section{Accomplishments/Brags/Hobbies}
-\small{Cool things I've done and things I like to do in my free time!}
+\section{\LARGE{Accomplishments/Brags/Hobbies}}
+\large{Cool things I've done and things I like to do in my free time!}
 \resumeItemListStart{}
 	\resumeItem{Published my first Application (SAM, mentioned above) at the age of 15, all while organically growing a dedicated blog, FB Page to promote it.}
 \resumeItem{Self-Hosted my first Website at 16 on a Raspberry Pi 3B+ using LAMP Stack.}
