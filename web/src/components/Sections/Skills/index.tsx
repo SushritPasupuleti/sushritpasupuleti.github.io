@@ -64,6 +64,7 @@ const databaseSkills: Array<String> = [
 	'Entity Framework',
 	'SQLAlchemy',
 	'sqlx',
+	'Drizzle ORM',
 	'DjangoORM',
 	'Gorm',
 	'Kysley',
@@ -79,7 +80,7 @@ const testingSkills: Array<String> = [
 
 const devopsSkills: Array<String> = [
 	'AWS (EC2, RDS, S3, ELB, Amplify, Fargate, Lambda, SQS, ECS)',
-	'Azure App Service, Functions, Docker Functions, Database)',
+	'Azure App (Service, Functions, Docker Functions, Database)',
 	'Terraform',
 	'AWS CDK',
 	'Docker',

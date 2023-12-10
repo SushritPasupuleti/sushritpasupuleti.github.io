@@ -1,0 +1,494 @@
+%------------PACKAGES----------------
+\documentclass[a4paper,11pt]{article}
+
+\usepackage{verbatim} % reimplements the "verbatim" and "verbatim*" environments
+
+\usepackage{titlesec} % provides an interface to sectioning commands i.e. custom elements
+
+\usepackage{color} % provides both foreground and background color management
+
+\usepackage{enumitem} % provides control over enumerate, itemize and description
+
+\usepackage{fancyhdr} % provides extensive facilities for constructing headers, footers and also controlling their use
+
+\usepackage{tabularx} % defines an environment tabularx, extension of "tabular" with an extra designator x, paragraph like column whose width automatically expands to fill the width of the environment
+
+\usepackage{latexsym} % provides mathematical symbols
+
+\usepackage{marvosym} % provides martin vogel's symbol font which contains various symbols
+
+\usepackage[empty]{fullpage} % sets margins to one inch and removes headers, footers etc..
+
+\usepackage[hidelinks]{hyperref} % removes color and shadow of hyperlinks
+
+\usepackage[normalem]{ulem} % provides "\ul" (uline) command which will break at line breaks
+
+\usepackage[english]{babel} % provides culturally determined typographical rules for wide range of languages
+%-----------------------------------------
+
+\input glyphtounicode % converts glyph names to unicode
+\pdfgentounicode=1 % ensures pdfs generated are ats readable
+
+%----------FONT OPTIONS-------------------
+\usepackage[default]{sourcesanspro} % uses the font source sans pro
+\urlstyle{same} % changes url font from default urlfont to font being used by the document
+%-----------------------------------------
+
+
+%----------MARGIN OPTIONS-----------------
+\pagestyle{fancy} % set page style to one configured by fancyhdr
+\fancyhf{} % clear all header and footer fields
+
+\renewcommand{\headrulewidth}{0in} % sets thickness of linerule under header to zero
+\renewcommand{\footrulewidth}{0in} % sets thickness of linerule over footer to zero
+
+\setlength{\tabcolsep}{0in} % sets thickness of column separator in tables to zero
+
+% origin of the document is one inch from the top and from and the left
+% oddsidemargin and evensidemargin both refer to the left margin
+% right margin is indirectly set using oddsidemargin
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\topmargin}{-0.5in}
+
+\addtolength{\textwidth}{1.0in} % sets width of text area in the page to one inch
+\addtolength{\textheight}{1.0in} % sets height of text area in the page to one inch
+
+\raggedbottom{} % makes all pages the height of current page, no extra vertical space added
+\raggedright{} % makes all pages the width of current page, no extra horizontal space added
+%------------------------------------------
+
+
+%--------SECTIONING COMMANDS---------
+% \titleformat{<command>}
+%   [<shape>]{<format>}{<label>}{<sep>}
+%     {<before-code>}[<after-code>]
+
+% command is the sectioning command to be redefined
+% shape is the style of the font; scshape stands for small caps style
+% format is the format to be applied to whole title- label and text; absent here
+% label defines the label
+% sep is the horizontal separation between label and title body
+% before-code is the code to be executed before
+% after-code is the code to be executed after
+
+\titleformat{\section}
+  {\scshape\large}{}
+    {0em}{\color{blue}}[\color{black}\titlerule\vspace{0pt}]
+%-------------------------------------
+
+
+%--------REDEFINITIONS----------------
+% redefines the style of the bullet point
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+% redefines the underline depth to 2pt
+\renewcommand{\ULdepth}{2pt}
+%-------------------------------------
+
+
+%--------CUSTOM COMMANDS--------------
+%\vspace{} defines a vertical space of given size, modifying this in custom commands can help stretch or shrink resume to remove or add content
+
+% resumeItem renders a bullet point
+\newcommand{\resumeItem}[1]{
+  \item\small{#1}
+}
+
+% commands to start and end itemization of resumeItem, rightmargin set to 0.11in to avoid the overflow of resumetItem beyond whatever resumeItemHeading is being used
+\newcommand{\resumeItemListStart}{\begin{itemize}[rightmargin=0.11in]}
+\newcommand{\resumeItemListEnd}{\end{itemize}}
+
+% resumeSectionType renders a bolded type to be used under a section, used as skill type here, middle element is used to keep ":"s in the same vertical line
+\newcommand{\resumeSectionType}[3]{
+  \item\begin{tabular*}{0.96\textwidth}[t]{
+    p{0.15\linewidth}p{0.02\linewidth}p{0.81\linewidth}
+  }
+    \textbf{#1} & #2 & #3
+  \end{tabular*}\vspace{-2pt}
+}
+
+% resumeTrioHeading renders three elements in three columns with second element being italicized and first element bolded, can be used for projects with three elements
+\newcommand{\resumeTrioHeading}[3]{
+  \item\small{
+    \begin{tabular*}{0.96\textwidth}[t]{
+      l@{\extracolsep{\fill}}c@{\extracolsep{\fill}}r
+    }
+      \textbf{#1} & \textit{#2} & #3
+    \end{tabular*}
+  }
+}
+
+% resumeQuadHeading renders four elements in a two columns with the second row being italicized and first element of first row bolded, can be used for experience and projects with four elements
+\newcommand{\resumeQuadHeading}[4]{
+  \item
+  \begin{tabular*}{0.96\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \textbf{#1} & #2 \\
+    \textit{\small#3} & \textit{\small #4} \\
+  \end{tabular*}
+}
+
+% resumeQuadHeadingChild renders the second row of resumeQuadHeading, can be used for experience if different roles in the same company need to added
+\newcommand{\resumeQuadHeadingChild}[2]{
+  \item
+  \begin{tabular*}{0.96\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \textbf{\small#1} & {\small#2} \\
+  \end{tabular*}
+}
+
+% commands to start and end itemization of resumeQuadHeading, lefmargin for left indent of 0.15in for resumeItems
+\newcommand{\resumeHeadingListStart}{
+  \begin{itemize}[leftmargin=0.15in, label={}]
+}
+\newcommand{\resumeHeadingListEnd}{\end{itemize}}
+%-------------------------------------------
+
+
+%__________________RESUME____________________
+% You can rearrange sections in any order you may prefer
+\begin{document}
+
+%-----------CONTACT DETAILS------------------
+% Make sure all the details are correct, you can add more links in the first row of second column if needed
+
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+  \textbf{\Huge Sushrit Pasupuleti \vspace{2pt}} & % row = 1, col = 1
+  Location: Hyderabad, Telangana, India \\ % row = 1, col = 2
+  \href{https://sushritpasupuleti.github.io/}{\uline{Portfolio}} $|$ % row = 2, col = 1
+  \href{https://www.linkedin.com/in/sushritpasupuleti}{\uline{LinkedIn}} $|$ % row = 2, col = 1
+  \href{https://github.com/SushritPasupuleti}{\uline{GitHub}} $|$ % row = 2, col = 1
+  Email: \href{mailto:sushrit.pk21@gmail.com}{\uline{sushrit.pk21@gmail.com}} or \href{mailto:sushrit@skillshack.dev}{\uline{sushrit@skillshack.dev}} $|$ % row = 2, col = 2
+  Mobile: \href{tel:+919182362040}{\uline{+919182362040}} \\ % row = 2, col = 2
+\end{tabular*}
+%--------------------------------------------
+
+
+%-----------SUMMARY--------------------------
+% Keep this short, simple and straigth to point
+
+\section{Full Stack Engineer | Product | DevOps}
+\small{
+  Hey there, it's Sushrit, a technical and business-focused solo entrepreneur who has been building, managing, and scaling products for \textbf{7 years} now. I’m quick to learn, adapt, innovate, and get scrappy when needed to ensure the product and I evolve as we should.
+}
+\newline
+\small{
+
+Currently building my startup \textbf{skillShack();}, which is a community for software professionals looking to share the projects they are working on and get feedback. From side projects to startups!
+}
+%--------------------------------------------
+
+
+%--------------SKILLS------------------------
+% Add or remove resumeSectionTypes according to your needs
+
+\section{Technical Skills}
+  \resumeHeadingListStart{}
+    \resumeSectionType{Languages}{:}{Go, Rust, Python, TypeScript (Node.js), JavaScript, C++, C, C\#, Dart, Kotlin, Java}
+    \resumeSectionType{Frontend}{:}{React.js, Next.js, React Native, Expo, Flutter, HTMX, Tailwind CSS, Bootstrap, Material UI, Chakra UI, Styled Components}
+    \resumeSectionType{Backend}{:}{Chi, Fiber, Axum Express.js, FastAPI, Django, Flask, Spring Boot, ASP.NET Core}
+    \resumeSectionType{Databases}{:}{PostgreSQL, MySQL, MongoDB, Redis, SQLite, Neo4j, sqlx, Drizzle ORM, Django ORM, Prisma, Gorm, Entity Framework Core, TypeORM, Mongoose}
+	\resumeSectionType{ML/AI/Data-Science}{:}{PyTorch, TensorFlow, TensorFlowJS, Keras, Scikit-Learn, NumPy, Pandas, Matplotlib, Seaborn, Plotly, OpenCV, Matplotlib, d3js}
+    \resumeSectionType{DevOps}{:}{AWS (EC2, ECS, ELB, Fargate, Lambda, S3, RDS, Amplify, SQS), Terraform, AWS CDK, Azure (App Service, Functions, Docker Functions, Database), Docker, Kubernetes, Nginx, Netlify, Vercel, GitHub Actions, Self Hosting via Proxmox (LXCs and Docker)}
+	\resumeSectionType{Testing}{:}{Jest, Supertest, Cypress, Playwright, XUnit}
+	\resumeSectionType{Project-Management}{:}{Jira, GitHub Projects, Asana, Agile, Scrum, Kanban}
+	\resumeSectionType{Misc}{:}{WebSockets, WebRTC, gRPC, ActivityPub, Socket.io, Redux, WebAssembly, Formik, OAuth, GraphQL, Webhooks, Arduino Programming, Monorepos (nx, turbo)}
+	\resumeSectionType{Tools}{:}{Linux, Neovim, TMUX, Git, Postman, Jira, Confluence, GSuite, Office 365}
+  \resumeHeadingListEnd{}
+%--------------------------------------------
+
+
+%-----------EXPERIENCE-----------------------
+% Distill all your talking points to small bullet points which follow the pattern "challenge-action-result" for maximum efficiency. Try to quantify (use numbers) your points whenver possible, highlist words of importance
+
+\section{Experience}
+\resumeHeadingListStart{}
+  \resumeQuadHeading{Solo Founder \& Product}{Jun 2014 -- Present}
+  {Braggi Solutions}{Hyderabad, Telangana, India}
+    \resumeItemListStart{}
+	\resumeItem{Product Management with Agile Principles}
+	\resumeItem{Lead a cross-functional team remotely and in-office.}
+	\resumeItem{Design, Maintain, Manage and Own the Product Backlog, Roadmap, Release Planning).}
+	\resumeItem{Define Product Deliverables and Milestones, User Stories and requirements.}
+	\resumeItem{Collaborate with Clients and Business Stakeholders to identify solutions, business needs and trends.}
+	\resumeItem{Define and share the Release/Iteration vision and goals for Engineering teams and stakeholders.}
+	\resumeItem{Represent the customer to the team and answer questions/provide guidance and mentorship.}
+	\resumeItem{Foster professional relationships with stakeholders and opened dialogues for further collaborations and ventures as well as renewal of projects.}
+	\resumeItem{Fullstack Development}
+	\resumeItem{Developed and implemented complex multi-platform/cross-platform solutions for various clients and self.}
+	\resumeItem{Proposed technical feasibility of solutions for new functional designs.}
+	\resumeItem{Ensured network, system, data integrity and reliability throughout, and across maintenance and upgrades.}
+	\resumeItem{Provided continuous maintenance and bug fixes.}
+	\resumeItem{Business Development}
+	\resumeItem{Software Engineering}
+	\resumeItem{Applied Machine Learning and Data Science principles as part of various requirements as well as for overall product management (QA, surveys and feedback analysis/trends).}
+	\resumeItem{Chatbot Design and Development}
+	\resumeItem{UI/UX + Graphic Design}
+	\resumeItem{Graphic Design}
+	\resumeItem{Marketing and Outreach (Produced YouTube Videos and Blogs detailed below)}
+    \resumeItemListEnd{}
+\resumeHeadingListEnd{}
+%---------------------------------------------
+
+
+%-----------EDUCATION-------------------------
+% Mention your CGPA, if its good, in the first row of second column
+
+\section{Education}
+  \resumeHeadingListStart{}
+    \resumeQuadHeading{Sreyas Institute of Engineering and Technology}{Hyderabad, Telangana, India}
+    {Bachelor of Computer Science}{2017 -- 2021}
+  \resumeHeadingListEnd{}
+  \resumeHeadingListStart{}
+    \resumeQuadHeading{DAV Public School}{Hyderabad, Telangana, India}
+    {XII Grade}{2015 -- 2017}
+  \resumeHeadingListEnd{}
+  \resumeHeadingListStart{}
+    \resumeQuadHeading{Bolton}{Hyderabad, Telangana, India}
+    {X Grade}{2015}
+  \resumeHeadingListEnd{}
+
+%---------------------------------------------
+
+
+%-----------PROJECTS--------------------------
+% Use resumeQuadHeading if four elements are feasible (ex: demo video link), else use resumeTrioHeading. Keep the bullet points simple and concise and try to cover wide variety of skills you have used to build these projects
+
+\section{Projects}
+  \resumeHeadingListStart{}
+  \resumeQuadHeading{\href{https://skillshack.dev/}{\uline{skillShack();}}}{Feb 2021 -- Present}
+  {Solo Founder \& Product}{}
+      \resumeItemListStart{}
+		\small{skillShack(); is a community for software professionals looking to share the projects they are working on and get feedback. From side projects to startups.}
+		\resumeItem{Stack: \textbf{React.js, React-Redux, Redux, TensorFlow, AWS, Azure, ExpressJS, Node.js, GitHub, GitHub Actions, PostgreSQL, NextJS, Docker}}
+		\resumeItem{\textbf{Part of Microsoft for Startups}}
+        \resumeItem{Scaled to users from over \textbf{130+ countries}.}
+		\resumeItem{Handled \textbf{user studies} and \textbf{user research}.}
+		\resumeItem{Utilised \textbf{Google Analytics} to track user behaviour, and prioritise features and bug fixes.}
+		\resumeItem{\textbf{Product Management}}
+		\resumeItem{NextJS based \textbf{SEO Optimized} Website (included support for \textbf{Open Graph Protocol} and \textbf{JSON+LD}).}
+		\resumeItem{\textbf{GitHub Integration} for users to showcase their Open Source Projects along with Code.}
+		\resumeItem{Monaco Editor Integration (Same Editor serves as the base for Visual Studio Code).}
+		\resumeItem{\textbf{Puppeteer} Based Screenshot Pipeline for Generating Certificates and Open Graph Images.}
+		\resumeItem{\textbf{React-Redux} Integration for State Management.}
+		\resumeItem{\textbf{AWS Deployment Using: (EC2, RDS, S3, ELB)}}
+		\resumeItem{\textbf{Azure Deployment Using: (App Service, Functions, Docker Functions, Database)}}
+		\resumeItem{Fully managed GitHub Actions for Seamless \textbf{CI/CD} along with \textbf{Staging Environments}.}
+		\resumeItem{Dynamic code base to deploy to either AWS or Azure depending on Environment Configuration provided.}
+      \resumeItemListEnd{}
+  \resumeHeadingListEnd{}
+
+  \resumeHeadingListStart{}
+  \resumeQuadHeading{\href{https://braggi-ems.com/}{\uline{Braggi Election Management System (2.0)}}}{August 2022 -- Present}
+  {Solo Founder \& Product}{}
+      \resumeItemListStart{}
+		\small{Braggi Election Management System is built for those contesting in elections. It aims to help leaders better manage their party workers to ensure faster reach and acquisition of voters. After undergoing a major rewrite and taking the learnings from the success of the previous iteration, this is now capable of handling Country-wide voter data as well as multiple national parties from a single platform, while offering Machine Learning Powered Algorithms to offer Analytics.}
+		\resumeItem{Stack: \textbf{ReactJS, NextJS, React-Redux, Redux, ExpressJS, Expo, Node.js, GitHub, GitHub Actions, PostgreSQL, Sequelize, Docker, TypeScript, AWS Lambda, AWS SQS, AWS S3, AWS RDS, AWS EC2, Terraform, Turborepo, Jira, Confluence}}
+		\resumeItem{Lead Developer}
+		\resumeItem{Handled \textbf{user studies} and \textbf{user research}.}
+		\resumeItem{Build new features and made bug fixes based on user feedback.}
+		\resumeItem{\textbf{Product Management} using \textbf{Jira} and \textbf{Confluence}}
+		\resumeItem{Currently handling a \textbf{database with 300K+ rows}}
+		\resumeItem{\textbf{Fault tolerant} and \textbf{scalable architecture} with \textbf{Failover} and \textbf{Load Balancing}}
+		\resumeItem{\textbf{PERN (Postgres Express React NodeJS)} Stack + \textbf{React Native via Expo}}
+		\resumeItem{\textbf{AWS (EC2, SQS, Lambda, RDS), GitHub Actions for CI/CD}}
+		\resumeItem{Full \textbf{TypeScript Monorepo (via Turborepo)} with \textbf{90\% code sharing} between web and mobile platforms}
+		\resumeItem{\textbf{Infrastructure as Code using Terraform}}
+      \resumeItemListEnd{}
+  \resumeHeadingListEnd{}
+
+  \resumeHeadingListStart{}
+  \resumeQuadHeading{{\uline{Stealth Project}}}{August 2023 -- Present}
+  {Solo Founder \& Product}{}
+      \resumeItemListStart{}
+		\small{A stealth project that I am currently working on in parallel with my other projects, It is in the Health \& Fitness domain. This is a project that I am very excited about.}
+		\resumeItem{Stack: \textbf{Go,
+			Go-chi,
+			PostgreSQL,
+			Redis,
+			Docker,
+			Kubernetes,
+			Python,
+			Pytorch,
+			Terraform,
+			AWS Lambda,
+			AWS SQS,
+			AWS S3,
+			AWS RDS,
+			AWS EC2,
+			GitHub,
+			GitHub Actions}}
+		\resumeItem{Lead Developer}
+		\resumeItem{Handled \textbf{user studies} and \textbf{user research}.}
+		\resumeItem{Build new features and made bug fixes based on user feedback.}
+		\resumeItem{\textbf{Product Management} using \textbf{Jira} and \textbf{Confluence}}
+		\resumeItem{Currently in \textbf{stealth mode}}
+		\resumeItem{\textbf{Go Backend} built on \textbf{Go-chi}, \textbf{PostgreSQL, Redis, and Docker and Kubernetes} for deployment}
+		\resumeItem{\textbf{AWS (EC2, SQS, Lambda, RDS), GitHub Actions for CI/CD}}
+		\resumeItem{\textbf{Infrastructure as Code using Terraform}}
+		\resumeItem{\textbf{Pytorch} based \textbf{Machine Learning Pipeline}}
+      \resumeItemListEnd{}
+  \resumeHeadingListEnd{}
+
+  \resumeHeadingListStart{}
+  \resumeQuadHeading{\href{https://github.com/SushritPasupuleti/Rusty-Activity-Pub}{\uline{Full Rust ActivityPub Server Implementation
+}}}{April 2023 -- Present}
+  {Solo Founder \& Product}{}
+      \resumeItemListStart{}
+		\small{A full ActivityPub Server Implementation built in Rust, without any external dependencies. the ActivityPub protocol is a W3C standard, this allows for interoperability with other ActivityPub implementations such as Mastodon, Pleroma, Pixelfed, etc. This repo could be used to bootstrap a basic ActivityPub platform that could sync with the previously mention services as well.
+}
+		\resumeItem{Stack: \textbf{Rust,
+			SQLx,
+			Axum,
+			PostgreSQL,
+			ActivityPub,
+			GitHub,
+			GitHub Actions}}
+		\resumeItem{Lead Developer}
+		\resumeItem{\textbf{Rust Backend} built on \textbf{Axum, PostgreSQL} database, with \textbf{SQLx} as the Query Builder}
+		\resumeItem{Aims to be 100\% compatible with the \textbf{ActivityPub} implementation used by \textbf{Mastodon} and \textbf{W3C standards}}
+		\resumeItem{Currently in development}
+		\resumeItem{Open Source}
+      \resumeItemListEnd{}
+  \resumeHeadingListEnd{}
+
+  \resumeHeadingListStart{}
+  \resumeQuadHeading{{\uline{Braggi Election Management System - MeeVote
+}}}{March 2017 -- August 2022}
+  {Solo Founder \& Product}{}
+      \resumeItemListStart{}
+		\small{This was the first project that I built, which was out of my domain, the platform "MeeVote", is an Election Management System, built for those contesting in elections. MeeVote aims to help leaders better manage their party workers to ensure faster reach and acquisition of voters. Also since it's me, under the hood there's some fancy AI magic happening too! This is currently under going a major rewrite for Country-wide deployment and support for multiple national parties.
+}
+		\resumeItem{Stack: \textbf{ReactJS,
+			NextJS,
+			React-Redux,
+			Redux,
+			AWS,
+			ExpressJS,
+			NodeJS,
+			GitHub,
+			GitHub Actions,
+			MongoDB,
+			PostgreSQL,
+			Docker}}
+		\resumeItem{Lead Developer}
+\resumeItem{Handled \textbf{user studies} and \textbf{user research}.}
+		\resumeItem{Build new features and made bug fixes based on user feedback.}
+		\resumeItem{\textbf{Product Management} using \textbf{Jira} and \textbf{Confluence}}
+		\resumeItem{Maintaining this Project to this day}
+		\resumeItem{\textbf{MERN Stack + React Native w/ React Bootstrap}}
+		\resumeItem{\textbf{AWS (EC2), GitHub Actions for CI/CD}}
+		\resumeItem{Currently Rebuilding the Application to scale to Nation-Party Level for more minute control capable of handling Country-wide voter data.}
+      \resumeItemListEnd{}
+  \resumeHeadingListEnd{}
+
+  \resumeHeadingListStart{}
+  \resumeQuadHeading{\href{https://shoppingslots.in/}{\uline{Braggi Shopping \& Medical Slots
+}}}{March 2020 -- January 2021}
+  {Solo Founder \& Product}{}
+      \resumeItemListStart{}
+		\small{During the lockdown, marketing is difficult, and getting work done remotely has been equally difficult, so I started working on a new project. Braggi's Shopping Slots platform took 2 weeks to build, it allows it's users to book a slot to shop at their local grocery store, the platform handles queues and allows shop owners to decide how many people they can accomodate on an hourly basis at their store, while ensuring that social distancing is followed. This was a fun project, because I deployed it much more quickly than anything before, while constantly working with the changing situations due to the pandemic, it's helped me greatly with my ability to understand the market as a whole and it's needs during times like these.}
+		\resumeItem{Stack: \textbf{ReactJS,
+			React-Redux,
+			Redux,
+			AWS,
+			ExpressJS,
+			NodeJS,
+			GitHub,
+			GitHub Actions,
+			MongoDB,
+			Docker}}
+		\resumeItem{Lead Developer}
+		\resumeItem{Handled \textbf{user studies} and \textbf{user research}.}
+		\resumeItem{Build new features and made bug fixes based on user feedback.}
+		\resumeItem{Identified gap in the market for hospital slot reservation and refactored the project for it}
+		\resumeItem{\textbf{Product Management} using \textbf{Jira} and \textbf{Confluence}}
+		\resumeItem{Maintaining this Project to this day}
+      \resumeItemListEnd{}
+  \resumeHeadingListEnd{}
+
+  \resumeHeadingListStart{}
+  \resumeQuadHeading{{\uline{Braggi Chatbot Platform
+}}}{March 2015 -- March 2017}
+  {Solo Founder \& Product}{}
+      \resumeItemListStart{}
+		\small{Built a production quality chatbot service paired with cross-platform apps build on React and Flutter.}
+		\resumeItem{Stack: \textbf{ReactJS,
+			React-Redux,
+			Redux,
+			AWS,
+			ExpressJS,
+			NodeJS,
+			GitHub,
+			GitHub Actions,
+			MongoDB,
+			Docker,
+			TensoFlow,
+			WPF,
+			WinForms,
+			Flutter}}
+		\resumeItem{Lead Developer}
+		\resumeItem{Handled \textbf{user studies} and \textbf{user research}.}
+		\resumeItem{Build new features and made bug fixes based on user feedback.}
+		\resumeItem{Iterated through multiple versions \& implementations of the product over the years to ensure that it was stable and reliable.}
+		\resumeItem{\textbf{Product Management}}
+		\resumeItem{Maintaining this Project to this day}
+		\resumeItem{\textbf{Machine learning} and \textbf{Natural Language Processing Pipeline development}}
+		\resumeItem{Handing training and testing of the chatbot}
+		\resumeItem{Open Sourced a community version}
+      \resumeItemListEnd{}
+  \resumeHeadingListEnd{}
+
+  \resumeHeadingListStart{}
+  \resumeQuadHeading{{\uline{Tesla+ Smart Electric Meter
+}}}{March 2015 -- September 2015
+}
+  {Product}{}
+      \resumeItemListStart{}
+		\small{A smart electric meter add-on that connects to a standard electric meter and reports all usage metrics to a local hub which makes the data available via a mobile app and also to administration. Qualified for the CBSE National Science Fair's National level with this project!}
+		\resumeItem{Stack: \textbf{ReactJS,
+		Arduino}}
+		\resumeItem{Handled \textbf{user studies} and \textbf{user research}.}
+		\resumeItem{Identified a gap in the market for lack of alternatives to paper bills and lack of accessibility to meter-readings.}
+		\resumeItem{Build new features and made bug fixes based on user feedback.}
+		\resumeItem{\textbf{Product Management}}
+      \resumeItemListEnd{}
+  \resumeHeadingListEnd{}
+%--------------------------------------------
+
+
+%----------------OTHERS----------------------
+% You can add your acheivements, accolades, certifications etc. here.
+
+\section{Certifications}
+  \small{I usually teach myself thing online over first-party Docs or FreeCodeCamp and avoid taking courses so that I can move at my pace. Sometimes however if a course is really good and worth the time I do get into it, like the ones below.
+	}
+  \resumeItemListStart{}
+    \resumeItem{\href{https://www.coursera.org/account/accomplishments/specialization/certificate/HYKASZDT4AXM}{\uline{Google Project Management}} - Took sometime out after my graduation to standarize my project management skills. This course was a great help in that regard.}
+  \resumeItemListEnd{}
+%--------------------------------------------
+
+%-----------------Accomplishments------------
+
+\section{Accomplishments/Brags/Hobbies}
+\small{Cool things I've done and things I like to do in my free time!}
+\resumeItemListStart{}
+	\resumeItem{Published my first Application (SAM, mentioned above) at the age of 15, all while organically growing a dedicated blog, FB Page to promote it.}
+\resumeItem{Self-Hosted my first Website at 16 on a Raspberry Pi 3B+ using LAMP Stack.}
+\resumeItem{Built my own linux distro from Gentoo Linux, with final installation size of ~350MB for self-hosting applications.}
+\resumeItem{Self-Hosting my HomeLab locally using Proxmox, which also hosts my local Windows VM (with GPU Passtrhough on non-enterprise Nvidia Hardware) and Docker (PostgreSQL, Jenkins, Gitea, NextCloud, HomeAssistant etc) for my development needs.}
+\resumeItem{Use Ansible to automate setup and tear down of all my HomeLab VMs.}
+\resumeItem{Have 150K+ Reads on Medium with over 900 followers. \href{https://medium.com/@sushrit.pk21}{\uline{(Link)}}}
+\resumeItem{Taught myself Data Science to perform analyses on user data to improve my products and act on feedback, managed to increase user interest in products with the same.}
+\resumeItem{Taught myself Video Editing and Graphic Design to promote my projects (Lead to the creation of my YT channel and other dedicated Social Media handles for projects like skillShack();)}
+\resumeItem{Have been a part of the Microsoft for Startups Program for skillShack();}
+\resumeItem{Help out local startups with their tech needs (Web Dev, App Dev, UI/UX, System Design, DevOps, Hiring and Marketing) from time to time.}
+\resumeItem{Gave a TedX talk at the age of 17 \href{https://www.youtube.com/watch?v=0XXque5QdHg}{\uline{(Link)}}}
+\resumeItem{I mentor students and help them with their projects and career guidance. Also host webinars for colleges \href{https://www.youtube.com/watch?v=l673uNfDLX8}{\uline{Link}}.}
+\resumeItem{I daily drive Neovim as my main editor, with a custom config that I've been working putting together to act as an IDE replacement for my needs.}
+\resumeItem{I started using NixOS as my daily driver recently, and have a hyper-customized setup for my needs, that can be deployed on any machine with a single command.}
+\resumeItem{Side Project of Note: Working on an ActivityPub based social network, that is completely decentralized and self-hostable, with a focus on privacy and security.}
+\resumeItem{Side Project of Note: Actively working on a Server Driven UI template for React Native, with complete ReactJS code sharing.}
+\resumeItemListEnd{}
+
+%--------------------------------------------
+
+\end{document}
