@@ -61,6 +61,7 @@ const projectsList: any = [
 			'Product Management using Jira and Confluence',
 			'Currently handling a database with 300K+ rows',
 			'Fault tolerant and scalable architecture with Failover and Load Balancing',
+			'Multi-tenant architecture with Data Isolation',
 			'PERN (Postgres Express React NodeJS) Stack + React Native via Expo',
 			'AWS (EC2, SQS, Lambda, RDS), GitHub Actions for CI/CD',
 			'Full TypeScript Monorepo (via Turborepo) with 90% code sharing between web and mobile platforms',
