@@ -23,6 +23,7 @@ const frontendSkills: Array<String> = [
 	'tailwindcss',
 	'jinja2',
 	'HTMX',
+	'AlpineJS',
 	'HTML',
 	'CSS',
 	'SASS',
