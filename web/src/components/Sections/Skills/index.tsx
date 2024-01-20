@@ -93,11 +93,13 @@ const devopsSkills: Array<String> = [
 ]
 
 const mlSkills: Array<String> = [
-	'TensorFlow',
-	'TensorFlowJS',
 	'Pytorch',
 	'Langchain',
 	'Keras',
+	'Apache Spark',
+	'Apache Airflow',
+	'TensorFlow',
+	'TensorFlowJS',
 	'TFLearn',
 	'scikit-learn',
 	'Pandas',
