@@ -106,6 +106,8 @@ const mlSkills: Array<String> = [
 	'Numpy',
 	'Matplotlib',
 	'd3js',
+	"dbt",
+	"Apache Airflow",
 ]
 
 const pmSkills: Array<String> = [
@@ -154,7 +156,6 @@ const miscSkills: Array<String> = [
 	"Webhooks",
 	"OpenAI API",
 	"Puppeteer",
-	"Apache Airflow",
 	"Arduino",
 ]
 
@@ -311,7 +312,7 @@ export default function Skills() {
 							marginBottom: '1rem',
 						}}
 						title={<Text h4>Machine Learning & Data Science</Text>}
-						subtitle={`From NLP, NLU to everything else that's ML`}
+						subtitle={`From NLP, NLU to everything else that's ML along with Data Science & Data Engineering`}
 						expanded={true}
 						contentLeft={
 							<Avatar
