@@ -17,7 +17,6 @@ const extra: any = [
 	"I daily drive Neovim as my main editor, with a custom config that I've been working putting together to act as an IDE replacement for my needs.",
 	"I started using NixOS as my daily driver recently, and have a hyper-customized setup for my needs, that can be deployed on any machine with a single command.",
 	"Side Project of Note: Working on an ActivityPub based social network, that is completely decentralized and self-hostable, with a focus on privacy and security.",
-	"Side Project of Note: Actively working on a Server Driven UI template for React Native, with complete ReactJS code sharing.",
 ]
 
 function ExtraSection() {
