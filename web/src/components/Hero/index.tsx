@@ -78,7 +78,7 @@ const Hero = (props: any) => {
 							weight="semibold"
 							blockquote
 						>
-							{"Hey there, it's Sushrit, a technical and business-focused solo entrepreneur who has been building, managing, and scaling products for 7 years now. I’m quick to learn, adapt, innovate, and get scrappy when needed to ensure the product and I evolve as we should."}
+							{"Hey there, it's Sushrit, a technical and business-focused solo entrepreneur who has been building, managing, and scaling products for 7 years now. I’m quick to learn, adapt, innovate, and get scrappy when needed to ensure the product and I evolve as we should. I have extensive experience building and deploying highly performant applications/platforms which scale with ease."}
 						</Text>
 						<Spacer />
 						<Text
