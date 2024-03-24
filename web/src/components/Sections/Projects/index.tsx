@@ -163,6 +163,35 @@ const projectsList: any = [
 		],
 	},
 	{
+		product: 'Expiry Date Tracker',
+		position: 'Solo Developer',
+		description: `A simple Expiry Date tracker built on React Native, without too many external dependencies. This was built to help my mom keep track of the expiry dates of the products at home. It is clean and simple to use, and has a very minimalistic design.`,
+		keywords: [
+			"Currently awaiting approval on Google Play Store",
+			"Plans to add more features in the future",
+			"Plans to Open Source the project",
+			"Built in less than a week",
+		],
+		start: 'Feb 2023',
+		end: 'Feb 2023',
+		tags: [
+			"React Native",
+			"React",
+			"Expo",
+			"SQLite",
+			"Redux",
+		],
+		images: [
+			"assets/P29.png",
+			"assets/P23.png",
+			"assets/P24.png",
+			"assets/P25.png",
+			"assets/P27.png",
+			"assets/P28.png",
+			"assets/P26.png",
+		],
+	},
+	{
 		product: 'Braggi Election Management System - MeeVote',
 		position: 'Solo Founder & Product',
 		description: `This was the first project that I built, which was out of my domain, the platform "MeeVote", is an Election Management System, built for those contesting in elections. MeeVote aims to help leaders better manage their party workers to ensure faster reach and acquisition of voters. Also since it's me, under the hood there's some fancy AI magic happening too!
