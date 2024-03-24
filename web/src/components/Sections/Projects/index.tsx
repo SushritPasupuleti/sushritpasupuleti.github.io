@@ -172,8 +172,8 @@ const projectsList: any = [
 			"Plans to Open Source the project",
 			"Built in less than a week",
 		],
-		start: 'Feb 2023',
-		end: 'Feb 2023',
+		start: 'Feb 2024',
+		end: 'Feb 2024',
 		tags: [
 			"React Native",
 			"React",
