@@ -1,11 +1,19 @@
-import * as React from 'react'
+import * as React from "react";
 import { Grid, Card, Text, Button, Table, Spacer } from "@nextui-org/react";
 import { Download } from "react-iconly";
-import { useMediaQuery } from '../../../src/hooks/useMediaQuery';
+import { useMediaQuery } from "../../../src/hooks/useMediaQuery";
 // import heroImg from '../../../public/assets/hero-2.jpg';
-import Image from 'next/image';
+import Image from "next/image";
 // import Image from '../../../src/components/Image';
-import { BsTwitter, BsGithub, BsYoutube, BsMedium, BsFacebook, BsLinkedin, BsWhatsapp } from "react-icons/bs";
+import {
+	BsTwitter,
+	BsGithub,
+	BsYoutube,
+	BsMedium,
+	BsFacebook,
+	BsLinkedin,
+	BsWhatsapp,
+} from "react-icons/bs";
 import { SiBlogger } from "react-icons/si";
 import { Paper } from "react-iconly";
 
@@ -15,7 +23,7 @@ const Hero = (props: any) => {
 	return (
 		<div
 			style={{
-				maxWidth: '1280px',
+				maxWidth: "1280px",
 			}}
 		>
 			<Grid.Container gap={2} justify="center">
@@ -25,17 +33,19 @@ const Hero = (props: any) => {
 							h1
 							css={{
 								textGradient: "45deg, $purple600 20%, $blue600 50%",
-								whiteSpace: 'nowrap',
+								whiteSpace: "nowrap",
 							}}
 						>
 							Sushrit Pasupuleti
 						</Text>
 						<Text blockquote>
-							Product Manager | Fullstack Unicorn | Coder | Blogger | Speaker | Sketcher | Entrepreneur... err 🤔 and more 🙃
+							Product Manager | Fullstack Unicorn | Coder | Blogger | Speaker |
+							Sketcher | Entrepreneur... err 🤔 and more 🙃
 						</Text>
 					</div>
 				</Grid>
-				<Grid xs
+				<Grid
+					xs
 					alignItems="center"
 					justify={isMobile ? "flex-start" : "flex-end"}
 				>
@@ -43,24 +53,30 @@ const Hero = (props: any) => {
 						// href="https://skillshack.dev/generators/user-resume?user_name=sushrit_lawliet"
 						href="/resume/resume.pdf"
 					>
-						<Button shadow color="primary" auto
-							icon={
-								<Download set="bold" primaryColor="white" />
-							}
+						<Button
+							shadow
+							color="primary"
+							auto
+							icon={<Download set="bold" primaryColor="white" />}
 						>
 							View Resume (PDF)
 						</Button>
 					</a>
 					<a href="https://wa.me/919182362040">
-						<Button shadow color="success" auto
+						<Button
+							shadow
+							color="success"
+							auto
 							icon={
-								<BsWhatsapp style={{
-									height: '1.5rem',
-									width: '1.5rem',
-								}} />
+								<BsWhatsapp
+									style={{
+										height: "1.5rem",
+										width: "1.5rem",
+									}}
+								/>
 							}
 							style={{
-								marginLeft: '0.5rem',
+								marginLeft: "0.5rem",
 							}}
 						>
 							{`Let's Talk`}
@@ -73,63 +89,61 @@ const Hero = (props: any) => {
 					<div>
 						<Text
 							style={{
-								marginBottom: '0.5rem',
+								marginBottom: "0.5rem",
 							}}
 							weight="semibold"
 							blockquote
 						>
-							{"Hey there, it's Sushrit, a technical and business-focused solo entrepreneur who has been building, managing, and scaling products for 7 years now. I’m quick to learn, adapt, innovate, and get scrappy when needed to ensure the product and I evolve as we should. I have extensive experience building and deploying highly performant applications/platforms which scale with ease."}
+							{
+								"Hey there, it's Sushrit, a technical and business-focused solo entrepreneur who has been building, managing, and scaling products for 7 years now. I’m quick to learn, adapt, innovate, and get scrappy when needed to ensure the product and I evolve as we should. I have extensive experience building and deploying highly performant applications/platforms which scale with ease."
+							}
 						</Text>
 						<Spacer />
 						<Text
 							style={{
-								marginBottom: '0.5rem',
+								marginBottom: "0.5rem",
 							}}
 							weight="semibold"
-						// em
+							// em
 						>
-							Currently building my startup <a href="https://www.skillshack.dev/"
+							Currently building my startup{" "}
+							<a
+								href="https://www.skillshack.dev/"
 								rel="noopener noreferrer"
-								target="_blank">
+								target="_blank"
+							>
 								{"skillShack(⚡);"}
 							</a>
 						</Text>
 						<Text
-
 							style={{
-								marginBottom: '0.5rem',
+								marginBottom: "0.5rem",
 							}}
 							weight="semibold"
 						>
-							{"skillShack(⚡); is a community for software professionals looking to share the projects they are working on and get feedback. From side projects to startups!"}
+							{
+								"skillShack(⚡); is a community for software professionals looking to share the projects they are working on and get feedback. From side projects to startups!"
+							}
 						</Text>
 						<br />
 						<Table>
 							<Table.Header>
-								<Table.Column>
-									Basic Information
-								</Table.Column>
-								<Table.Column>
-								</Table.Column>
+								<Table.Column>Basic Information</Table.Column>
+								{/* <Table.Column></Table.Column> */}
+								<Table.Column> </Table.Column>
 							</Table.Header>
 							<Table.Body>
 								<Table.Row key="1">
 									<Table.Cell>
-										<Text weight="semibold">
-											Date of Birth
-										</Text>
+										<Text weight="semibold">Date of Birth</Text>
 									</Table.Cell>
 									<Table.Cell>
-										<Text>
-											Apr 21, 1999
-										</Text>
+										<Text>Apr 21, 1999</Text>
 									</Table.Cell>
 								</Table.Row>
 								<Table.Row key="2">
 									<Table.Cell>
-										<Text weight="semibold">
-											E-mail
-										</Text>
+										<Text weight="semibold">E-mail</Text>
 									</Table.Cell>
 									<Table.Cell>
 										<Text>
@@ -141,29 +155,21 @@ const Hero = (props: any) => {
 								</Table.Row>
 								<Table.Row key="3">
 									<Table.Cell>
-										<Text weight="semibold">
-											Phone
-										</Text>
+										<Text weight="semibold">Phone</Text>
 									</Table.Cell>
 									<Table.Cell>
 										<Text>
-											<a href="tel:+919182362040">
-												+91 9182362040
-											</a>
+											<a href="tel:+919182362040">+91 9182362040</a>
 										</Text>
 									</Table.Cell>
 								</Table.Row>
 								<Table.Row key="4">
 									<Table.Cell>
-										<Text weight="semibold">
-											CEO & CTO
-										</Text>
+										<Text weight="semibold">CEO & CTO</Text>
 									</Table.Cell>
 									<Table.Cell>
 										<Text>
-											<a href="https://www.skillshack.dev/">
-												Braggi Solutions
-											</a>
+											<a href="https://www.skillshack.dev/">Braggi Solutions</a>
 										</Text>
 									</Table.Cell>
 								</Table.Row>
@@ -184,9 +190,11 @@ const Hero = (props: any) => {
 			<Grid xs md={0}>
 				<div>
 					<Card
-						style={{
-							// display: !isMobile ? 'none' : 'block',
-						}}
+						style={
+							{
+								// display: !isMobile ? 'none' : 'block',
+							}
+						}
 					>
 						<Card.Body css={{ p: 0 }}>
 							<img src={"assets/hero-2.jpg"} alt="Sushrit Pasupuleti" />
@@ -198,11 +206,14 @@ const Hero = (props: any) => {
 				// display="flex"
 				justify="center"
 				alignItems="center"
-				css={{
-					// margin: '1rem',
-				}}
+				css={
+					{
+						// margin: '1rem',
+					}
+				}
 				gap={2}
 			>
+				{/*
 				<Grid>
 					<a href="https://twitter.com/sushrit_lawliet">
 						<Button
@@ -218,6 +229,7 @@ const Hero = (props: any) => {
 						</Button>
 					</a>
 				</Grid>
+			*/}
 				<Grid>
 					<a href="https://github.com/SushritPasupuleti">
 						<Button
@@ -225,12 +237,14 @@ const Hero = (props: any) => {
 							light
 							// size="lg"
 							icon={
-								<BsGithub style={{
-									height: '1.5rem',
-									width: '1.5rem',
-								}} />
-							}>
-						</Button>
+								<BsGithub
+									style={{
+										height: "1.5rem",
+										width: "1.5rem",
+									}}
+								/>
+							}
+						></Button>
 					</a>
 				</Grid>
 				<Grid>
@@ -240,12 +254,14 @@ const Hero = (props: any) => {
 							light
 							// size="lg"
 							icon={
-								<BsYoutube style={{
-									height: '1.5rem',
-									width: '1.5rem',
-								}} />
-							}>
-						</Button>
+								<BsYoutube
+									style={{
+										height: "1.5rem",
+										width: "1.5rem",
+									}}
+								/>
+							}
+						></Button>
 					</a>
 				</Grid>
 				<Grid>
@@ -255,12 +271,14 @@ const Hero = (props: any) => {
 							light
 							// size="lg"
 							icon={
-								<BsMedium style={{
-									height: '1.5rem',
-									width: '1.5rem',
-								}} />
-							}>
-						</Button>
+								<BsMedium
+									style={{
+										height: "1.5rem",
+										width: "1.5rem",
+									}}
+								/>
+							}
+						></Button>
 					</a>
 				</Grid>
 				<Grid>
@@ -270,12 +288,14 @@ const Hero = (props: any) => {
 							light
 							// size="lg"
 							icon={
-								<SiBlogger style={{
-									height: '1.5rem',
-									width: '1.5rem',
-								}} />
-							}>
-						</Button>
+								<SiBlogger
+									style={{
+										height: "1.5rem",
+										width: "1.5rem",
+									}}
+								/>
+							}
+						></Button>
 					</a>
 				</Grid>
 				<Grid>
@@ -285,14 +305,17 @@ const Hero = (props: any) => {
 							light
 							// size="lg"
 							icon={
-								<BsLinkedin style={{
-									height: '1.5rem',
-									width: '1.5rem',
-								}} />
-							}>
-						</Button>
+								<BsLinkedin
+									style={{
+										height: "1.5rem",
+										width: "1.5rem",
+									}}
+								/>
+							}
+						></Button>
 					</a>
 				</Grid>
+				{/*
 				<Grid>
 					<a href="https://www.facebook.com/SushritLawliet/">
 						<Button
@@ -300,21 +323,26 @@ const Hero = (props: any) => {
 							light
 							// size="lg"
 							icon={
-								<BsFacebook style={{
-									height: '1.5rem',
-									width: '1.5rem',
-								}} />
-							}>
-						</Button>
+								<BsFacebook
+									style={{
+										height: "1.5rem",
+										width: "1.5rem",
+									}}
+								/>
+							}
+						></Button>
 					</a>
 				</Grid>
+				*/}
 			</Grid.Container>
-			<div style={{
-				display: 'flex',
-				justifyContent: 'center',
-				alignItems: 'center',
-				// padding: '1rem',
-			}}>
+			<div
+				style={{
+					display: "flex",
+					justifyContent: "center",
+					alignItems: "center",
+					// padding: '1rem',
+				}}
+			>
 				<a href="https://sushritpasupuleti.github.io/personal-docs/">
 					<Button
 						shadow
@@ -325,16 +353,14 @@ const Hero = (props: any) => {
 							// alignSelf: "start",
 							// marginLeft: "1rem",
 						}}
-						iconRight={
-							<Paper set="bold" primaryColor="white" />
-						}
+						iconRight={<Paper set="bold" primaryColor="white" />}
 					>
 						My Knowledge Hub
 					</Button>
 				</a>
 			</div>
-		</div >
-	)
-}
+		</div>
+	);
+};
 
 export default Hero;

@@ -21,11 +21,11 @@ const HomeSEO = () => (
 				],
 				site_name: 'Sushrit Pasupuleti - Resume',
 			}}
-			twitter={{
-				handle: '@sushrit_lawliet',
-				site: '@sushrit_lawliet',
-				cardType: 'summary_large_image',
-			}}
+			// twitter={{
+			// 	handle: '@sushrit_lawliet',
+			// 	site: '@sushrit_lawliet',
+			// 	cardType: 'summary_large_image',
+			// }}
 		/>
 	</>
 );
