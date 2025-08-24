@@ -46,7 +46,7 @@ const videosList: any = [
 		title: `Auto Restart Your Node Apps After Making Changes! - Nodemon Showcase`,
 		description: `Showcasing Nodemon and how I use it to build Node Apps.`,
 		url: 'https://youtu.be/JewzZROAho8',
-		thumbnail: 'assets/P15.png',
+		thumbnail: 'assets/P16.png',
 	},
 	{
 		title: `Code on Your Smartphone/Old PC like a Pro! | Google Colab Showcase`,

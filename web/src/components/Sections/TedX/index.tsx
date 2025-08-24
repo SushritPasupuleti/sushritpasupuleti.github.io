@@ -1,4 +1,5 @@
 import { Card, Col, Row, Button, Text, Spacer } from "@nextui-org/react";
+import Image from "next/image";
 import { Play } from "react-iconly";
 
 const TedX = (props: any) => (
@@ -26,15 +27,23 @@ const TedX = (props: any) => (
 			</Col>
 			*/}
 			</Card.Header>
-			<Card.Body css={{ p: 0 }}>
-				<img src={"assets/video-bg.jpg"} alt="TedX Video - The Big Transition" />
+			<Card.Body css={{ padding: 0 }}>
+				<div style={{ position: "relative", width: "100%", height: "220px" }}>
+					<Image
+						src="/assets/video-bg.jpg"
+						alt="TedX Video - The Big Transition"
+						layout="fill"
+						objectFit="cover"
+						style={{ borderRadius: "8px" }}
+					/>
+				</div>
 
 			</Card.Body>
 			<Card.Footer
 				isBlurred
 				css={{
 					position: "absolute",
-					bgBlur: "#ffffff66",
+					background: "#ffffff66",
 					borderTop: "$borderWeights$light solid rgba(255, 255, 255, 0.2)",
 					bottom: 0,
 					zIndex: 1,
