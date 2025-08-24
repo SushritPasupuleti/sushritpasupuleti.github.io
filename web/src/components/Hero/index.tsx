@@ -37,8 +37,7 @@ const Hero = (props: any) => {
 						Sushrit Pasupuleti
 					</Text>
 					<Text blockquote>
-						Product Manager | Fullstack Unicorn | Coder | Blogger | Speaker |
-						Sketcher | Entrepreneur... err 🤔 and more 🙃
+						Technical Solution Manager @ClaimShark (now known as Lyric) | Entrepreneur | TedX Speaker | Blogger
 					</Text>
 				</div>
 			</div>
@@ -53,7 +52,15 @@ const Hero = (props: any) => {
 							blockquote
 						>
 							{
-								"Hey there, it's Sushrit, a technical and business-focused solo entrepreneur who has been building, managing, and scaling products for 7 years now. I’m quick to learn, adapt, innovate, and get scrappy when needed to ensure the product and I evolve as we should. I have extensive experience building and deploying highly performant applications/platforms which scale with ease."
+								`A technical and business-focused solo entrepreneur who has been building, managing, and scaling products for 7 years now. I’m quick to learn, adapt, innovate, and get scrappy when needed to ensure the product and I evolve as we should.
+
+Shipped over 4 enterprise quality software (apps&websites) in the last 7 years with limited resources and little experience going in. 
+
+Taught myself a lot of things to get things done on time and right. Experience now includes but is not limited to: Product development, software development, DevOps, machine learning, data analysis, big data, system design/architecture, user research, user reach outs, digital publishing, writing, video production, webinars, seminars, motivational speaking, graphic design, sales, and marketing.
+
+Currently building and scaling skillShack(⚡);, my startup that is a hub for all programmers to share their work and build proof-of-work. While building this I've ventured into user onboarding, user feedback incorporation, user interviews, and prioritized agile development on a tight schedule and budget, all while organically reaching users from 130+ countries and sustaining a healthy community that participates and improves the product! We are also a part of Microsoft for Startups Programme! Learn more on: https://skillshack.dev/
+
+I frequently participate in webinars to educate/motivate my peers about how to kick off their software journeys and also for those looking to startup. All while upskilling myself and teaching myself new things in the field of software development and product management.`
 							}
 						</Text>
 						<Spacer />
