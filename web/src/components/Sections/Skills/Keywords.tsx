@@ -1,7 +1,7 @@
 import { Text } from '@nextui-org/react';
 import { StyledBadge } from '../../Badge';
 
-const SkillKeywords = (props: any): JSX.Element => {
+const SkillKeywords: React.FC<any> = (props) => {
 
 	return (
 		<div style={{

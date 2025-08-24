@@ -2,12 +2,21 @@
 const nextConfig = {
 	reactStrictMode: true,
 	swcMinify: true,
-	experimental: {
-		images: {
-			unoptimized: true,
-		},
+	images: {
+		remotePatterns: [
+			{
+				protocol: 'https',
+				hostname: '**',
+			},
+			{
+				protocol: 'http',
+				hostname: '**',
+			},
+		],
+		unoptimized: true,
 	},
-	assetPrefix: './'
+	assetPrefix: './',
+	output: 'export',
 }
 
 module.exports = nextConfig

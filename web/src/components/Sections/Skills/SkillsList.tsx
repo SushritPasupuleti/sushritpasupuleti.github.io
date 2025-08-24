@@ -1,6 +1,6 @@
 import { User, Text } from '@nextui-org/react';
 
-const Skills = (props: any): JSX.Element => {
+const Skills: React.FC<any> = (props) => {
 
 	return (
 		<>

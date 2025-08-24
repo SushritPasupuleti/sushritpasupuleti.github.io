@@ -1,6 +1,6 @@
 import { Grid, Card, Text, Button, Table, Spacer } from "@nextui-org/react";
 
-const WorkExperience = (props: any): JSX.Element => {
+const WorkExperience: React.FC<any> = (props) => {
 	return (
 		<div>
 			<Grid.Container gap={2} style={{
@@ -48,7 +48,7 @@ const WorkExperience = (props: any): JSX.Element => {
 	)
 }
 
-const WorkExperienceList = (props: any): JSX.Element => {
+const WorkExperienceList: React.FC<any> = (props) => {
 	return (
 		<div>
 			{

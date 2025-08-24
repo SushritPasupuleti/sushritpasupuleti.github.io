@@ -1,79 +1,56 @@
-import { Card, Col, Row, Button, Text, Grid } from "@nextui-org/react";
+import { Card, Button } from "@nextui-org/react";
 import { Paper } from "react-iconly";
 
 const CertificateItem = (props: any) => (
-	<div>
-		<Card css={{ w: "100%", h: "auto" }}>
-			<Card.Header css={{ position: "absolute", zIndex: 1, top: 5 }}>
-			</Card.Header>
-			<Card.Body css={{ p: 0 }}>
+	<div style={{ width: "100%", height: "auto", position: "relative" }}>
+		<Card style={{ width: "100%", height: "auto", position: "relative" }}>
+			<div style={{ position: "absolute", zIndex: 1, top: 5 }} />
+			<div style={{ padding: 0 }}>
 				<embed src={props.url} type="application/pdf" width="100%" height="600px" />
-			</Card.Body>
-			<Card.Footer
-				isBlurred
-				css={{
+			</div>
+			<div
+				style={{
 					position: "absolute",
-					bgBlur: "#ffffff66",
-					borderTop: "$borderWeights$light solid rgba(255, 255, 255, 0.2)",
+					background: "rgba(255,255,255,0.4)",
+					borderTop: "1px solid rgba(255,255,255,0.2)",
 					bottom: 0,
 					zIndex: 1,
+					width: "100%",
+					display: "flex",
+					justifyContent: "space-between",
+					alignItems: "center",
+					padding: "0.5rem 1rem"
 				}}
 			>
-				<Row>
-					<Col>
-						<Text h6 color="#000">
-							{props.title}
-						</Text>
-					</Col>
-					<Col>
-						<Row justify="flex-end">
-							<a href={props.originalUrl}>
-								<Button flat auto rounded color="secondary"
-									iconRight={
-										<Paper set="bold" primaryColor="blueviolet" />
-									}
-								>
-									<Text
-										css={{ color: "inherit" }}
-										size={12}
-										weight="bold"
-										transform="uppercase"
-									>
-										View Certificate
-									</Text>
-								</Button>
-							</a>
-						</Row>
-					</Col>
-				</Row>
-			</Card.Footer>
+				<span style={{ fontWeight: "bold", color: "#000" }}>{props.title}</span>
+				<a href={props.originalUrl} style={{ textDecoration: "none" }}>
+					<Button flat auto rounded color="secondary"
+						iconRight={
+							<Paper set="bold" primaryColor="blueviolet" />
+						}
+					>
+						<span style={{ color: "inherit", fontSize: 12, fontWeight: "bold", textTransform: "uppercase" }}>
+							View Certificate
+						</span>
+					</Button>
+				</a>
+			</div>
 		</Card>
-		<Text blockquote
-			css={{
-				marginTop: "1rem",
-			}}
-		>
-			{
-				props.description
-			}
-		</Text>
+		<blockquote style={{ marginTop: "1rem" }}>
+			{props.description}
+		</blockquote>
 	</div>
 );
 
 const CertificatesList = (props: any) => (
-	<div>
-		<Grid.Container gap={2} justify="flex-start">
-			{
-				props.certificates.map((certificate: any, index: number) => (
-					<Grid
-						// xs={6}
-						sm={6}
-						key={index}>
-						<CertificateItem {...certificate} />
-					</Grid>
-				))
-			}
-		</Grid.Container>
+	<div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
+		{
+			props.certificates.map((certificate: any, index: number) => (
+				<div style={{ flex: "1 1 45%", minWidth: "300px" }} key={index}>
+					<CertificateItem {...certificate} />
+				</div>
+			))
+		}
 	</div>
 );
 

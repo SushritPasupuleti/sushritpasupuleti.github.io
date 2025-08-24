@@ -16,74 +16,32 @@ import {
 } from "react-icons/bs";
 import { SiBlogger } from "react-icons/si";
 import { Paper } from "react-iconly";
+import Navbar from "../Navbar";
 
 const Hero = (props: any) => {
 	const isMobile = useMediaQuery(650);
 
 	return (
-		<div
-			style={{
-				maxWidth: "1280px",
-			}}
-		>
-			<Grid.Container gap={2} justify="center">
-				<Grid xs>
-					<div>
-						<Text
-							h1
-							css={{
-								textGradient: "45deg, $purple600 20%, $blue600 50%",
-								whiteSpace: "nowrap",
-							}}
-						>
-							Sushrit Pasupuleti
-						</Text>
-						<Text blockquote>
-							Product Manager | Fullstack Unicorn | Coder | Blogger | Speaker |
-							Sketcher | Entrepreneur... err 🤔 and more 🙃
-						</Text>
-					</div>
-				</Grid>
-				<Grid
-					xs
-					alignItems="center"
-					justify={isMobile ? "flex-start" : "flex-end"}
-				>
-					<a
-						// href="https://skillshack.dev/generators/user-resume?user_name=sushrit_lawliet"
-						href="/resume/resume.pdf"
+		<div style={{ maxWidth: "1280px", padding: isMobile ? "1rem" : "2rem" }}>
+			<Navbar isMobile={isMobile} />
+			{/* Main content */}
+			<div style={{ display: "flex", flexDirection: isMobile ? "column" : "row", alignItems: isMobile ? "flex-start" : "center", justifyContent: "space-between", gap: isMobile ? "1.5rem" : "3rem", marginBottom: "2rem" }}>
+				<div style={{ flex: 1 }}>
+					<Text
+						h1
+						css={{
+							textGradient: "45deg, $purple600 20%, $blue600 50%",
+							whiteSpace: "nowrap",
+						}}
 					>
-						<Button
-							shadow
-							color="primary"
-							auto
-							icon={<Download set="bold" primaryColor="white" />}
-						>
-							View Resume (PDF)
-						</Button>
-					</a>
-					<a href="https://wa.me/919182362040">
-						<Button
-							shadow
-							color="success"
-							auto
-							icon={
-								<BsWhatsapp
-									style={{
-										height: "1.5rem",
-										width: "1.5rem",
-									}}
-								/>
-							}
-							style={{
-								marginLeft: "0.5rem",
-							}}
-						>
-							{`Let's Talk`}
-						</Button>
-					</a>
-				</Grid>
-			</Grid.Container>
+						Sushrit Pasupuleti
+					</Text>
+					<Text blockquote>
+						Product Manager | Fullstack Unicorn | Coder | Blogger | Speaker |
+						Sketcher | Entrepreneur... err 🤔 and more 🙃
+					</Text>
+				</div>
+			</div>
 			<Grid.Container gap={2}>
 				<Grid xs>
 					<div>
@@ -126,68 +84,51 @@ const Hero = (props: any) => {
 							}
 						</Text>
 						<br />
-						<Table>
-							<Table.Header>
-								<Table.Column>Basic Information</Table.Column>
-								{/* <Table.Column></Table.Column> */}
-								<Table.Column> </Table.Column>
-							</Table.Header>
-							<Table.Body>
-								<Table.Row key="1">
-									<Table.Cell>
-										<Text weight="semibold">Date of Birth</Text>
-									</Table.Cell>
-									<Table.Cell>
-										<Text>Apr 21, 1999</Text>
-									</Table.Cell>
-								</Table.Row>
-								<Table.Row key="2">
-									<Table.Cell>
-										<Text weight="semibold">E-mail</Text>
-									</Table.Cell>
-									<Table.Cell>
-										<Text>
-											<a href="mailto:sushrit@skillshack.dev">
-												sushrit@skillshack.dev
-											</a>
-										</Text>
-									</Table.Cell>
-								</Table.Row>
-								<Table.Row key="3">
-									<Table.Cell>
-										<Text weight="semibold">Phone</Text>
-									</Table.Cell>
-									<Table.Cell>
-										<Text>
-											<a href="tel:+919182362040">+91 9182362040</a>
-										</Text>
-									</Table.Cell>
-								</Table.Row>
-								<Table.Row key="4">
-									<Table.Cell>
-										<Text weight="semibold">CEO & CTO</Text>
-									</Table.Cell>
-									<Table.Cell>
-										<Text>
-											<a href="https://www.skillshack.dev/">Braggi Solutions</a>
-										</Text>
-									</Table.Cell>
-								</Table.Row>
-							</Table.Body>
-						</Table>
+						<div style={{ display: "flex", flexDirection: "column", gap: "0.75rem", marginTop: "1rem" }}>
+							<div>
+								<Text weight="semibold">Date of Birth</Text>
+								<Text>Apr 21, 1999</Text>
+							</div>
+							<div>
+								<Text weight="semibold">E-mail</Text>
+								<Text>
+									<a href="mailto:sushrit@skillshack.dev">sushrit@skillshack.dev</a>
+								</Text>
+							</div>
+							<div>
+								<Text weight="semibold">Phone</Text>
+								<Text>
+									<a href="tel:+919182362040">+91 9182362040</a>
+								</Text>
+							</div>
+							<div>
+								<Text weight="semibold">CEO & CTO</Text>
+								<Text>
+									<a href="https://www.skillshack.dev/">Braggi Solutions</a>
+								</Text>
+							</div>
+						</div>
 					</div>
 				</Grid>
-				<Grid xs={0} md>
+				{/* <Grid xs={0} md>
 					<div>
 						<Card>
-							<Card.Body css={{ p: 0 }}>
-								<img src={"assets/hero-2.jpg"} alt="Sushrit Pasupuleti" />
+							<Card.Body css={{ padding: 0 }}>
+								<div style={{ position: "relative", width: "100%", height: "220px" }}>
+									<Image
+										src="/assets/hero-2.jpg"
+										alt="Sushrit Pasupuleti"
+										layout="fill"
+										objectFit="cover"
+										style={{ borderRadius: "8px" }}
+									/>
+								</div>
 							</Card.Body>
 						</Card>
 					</div>
-				</Grid>
+				</Grid> */}
 			</Grid.Container>
-			<Grid xs md={0}>
+			{/* <Grid xs md={0}>
 				<div>
 					<Card
 						style={
@@ -196,12 +137,20 @@ const Hero = (props: any) => {
 							}
 						}
 					>
-						<Card.Body css={{ p: 0 }}>
-							<img src={"assets/hero-2.jpg"} alt="Sushrit Pasupuleti" />
+						<Card.Body css={{ padding: 0 }}>
+							<div style={{ position: "relative", width: "100%", height: "220px" }}>
+								<Image
+									src="/assets/hero-2.jpg"
+									alt="Sushrit Pasupuleti"
+									layout="fill"
+									objectFit="cover"
+									style={{ borderRadius: "8px" }}
+								/>
+							</div>
 						</Card.Body>
 					</Card>
 				</div>
-			</Grid>
+			</Grid> */}
 			<Grid.Container
 				// display="flex"
 				justify="center"
