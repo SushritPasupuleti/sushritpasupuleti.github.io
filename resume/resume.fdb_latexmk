@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1756028654.96201 "/home/sushrit_lawliet/code/sushritpasupuleti.github.io/resume/resume.tex" "resume.pdf" "resume" 1756028655.27785 0
-  "/home/sushrit_lawliet/code/sushritpasupuleti.github.io/resume/resume.tex" 1756028654.4113 31083 0e0818575462b975e53094ab02bbb8cf ""
+["pdflatex"] 1756031021.93377 "/home/sushrit_lawliet/code/sushritpasupuleti.github.io/resume/resume.tex" "resume.pdf" "resume" 1756031022.26334 0
+  "/home/sushrit_lawliet/code/sushritpasupuleti.github.io/resume/resume.tex" 1756031021.79126 30717 af9f3d80515ea907087f69c713867c4b ""
   "/nix/store/d753aznrxpa8zpzpw744n613qg3nvppw-texlive-2024-env-texmfdist/fonts/enc/dvips/sourcesanspro/a_4jropk.enc" 1 3267 177411e539fcc6ace86309ff03b22da6 ""
   "/nix/store/d753aznrxpa8zpzpw744n613qg3nvppw-texlive-2024-env-texmfdist/fonts/enc/dvips/sourcesanspro/a_5ponh6.enc" 1 3344 37c976a8b2fa4b8f132a488735054f7d ""
   "/nix/store/d753aznrxpa8zpzpw744n613qg3nvppw-texlive-2024-env-texmfdist/fonts/enc/dvips/sourcesanspro/a_emkxm5.enc" 1 3021 665788e9679767ade2a71155215d25e0 ""
@@ -111,9 +111,9 @@
   "/nix/store/lrmcp9kk2ixkzjvwjwk9s80q9l3vfgmd-texlive-2024-env/share/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1 5467241 8c6df9e1f3cc61811672f73972d30e48 ""
   "/nix/store/lrmcp9kk2ixkzjvwjwk9s80q9l3vfgmd-texlive-2024-env/share/texmf-var/web2c/pdftex/pdflatex.fmt" 1 3353348 632aa7dc27215f76e3e424350c69409b ""
   "/nix/store/lrmcp9kk2ixkzjvwjwk9s80q9l3vfgmd-texlive-2024-env/share/texmf-var/web2c/texmf.cnf" 1 43655 30e52bc23269b888195d52aa78d64a02 ""
-  "resume.aux" 1756028655.23831 1214 d4b4193d0ed89a4c1c23e9e11471410a "pdflatex"
-  "resume.out" 1756028655.23831 1277 20cca151e3d0cd6c6d3a73aaed368ce5 "pdflatex"
-  "resume.tex" 1756028654.4113 31083 0e0818575462b975e53094ab02bbb8cf ""
+  "resume.aux" 1756031022.22326 1214 d4b4193d0ed89a4c1c23e9e11471410a "pdflatex"
+  "resume.out" 1756031022.22326 1277 20cca151e3d0cd6c6d3a73aaed368ce5 "pdflatex"
+  "resume.tex" 1756031021.79126 30717 af9f3d80515ea907087f69c713867c4b ""
   (generated)
   "resume.aux"
   "resume.log"
