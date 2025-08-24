@@ -32,6 +32,33 @@ const workExperience: any = [
 		],
 		start: 'Jun 2014',
 		end: 'Present',
+	},
+	{
+		organization: 'ClaimShark',
+		position: 'Technical Solutions Manager',
+		description: `Led technical solution design and implementation for enterprise clients, focusing on AI/ML and scalable systems.`,
+		keywords: [
+			'Architected and developed scalable systems using Go, Rust, and Python.',
+			'Oversaw full-stack development and system architecture for mission-critical applications.',
+			'Collaborated with cross-functional teams to deliver robust solutions.',
+			'Skills: Artificial Intelligence, Machine Learning, Go, Rust, Python, System Architecture, Technical Solution Design, Full-Stack Development'
+		],
+		start: 'May 2025',
+		end: 'Present',
+		location: 'Telangana, India'
+	},
+	{
+		organization: 'ClaimShark',
+		position: 'Senior Principal Architect - Technical',
+		description: `Drove technical strategy and architecture for core products in a hybrid environment.`,
+		keywords: [
+			'Designed and implemented AI/ML pipelines and full-stack solutions using Go, Rust, Python, Node.js.',
+			'Worked in a hybrid environment, collaborating with teams in Hyderabad.',
+			'Skills: Artificial Intelligence, Machine Learning, Full-Stack Development, Go, Rust, Python, Node.js, System Architecture'
+		],
+		start: 'Apr 2024',
+		end: 'Jun 2025',
+		location: 'Hyderabad, Telangana, India (Hybrid)'
 	}
 ]
 
