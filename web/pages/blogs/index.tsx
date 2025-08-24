@@ -25,10 +25,10 @@ export const getStaticProps: GetStaticProps = async () => {
   const postsDir = path.join(process.cwd(), "public", "blogs");
   const files = fs.readdirSync(postsDir).filter(f => f.endsWith(".md"));
   const authorsYmlPath = path.join(postsDir, "authors.yml");
-  let authorsMap = {};
+  let authorsMap: Record<string, any> = {};
   if (fsExtra.existsSync(authorsYmlPath)) {
     const authorsYml = fsExtra.readFileSync(authorsYmlPath, "utf8");
-    authorsMap = yaml.load(authorsYml);
+    authorsMap = yaml.load(authorsYml) as Record<string, any>;
   }
   const posts = files.map(filename => {
     const filePath = path.join(postsDir, filename);

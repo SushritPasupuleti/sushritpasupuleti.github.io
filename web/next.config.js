@@ -15,7 +15,8 @@ const nextConfig = {
 		],
 		unoptimized: true,
 	},
-	assetPrefix: './'
+	assetPrefix: './',
+	output: 'export',
 }
 
 module.exports = nextConfig

@@ -44,12 +44,6 @@ const Navbar: React.FC<NavbarProps> = ({ isMobile }) => {
             color="secondary"
             auto
             icon={<MdArticle style={{ height: "1.5rem", width: "1.5rem" }} />}
-            css={{
-              background: "var(--nextui-colors-secondarySolidHover)",
-              color: "white",
-              fontWeight: "bold",
-              boxShadow: "0 2px 8px 0 rgba(0,0,0,0.08)",
-            }}
           >
             Blogs
           </Button>
@@ -89,10 +83,16 @@ const Navbar: React.FC<NavbarProps> = ({ isMobile }) => {
       </div>
       <Button
         auto
-        light
+        bordered
         aria-label="Toggle theme"
         onClick={() => setTheme(isDark ? "light" : "dark")}
-        css={{ minWidth: "40px", padding: 0, background: "transparent" }}
+        css={{
+          minWidth: "40px",
+          padding: 0,
+          background: "transparent",
+          ml: "1rem",
+          borderColor: isDark ? "#f5d76e" : "#222",
+        }}
       >
         {isDark ? (
           <FiSun size={22} color="#f5d76e" />
