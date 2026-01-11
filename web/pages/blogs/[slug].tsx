@@ -50,6 +50,14 @@ const BlogPost = ({
   cover_img_url?: string;
   description?: string;
 }) => (
+  <>
+    <Head>
+      <title>{title}</title>
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      {cover_img_url && <meta property="og:image" content={cover_img_url} />}
+      <meta property="og:type" content="article" />
+    </Head>
     <Card
       css={{
         maxWidth: "100vw",
@@ -91,6 +99,7 @@ const BlogPost = ({
         </div>
       </Card.Body>
     </Card>
+  </>
 );
 
 export default BlogPost;
