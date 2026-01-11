@@ -10,6 +10,7 @@ import Breadcrumbs from "../../src/components/Breadcrumbs";
 import ShareSheet from "../../src/components/ShareSheet";
 import ReactMarkdown from "react-markdown";
 import rehypeSanitize from "rehype-sanitize";
+import rehypeVideo from 'rehype-video';
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const postsDir = path.join(process.cwd(), "public", "blogs");
@@ -80,7 +81,7 @@ const BlogPost = ({
             {date}
           </Text>
           <div style={{ width: "100%", maxWidth: "100%", overflowX: "auto" }}>
-            <ReactMarkdown rehypePlugins={[rehypeSanitize]}>{content}</ReactMarkdown>
+            <ReactMarkdown rehypePlugins={[rehypeSanitize, rehypeVideo]}>{content}</ReactMarkdown>
           </div>
           <ShareSheet
             url={typeof window !== "undefined" ? window.location.href : ""}

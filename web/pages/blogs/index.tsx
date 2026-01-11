@@ -34,13 +34,22 @@ export const getStaticProps: GetStaticProps = async () => {
     const filePath = path.join(postsDir, filename);
     const fileContent = fs.readFileSync(filePath, "utf8");
     const { data } = matter(fileContent);
+
+    let coverImgUrl = data.cover_img_url || "";
+    if (coverImgUrl && !coverImgUrl.startsWith("http")) {
+      const localPath = path.join(process.cwd(), "public", coverImgUrl);
+      if (fs.existsSync(localPath)) {
+        coverImgUrl = "/" + coverImgUrl.replace(/^\/|\/$/g, "");
+      }
+    }
+
     return {
       slug: data.slug || filename.replace(/\.md$/, ""),
       title: data.title || filename,
       authors: data.authors || "",
       tags: Array.isArray(data.tags) ? data.tags : [],
       date: data.date || "",
-      cover_img_url: data.cover_img_url || "",
+      cover_img_url: coverImgUrl,
       authorsMap,
     };
   });

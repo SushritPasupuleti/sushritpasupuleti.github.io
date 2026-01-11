@@ -7013,6 +7013,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"rehype-video@npm:^2.3.1":
+  version: 2.3.1
+  resolution: "rehype-video@npm:2.3.1"
+  dependencies:
+    unified: "npm:^11.0.0"
+    unist-util-visit: "npm:^5.0.0"
+  checksum: 10c0/33641156ed9eb4881a7bec8af88ca4b7fea818cbe45ae33cad42e977939f753327fcc05999394e7ba9eae7f37cd8cb41804ec128d95b32c8bc77040057b7a782
+  languageName: node
+  linkType: hard
+
 "remark-parse@npm:^11.0.0":
   version: 11.0.0
   resolution: "remark-parse@npm:11.0.0"
@@ -8036,6 +8046,7 @@ __metadata:
     react-icons: "npm:^5.5.0"
     react-markdown: "npm:^10.1.0"
     rehype-sanitize: "npm:^6.0.0"
+    rehype-video: "npm:^2.3.1"
     typescript: "npm:^5.9.2"
   languageName: unknown
   linkType: soft
