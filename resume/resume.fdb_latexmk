@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1775214261.82459 "/Users/sushrit_lawliet/Documents/GitHub/sushritpasupuleti.github.io/resume/resume.tex" "resume.pdf" "resume" 1775214262.53485 0
-  "/Users/sushrit_lawliet/Documents/GitHub/sushritpasupuleti.github.io/resume/resume.tex" 1775214261.55905 30732 e986bae419890f49d9e1cca0739f277a ""
+["pdflatex"] 1775214486.79024 "/Users/sushrit_lawliet/Documents/GitHub/sushritpasupuleti.github.io/resume/resume.tex" "resume.pdf" "resume" 1775214487.50266 0
+  "/Users/sushrit_lawliet/Documents/GitHub/sushritpasupuleti.github.io/resume/resume.tex" 1775214486.58624 30769 e1b27032943848edf436dc6d9e483ef3 ""
   "/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/fonts/enc/dvips/sourcesanspro/a_4jropk.enc" 1772380719 3267 177411e539fcc6ace86309ff03b22da6 ""
   "/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/fonts/enc/dvips/sourcesanspro/a_5ponh6.enc" 1772380719 3344 37c976a8b2fa4b8f132a488735054f7d ""
   "/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/fonts/enc/dvips/sourcesanspro/a_emkxm5.enc" 1772380719 3021 665788e9679767ade2a71155215d25e0 ""
@@ -107,9 +107,9 @@
   "/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/tex/latex/xkeyval/xkeyval.sty" 1772380719 5006 d7e899bb5d9717c7f214e9bc0284de7b ""
   "/opt/homebrew/Cellar/texlive/20260301/share/texmf-dist/web2c/texmf.cnf" 1772380719 43633 14bbc273cebd985e64ab1a698333eaf9 ""
   "/opt/homebrew/Cellar/texlive/20260301/share/texmf-var/web2c/pdftex/pdflatex.fmt" 1772380719 3636956 5168b884cb430e6a6336cfea08fa659a ""
-  "resume.aux" 1775214262.4535 1214 d4b4193d0ed89a4c1c23e9e11471410a "pdflatex"
-  "resume.out" 1775214262.45413 1277 20cca151e3d0cd6c6d3a73aaed368ce5 "pdflatex"
-  "resume.tex" 1775214261.55905 30732 e986bae419890f49d9e1cca0739f277a ""
+  "resume.aux" 1775214487.42751 1214 d4b4193d0ed89a4c1c23e9e11471410a "pdflatex"
+  "resume.out" 1775214487.42819 1277 20cca151e3d0cd6c6d3a73aaed368ce5 "pdflatex"
+  "resume.tex" 1775214486.58624 30769 e1b27032943848edf436dc6d9e483ef3 ""
   (generated)
   "resume.aux"
   "resume.log"

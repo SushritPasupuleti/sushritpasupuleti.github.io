@@ -57,7 +57,7 @@ const workExperience: any = [
 			'Skills: Artificial Intelligence, Machine Learning, Full-Stack Development, Go, Rust, Python, Node.js, System Architecture'
 		],
 		start: 'Apr 2024',
-		end: 'Jun 2025',
+		end: 'May 2025',
 		location: 'Hyderabad, Telangana, India (Hybrid)'
 	}
 ]
