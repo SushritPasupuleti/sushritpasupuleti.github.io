@@ -39,7 +39,7 @@ const projectsList: any = [
 			'Docker'
 		],
 		start: 'Feb 2021',
-		end: 'Present',
+		end: 'Apr 2024',
 		link: 'https://skillshack.dev/',
 		linkText: 'See Live',
 		images: [
@@ -67,8 +67,8 @@ const projectsList: any = [
 			'Full TypeScript Monorepo (via Turborepo) with 90% code sharing between web and mobile platforms',
 			'Infrastructure as Code using Terraform',
 		],
-		start: 'August 2022',
-		end: 'Present',
+		start: 'Aug 2022',
+		end: 'Apr 2024',
 		tags: [
 			'ReactJS',
 			'NextJS',
@@ -116,8 +116,8 @@ const projectsList: any = [
 			'AWS (EC2, SQS, Lambda, RDS), GitHub Actions for CI/CD',
 			'Pytorch based Machine Learning Pipeline',
 		],
-		start: 'August 2023',
-		end: 'Present',
+		start: 'Aug 2023',
+		end: 'Apr 2024',
 		tags: [
 			"Go",
 			"Go-chi",
@@ -148,8 +148,8 @@ const projectsList: any = [
 			'Currently in development',
 			'Open Source',
 		],
-		start: 'April 2023',
-		end: 'Present',
+		start: 'Apr 2023',
+		end: 'Apr 2024',
 		link: 'https://github.com/SushritPasupuleti/Rusty-Activity-Pub',
 		linkText: 'See on GitHub',
 		tags: [
@@ -208,8 +208,8 @@ const projectsList: any = [
 			'Currently Rebuilding the Application to scale to Nation-Party Level for more minute control capable of handling Country-wide voter data.',
 			// '2.0 Stack: AWS (Fargate, ELB, RDS) with React Native (Expo) Monorepo that houses Mobile and Web (NextJS) Platforms with 90% code sharing',
 		],
-		start: 'March 2017',
-		end: 'August 2022',
+		start: 'Mar 2017',
+		end: 'Aug 2022',
 		tags: [
 			'ReactJS',
 			'NextJS',
@@ -243,8 +243,8 @@ const projectsList: any = [
 			'Product Management',
 			'Maintaining this Project to this day'
 		],
-		start: 'March 2020',
-		end: 'January 2021',
+		start: 'Mar 2020',
+		end: 'Jan 2021',
 		tags: [
 			'ReactJS',
 			'React-Redux',
@@ -280,8 +280,8 @@ const projectsList: any = [
 			'Handing training and testing of the chatbot',
 			'Open Sourced a community version',
 		],
-		start: 'March 2015',
-		end: 'March 2017',
+		start: 'Mar 2015',
+		end: 'Mar 2017',
 		tags: [
 			'ReactJS',
 			'React-Redux',
@@ -314,8 +314,8 @@ const projectsList: any = [
 			'Build new features and made bug fixes based on user feedback.',
 			'Product Management',
 		],
-		start: 'March 2015',
-		end: 'September 2015',
+		start: 'Mar 2015',
+		end: 'Sep 2015',
 		tags: [
 			'ReactJS',
 			'Arduino',

@@ -31,10 +31,10 @@ const workExperience: any = [
 			'Marketing and Outreach (Produced YouTube Videos and Blogs detailed below)'
 		],
 		start: 'Jun 2014',
-		end: 'Present',
+		end: 'Apr 2024',
 	},
 	{
-		organization: 'ClaimShark',
+		organization: 'iSpace (ClaimShark)',
 		position: 'Technical Solutions Manager',
 		description: `Led technical solution design and implementation for enterprise clients, focusing on AI/ML and scalable systems.`,
 		keywords: [
@@ -48,7 +48,7 @@ const workExperience: any = [
 		location: 'Telangana, India'
 	},
 	{
-		organization: 'ClaimShark',
+		organization: 'iSpace (ClaimShark)',
 		position: 'Senior Principal Architect - Technical',
 		description: `Drove technical strategy and architecture for core products in a hybrid environment.`,
 		keywords: [

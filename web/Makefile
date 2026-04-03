@@ -10,3 +10,5 @@ prepare: build
 	@cp -r out/* ../
 	@echo "Preparation complete"
 
+do: build prepare
+	@echo "Deployment ready!"
