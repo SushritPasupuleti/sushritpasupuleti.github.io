@@ -1,95 +1,54 @@
-import { Collapse, Text, Grid, Avatar, Link, Spacer, Table, Col, Row, User, Button } from "@nextui-org/react";
 import SkillKeywords from "../Skills/Keywords";
-import { Send, Setting, Paper } from "react-iconly";
+import { BsGithub } from "react-icons/bs";
+import { useTerminalTheme, mono } from "../../../terminal-theme";
 
 const tools: Array<String> = [
-	"NixOS",
-	"Neovim",
-	"tmux",
-	"lazygit",
-	"ranger",
-	"proxmox",
-	"pgAdmin",
-	"Postman",
-	"fish",
-	"kitty",
-	"And More..."
+	"NixOS", "Neovim", "tmux", "lazygit", "ranger", "proxmox",
+	"pgAdmin", "Postman", "fish", "kitty", "And More..."
 ];
 
 const toolsPM: Array<String> = [
-	"Jira",
-	"Confluence",
-	"Asana",
-	"Slack w/ Webhooks",
-	"GSuite",
-	"Office 365",
-	"GitHub Actions",
-	"And More..."
-]
+	"Jira", "Confluence", "Asana", "Slack w/ Webhooks",
+	"GSuite", "Office 365", "GitHub Actions", "And More..."
+];
 
 export default function Tools() {
+	const { c } = useTerminalTheme();
+	const linkStyle: React.CSSProperties = {
+		color: c.cyan,
+		fontFamily: mono,
+		fontSize: "0.85rem",
+		border: `1px solid ${c.border}`,
+		padding: "0.35rem 0.75rem",
+		borderRadius: "3px",
+		textDecoration: "none",
+		display: "inline-flex",
+		alignItems: "center",
+		gap: "0.4rem",
+		marginRight: "0.75rem",
+		marginTop: "0.75rem",
+	};
 	return (
 		<div>
-			<Text h1>
-				{`
-			Tools I use
-			`}
-				<Spacer y={0.5} />
-			</Text>
-			<div
-				style={{
-					display: "flex",
-					flexDirection: "column",
-					justifyContent: "center",
-					alignItems: "center",
-				}}
-			>
-				<Text h3>
-					OS, Editors, Terminals, Servers, and More
-				</Text>
-				<Spacer y={0.5} />
-				<SkillKeywords skills={tools} />
-				<Spacer y={1.5} />
-				<Text h3>
-					Productivity & Product Management
-				</Text>
-				<Spacer y={0.5} />
-				<SkillKeywords skills={toolsPM} />
-				<a href="https://github.com/SushritPasupuleti/dots">
-					<Button
-						shadow
-						auto
-						style={{
-							marginTop: "1rem",
-							width: "auto",
-							// alignSelf: "start",
-							// marginLeft: "1rem",
-						}}
-						iconRight={
-							<Setting set="bold" primaryColor="white" />
-						}
-					>
-						View on GitHub
-					</Button>
+			<h2 style={{ color: c.green, fontFamily: mono, fontSize: "1.15rem", fontWeight: 600, margin: "0 0 0.75rem 0" }}>
+				<span style={{ color: c.dim, fontSize: "0.8em" }}>## </span>Tools I Use
+			</h2>
+			<h4 style={{ color: c.textBright, fontFamily: mono, fontSize: "0.9rem", fontWeight: 400, margin: "0 0 0.5rem 0" }}>
+				OS, Editors, Terminals, Servers, and More
+			</h4>
+			<SkillKeywords skills={tools} />
+			<h4 style={{ color: c.textBright, fontFamily: mono, fontSize: "0.9rem", fontWeight: 400, margin: "1.25rem 0 0.5rem 0" }}>
+				Productivity &amp; Product Management
+			</h4>
+			<SkillKeywords skills={toolsPM} />
+			<div style={{ marginTop: "1rem" }}>
+				<a href="https://github.com/SushritPasupuleti/dots" style={linkStyle}>
+					<BsGithub /> View Dotfiles on GitHub
 				</a>
-				<a href="https://sushritpasupuleti.github.io/personal-docs/">
-					<Button
-						shadow
-						auto
-						style={{
-							marginTop: "1rem",
-							width: "auto",
-							// alignSelf: "start",
-							// marginLeft: "1rem",
-						}}
-						iconRight={
-							<Paper set="bold" primaryColor="white" />
-						}
-					>
-						My Personal Docs
-					</Button>
+				<a href="https://sushritpasupuleti.github.io/personal-docs/" style={linkStyle}>
+					📄 My Personal Docs
 				</a>
 			</div>
 		</div>
-	)
+	);
 }

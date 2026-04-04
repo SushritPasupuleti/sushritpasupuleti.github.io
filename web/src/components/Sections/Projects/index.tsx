@@ -1,7 +1,7 @@
 import * as React from 'react'
-import { Grid, Card, Text, Button, Table, Spacer, Row, Col } from "@nextui-org/react";
 import ProjectsList from './ProjectsList';
-import { Send } from "react-iconly";
+import { BsGithub } from "react-icons/bs";
+import { useTerminalTheme, mono } from "../../../terminal-theme";
 
 const projectsList: any = [
 	{
@@ -327,44 +327,35 @@ const projectsList: any = [
 ]
 
 function Projects() {
-
+	const { c } = useTerminalTheme();
+	const linkStyle: React.CSSProperties = {
+		color: c.cyan,
+		fontFamily: mono,
+		fontSize: "0.85rem",
+		border: `1px solid ${c.border}`,
+		padding: "0.35rem 0.75rem",
+		borderRadius: "3px",
+		textDecoration: "none",
+		display: "inline-flex",
+		alignItems: "center",
+		gap: "0.4rem",
+	};
 	return (
 		<div>
-			<Text h1>
-				{`
-					Projects
-				`}
-			</Text>
-			<Spacer y={1} />
-
-			<Text>
-				<b>Note: </b>
-				{`I work on a lot of projects, and listing all of them here would make this page too long. So if you're interested in seeing more of my work, check out my GitHub profile.`}
-			</Text>
-			<Spacer y={1} />
-			<Text>
-				{`The most recent repositories should show you where most of my efforts are going, as well as my experiments with new languages/technologies. Some repositories may also be private, as such, feel free to contact me to learn more!`}
-			</Text>
-			<Spacer y={1} />
-			<a href={`https://github.com/SushritPasupuleti?tab=repositories`}>
-				<Button shadow auto rounded color="secondary"
-					iconRight={
-						<Send set="bold" primaryColor="white" />
-					}
-				>
-					<Text
-						css={{ color: "inherit" }}
-						size={12}
-						weight="bold"
-						transform="uppercase"
-					>
-						Visit GitHub
-					</Text>
-				</Button>
+			<h2 style={{ color: c.green, fontFamily: mono, fontSize: "1.15rem", fontWeight: 600, margin: "0 0 0.75rem 0" }}>
+				<span style={{ color: c.dim, fontSize: "0.8em" }}>## </span>Projects
+			</h2>
+			<p style={{ color: c.text, fontFamily: mono, fontSize: "0.85rem", margin: "0 0 0.5rem 0" }}>
+				<b style={{ color: c.textBright }}>Note: </b>
+				I work on a lot of projects, and listing all of them here would make this page too long. So if you&apos;re interested in seeing more of my work, check out my GitHub profile.
+			</p>
+			<p style={{ color: c.text, fontFamily: mono, fontSize: "0.85rem", margin: "0 0 0.75rem 0" }}>
+				The most recent repositories should show you where most of my efforts are going, as well as my experiments with new languages/technologies. Some repositories may also be private, as such, feel free to contact me to learn more!
+			</p>
+			<a href="https://github.com/SushritPasupuleti?tab=repositories" style={linkStyle}>
+				<BsGithub /> Visit GitHub
 			</a>
-			<Spacer y={1} />
-			<Card.Divider />
-			<Spacer y={1} />
+			<div style={{ borderTop: `1px dashed ${c.separator}`, margin: "1rem 0" }} />
 			<ProjectsList projectsList={projectsList} />
 		</div>
 	)

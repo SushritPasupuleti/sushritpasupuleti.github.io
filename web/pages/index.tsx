@@ -1,15 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head';
-import styles from '../styles/Home.module.css';
-import {
-	Container,
-	Button,
-	Input,
-	Spacer,
-	Text,
-	Card,
-	Link
-} from '@nextui-org/react';
+import Link from 'next/link';
 import Hero from '../src/components/Hero';
 import TedxSection from '../src/components/Sections/TedX';
 import SkillsSection from '../src/components/Sections/Skills';
@@ -21,94 +12,169 @@ import BlogsSection from '../src/components/Sections/Blogs';
 import HomeSEO from '../src/components/SEO';
 import ExtraSection from '../src/components/Sections/Extra';
 import CertificatesSection from '../src/components/Sections/Certificates';
+import Navbar from '../src/components/Navbar';
+import { useTerminalTheme, mono } from '../src/terminal-theme';
+import { FiSun, FiMoon } from 'react-icons/fi';
 
 const Home: NextPage = () => {
+	const { isDark, c, setTheme } = useTerminalTheme();
 	return (
-		<div className={styles.container}>
+		<>
 			<HomeSEO />
 			<Head>
 				<title>Sushrit Pasupuleti - Resume</title>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<Container
-				as="main"
-				display="flex"
-				direction="column"
-				justify="center"
-				alignItems="center"
-			// style={{ height: '100vh' }}
+			<Navbar />
+			<div
+				className="terminal-container"
+				style={{
+					maxWidth: "900px",
+					margin: "0 auto",
+					paddingTop: "4.5rem",
+					paddingLeft: "1.5rem",
+					paddingRight: "1.5rem",
+					paddingBottom: "2rem",
+					fontFamily: mono,
+					color: c.text,
+					minHeight: "100vh",
+				}}
 			>
-				<Spacer />
-				<header>
-					<Hero />
-				</header>
-				<section style={{
-					maxWidth: '1000px',
-				}}>
-					<TedxSection />
-				</section>
-				<Spacer y={3} />
-				<Spacer y={3} />
-				<section style={{
-					maxWidth: '1000px',
-				}}>
-					<SkillsSection />
-				</section>
-				<Spacer y={3} />
-				<section style={{
-					maxWidth: '1000px',
-				}}>
-					<ToolsSection />
-				</section>
-				<Spacer y={3} />
-				<section style={{
-					maxWidth: '1000px',
-				}}>
-					<WorkExperienceSection />
-				</section>
-				<Spacer y={3} />
-				<section style={{
-					maxWidth: '1000px',
-				}}>
-					<ProjectsSection />
-				</section>
-				<Spacer y={3} />
-				<section style={{
-					maxWidth: '1000px',
-				}}>
-					<CertificatesSection />
-				</section>
-				<Spacer y={3} />
-				<section style={{
-					maxWidth: '1000px',
-				}}>
-					<ExtraSection />
-				</section>
-				<Spacer y={3} />
-				<section style={{
-					maxWidth: '1000px',
-				}}>
-					<BlogsSection />
-				</section>
-				<Spacer y={3} />
-				<section style={{
-					maxWidth: '1000px',
-				}}>
-					<VideosSection />
-				</section>
-				<Spacer y={3} />
-				<Card.Divider style={{
-					width: '100%',
-				}} />
-				<footer>
-					<Spacer y={1} />
-					<Text>
+				{/* Terminal window bar */}
+				<div
+					style={{
+						background: c.titleBar,
+						border: `1px solid ${c.border}`,
+						borderBottom: "none",
+						borderRadius: "6px 6px 0 0",
+						padding: "0.5rem 1rem",
+						display: "flex",
+						alignItems: "center",
+						gap: "0.5rem",
+					}}
+				>
+					<span style={{ width: 12, height: 12, borderRadius: "50%", background: "#ff5f57", display: "inline-block" }} />
+					<span style={{ width: 12, height: 12, borderRadius: "50%", background: "#febc2e", display: "inline-block" }} />
+					<span style={{ width: 12, height: 12, borderRadius: "50%", background: "#28c840", display: "inline-block" }} />
+					<span style={{ marginLeft: "1rem", color: c.muted, fontSize: "0.75rem", flex: 1 }}>
+						~/sushrit-pasupuleti
+					</span>
+					<button
+						onClick={() => setTheme(isDark ? "light" : "dark")}
+						aria-label="Toggle theme"
+						style={{
+							background: "transparent",
+							border: `1px solid ${c.border}`,
+							borderRadius: "3px",
+							cursor: "pointer",
+							padding: "0.25rem 0.4rem",
+							display: "inline-flex",
+							alignItems: "center",
+							justifyContent: "center",
+							color: c.muted,
+							transition: "color 0.15s, border-color 0.15s",
+						}}
+						onMouseEnter={(e) => {
+							(e.currentTarget as HTMLButtonElement).style.color = c.green;
+							(e.currentTarget as HTMLButtonElement).style.borderColor = c.green;
+						}}
+						onMouseLeave={(e) => {
+							(e.currentTarget as HTMLButtonElement).style.color = c.muted;
+							(e.currentTarget as HTMLButtonElement).style.borderColor = c.border;
+						}}
+					>
+						{isDark ? <FiSun size={14} /> : <FiMoon size={14} />}
+					</button>
+				</div>
+
+				{/* Terminal body */}
+				<div
+					style={{
+						background: c.surface,
+						border: `1px solid ${c.border}`,
+						borderRadius: "0 0 6px 6px",
+						padding: "1.5rem",
+					}}
+				>
+					{/* Breadcrumb */}
+					<div style={{ marginBottom: "1.5rem", fontSize: "0.85rem" }}>
+						<span style={{ color: c.green }}>guest@sushrit</span>
+						<span style={{ color: c.muted }}>:</span>
+						<span style={{ color: c.cyan }}>~</span>
+						<span style={{ color: c.muted }}> $ </span>
+						<span style={{ color: c.textBright }}>cat resume.md</span>
+					</div>
+
+					{/* Header ASCII */}
+					<pre style={{
+						color: c.green,
+						fontSize: "0.55rem",
+						lineHeight: 1.2,
+						margin: 0,
+						whiteSpace: "pre",
+						overflowX: "auto",
+						marginBottom: "1rem",
+					}}>
+{`
+ ____  _   _ ____  _   _ ____  ___ _____
+/ ___|| | | / ___|| | | |  _ \\|_ _|_   _|
+\\___ \\| | | \\___ \\| |_| | |_) || |  | |
+ ___) | |_| |___) |  _  |  _ < | |  | |
+|____/ \\___/|____/|_| |_|_| \\_\\___|  |_|
+`}
+					</pre>
+
+					<div style={{ borderTop: `1px dashed ${c.border}`, margin: "1rem 0" }} />
+
+					<header>
+						<Hero />
+					</header>
+
+					<div style={{ borderTop: `1px dashed ${c.separator}`, margin: "2rem 0" }} />
+					<section><TedxSection /></section>
+
+					<div style={{ borderTop: `1px dashed ${c.separator}`, margin: "2rem 0" }} />
+					<section><SkillsSection /></section>
+
+					<div style={{ borderTop: `1px dashed ${c.separator}`, margin: "2rem 0" }} />
+					<section><ToolsSection /></section>
+
+					<div style={{ borderTop: `1px dashed ${c.separator}`, margin: "2rem 0" }} />
+					<section><WorkExperienceSection /></section>
+
+					<div style={{ borderTop: `1px dashed ${c.separator}`, margin: "2rem 0" }} />
+					<section><ProjectsSection /></section>
+
+					<div style={{ borderTop: `1px dashed ${c.separator}`, margin: "2rem 0" }} />
+					<section><CertificatesSection /></section>
+
+					<div style={{ borderTop: `1px dashed ${c.separator}`, margin: "2rem 0" }} />
+					<section><ExtraSection /></section>
+
+					<div style={{ borderTop: `1px dashed ${c.separator}`, margin: "2rem 0" }} />
+					<section><BlogsSection /></section>
+
+					<div style={{ borderTop: `1px dashed ${c.separator}`, margin: "2rem 0" }} />
+					<section><VideosSection /></section>
+
+					{/* Footer */}
+					<div style={{ borderTop: `1px dashed ${c.separator}`, margin: "2rem 0 1rem" }} />
+					<div style={{ fontSize: "0.8rem", color: c.muted, textAlign: "center" }}>
+						<span style={{ color: c.green }}>{"// "}</span>
 						Copyright &copy; {new Date().getFullYear()} Sushrit Pasupuleti. All rights reserved.
-					</Text>
-					<Spacer y={1} />
-				</footer>
-			</Container>
-		</div>
+					</div>
+
+					{/* Terminal prompt at bottom */}
+					<div style={{ marginTop: "2rem", fontSize: "0.85rem" }}>
+						<span style={{ color: c.green }}>guest@sushrit</span>
+						<span style={{ color: c.muted }}>:</span>
+						<span style={{ color: c.cyan }}>~</span>
+						<span style={{ color: c.muted }}> $ </span>
+						<span className="terminal-cursor" style={{ color: c.text }}></span>
+					</div>
+				</div>
+			</div>
+		</>
 	)
 }
 

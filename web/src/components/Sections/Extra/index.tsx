@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Grid, Card, Text, Button, Table, Spacer } from "@nextui-org/react";
+import { useTerminalTheme, mono } from "../../../terminal-theme";
 
 const extra: any = [
 	"Published my first Application (SAM, mentioned above) at the age of 15, all while organically growing a dedicated blog, FB Page to promote it.",
@@ -20,45 +20,30 @@ const extra: any = [
 ]
 
 function ExtraSection() {
-
+	const { c } = useTerminalTheme();
 	return (
 		<div>
-			<Text h2>
-				{`
-					Accomplishments, Brags and Hobbies!
-				`}
-			</Text>
-			<Spacer y={0.5} />
-			<Text h4>
-				{`Cool things I've done and things I like to do in my free time!`}
-			</Text>
-			<Spacer y={1} />
-			{
-				extra.map((item: any, index: number) => {
-					return (
-						<Text key={index}>
-							<li>
-								{item}
-							</li>
-						</Text>
-					)
-				})
-			}
-			<Text size="$xl">
-				<a target="_blank" href="https://knowyourmeme.com/memes/btw-i-use-arch"
-					rel="noreferrer"
-					style={{
-						color: "inherit",
-						textDecoration: "none",
-					}}
-				>
-					<li>
-						<b>
-							I use Arch btw
-						</b>
-					</li>
-				</a>
-			</Text>
+			<h2 style={{ color: c.green, fontFamily: mono, fontSize: "1.15rem", fontWeight: 600, margin: "0 0 0.25rem 0" }}>
+				<span style={{ color: c.dim, fontSize: "0.8em" }}>## </span>Accomplishments, Brags and Hobbies!
+			</h2>
+			<p style={{ color: c.textBright, fontFamily: mono, fontSize: "0.9rem", margin: "0 0 0.75rem 0" }}>
+				Cool things I&apos;ve done and things I like to do in my free time!
+			</p>
+			<ul style={{ margin: 0, paddingLeft: "1.25rem", color: c.text, fontFamily: mono, fontSize: "0.85rem", lineHeight: 1.8 }}>
+				{extra.map((item: any, index: number) => (
+					<li key={index}>{item}</li>
+				))}
+				<li>
+					<a
+						href="https://knowyourmeme.com/memes/btw-i-use-arch"
+						target="_blank"
+						rel="noreferrer"
+						style={{ color: c.green, textDecoration: "none", fontWeight: 700 }}
+					>
+						I use Arch btw
+					</a>
+				</li>
+			</ul>
 		</div>
 	)
 }

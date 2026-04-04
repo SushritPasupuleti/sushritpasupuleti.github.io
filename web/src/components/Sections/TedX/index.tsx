@@ -1,100 +1,81 @@
-import { Card, Col, Row, Button, Text, Spacer } from "@nextui-org/react";
 import Image from "next/image";
-import { Play } from "react-iconly";
+import { useTerminalTheme, mono } from "../../../terminal-theme";
 
-const TedX = (props: any) => (
-	<>
-		<Text h1
-			css={{
-				textGradient: "45deg, $yellow600 -20%, $red600 100%",
-			}}
-		>
-			Featured
-		</Text>
-		<Text h1>
-			My TEDx Talk
-		</Text>
-		<Spacer y={1} />
-		<Card css={{ w: "100%", h: "auto" }}>
-			<Card.Header css={{ position: "absolute", zIndex: 1, top: 5 }}>
-				{/*<Col>
-				<Text size={12} weight="bold" transform="uppercase" color="#ffffffAA">
-					New
-				</Text>
-				<Text h3 color="white">
-					Acme camera
-				</Text>
-			</Col>
-			*/}
-			</Card.Header>
-			<Card.Body css={{ padding: 0 }}>
+const TedX = () => {
+	const { c } = useTerminalTheme();
+	return (
+		<div>
+			<h2 style={{ color: c.green, fontFamily: mono, fontSize: "1.15rem", fontWeight: 600, margin: "0 0 0.25rem 0" }}>
+				<span style={{ color: c.dim, fontSize: "0.8em" }}>## </span>Featured
+			</h2>
+			<h3 style={{ color: c.textBright, fontFamily: mono, fontSize: "1rem", fontWeight: 600, margin: "0 0 1rem 0" }}>
+				My TEDx Talk
+			</h3>
+
+			<div style={{
+				border: `1px solid ${c.border}`,
+				borderRadius: "4px",
+				overflow: "hidden",
+				marginBottom: "1rem",
+			}}>
 				<div style={{ position: "relative", width: "100%", height: "220px" }}>
 					<Image
 						src="/assets/video-bg.jpg"
 						alt="TedX Video - The Big Transition"
 						layout="fill"
 						objectFit="cover"
-						style={{ borderRadius: "8px" }}
 					/>
 				</div>
+				<div style={{
+					padding: "0.75rem 1rem",
+					display: "flex",
+					justifyContent: "space-between",
+					alignItems: "center",
+					flexWrap: "wrap",
+					gap: "0.5rem",
+					background: c.titleBar,
+				}}>
+					<span style={{ color: c.textBright, fontFamily: mono, fontSize: "0.8rem", fontWeight: 600 }}>
+						The Big Transition From Ants to Skynet @TedxSreyasInstitute
+					</span>
+					<a
+						href="https://www.youtube.com/watch?v=0XXque5QdHg"
+						target="_blank"
+						rel="noopener noreferrer"
+						style={{
+							color: c.green,
+							fontFamily: mono,
+							fontSize: "0.8rem",
+							border: `1px solid ${c.green}`,
+							padding: "0.3rem 0.6rem",
+							borderRadius: "3px",
+							textDecoration: "none",
+						}}
+					>
+						▶ Watch Now
+					</a>
+				</div>
+			</div>
 
-			</Card.Body>
-			<Card.Footer
-				isBlurred
-				css={{
-					position: "absolute",
-					background: "#ffffff66",
-					borderTop: "$borderWeights$light solid rgba(255, 255, 255, 0.2)",
-					bottom: 0,
-					zIndex: 1,
-				}}
-			>
-				<Row>
-					<Col>
-						<Text h6 color="#000">
-							The Big Transition From Ants to Skynet @TedxSreyasInstitute
-						</Text>
-					</Col>
-					<Col>
-						<Row justify="flex-end">
-							<a href="https://www.youtube.com/watch?v=0XXque5QdHg">
-								<Button flat auto rounded color="secondary"
-									iconRight={
-										<Play set="bold" primaryColor="blueviolet" />
-									}
-								>
-									<Text
-										css={{ color: "inherit" }}
-										size={12}
-										weight="bold"
-										transform="uppercase"
-									>
-										Watch Now
-									</Text>
-								</Button>
-							</a>
-						</Row>
-					</Col>
-				</Row>
-			</Card.Footer>
-		</Card>
-		<Text blockquote
-			css={{
-				marginTop: "1rem",
-			}}
-		>
-			{
-				`
-			Everyone's watched The Terminator and similar movies where AI enslaves
-			humanity or determines our existence to be what remains in it's way towards a 'perfect'
-			world. With the truck loads of AI enabled products flooding the
-			market every second, the paranoia has been higher than ever.. but is it really that
-			scary as the movies show it to be ? Well here are my views on the 'Terminator fears'.
-
-				`
-			}
-		</Text>
-	</>
-);
+			<blockquote style={{
+				borderLeft: `3px solid ${c.green}`,
+				marginLeft: 0,
+				paddingLeft: "1rem",
+				color: c.muted,
+				fontStyle: "italic",
+				fontFamily: mono,
+				fontSize: "0.85rem",
+				lineHeight: 1.8,
+				margin: "1rem 0",
+			}}>
+				Everyone&apos;s watched The Terminator and similar movies where AI enslaves
+				humanity or determines our existence to be what remains in it&apos;s way towards a &apos;perfect&apos;
+				world. With the truck loads of AI enabled products flooding the
+				market every second, the paranoia has been higher than ever.. but is it really that
+				scary as the movies show it to be ? Well here are my views on the &apos;Terminator fears&apos;.
+			</blockquote>
+		</div>
+	);
+};
 
 export default TedX;

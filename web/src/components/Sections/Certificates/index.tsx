@@ -1,8 +1,6 @@
 import * as React from 'react'
-import { Grid, Card, Text, Button, Table, Spacer } from "@nextui-org/react";
 import CertificatesList from './certificatesList';
-import { Play } from "react-iconly";
-import { BsTwitter, BsGithub, BsYoutube, BsMedium, BsFacebook, BsLinkedin } from "react-icons/bs";
+import { useTerminalTheme, mono } from "../../../terminal-theme";
 
 const coursesList: any = [
 	{
@@ -14,17 +12,15 @@ const coursesList: any = [
 ];
 
 function Certificates() {
+	const { c } = useTerminalTheme();
 	return (
 		<div>
-			<Text h1>
-				{`
-					My Certificates
-				`}
-			</Text>
-			<Text>
-				{`I usually teach myself thing online over first-party Docs or FreeCodeCamp and avoid taking courses so that I can move at my pace. Sometimes however if a course is really good and worth the time I do get into it, like the ones below.`}
-			</Text>
-			<Spacer y={1} />
+			<h2 style={{ color: c.green, fontFamily: mono, fontSize: "1.15rem", fontWeight: 600, margin: "0 0 0.5rem 0" }}>
+				<span style={{ color: c.dim, fontSize: "0.8em" }}>## </span>My Certificates
+			</h2>
+			<p style={{ color: c.text, fontFamily: mono, fontSize: "0.85rem", margin: "0 0 0.75rem 0" }}>
+				I usually teach myself things online over first-party Docs or FreeCodeCamp and avoid taking courses so that I can move at my pace. Sometimes however if a course is really good and worth the time I do get into it, like the ones below.
+			</p>
 			<CertificatesList certificates={coursesList} />
 		</div>
 	)

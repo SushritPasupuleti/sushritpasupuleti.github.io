@@ -1,197 +1,118 @@
-import { Button, Text } from "@nextui-org/react";
 import Link from "next/link";
 import { MdArticle } from "react-icons/md";
-import { useTheme as useNextTheme } from "next-themes";
+import { useTerminalTheme, mono } from "../terminal-theme";
 import { Download } from "react-iconly";
-import { FiSun, FiMoon } from "react-icons/fi";
 import { BsWhatsapp } from "react-icons/bs";
+import { FiSun, FiMoon } from "react-icons/fi";
 import React from "react";
 
-interface NavbarProps {
-  isMobile: boolean;
-}
+const Navbar: React.FC = () => {
+  const { isDark, c, setTheme } = useTerminalTheme();
 
-const Navbar: React.FC<NavbarProps> = ({ isMobile }) => {
-  const { theme, setTheme } = useNextTheme();
-  const isDark = theme === "dark";
-  if (isMobile) {
-    return (
-      <nav
-        style={{
-          width: "100%",
-          left: 0,
-          right: 0,
-          bottom: 0,
-          position: "fixed",
-          display: "flex",
-          justifyContent: "space-around",
-          alignItems: "flex-end",
-          padding: "0.5rem 0.5rem 0.2rem 0.5rem",
-          borderRadius: "1rem 1rem 0 0",
-          boxShadow: isDark ? "0 -2px 16px 0 rgba(31, 38, 135, 0.28)" : "0 -2px 16px 0 rgba(31, 38, 135, 0.18)",
-          border: isDark ? "1px solid rgba(40,40,40,0.38)" : "1px solid rgba(255,255,255,0.18)",
-          background: isDark ? "rgba(30,30,40,0.95)" : "rgba(255,255,255,0.85)",
-          backdropFilter: "blur(8px)",
-          WebkitBackdropFilter: "blur(8px)",
-          zIndex: 999,
-          transition: "background 0.3s, box-shadow 0.3s",
-        }}
-      >
-        <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-          <Link href="/blogs" passHref legacyBehavior>
-            <Button
-              as="a"
-              light
-              auto
-              icon={<MdArticle style={{ height: "1.7rem", width: "1.7rem", color: "var(--nextui-colors-secondary)" }} />}
-              aria-label="Blogs"
-            />
-          </Link>
-          <span style={{ fontSize: "0.85rem", marginTop: "0.2rem", color: isDark ? "#f5d76e" : "var(--nextui-colors-primary)", fontWeight: 500 }}>Blogs</span>
-        </div>
-        <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-          <a href="/resume/resume.pdf">
-            <Button
-              light
-              auto
-              icon={<Download set="bold" primaryColor="white" />}
-              aria-label="Resume"
-            />
-          </a>
-          <span style={{ fontSize: "0.85rem", marginTop: "0.2rem", color: isDark ? "#f5d76e" : "var(--nextui-colors-primary)", fontWeight: 500 }}>Resume</span>
-        </div>
-        <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-          <a href="https://wa.me/919182362040">
-            <Button
-              light
-              auto
-              icon={<BsWhatsapp style={{ height: "1.7rem", width: "1.7rem", color: "var(--nextui-colors-success)" }} />} 
-              aria-label="WhatsApp"
-            />
-          </a>
-          <span style={{ fontSize: "0.85rem", marginTop: "0.2rem", color: isDark ? "#25d366" : "var(--nextui-colors-success)", fontWeight: 500 }}>WhatsApp</span>
-        </div>
-        <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-          <Button
-            light
-            auto
-            aria-label="Toggle theme"
-            onClick={() => setTheme(isDark ? "light" : "dark")}
-            icon={isDark ? <FiSun size={22} color="#f5d76e" /> : <FiMoon size={22} color="#222" />}
-          />
-          <span style={{ fontSize: "0.85rem", marginTop: "0.2rem", color: isDark ? "#f5d76e" : "#222", fontWeight: 500 }}>Theme</span>
-        </div>
-      </nav>
-    );
-  }
-  // Desktop layout
+  const linkStyle: React.CSSProperties = {
+    color: c.muted,
+    fontFamily: mono,
+    fontSize: "0.8rem",
+    textDecoration: "none",
+    padding: "0.3rem 0.6rem",
+    border: `1px solid ${c.border}`,
+    borderRadius: "3px",
+    display: "inline-flex",
+    alignItems: "center",
+    gap: "0.35rem",
+    transition: "color 0.15s, border-color 0.15s",
+  };
+
+  const handleEnter = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    (e.currentTarget as HTMLAnchorElement).style.color = c.green;
+    (e.currentTarget as HTMLAnchorElement).style.borderColor = c.green;
+  };
+  const handleLeave = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    (e.currentTarget as HTMLAnchorElement).style.color = c.muted;
+    (e.currentTarget as HTMLAnchorElement).style.borderColor = c.border;
+  };
+
   return (
     <nav
       style={{
-        width: "100%",
+        position: "fixed",
+        top: 0,
         left: 0,
         right: 0,
-        top: 0,
-        position: "fixed",
+        zIndex: 999,
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
-        padding: "1rem 2rem",
-        borderRadius: "0 0 1rem 1rem",
-        boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.37)",
-        border: "1px solid rgba(255,255,255,0.18)",
-        background: "rgba(255,255,255,0.15)",
-        backdropFilter: "blur(12px)",
-        WebkitBackdropFilter: "blur(12px)",
-        zIndex: 999,
-        transition: "background 0.3s, box-shadow 0.3s",
+        padding: "0.5rem 1.5rem",
+        fontFamily: mono,
+        fontSize: "0.85rem",
+        background: isDark ? "rgba(10,10,10,0.92)" : "rgba(245,245,240,0.92)",
+        borderBottom: `1px solid ${c.border}`,
+        backdropFilter: "blur(8px)",
+        WebkitBackdropFilter: "blur(8px)",
       }}
     >
-      <Link href="/" passHref legacyBehavior>
-        <a style={{
-          fontWeight: "bold",
-          fontSize: "1.5rem",
-          letterSpacing: "0.05em",
-          color: "var(--nextui-colors-primary)",
-          textDecoration: "none",
-          marginRight: "2rem",
-          transition: "color 0.2s",
-        }}>
-          Sushrit Pasupuleti
-        </a>
+      <Link href="/" style={{ color: c.green, textDecoration: "none", fontWeight: 700, fontSize: "0.9rem" }}>
+        <span style={{ color: c.green }}>~</span>
+        <span style={{ color: c.muted }}>/</span>
+        <span style={{ color: c.textBright }}>sushrit</span>
       </Link>
-      <div
-        style={{
-          display: "flex",
-          gap: "1rem",
-          alignItems: "center",
-          flexDirection: "row",
-          width: "auto",
-        }}
-      >
-        <Link href="/blogs" passHref legacyBehavior>
-          <Button
-            as="a"
-            shadow
-            color="secondary"
-            auto
-            icon={<MdArticle style={{ height: "1.5rem", width: "1.5rem" }} />}
-          >
-            Blogs
-          </Button>
+      <div style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
+        <Link
+          href="/blogs"
+          style={linkStyle}
+          onMouseEnter={handleEnter}
+          onMouseLeave={handleLeave}
+        >
+          <MdArticle size={14} />
+          Blogs
         </Link>
-        <a href="/resume/resume.pdf">
-          <Button
-            shadow
-            color="primary"
-            auto
-            icon={<Download set="bold" primaryColor="white" />}
-            css={{
-              background: "var(--nextui-colors-primarySolidHover)",
-              color: "white",
-              fontWeight: "bold",
-              boxShadow: "0 2px 8px 0 rgba(0,0,0,0.08)",
-            }}
-          >
-            Resume
-          </Button>
+        <a
+          href="/resume/resume.pdf"
+          style={linkStyle}
+          onMouseEnter={handleEnter}
+          onMouseLeave={handleLeave}
+        >
+          <Download set="bold" primaryColor="currentColor" size={14} />
+          Resume
         </a>
-        <a href="https://wa.me/919182362040">
-          <Button
-            shadow
-            color="success"
-            auto
-            icon={<BsWhatsapp style={{ height: "1.5rem", width: "1.5rem" }} />} 
-            css={{
-              background: "var(--nextui-colors-successSolidHover)",
-              color: "white",
-              fontWeight: "bold",
-              boxShadow: "0 2px 8px 0 rgba(0,0,0,0.08)",
-            }}
-          >
-            WhatsApp
-          </Button>
+        <a
+          href="https://wa.me/919182362040"
+          style={linkStyle}
+          onMouseEnter={handleEnter}
+          onMouseLeave={handleLeave}
+        >
+          <BsWhatsapp size={14} />
+          WhatsApp
         </a>
+        <button
+          onClick={() => setTheme(isDark ? "light" : "dark")}
+          aria-label="Toggle theme"
+          style={{
+            background: "transparent",
+            border: `1px solid ${c.border}`,
+            borderRadius: "3px",
+            cursor: "pointer",
+            padding: "0.3rem 0.45rem",
+            display: "inline-flex",
+            alignItems: "center",
+            justifyContent: "center",
+            color: c.muted,
+            fontFamily: mono,
+            transition: "color 0.15s, border-color 0.15s",
+          }}
+          onMouseEnter={(e) => {
+            (e.currentTarget as HTMLButtonElement).style.color = c.green;
+            (e.currentTarget as HTMLButtonElement).style.borderColor = c.green;
+          }}
+          onMouseLeave={(e) => {
+            (e.currentTarget as HTMLButtonElement).style.color = c.muted;
+            (e.currentTarget as HTMLButtonElement).style.borderColor = c.border;
+          }}
+        >
+          {isDark ? <FiSun size={14} /> : <FiMoon size={14} />}
+        </button>
       </div>
-      <Button
-        auto
-        bordered
-        aria-label="Toggle theme"
-        onClick={() => setTheme(isDark ? "light" : "dark")}
-        css={{
-          minWidth: "40px",
-          padding: 0,
-          background: "transparent",
-          ml: "1rem",
-          borderColor: isDark ? "#f5d76e" : "#222",
-        }}
-      >
-        {isDark ? (
-          <FiSun size={22} color="#f5d76e" />
-        ) : (
-          <FiMoon size={22} color="#222" />
-        )}
-      </Button>
     </nav>
   );
 };

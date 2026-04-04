@@ -1,8 +1,7 @@
 import * as React from 'react'
-import { Grid, Card, Text, Button, Table, Spacer } from "@nextui-org/react";
 import BlogsList from './BlogsList';
-import { Play } from "react-iconly";
-import { BsTwitter, BsGithub, BsYoutube, BsMedium, BsFacebook, BsLinkedin } from "react-icons/bs";
+import { BsMedium } from "react-icons/bs";
+import { useTerminalTheme, mono } from "../../../terminal-theme";
 
 const blogList: any = [
 	{
@@ -62,36 +61,31 @@ const blogList: any = [
 ];
 
 function Videos() {
+	const { c } = useTerminalTheme();
+	const linkStyle: React.CSSProperties = {
+		color: c.cyan,
+		fontFamily: mono,
+		fontSize: "0.85rem",
+		border: `1px solid ${c.border}`,
+		padding: "0.35rem 0.75rem",
+		borderRadius: "3px",
+		textDecoration: "none",
+		display: "inline-flex",
+		alignItems: "center",
+		gap: "0.4rem",
+	};
 	return (
 		<div>
-			<Text h1>
-				{`
-					Blogs
-				`}
-			</Text>
-			<Text>
-				{`Some of the Blogs I have published. Together they make up for over 150K+ views.`}
-			</Text>
-			<a href="https://medium.com/@sushrit.pk21">
-				<Button
-					auto
-					shadow
-					// size="lg"
-					color="success"
-					style={{
-						marginLeft: '1rem',
-						marginTop: '1rem',
-					}}
-					icon={
-						<BsMedium style={{
-							height: '1.5rem',
-							width: '1.5rem',
-						}} />
-					}>
-					Check out all my Blogs
-				</Button>
+			<h2 style={{ color: c.green, fontFamily: mono, fontSize: "1.15rem", fontWeight: 600, margin: "0 0 0.5rem 0" }}>
+				<span style={{ color: c.dim, fontSize: "0.8em" }}>## </span>Blogs
+			</h2>
+			<p style={{ color: c.text, fontFamily: mono, fontSize: "0.85rem", margin: "0 0 0.75rem 0" }}>
+				Some of the Blogs I have published. Together they make up for over 150K+ views.
+			</p>
+			<a href="https://medium.com/@sushrit.pk21" style={linkStyle}>
+				<BsMedium /> Check out all my Blogs
 			</a>
-			<Spacer y={1} />
+			<div style={{ marginTop: "1rem" }} />
 			<BlogsList blogs={blogList} />
 		</div>
 	)

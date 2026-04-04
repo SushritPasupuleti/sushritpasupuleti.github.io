@@ -1,56 +1,41 @@
-import { Card, Button } from "@nextui-org/react";
-import { Paper } from "react-iconly";
+import { useTerminalTheme, mono } from "../../../terminal-theme";
 
-const CertificateItem = (props: any) => (
-	<div style={{ width: "100%", height: "auto", position: "relative" }}>
-		<Card style={{ width: "100%", height: "auto", position: "relative" }}>
-			<div style={{ position: "absolute", zIndex: 1, top: 5 }} />
-			<div style={{ padding: 0 }}>
-				<embed src={props.url} type="application/pdf" width="100%" height="600px" />
-			</div>
-			<div
-				style={{
-					position: "absolute",
-					background: "rgba(255,255,255,0.4)",
-					borderTop: "1px solid rgba(255,255,255,0.2)",
-					bottom: 0,
-					zIndex: 1,
-					width: "100%",
-					display: "flex",
-					justifyContent: "space-between",
-					alignItems: "center",
-					padding: "0.5rem 1rem"
-				}}
-			>
-				<span style={{ fontWeight: "bold", color: "#000" }}>{props.title}</span>
-				<a href={props.originalUrl} style={{ textDecoration: "none" }}>
-					<Button flat auto rounded color="secondary"
-						iconRight={
-							<Paper set="bold" primaryColor="blueviolet" />
-						}
-					>
-						<span style={{ color: "inherit", fontSize: 12, fontWeight: "bold", textTransform: "uppercase" }}>
-							View Certificate
-						</span>
-					</Button>
+const CertificateItem = (props: any) => {
+	const { c } = useTerminalTheme();
+	return (
+		<div style={{ border: `1px solid ${c.border}`, borderRadius: "4px", overflow: "hidden" }}>
+			<embed src={props.url} type="application/pdf" width="100%" height="600px" />
+			<div style={{ padding: "0.75rem", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "0.5rem" }}>
+				<span style={{ color: c.green, fontFamily: mono, fontSize: "0.9rem", fontWeight: 600 }}>{props.title}</span>
+				<a
+					href={props.originalUrl}
+					style={{
+						color: c.cyan,
+						fontFamily: mono,
+						fontSize: "0.8rem",
+						border: `1px solid ${c.border}`,
+						padding: "0.3rem 0.6rem",
+						borderRadius: "3px",
+						textDecoration: "none",
+					}}
+				>
+					View Certificate
 				</a>
 			</div>
-		</Card>
-		<blockquote style={{ marginTop: "1rem" }}>
-			{props.description}
-		</blockquote>
-	</div>
-);
+			<p style={{ color: c.text, fontFamily: mono, fontSize: "0.85rem", padding: "0 0.75rem 0.75rem", margin: 0, borderLeft: `2px solid ${c.green}`, marginLeft: "0.75rem" }}>
+				{props.description}
+			</p>
+		</div>
+	);
+};
 
 const CertificatesList = (props: any) => (
 	<div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
-		{
-			props.certificates.map((certificate: any, index: number) => (
-				<div style={{ flex: "1 1 45%", minWidth: "300px" }} key={index}>
-					<CertificateItem {...certificate} />
-				</div>
-			))
-		}
+		{props.certificates.map((certificate: any, index: number) => (
+			<div style={{ flex: "1 1 45%", minWidth: "300px" }} key={index}>
+				<CertificateItem {...certificate} />
+			</div>
+		))}
 	</div>
 );
 

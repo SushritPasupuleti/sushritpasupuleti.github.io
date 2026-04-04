@@ -1,8 +1,7 @@
 import * as React from 'react'
-import { Grid, Card, Text, Button, Table, Spacer } from "@nextui-org/react";
 import VideosList from './VideosList';
-import { Play } from "react-iconly";
-import { BsTwitter, BsGithub, BsYoutube, BsMedium, BsFacebook, BsLinkedin } from "react-icons/bs";
+import { BsYoutube } from "react-icons/bs";
+import { useTerminalTheme, mono } from "../../../terminal-theme";
 
 const videosList: any = [
 	{
@@ -57,36 +56,31 @@ const videosList: any = [
 ];
 
 function Videos() {
+	const { c } = useTerminalTheme();
+	const linkStyle: React.CSSProperties = {
+		color: c.cyan,
+		fontFamily: mono,
+		fontSize: "0.85rem",
+		border: `1px solid ${c.border}`,
+		padding: "0.35rem 0.75rem",
+		borderRadius: "3px",
+		textDecoration: "none",
+		display: "inline-flex",
+		alignItems: "center",
+		gap: "0.4rem",
+	};
 	return (
 		<div>
-			<Text h1>
-				{`
-					Videos
-				`}
-			</Text>
-			<Text>
-				{`Some of the videos I have made.`}
-			</Text>
-			<a href="https://www.youtube.com/channel/UCUDlGMaGAQctgQJTRoBHgAw">
-				<Button
-					auto
-					shadow
-					// size="lg"
-					color="error"
-					style={{
-						marginLeft: '1rem',
-						marginTop: '1rem',
-					}}
-					icon={
-						<BsYoutube style={{
-							height: '1.5rem',
-							width: '1.5rem',
-						}} />
-					}>
-					Check out all my videos on YouTube
-				</Button>
+			<h2 style={{ color: c.green, fontFamily: mono, fontSize: "1.15rem", fontWeight: 600, margin: "0 0 0.5rem 0" }}>
+				<span style={{ color: c.dim, fontSize: "0.8em" }}>## </span>Videos
+			</h2>
+			<p style={{ color: c.text, fontFamily: mono, fontSize: "0.85rem", margin: "0 0 0.75rem 0" }}>
+				Some of the videos I have made.
+			</p>
+			<a href="https://www.youtube.com/channel/UCUDlGMaGAQctgQJTRoBHgAw" style={linkStyle}>
+				<BsYoutube /> Check out all my videos on YouTube
 			</a>
-			<Spacer y={1} />
+			<div style={{ marginTop: "1rem" }} />
 			<VideosList videos={videosList} />
 		</div>
 	)

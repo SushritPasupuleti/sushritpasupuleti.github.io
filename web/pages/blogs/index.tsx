@@ -194,7 +194,7 @@ const BlogsPage = ({
             borderBottom: `1px dashed ${c.border}`,
             paddingBottom: "1rem",
           }}>
-            <span style={{ color: c.green }}>// </span>
+            <span style={{ color: c.green }}>{"// "}</span>
             tech, programming, startups & more &mdash; {posts.length} posts found
           </p>
         </div>
