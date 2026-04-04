@@ -1,5 +1,4 @@
 import React from "react";
-import { Button, Grid, Card, Text } from "@nextui-org/react";
 import { FaTwitter, FaLinkedin, FaWhatsapp, FaFacebook, FaReddit } from "react-icons/fa";
 
 interface ShareSheetProps {
@@ -11,27 +10,27 @@ interface ShareSheetProps {
 const socialLinks = [
   {
     name: "Twitter",
-    icon: <FaTwitter color="#1DA1F2" size={20} />,
+    icon: <FaTwitter size={16} />,
     getUrl: (url: string, title?: string) => `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title || "")}`,
   },
   {
     name: "LinkedIn",
-    icon: <FaLinkedin color="#0077b5" size={20} />,
+    icon: <FaLinkedin size={16} />,
     getUrl: (url: string, title?: string) => `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(url)}&title=${encodeURIComponent(title || "")}`,
   },
   {
     name: "WhatsApp",
-    icon: <FaWhatsapp color="#25D366" size={20} />,
+    icon: <FaWhatsapp size={16} />,
     getUrl: (url: string, title?: string) => `https://wa.me/?text=${encodeURIComponent(title ? title + " " : "")}${encodeURIComponent(url)}`,
   },
   {
     name: "Facebook",
-    icon: <FaFacebook color="#4267B2" size={20} />,
+    icon: <FaFacebook size={16} />,
     getUrl: (url: string, title?: string) => `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,
   },
   {
     name: "Reddit",
-    icon: <FaReddit color="#FF4500" size={20} />,
+    icon: <FaReddit size={16} />,
     getUrl: (url: string, title?: string) => `https://www.reddit.com/submit?url=${encodeURIComponent(url)}&title=${encodeURIComponent(title || "")}`,
   },
 ];
@@ -39,53 +38,98 @@ const socialLinks = [
 const ShareSheet: React.FC<ShareSheetProps> = ({ url, title, variant = "cta" }) => {
   if (variant === "icons") {
     return (
-      <Grid.Container gap={1} justify="center" alignItems="center" css={{ m: 0 }}>
+      <div style={{ display: "flex", gap: "0.5rem", alignItems: "center", flexWrap: "wrap" }}>
+        <span style={{ color: "#555", fontSize: "0.75rem", fontFamily: "'JetBrains Mono', monospace" }}>share:</span>
         {socialLinks.map(link => (
-          <Grid key={link.name}>
-            <Button
-              auto
-              light
-              as="a"
-              href={link.getUrl(url, title)}
-              target="_blank"
-              rel="noopener noreferrer"
-              icon={link.icon}
-              css={{ minWidth: "40px", borderRadius: "50%", boxShadow: "0 2px 8px 0 rgba(0,0,0,0.10)", background: "$background", m: 0 }}
-              aria-label={`Share on ${link.name}`}
-            />
-          </Grid>
+          <a
+            key={link.name}
+            href={link.getUrl(url, title)}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Share on ${link.name}`}
+            style={{
+              color: "#666",
+              display: "inline-flex",
+              alignItems: "center",
+              justifyContent: "center",
+              width: 32,
+              height: 32,
+              border: "1px solid #2a2a2a",
+              borderRadius: "2px",
+              background: "transparent",
+              transition: "all 0.15s",
+              textDecoration: "none",
+            }}
+            onMouseEnter={(e) => {
+              (e.currentTarget as HTMLAnchorElement).style.borderColor = "#00ff41";
+              (e.currentTarget as HTMLAnchorElement).style.color = "#00ff41";
+            }}
+            onMouseLeave={(e) => {
+              (e.currentTarget as HTMLAnchorElement).style.borderColor = "#2a2a2a";
+              (e.currentTarget as HTMLAnchorElement).style.color = "#666";
+            }}
+          >
+            {link.icon}
+          </a>
         ))}
-      </Grid.Container>
+      </div>
     );
   }
   return (
-    <Card css={{ mw: "600px", margin: "1.5rem auto", p: "1.5rem", borderRadius: "1rem", boxShadow: "$md", background: "$backgroundContrast" }}>
-      <Card.Body>
-        <Text h3 weight="bold" css={{ mb: "0.5rem", textGradient: "45deg, $blue600 -20%, $purple600 100%" }}>
-          Enjoyed this post? Share it with your friends!
-        </Text>
-        <Text size={15} css={{ mb: "1rem", color: "$accents7" }}>
-            Help others discover content like this by sharing it on your favorite social platform.
-        </Text>
-        <Grid.Container gap={1} justify="center" alignItems="center">
-          {socialLinks.map(link => (
-            <Grid key={link.name}>
-              <Button
-                auto
-                light
-                as="a"
-                href={link.getUrl(url, title)}
-                target="_blank"
-                rel="noopener noreferrer"
-                icon={link.icon}
-                css={{ minWidth: "40px", borderRadius: "50%", boxShadow: "0 2px 8px 0 rgba(0,0,0,0.10)", background: "$background" }}
-                aria-label={`Share on ${link.name}`}
-              />
-            </Grid>
-          ))}
-        </Grid.Container>
-      </Card.Body>
-    </Card>
+    <div style={{
+      border: "1px dashed #2a2a2a",
+      padding: "1.25rem",
+      marginTop: "1.5rem",
+      fontFamily: "'JetBrains Mono', monospace",
+    }}>
+      <div style={{ color: "#555", fontSize: "0.75rem", marginBottom: "0.5rem" }}>
+        ┌─── share ────────────────────────────────────
+      </div>
+      <p style={{ color: "#00ff41", fontSize: "0.85rem", margin: "0 0 0.25rem 0", fontWeight: 600 }}>
+        {"// Enjoyed this post?"}
+      </p>
+      <p style={{ color: "#888", fontSize: "0.8rem", margin: "0 0 1rem 0" }}>
+        Help others discover it by sharing on your favorite platform.
+      </p>
+      <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
+        {socialLinks.map(link => (
+          <a
+            key={link.name}
+            href={link.getUrl(url, title)}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Share on ${link.name}`}
+            style={{
+              color: "#888",
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "0.4rem",
+              padding: "0.35rem 0.75rem",
+              border: "1px solid #2a2a2a",
+              borderRadius: "2px",
+              background: "transparent",
+              fontSize: "0.75rem",
+              textDecoration: "none",
+              fontFamily: "'JetBrains Mono', monospace",
+              transition: "all 0.15s",
+            }}
+            onMouseEnter={(e) => {
+              (e.currentTarget as HTMLAnchorElement).style.borderColor = "#00ff41";
+              (e.currentTarget as HTMLAnchorElement).style.color = "#00ff41";
+            }}
+            onMouseLeave={(e) => {
+              (e.currentTarget as HTMLAnchorElement).style.borderColor = "#2a2a2a";
+              (e.currentTarget as HTMLAnchorElement).style.color = "#888";
+            }}
+          >
+            {link.icon} {link.name}
+          </a>
+        ))}
+      </div>
+      <div style={{ color: "#555", fontSize: "0.75rem", marginTop: "0.75rem" }}>
+        └──────────────────────────────────────────────
+      </div>
+    </div>
   );
 };
 

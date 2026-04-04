@@ -5,9 +5,8 @@ import { GetStaticProps } from "next";
 import Link from "next/link";
 import React from "react";
 import { useTheme as useNextTheme } from "next-themes";
-import { Card, Text, Grid, Badge } from "@nextui-org/react";
+import { Text } from "@nextui-org/react";
 import Image from "next/image";
-import Breadcrumbs from "../../src/components/Breadcrumbs";
 import yaml from "js-yaml";
 // @ts-ignore
 import fsExtra from "fs";
@@ -72,132 +71,187 @@ const BlogsPage = ({
       />
       <meta property="og:type" content="website" />
     </Head>
-    <Card
-      css={{
-        mw: "900px",
-        margin: "2rem auto",
-        padding: "1rem",
-        borderRadius: "1rem",
-        boxShadow: "$lg",
-        background: "$background",
-        color: "$text",
+    <div
+      className="terminal-container"
+      style={{
+        maxWidth: "860px",
+        margin: "0 auto",
+        padding: "2rem 1.5rem",
+        fontFamily: "'JetBrains Mono', monospace",
+        color: "#b0b0b0",
+        minHeight: "100vh",
       }}
     >
-      <Card.Body>
-        <Breadcrumbs
-          items={[
-            { label: "Home", href: "/" },
-            { label: "Blogs", href: "/blogs", active: true },
-          ]}
-        />
-        <Text
-          h1
-          weight="bold"
-          css={{ textGradient: "45deg, $purple600 -20%, $blue600 100%" }}
-        >{`Sushrit's Blogs`}</Text>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            gap: "1.5rem",
-            marginTop: "2rem",
-          }}
-        >
-          {posts.map((post) => (
-            <Card
+      {/* Terminal window bar */}
+      <div
+        style={{
+          background: "#1a1a2e",
+          border: "1px solid #2a2a2a",
+          borderBottom: "none",
+          borderRadius: "6px 6px 0 0",
+          padding: "0.5rem 1rem",
+          display: "flex",
+          alignItems: "center",
+          gap: "0.5rem",
+        }}
+      >
+        <span style={{ width: 12, height: 12, borderRadius: "50%", background: "#ff5f57", display: "inline-block" }} />
+        <span style={{ width: 12, height: 12, borderRadius: "50%", background: "#febc2e", display: "inline-block" }} />
+        <span style={{ width: 12, height: 12, borderRadius: "50%", background: "#28c840", display: "inline-block" }} />
+        <span style={{ marginLeft: "1rem", color: "#666", fontSize: "0.75rem" }}>
+          ~/blogs
+        </span>
+      </div>
+
+      {/* Terminal body */}
+      <div
+        style={{
+          background: "#0d0d0d",
+          border: "1px solid #2a2a2a",
+          borderRadius: "0 0 6px 6px",
+          padding: "1.5rem",
+          minHeight: "60vh",
+        }}
+      >
+        {/* Breadcrumb as terminal path */}
+        <div style={{ marginBottom: "1.5rem", fontSize: "0.85rem" }}>
+          <span style={{ color: "#00ff41" }}>guest@sushrit</span>
+          <span style={{ color: "#666" }}>:</span>
+          <span style={{ color: "#00bfff" }}>~</span>
+          <span style={{ color: "#666" }}> $ </span>
+          <Link href="/" style={{ color: "#00bfff", textDecoration: "none" }}>cd home</Link>
+          <span style={{ color: "#666" }}> / </span>
+          <span style={{ color: "#e0e0e0" }}>blogs</span>
+        </div>
+
+        {/* Header */}
+        <div style={{ marginBottom: "2rem" }}>
+          <pre style={{
+            color: "#00ff41",
+            fontSize: "0.7rem",
+            lineHeight: 1.2,
+            margin: 0,
+            whiteSpace: "pre",
+            overflowX: "auto",
+          }}>
+{`
+ ____  _     ___   ____ ____
+| __ )| |   / _ \\ / ___/ ___|
+|  _ \\| |  | | | | |  _\\___ \\
+| |_) | |__| |_| | |_| |___) |
+|____/|_____\\___/ \\____|____/
+`}
+          </pre>
+          <p style={{
+            color: "#666",
+            fontSize: "0.8rem",
+            margin: "0.5rem 0 0 0",
+            borderBottom: "1px dashed #2a2a2a",
+            paddingBottom: "1rem",
+          }}>
+            <span style={{ color: "#00ff41" }}>// </span>
+            tech, programming, startups & more &mdash; {posts.length} posts found
+          </p>
+        </div>
+
+        {/* Post listing */}
+        <div style={{ display: "flex", flexDirection: "column", gap: "0" }}>
+          {posts.map((post, idx) => (
+            <Link
               key={post.slug}
-              isHoverable
-              css={{ p: "1.5rem", minHeight: "180px", width: "100%" }}
+              href={`/blogs/${post.slug}`}
+              style={{ textDecoration: "none", color: "inherit" }}
             >
-              {post.cover_img_url && (
-                <div
-                  style={{
-                    position: "relative",
-                    width: "100%",
-                    aspectRatio: "16/9",
-                    overflow: "hidden",
-                    borderRadius: "0.75rem",
-                    marginBottom: "1rem",
-                    background: "$backgroundContrast",
-                  }}
-                >
-                  <Image
-                    src={post.cover_img_url}
-                    alt={post.title + " cover"}
-                    fill
-                    style={{ objectFit: "cover", borderRadius: "0.75rem" }}
-                    sizes="100vw"
-                    priority={false}
-                  />
-                </div>
-              )}
-              <Card.Body>
-                <Link
-                  href={`/blogs/${post.slug}`}
-                  style={{ textDecoration: "none" }}
-                >
-                  <Text h3 weight="bold" css={{ color: "$primary" }}>
-                    {post.title}
-                  </Text>
-                </Link>
-                {/* <Text size={14} css={{ mt: "0.5rem", color: "$accents7" }}>
-                <strong>Slug:</strong> {post.slug}
-              </Text> */}
-                <Text size={14} css={{ color: "$accents7" }}>
-                  <strong>Authors:</strong>{" "}
-                  {post.authors &&
-                    post.authors.split(",").map((authorKey, idx) => {
-                      const author = post.authorsMap?.[authorKey.trim()];
-                      return author ? (
-                        <Link
-                          key={authorKey}
-                          href={author.url}
-                          target="_blank"
-                          style={{ color: "$primary", marginRight: 6 }}
-                        >
-                          {author.name}
-                        </Link>
-                      ) : (
-                        <span key={authorKey} style={{ marginRight: 6 }}>
-                          {authorKey.trim()}
+              <div
+                style={{
+                  padding: "1rem 0",
+                  borderBottom: idx < posts.length - 1 ? "1px dashed #1a1a2e" : "none",
+                  cursor: "pointer",
+                  transition: "background 0.15s",
+                }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLDivElement).style.background = "#1a1a2e";
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLDivElement).style.background = "transparent";
+                }}
+              >
+                <div style={{ display: "flex", alignItems: "flex-start", gap: "0.75rem" }}>
+                  <span style={{ color: "#00ff41", fontWeight: 700, fontSize: "0.85rem", flexShrink: 0, marginTop: "2px" }}>
+                    [{String(idx).padStart(2, "0")}]
+                  </span>
+                  <div style={{ flex: 1, minWidth: 0 }}>
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", flexWrap: "wrap", gap: "0.5rem" }}>
+                      <span
+                        style={{
+                          color: "#e0e0e0",
+                          fontWeight: 600,
+                          fontSize: "0.9rem",
+                        }}
+                      >
+                        {post.title}
+                      </span>
+                      {post.date && (
+                        <span style={{ color: "#555", fontSize: "0.75rem", flexShrink: 0 }}>
+                          {post.date}
                         </span>
-                      );
-                    })}
-                </Text>
-                <div style={{ marginTop: "0.5rem" }}>
-                  {/* <Text size={14} css={{ color: "$accents7" }}><strong>Tags:</strong></Text> */}
-                  {post.tags && post.tags.length > 0 ? (
-                    <div
-                      style={{
-                        display: "flex",
-                        flexWrap: "wrap",
-                        gap: "0.5rem",
-                        marginTop: "0.25rem",
-                      }}
-                    >
-                      {post.tags.map((tag) => (
-                        <Badge
-                          key={tag}
-                          color="primary"
-                          variant="bordered"
-                          css={{ mr: "0.25rem" }}
-                        >
-                          {tag}
-                        </Badge>
-                      ))}
+                      )}
                     </div>
-                  ) : (
-                    <Badge color="default" variant="bordered">
-                      None
-                    </Badge>
-                  )}
+                    <div style={{ marginTop: "0.4rem", display: "flex", flexWrap: "wrap", gap: "0.4rem", alignItems: "center" }}>
+                      {post.authors && (
+                        <span style={{ color: "#888", fontSize: "0.75rem" }}>
+                          by{" "}
+                          {post.authors.split(",").map((authorKey, aIdx) => {
+                            const author = post.authorsMap?.[authorKey.trim()];
+                            return (
+                              <span key={authorKey}>
+                                {aIdx > 0 && ", "}
+                                <span style={{ color: "#00bfff" }}>
+                                  {author ? author.name : authorKey.trim()}
+                                </span>
+                              </span>
+                            );
+                          })}
+                        </span>
+                      )}
+                      {post.tags && post.tags.length > 0 && (
+                        <>
+                          <span style={{ color: "#333", margin: "0 0.25rem" }}>|</span>
+                          {post.tags.map((tag) => (
+                            <span
+                              key={tag}
+                              style={{
+                                color: "#00ff41",
+                                fontSize: "0.7rem",
+                                border: "1px solid #1a3a1a",
+                                padding: "0.1rem 0.4rem",
+                                borderRadius: "2px",
+                                background: "rgba(0, 255, 65, 0.05)",
+                              }}
+                            >
+                              #{tag}
+                            </span>
+                          ))}
+                        </>
+                      )}
+                    </div>
+                  </div>
                 </div>
-              </Card.Body>
-            </Card>
+              </div>
+            </Link>
           ))}
         </div>
-      </Card.Body>
-    </Card>
+
+        {/* Terminal prompt at bottom */}
+        <div style={{ marginTop: "2rem", fontSize: "0.85rem" }}>
+          <span style={{ color: "#00ff41" }}>guest@sushrit</span>
+          <span style={{ color: "#666" }}>:</span>
+          <span style={{ color: "#00bfff" }}>~/blogs</span>
+          <span style={{ color: "#666" }}> $ </span>
+          <span className="terminal-cursor" style={{ color: "#b0b0b0" }}></span>
+        </div>
+      </div>
+    </div>
   </>
 );
 
