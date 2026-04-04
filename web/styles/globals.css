@@ -7,6 +7,7 @@ body {
   font-family: 'JetBrains Mono', 'Fira Code', 'Source Code Pro', 'Courier New', monospace;
   background: #0a0a0a;
   color: #b0b0b0;
+  transition: background 0.2s, color 0.2s;
 }
 
 a {
@@ -194,4 +195,110 @@ a {
     color: #b0b0b0;
     background: #0a0a0a;
   }
+}
+
+/* Light theme overrides (next-themes applies class on html) */
+html[class*="light"] body,
+html[data-theme="light"] body {
+  background: #f5f5f0;
+  color: #222222;
+}
+
+html[class*="light"] .terminal-cursor::after {
+  color: #1a7a2e;
+}
+
+html[class*="light"] .terminal-container::before {
+  background: none;
+}
+
+html[class*="light"] .terminal-markdown h1,
+html[class*="light"] .terminal-markdown h2,
+html[class*="light"] .terminal-markdown h3,
+html[class*="light"] .terminal-markdown h4 {
+  color: #1a7a2e;
+  border-bottom-color: #d0d0c8;
+}
+
+html[class*="light"] .terminal-markdown h1::before,
+html[class*="light"] .terminal-markdown h2::before,
+html[class*="light"] .terminal-markdown h3::before,
+html[class*="light"] .terminal-markdown h4::before {
+  color: #999;
+}
+
+html[class*="light"] .terminal-markdown p {
+  color: #222222;
+}
+
+html[class*="light"] .terminal-markdown a {
+  color: #0055a0;
+}
+
+html[class*="light"] .terminal-markdown a:hover {
+  color: #1a7a2e;
+}
+
+html[class*="light"] .terminal-markdown code {
+  background: #eeeee8;
+  color: #1a7a2e;
+  border-color: #d0d0c8;
+}
+
+html[class*="light"] .terminal-markdown pre {
+  background: #f9f9f5;
+  border-color: #d0d0c8;
+  border-left-color: #1a7a2e;
+}
+
+html[class*="light"] .terminal-markdown blockquote {
+  border-left-color: #1a7a2e;
+  color: #555;
+}
+
+html[class*="light"] .terminal-markdown ul,
+html[class*="light"] .terminal-markdown ol {
+  color: #222222;
+}
+
+html[class*="light"] .terminal-markdown li::marker {
+  color: #1a7a2e;
+}
+
+html[class*="light"] .terminal-markdown img {
+  border-color: #d0d0c8;
+}
+
+html[class*="light"] .terminal-markdown hr {
+  border-top-color: #d0d0c8;
+}
+
+html[class*="light"] .terminal-markdown strong {
+  color: #111111;
+}
+
+html[class*="light"] .terminal-markdown em {
+  color: #444;
+}
+
+html[class*="light"] .terminal-markdown table {
+  border-color: #d0d0c8;
+}
+
+html[class*="light"] .terminal-markdown thead {
+  background: #eeeee8;
+}
+
+html[class*="light"] .terminal-markdown th {
+  color: #1a7a2e;
+  border-bottom-color: #1a7a2e;
+}
+
+html[class*="light"] .terminal-markdown td {
+  color: #222222;
+  border-bottom-color: #d0d0c8;
+}
+
+html[class*="light"] .terminal-markdown tr:hover {
+  background: rgba(26, 122, 46, 0.05);
 }

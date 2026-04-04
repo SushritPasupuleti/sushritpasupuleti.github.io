@@ -5,12 +5,27 @@ import { GetStaticProps } from "next";
 import Link from "next/link";
 import React from "react";
 import { useTheme as useNextTheme } from "next-themes";
-import { Text } from "@nextui-org/react";
 import Image from "next/image";
 import yaml from "js-yaml";
 // @ts-ignore
 import fsExtra from "fs";
 import Head from "next/head";
+import { FiSun, FiMoon } from "react-icons/fi";
+
+const darkPalette = {
+  bg: "#0a0a0a", surface: "#0d0d0d", titleBar: "#1a1a2e",
+  border: "#2a2a2a", green: "#00ff41", cyan: "#00bfff",
+  text: "#b0b0b0", textBright: "#e0e0e0", muted: "#666",
+  dim: "#555", tagBorder: "#1a3a1a", tagBg: "rgba(0,255,65,0.05)",
+  hoverBg: "#1a1a2e", separator: "#333",
+};
+const lightPalette = {
+  bg: "#f5f5f0", surface: "#ffffff", titleBar: "#e8e8e0",
+  border: "#d0d0c8", green: "#1a7a2e", cyan: "#0055a0",
+  text: "#222222", textBright: "#111111", muted: "#555",
+  dim: "#777", tagBorder: "#b0d8b0", tagBg: "rgba(26,122,46,0.08)",
+  hoverBg: "#eeeee8", separator: "#bbb",
+};
 
 interface BlogMeta {
   slug: string;
@@ -60,7 +75,11 @@ const BlogsPage = ({
   posts,
 }: {
   posts: (BlogMeta & { authorsMap?: any })[];
-}) => (
+}) => {
+  const { theme, setTheme } = useNextTheme();
+  const isDark = theme === "dark";
+  const c = isDark ? darkPalette : lightPalette;
+  return (
   <>
     <Head>
       <title>Sushrit&#39;s Blogs</title>
@@ -78,15 +97,15 @@ const BlogsPage = ({
         margin: "0 auto",
         padding: "2rem 1.5rem",
         fontFamily: "'JetBrains Mono', monospace",
-        color: "#b0b0b0",
+        color: c.text,
         minHeight: "100vh",
       }}
     >
       {/* Terminal window bar */}
       <div
         style={{
-          background: "#1a1a2e",
-          border: "1px solid #2a2a2a",
+          background: c.titleBar,
+          border: `1px solid ${c.border}`,
           borderBottom: "none",
           borderRadius: "6px 6px 0 0",
           padding: "0.5rem 1rem",
@@ -98,16 +117,42 @@ const BlogsPage = ({
         <span style={{ width: 12, height: 12, borderRadius: "50%", background: "#ff5f57", display: "inline-block" }} />
         <span style={{ width: 12, height: 12, borderRadius: "50%", background: "#febc2e", display: "inline-block" }} />
         <span style={{ width: 12, height: 12, borderRadius: "50%", background: "#28c840", display: "inline-block" }} />
-        <span style={{ marginLeft: "1rem", color: "#666", fontSize: "0.75rem" }}>
+        <span style={{ marginLeft: "1rem", color: c.muted, fontSize: "0.75rem", flex: 1 }}>
           ~/blogs
         </span>
+        <button
+          onClick={() => setTheme(isDark ? "light" : "dark")}
+          aria-label="Toggle theme"
+          style={{
+            background: "transparent",
+            border: `1px solid ${c.border}`,
+            borderRadius: "3px",
+            cursor: "pointer",
+            padding: "0.25rem 0.4rem",
+            display: "inline-flex",
+            alignItems: "center",
+            justifyContent: "center",
+            color: c.muted,
+            transition: "color 0.15s, border-color 0.15s",
+          }}
+          onMouseEnter={(e) => {
+            (e.currentTarget as HTMLButtonElement).style.color = c.green;
+            (e.currentTarget as HTMLButtonElement).style.borderColor = c.green;
+          }}
+          onMouseLeave={(e) => {
+            (e.currentTarget as HTMLButtonElement).style.color = c.muted;
+            (e.currentTarget as HTMLButtonElement).style.borderColor = c.border;
+          }}
+        >
+          {isDark ? <FiSun size={14} /> : <FiMoon size={14} />}
+        </button>
       </div>
 
       {/* Terminal body */}
       <div
         style={{
-          background: "#0d0d0d",
-          border: "1px solid #2a2a2a",
+          background: c.surface,
+          border: `1px solid ${c.border}`,
           borderRadius: "0 0 6px 6px",
           padding: "1.5rem",
           minHeight: "60vh",
@@ -115,19 +160,19 @@ const BlogsPage = ({
       >
         {/* Breadcrumb as terminal path */}
         <div style={{ marginBottom: "1.5rem", fontSize: "0.85rem" }}>
-          <span style={{ color: "#00ff41" }}>guest@sushrit</span>
-          <span style={{ color: "#666" }}>:</span>
-          <span style={{ color: "#00bfff" }}>~</span>
-          <span style={{ color: "#666" }}> $ </span>
-          <Link href="/" style={{ color: "#00bfff", textDecoration: "none" }}>cd home</Link>
-          <span style={{ color: "#666" }}> / </span>
-          <span style={{ color: "#e0e0e0" }}>blogs</span>
+          <span style={{ color: c.green }}>guest@sushrit</span>
+          <span style={{ color: c.muted }}>:</span>
+          <span style={{ color: c.cyan }}>~</span>
+          <span style={{ color: c.muted }}> $ </span>
+          <Link href="/" style={{ color: c.cyan, textDecoration: "none" }}>cd home</Link>
+          <span style={{ color: c.muted }}> / </span>
+          <span style={{ color: c.textBright }}>blogs</span>
         </div>
 
         {/* Header */}
         <div style={{ marginBottom: "2rem" }}>
           <pre style={{
-            color: "#00ff41",
+            color: c.green,
             fontSize: "0.7rem",
             lineHeight: 1.2,
             margin: 0,
@@ -143,13 +188,13 @@ const BlogsPage = ({
 `}
           </pre>
           <p style={{
-            color: "#666",
+            color: c.muted,
             fontSize: "0.8rem",
             margin: "0.5rem 0 0 0",
-            borderBottom: "1px dashed #2a2a2a",
+            borderBottom: `1px dashed ${c.border}`,
             paddingBottom: "1rem",
           }}>
-            <span style={{ color: "#00ff41" }}>// </span>
+            <span style={{ color: c.green }}>// </span>
             tech, programming, startups & more &mdash; {posts.length} posts found
           </p>
         </div>
@@ -165,26 +210,26 @@ const BlogsPage = ({
               <div
                 style={{
                   padding: "1rem 0",
-                  borderBottom: idx < posts.length - 1 ? "1px dashed #1a1a2e" : "none",
+                  borderBottom: idx < posts.length - 1 ? `1px dashed ${c.titleBar}` : "none",
                   cursor: "pointer",
                   transition: "background 0.15s",
                 }}
                 onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLDivElement).style.background = "#1a1a2e";
+                  (e.currentTarget as HTMLDivElement).style.background = c.hoverBg;
                 }}
                 onMouseLeave={(e) => {
                   (e.currentTarget as HTMLDivElement).style.background = "transparent";
                 }}
               >
                 <div style={{ display: "flex", alignItems: "flex-start", gap: "0.75rem" }}>
-                  <span style={{ color: "#00ff41", fontWeight: 700, fontSize: "0.85rem", flexShrink: 0, marginTop: "2px" }}>
+                  <span style={{ color: c.green, fontWeight: 700, fontSize: "0.85rem", flexShrink: 0, marginTop: "2px" }}>
                     [{String(idx).padStart(2, "0")}]
                   </span>
                   <div style={{ flex: 1, minWidth: 0 }}>
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", flexWrap: "wrap", gap: "0.5rem" }}>
                       <span
                         style={{
-                          color: "#e0e0e0",
+                          color: c.textBright,
                           fontWeight: 600,
                           fontSize: "0.9rem",
                         }}
@@ -192,21 +237,21 @@ const BlogsPage = ({
                         {post.title}
                       </span>
                       {post.date && (
-                        <span style={{ color: "#555", fontSize: "0.75rem", flexShrink: 0 }}>
+                        <span style={{ color: c.dim, fontSize: "0.75rem", flexShrink: 0 }}>
                           {post.date}
                         </span>
                       )}
                     </div>
                     <div style={{ marginTop: "0.4rem", display: "flex", flexWrap: "wrap", gap: "0.4rem", alignItems: "center" }}>
                       {post.authors && (
-                        <span style={{ color: "#888", fontSize: "0.75rem" }}>
+                        <span style={{ color: c.muted, fontSize: "0.75rem" }}>
                           by{" "}
                           {post.authors.split(",").map((authorKey, aIdx) => {
                             const author = post.authorsMap?.[authorKey.trim()];
                             return (
                               <span key={authorKey}>
                                 {aIdx > 0 && ", "}
-                                <span style={{ color: "#00bfff" }}>
+                                <span style={{ color: c.cyan }}>
                                   {author ? author.name : authorKey.trim()}
                                 </span>
                               </span>
@@ -216,17 +261,17 @@ const BlogsPage = ({
                       )}
                       {post.tags && post.tags.length > 0 && (
                         <>
-                          <span style={{ color: "#333", margin: "0 0.25rem" }}>|</span>
+                          <span style={{ color: c.separator, margin: "0 0.25rem" }}>|</span>
                           {post.tags.map((tag) => (
                             <span
                               key={tag}
                               style={{
-                                color: "#00ff41",
+                                color: c.green,
                                 fontSize: "0.7rem",
-                                border: "1px solid #1a3a1a",
+                                border: `1px solid ${c.tagBorder}`,
                                 padding: "0.1rem 0.4rem",
                                 borderRadius: "2px",
-                                background: "rgba(0, 255, 65, 0.05)",
+                                background: c.tagBg,
                               }}
                             >
                               #{tag}
@@ -244,15 +289,16 @@ const BlogsPage = ({
 
         {/* Terminal prompt at bottom */}
         <div style={{ marginTop: "2rem", fontSize: "0.85rem" }}>
-          <span style={{ color: "#00ff41" }}>guest@sushrit</span>
-          <span style={{ color: "#666" }}>:</span>
-          <span style={{ color: "#00bfff" }}>~/blogs</span>
-          <span style={{ color: "#666" }}> $ </span>
-          <span className="terminal-cursor" style={{ color: "#b0b0b0" }}></span>
+          <span style={{ color: c.green }}>guest@sushrit</span>
+          <span style={{ color: c.muted }}>:</span>
+          <span style={{ color: c.cyan }}>~/blogs</span>
+          <span style={{ color: c.muted }}> $ </span>
+          <span className="terminal-cursor" style={{ color: c.text }}></span>
         </div>
       </div>
     </div>
   </>
-);
+  );
+};
 
 export default BlogsPage;
