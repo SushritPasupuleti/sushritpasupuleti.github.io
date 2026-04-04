@@ -1,4 +1,5 @@
 import { useTheme as useNextTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
 export const darkPalette = {
   bg: "#0a0a0a",
@@ -39,8 +40,10 @@ export type Palette = typeof darkPalette;
 export const mono = "'JetBrains Mono', 'Fira Code', 'Source Code Pro', monospace";
 
 export function useTerminalTheme() {
-  const { theme, setTheme } = useNextTheme();
-  const isDark = theme === "dark";
+  const { resolvedTheme, setTheme } = useNextTheme();
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  const isDark = mounted ? resolvedTheme === "dark" : true;
   const c = isDark ? darkPalette : lightPalette;
-  return { theme, setTheme, isDark, c };
+  return { theme: resolvedTheme, setTheme, isDark, c };
 }
