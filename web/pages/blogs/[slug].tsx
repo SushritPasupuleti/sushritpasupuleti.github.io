@@ -7,8 +7,95 @@ import Link from "next/link";
 import Head from "next/head";
 import ShareSheet from "../../src/components/ShareSheet";
 import ReactMarkdown from "react-markdown";
+import type { Components } from "react-markdown";
 import rehypeSanitize from "rehype-sanitize";
 import rehypeVideo from 'rehype-video';
+
+const mono = "'JetBrains Mono', 'Fira Code', 'Source Code Pro', monospace";
+
+const terminalComponents: Partial<Components> = {
+  h1: ({ children }) => (
+    <h1 style={{ color: "#00ff41", fontFamily: mono, fontSize: "1.3rem", fontWeight: 700, borderBottom: "1px dashed #333", paddingBottom: "0.5rem", marginTop: "2rem" }}>
+      <span style={{ color: "#555", fontWeight: 400, fontSize: "0.8em" }}>## </span>{children}
+    </h1>
+  ),
+  h2: ({ children }) => (
+    <h2 style={{ color: "#00ff41", fontFamily: mono, fontSize: "1.15rem", fontWeight: 600, borderBottom: "1px dashed #333", paddingBottom: "0.4rem", marginTop: "1.75rem" }}>
+      <span style={{ color: "#555", fontWeight: 400, fontSize: "0.8em" }}>## </span>{children}
+    </h2>
+  ),
+  h3: ({ children }) => (
+    <h3 style={{ color: "#00ff41", fontFamily: mono, fontSize: "1.05rem", fontWeight: 600, borderBottom: "1px dashed #2a2a2a", paddingBottom: "0.3rem", marginTop: "1.5rem" }}>
+      <span style={{ color: "#555", fontWeight: 400, fontSize: "0.8em" }}>### </span>{children}
+    </h3>
+  ),
+  h4: ({ children }) => (
+    <h4 style={{ color: "#00ff41", fontFamily: mono, fontSize: "0.95rem", fontWeight: 600, marginTop: "1.25rem" }}>
+      <span style={{ color: "#555", fontWeight: 400, fontSize: "0.8em" }}>#### </span>{children}
+    </h4>
+  ),
+  p: ({ children }) => (
+    <p style={{ color: "#b0b0b0", fontFamily: mono, lineHeight: 1.8, fontSize: "0.9rem", margin: "1rem 0" }}>{children}</p>
+  ),
+  a: ({ href, children }) => (
+    <a href={href} style={{ color: "#00bfff", textDecoration: "underline", textDecorationStyle: "dashed", fontFamily: mono }} target="_blank" rel="noopener noreferrer">{children}</a>
+  ),
+  strong: ({ children }) => (
+    <strong style={{ color: "#e0e0e0", fontWeight: 700 }}>{children}</strong>
+  ),
+  em: ({ children }) => (
+    <em style={{ color: "#999", fontStyle: "italic" }}>{children}</em>
+  ),
+  code: ({ className, children, ...props }) => {
+    const isInline = !className;
+    if (isInline) {
+      return (
+        <code style={{ background: "#1a1a2e", color: "#00ff41", padding: "0.15em 0.4em", borderRadius: "2px", fontSize: "0.88em", border: "1px solid #333", fontFamily: mono }}>{children}</code>
+      );
+    }
+    return (
+      <code className={className} style={{ fontFamily: mono, fontSize: "0.85em", color: "#b0b0b0" }} {...props}>{children}</code>
+    );
+  },
+  pre: ({ children }) => (
+    <pre style={{ background: "#0a0a0a", border: "1px solid #2a2a2a", borderLeft: "3px solid #00ff41", padding: "1rem", overflowX: "auto", fontSize: "0.85em", fontFamily: mono, margin: "1.25rem 0", borderRadius: "2px" }}>{children}</pre>
+  ),
+  blockquote: ({ children }) => (
+    <blockquote style={{ borderLeft: "3px solid #00ff41", marginLeft: 0, paddingLeft: "1rem", color: "#888", fontStyle: "italic", fontFamily: mono, margin: "1rem 0" }}>{children}</blockquote>
+  ),
+  ul: ({ children }) => (
+    <ul style={{ color: "#b0b0b0", fontFamily: mono, paddingLeft: "1.5rem", lineHeight: 1.8, fontSize: "0.9rem" }}>{children}</ul>
+  ),
+  ol: ({ children }) => (
+    <ol style={{ color: "#b0b0b0", fontFamily: mono, paddingLeft: "1.5rem", lineHeight: 1.8, fontSize: "0.9rem" }}>{children}</ol>
+  ),
+  li: ({ children }) => (
+    <li style={{ marginBottom: "0.3rem" }}><span style={{ color: "#00ff41" }}></span>{children}</li>
+  ),
+  hr: () => (
+    <hr style={{ border: "none", borderTop: "1px dashed #333", margin: "2rem 0" }} />
+  ),
+  img: ({ src, alt }) => (
+    <img src={src} alt={alt || ""} style={{ maxWidth: "100%", border: "1px solid #2a2a2a", borderRadius: "2px", margin: "1rem 0", display: "block" }} />
+  ),
+  table: ({ children }) => (
+    <div style={{ overflowX: "auto", margin: "1.25rem 0" }}>
+      <table style={{ width: "100%", borderCollapse: "collapse", fontFamily: mono, fontSize: "0.85rem", border: "1px solid #2a2a2a" }}>{children}</table>
+    </div>
+  ),
+  thead: ({ children }) => (
+    <thead style={{ background: "#1a1a2e", color: "#00ff41" }}>{children}</thead>
+  ),
+  th: ({ children }) => (
+    <th style={{ padding: "0.5rem 0.75rem", borderBottom: "1px solid #00ff41", textAlign: "left", fontWeight: 600, color: "#00ff41", fontSize: "0.85rem" }}>{children}</th>
+  ),
+  td: ({ children }) => (
+    <td style={{ padding: "0.5rem 0.75rem", borderBottom: "1px dashed #2a2a2a", color: "#b0b0b0" }}>{children}</td>
+  ),
+  tr: ({ children }) => (
+    <tr style={{ transition: "background 0.1s" }}>{children}</tr>
+  ),
+};
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const postsDir = path.join(process.cwd(), "public", "blogs");
@@ -161,7 +248,7 @@ const BlogPost = ({
             fontSize: "0.9rem",
           }}
         >
-          <ReactMarkdown rehypePlugins={[rehypeSanitize, rehypeVideo]}>{content}</ReactMarkdown>
+          <ReactMarkdown components={terminalComponents} rehypePlugins={[rehypeSanitize, rehypeVideo]}>{content}</ReactMarkdown>
         </div>
 
         {/* Bottom divider */}
