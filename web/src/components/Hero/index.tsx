@@ -131,10 +131,10 @@ const Hero = () => {
         <div>
           <span style={{ color: c.green }}>role</span>
           <span style={{ color: c.muted }}>=</span>
-          <span style={{ color: c.textBright }}>&quot;CEO &amp; CTO&quot;</span>
+          <span style={{ color: c.textBright }}>&quot;Founder</span>
           <span style={{ color: c.muted }}> @ </span>
           <a href="https://www.skillshack.dev/" style={{ color: c.cyan, textDecoration: "underline", textDecorationStyle: "dashed" }}>
-            Braggi Solutions
+            Braggi Solutions&quot;
           </a>
         </div>
       </div>
