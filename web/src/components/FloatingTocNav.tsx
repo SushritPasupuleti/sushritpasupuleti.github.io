@@ -1,8 +1,70 @@
 import React, { useState, useEffect, useCallback } from "react";
+import Link from "next/link";
+import { MdArticle } from "react-icons/md";
+import { Download } from "react-iconly";
+import { BsWhatsapp } from "react-icons/bs";
 import { useTerminalTheme, mono } from "../terminal-theme";
 import { TocEntry, defaultEntries, padIndex } from "./toc-data";
 
 const MOBILE_BP = 640;
+
+const quickLinks = [
+  { href: "/blogs", label: "Blogs", icon: MdArticle, isExternal: false },
+  { href: "/resume/resume.pdf", label: "Resume", icon: null, isExternal: false },
+  { href: "https://wa.me/919182362040", label: "WhatsApp", icon: BsWhatsapp, isExternal: true },
+];
+
+const QuickLinks: React.FC<{ c: any }> = ({ c }) => (
+  <div style={{
+    display: "flex",
+    gap: "0.4rem",
+    flexWrap: "wrap",
+    padding: "0.5rem 0.75rem",
+    borderBottom: `1px dashed ${c.border}`,
+  }}>
+    {quickLinks.map((link) => {
+      const style: React.CSSProperties = {
+        color: c.muted,
+        fontFamily: mono,
+        fontSize: "0.75rem",
+        textDecoration: "none",
+        padding: "0.25rem 0.5rem",
+        border: `1px solid ${c.border}`,
+        borderRadius: "3px",
+        display: "inline-flex",
+        alignItems: "center",
+        gap: "0.3rem",
+        transition: "color 0.15s, border-color 0.15s",
+      };
+      const onEnter = (e: React.MouseEvent) => {
+        (e.currentTarget as HTMLElement).style.color = c.green;
+        (e.currentTarget as HTMLElement).style.borderColor = c.green;
+      };
+      const onLeave = (e: React.MouseEvent) => {
+        (e.currentTarget as HTMLElement).style.color = c.muted;
+        (e.currentTarget as HTMLElement).style.borderColor = c.border;
+      };
+      const iconEl = link.icon
+        ? <link.icon size={12} />
+        : <Download set="bold" primaryColor="currentColor" size={12} />;
+
+      if (link.isExternal) {
+        return (
+          <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer"
+            style={style} onMouseEnter={onEnter} onMouseLeave={onLeave}>
+            {iconEl} {link.label}
+          </a>
+        );
+      }
+      return (
+        <Link key={link.label} href={link.href}
+          style={style} onMouseEnter={onEnter} onMouseLeave={onLeave}>
+          {iconEl} {link.label}
+        </Link>
+      );
+    })}
+  </div>
+);
 
 const FloatingTocNav: React.FC = () => {
   const { c } = useTerminalTheme();
@@ -103,6 +165,7 @@ const FloatingTocNav: React.FC = () => {
           [x]
         </span>
       </div>
+      <QuickLinks c={c} />
       <div style={{ padding: "0.35rem 0", maxHeight: "50vh", overflowY: "auto" }}>
         {defaultEntries.map(entryRow)}
       </div>
@@ -161,6 +224,7 @@ const FloatingTocNav: React.FC = () => {
           [x]
         </span>
       </div>
+      <QuickLinks c={c} />
       {/* Entries */}
       <div style={{ overflowY: "auto", padding: "0.35rem 0", flex: 1 }}>
         {defaultEntries.map(entryRow)}
