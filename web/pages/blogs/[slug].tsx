@@ -8,6 +8,7 @@ import Link from "next/link";
 import Head from "next/head";
 import ShareSheet from "../../src/components/ShareSheet";
 import TerminalLine from "../../src/components/TerminalLine";
+import FloatingBlogNav from "../../src/components/FloatingBlogNav";
 import ReactMarkdown from "react-markdown";
 import type { Components } from "react-markdown";
 import rehypeSanitize from "rehype-sanitize";
@@ -176,6 +177,7 @@ const BlogPost = ({
       {cover_img_url && <meta property="og:image" content={cover_img_url} />}
       <meta property="og:type" content="article" />
     </Head>
+    <FloatingBlogNav url={typeof window !== "undefined" ? window.location.href : ""} title={title} />
     <div
       className="terminal-container"
       style={{

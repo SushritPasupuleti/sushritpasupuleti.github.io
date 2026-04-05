@@ -9,9 +9,9 @@ import { TocEntry, defaultEntries, padIndex } from "./toc-data";
 const MOBILE_BP = 640;
 
 const quickLinks = [
-  { href: "/blogs", label: "Blogs", icon: MdArticle, isExternal: false },
-  { href: "/resume/resume.pdf", label: "Resume", icon: null, isExternal: false },
-  { href: "https://wa.me/919182362040", label: "WhatsApp", icon: BsWhatsapp, isExternal: true },
+  { href: "/blogs", label: "blogs", icon: MdArticle, isExternal: false },
+  { href: "/resume/resume.pdf", label: "resume", icon: null, isExternal: false },
+  { href: "https://wa.me/919182362040", label: "whatsapp", icon: BsWhatsapp, isExternal: true },
 ];
 
 const QuickLinks: React.FC<{ c: any }> = ({ c }) => (
