@@ -76,7 +76,7 @@ const Navbar: React.FC = () => {
           <Download set="bold" primaryColor="currentColor" size={14} />
           Resume
         </a>
-        <a
+        {/* <a
           href="https://wa.me/919182362040"
           style={linkStyle}
           onMouseEnter={handleEnter}
@@ -84,7 +84,7 @@ const Navbar: React.FC = () => {
         >
           <BsWhatsapp size={14} />
           WhatsApp
-        </a>
+        </a> */}
         <button
           onClick={() => setTheme(isDark ? "light" : "dark")}
           aria-label="Toggle theme"

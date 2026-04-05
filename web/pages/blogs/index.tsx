@@ -11,6 +11,7 @@ import yaml from "js-yaml";
 import fsExtra from "fs";
 import Head from "next/head";
 import { FiSun, FiMoon } from "react-icons/fi";
+import BlogSearch from "../../src/components/BlogSearch";
 
 const darkPalette = {
   bg: "#0a0a0a", surface: "#0d0d0d", titleBar: "#1a1a2e",
@@ -79,6 +80,37 @@ const BlogsPage = ({
   const { theme, setTheme } = useNextTheme();
   const isDark = theme === "dark";
   const c = isDark ? darkPalette : lightPalette;
+
+  const [search, setSearch] = React.useState("");
+  const [activeTags, setActiveTags] = React.useState<string[]>([]);
+
+  // Collect all unique tags
+  const allTags = React.useMemo(() => {
+    const tagSet = new Set<string>();
+    posts.forEach((p) => p.tags?.forEach((t) => tagSet.add(t)));
+    return Array.from(tagSet).sort();
+  }, [posts]);
+
+  const toggleTag = (tag: string) => {
+    setActiveTags((prev) =>
+      prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag]
+    );
+  };
+
+  const filteredPosts = React.useMemo(() => {
+    return posts.filter((post) => {
+      const q = search.toLowerCase();
+      const matchesSearch =
+        !q ||
+        post.title.toLowerCase().includes(q) ||
+        (post.tags || []).some((t) => t.toLowerCase().includes(q));
+      const matchesTags =
+        activeTags.length === 0 ||
+        activeTags.every((t) => (post.tags || []).includes(t));
+      return matchesSearch && matchesTags;
+    });
+  }, [posts, search, activeTags]);
+
   return (
   <>
     <Head>
@@ -195,13 +227,34 @@ const BlogsPage = ({
             paddingBottom: "1rem",
           }}>
             <span style={{ color: c.green }}>{"// "}</span>
-            tech, programming, startups & more &mdash; {posts.length} posts found
+            tech, programming, startups & more &mdash; {filteredPosts.length} posts found
           </p>
         </div>
 
+        <BlogSearch
+          c={c}
+          isDark={isDark}
+          search={search}
+          setSearch={setSearch}
+          allTags={allTags}
+          activeTags={activeTags}
+          toggleTag={toggleTag}
+          clearTags={() => setActiveTags([])}
+        />
+
         {/* Post listing */}
         <div style={{ display: "flex", flexDirection: "column", gap: "0" }}>
-          {posts.map((post, idx) => (
+          {filteredPosts.length === 0 && (
+            <div style={{ padding: "2rem 0", textAlign: "center" }}>
+              <p style={{ color: c.muted, fontSize: "0.85rem", fontFamily: "'JetBrains Mono', monospace" }}>
+                <span style={{ color: c.green }}>$</span> No matching posts found.
+              </p>
+              <p style={{ color: c.dim, fontSize: "0.75rem", fontFamily: "'JetBrains Mono', monospace", marginTop: "0.25rem" }}>
+                Try a different query or clear the filters.
+              </p>
+            </div>
+          )}
+          {filteredPosts.map((post, idx) => (
             <Link
               key={post.slug}
               href={`/blogs/${post.slug}`}
@@ -210,7 +263,7 @@ const BlogsPage = ({
               <div
                 style={{
                   padding: "1rem 0",
-                  borderBottom: idx < posts.length - 1 ? `1px dashed ${c.titleBar}` : "none",
+                  borderBottom: idx < filteredPosts.length - 1 ? `1px dashed ${c.titleBar}` : "none",
                   cursor: "pointer",
                   transition: "background 0.15s",
                 }}
