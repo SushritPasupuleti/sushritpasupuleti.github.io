@@ -1,6 +1,6 @@
 import React, { useRef, useState, useCallback, useEffect } from "react";
 import { mono } from "../terminal-theme";
-import { FiVolume2, FiVolume1, FiVolume, FiVolumeX } from "react-icons/fi";
+import { FiVolume2, FiVolume1, FiVolume, FiVolumeX, FiPlay, FiPause, FiRepeat, FiRotateCcw } from "react-icons/fi";
 
 interface Palette {
   bg: string;
@@ -269,7 +269,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ src, c }) => {
             (e.currentTarget as HTMLButtonElement).style.color = c.green;
           }}
         >
-          {playing ? "⏸" : "▶"}
+          {playing ? <FiPause size={14} /> : <FiPlay size={14} />}
         </button>
 
         {/* -10s — desktop only */}
@@ -477,7 +477,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ src, c }) => {
                 }
               }}
             >
-              ↺ loop
+              <FiRepeat size={13} style={{ marginRight: "0.25rem", verticalAlign: "middle" }} />loop
             </button>
             {/* Replay */}
             <button
@@ -493,7 +493,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ src, c }) => {
                 (e.currentTarget as HTMLButtonElement).style.color = c.muted;
               }}
             >
-              ⏮ replay
+              <FiRotateCcw size={13} style={{ marginRight: "0.25rem", verticalAlign: "middle" }} />replay
             </button>
           </>
         )}
@@ -540,7 +540,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ src, c }) => {
               }
             }}
           >
-            ↺ loop
+            <FiRepeat size={13} style={{ marginRight: "0.25rem", verticalAlign: "middle" }} />loop
           </button>
           {/* Replay */}
           <button
@@ -556,7 +556,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ src, c }) => {
               (e.currentTarget as HTMLButtonElement).style.color = c.muted;
             }}
           >
-            ⏮ replay
+            <FiRotateCcw size={13} style={{ marginRight: "0.25rem", verticalAlign: "middle" }} />replay
           </button>
         </div>
       )}
