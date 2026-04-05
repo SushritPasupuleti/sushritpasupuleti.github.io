@@ -1,5 +1,6 @@
 import React, { useRef, useState, useCallback, useEffect } from "react";
 import { mono } from "../terminal-theme";
+import { FiVolume2, FiVolume1, FiVolume, FiVolumeX } from "react-icons/fi";
 
 interface Palette {
   bg: string;
@@ -180,6 +181,15 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ src, c }) => {
   const effectiveVolume = muted ? 0 : volume;
   const progress = duration ? currentTime / duration : 0;
 
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 600px)");
+    setIsMobile(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
+
   /* ── shared button style helpers ── */
   const iconBtnStyle = (color: string): React.CSSProperties => ({
     background: "transparent",
@@ -231,7 +241,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ src, c }) => {
         <span style={{ color: c.cyan }}>audio-version.wav</span>
       </div>
 
-      {/* Row 1 — Transport: play | -10 | progress | +10 | time */}
+      {/* Row 1 — Transport: play | [-10] | progress | [+10] | time */}
       <div style={{ display: "flex", alignItems: "center", gap: "0.6rem" }}>
         {/* Play / Pause */}
         <button
@@ -262,16 +272,18 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ src, c }) => {
           {playing ? "⏸" : "▶"}
         </button>
 
-        {/* -10s */}
-        <button
-          onClick={rewind10}
-          aria-label="Rewind 10 seconds"
-          style={iconBtnStyle(c.muted)}
-          onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.color = c.green; }}
-          onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.color = c.muted; }}
-        >
-          -10
-        </button>
+        {/* -10s — desktop only */}
+        {!isMobile && (
+          <button
+            onClick={rewind10}
+            aria-label="Rewind 10 seconds"
+            style={iconBtnStyle(c.muted)}
+            onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.color = c.green; }}
+            onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.color = c.muted; }}
+          >
+            -10s
+          </button>
+        )}
 
         {/* Progress bar */}
         <div
@@ -319,16 +331,18 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ src, c }) => {
           />
         </div>
 
-        {/* +10s */}
-        <button
-          onClick={skip10}
-          aria-label="Skip 10 seconds"
-          style={iconBtnStyle(c.muted)}
-          onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.color = c.green; }}
-          onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.color = c.muted; }}
-        >
-          +10
-        </button>
+        {/* +10s — desktop only */}
+        {!isMobile && (
+          <button
+            onClick={skip10}
+            aria-label="Skip 10 seconds"
+            style={iconBtnStyle(c.muted)}
+            onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.color = c.green; }}
+            onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.color = c.muted; }}
+          >
+            +10s
+          </button>
+        )}
 
         {/* Time */}
         <span style={{ color: c.muted, fontSize: "0.72rem", flexShrink: 0, minWidth: "72px", textAlign: "right" }}>
@@ -336,8 +350,32 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ src, c }) => {
         </span>
       </div>
 
-      {/* Row 2 — Settings: mute | volume | spacer | speed | loop | replay */}
+      {/* Row 2 — [mobile: -10s | +10s | 🔊 vol] [desktop: 🔊 vol | spacer | speed/loop/replay] */}
       <div style={{ display: "flex", alignItems: "center", gap: "0.6rem" }}>
+        {/* -10s + +10s — mobile only, before volume */}
+        {isMobile && (
+          <>
+            <button
+              onClick={rewind10}
+              aria-label="Rewind 10 seconds"
+              style={iconBtnStyle(c.muted)}
+              onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.color = c.green; }}
+              onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.color = c.muted; }}
+            >
+              -10s
+            </button>
+            <button
+              onClick={skip10}
+              aria-label="Skip 10 seconds"
+              style={iconBtnStyle(c.muted)}
+              onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.color = c.green; }}
+              onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.color = c.muted; }}
+            >
+              +10s
+            </button>
+          </>
+        )}
+
         {/* Mute toggle */}
         <button
           onClick={toggleMute}
@@ -346,7 +384,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ src, c }) => {
           onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.color = c.green; }}
           onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.color = muted ? c.dim : c.muted; }}
         >
-          {muted || volume === 0 ? "🔇" : volume < 0.4 ? "🔈" : volume < 0.75 ? "🔉" : "🔊"}
+          {muted || volume === 0 ? <FiVolumeX size={14} /> : volume < 0.4 ? <FiVolume size={14} /> : volume < 0.75 ? <FiVolume1 size={14} /> : <FiVolume2 size={14} />}
         </button>
 
         {/* Volume bar */}
@@ -356,7 +394,8 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ src, c }) => {
           aria-label="Volume"
           style={{
             userSelect: "none",
-            width: "64px",
+            flex: isMobile ? 1 : undefined,
+            width: isMobile ? undefined : "64px",
             height: "20px",
             display: "flex",
             alignItems: "center",
@@ -396,68 +435,131 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ src, c }) => {
           />
         </div>
 
-        {/* Spacer */}
-        <div style={{ flex: 1 }} />
-
-        {/* Speed — cycles through SPEEDS on click */}
-        <button
-          onClick={cycleSpeed}
-          aria-label={`Playback speed: ${speed}x`}
-          style={pillBtnStyle(speed !== 1)}
-          onMouseEnter={(e) => {
-            if (speed === 1) {
-              (e.currentTarget as HTMLButtonElement).style.borderColor = c.muted;
-              (e.currentTarget as HTMLButtonElement).style.color = c.text;
-            }
-          }}
-          onMouseLeave={(e) => {
-            if (speed === 1) {
-              (e.currentTarget as HTMLButtonElement).style.borderColor = c.border;
-              (e.currentTarget as HTMLButtonElement).style.color = c.muted;
-            }
-          }}
-        >
-          {speed}x
-        </button>
-
-        {/* Loop toggle */}
-        <button
-          onClick={toggleLoop}
-          aria-label={loop ? "Disable loop" : "Enable loop"}
-          style={pillBtnStyle(loop)}
-          onMouseEnter={(e) => {
-            if (!loop) {
-              (e.currentTarget as HTMLButtonElement).style.borderColor = c.muted;
-              (e.currentTarget as HTMLButtonElement).style.color = c.text;
-            }
-          }}
-          onMouseLeave={(e) => {
-            if (!loop) {
-              (e.currentTarget as HTMLButtonElement).style.borderColor = c.border;
-              (e.currentTarget as HTMLButtonElement).style.color = c.muted;
-            }
-          }}
-        >
-          ↺ loop
-        </button>
-
-        {/* Replay */}
-        <button
-          onClick={replay}
-          aria-label="Replay from start"
-          style={pillBtnStyle(false)}
-          onMouseEnter={(e) => {
-            (e.currentTarget as HTMLButtonElement).style.borderColor = c.muted;
-            (e.currentTarget as HTMLButtonElement).style.color = c.text;
-          }}
-          onMouseLeave={(e) => {
-            (e.currentTarget as HTMLButtonElement).style.borderColor = c.border;
-            (e.currentTarget as HTMLButtonElement).style.color = c.muted;
-          }}
-        >
-          ⏮ replay
-        </button>
+        {/* Desktop-only spacer + speed/loop/replay inline */}
+        {!isMobile && (
+          <>
+            <div style={{ flex: 1 }} />
+            {/* Speed */}
+            <button
+              onClick={cycleSpeed}
+              aria-label={`Playback speed: ${speed}x`}
+              style={pillBtnStyle(speed !== 1)}
+              onMouseEnter={(e) => {
+                if (speed === 1) {
+                  (e.currentTarget as HTMLButtonElement).style.borderColor = c.muted;
+                  (e.currentTarget as HTMLButtonElement).style.color = c.text;
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (speed === 1) {
+                  (e.currentTarget as HTMLButtonElement).style.borderColor = c.border;
+                  (e.currentTarget as HTMLButtonElement).style.color = c.muted;
+                }
+              }}
+            >
+              {speed}x
+            </button>
+            {/* Loop */}
+            <button
+              onClick={toggleLoop}
+              aria-label={loop ? "Disable loop" : "Enable loop"}
+              style={pillBtnStyle(loop)}
+              onMouseEnter={(e) => {
+                if (!loop) {
+                  (e.currentTarget as HTMLButtonElement).style.borderColor = c.muted;
+                  (e.currentTarget as HTMLButtonElement).style.color = c.text;
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (!loop) {
+                  (e.currentTarget as HTMLButtonElement).style.borderColor = c.border;
+                  (e.currentTarget as HTMLButtonElement).style.color = c.muted;
+                }
+              }}
+            >
+              ↺ loop
+            </button>
+            {/* Replay */}
+            <button
+              onClick={replay}
+              aria-label="Replay from start"
+              style={pillBtnStyle(false)}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLButtonElement).style.borderColor = c.muted;
+                (e.currentTarget as HTMLButtonElement).style.color = c.text;
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLButtonElement).style.borderColor = c.border;
+                (e.currentTarget as HTMLButtonElement).style.color = c.muted;
+              }}
+            >
+              ⏮ replay
+            </button>
+          </>
+        )}
       </div>
+
+      {/* Row 3 — mobile only: speed | loop | replay */}
+      {isMobile && (
+        <div style={{ display: "flex", alignItems: "center", gap: "0.6rem", justifyContent: "flex-end" }}>
+          {/* Speed */}
+          <button
+            onClick={cycleSpeed}
+            aria-label={`Playback speed: ${speed}x`}
+            style={pillBtnStyle(speed !== 1)}
+            onMouseEnter={(e) => {
+              if (speed === 1) {
+                (e.currentTarget as HTMLButtonElement).style.borderColor = c.muted;
+                (e.currentTarget as HTMLButtonElement).style.color = c.text;
+              }
+            }}
+            onMouseLeave={(e) => {
+              if (speed === 1) {
+                (e.currentTarget as HTMLButtonElement).style.borderColor = c.border;
+                (e.currentTarget as HTMLButtonElement).style.color = c.muted;
+              }
+            }}
+          >
+            {speed}x
+          </button>
+          {/* Loop */}
+          <button
+            onClick={toggleLoop}
+            aria-label={loop ? "Disable loop" : "Enable loop"}
+            style={pillBtnStyle(loop)}
+            onMouseEnter={(e) => {
+              if (!loop) {
+                (e.currentTarget as HTMLButtonElement).style.borderColor = c.muted;
+                (e.currentTarget as HTMLButtonElement).style.color = c.text;
+              }
+            }}
+            onMouseLeave={(e) => {
+              if (!loop) {
+                (e.currentTarget as HTMLButtonElement).style.borderColor = c.border;
+                (e.currentTarget as HTMLButtonElement).style.color = c.muted;
+              }
+            }}
+          >
+            ↺ loop
+          </button>
+          {/* Replay */}
+          <button
+            onClick={replay}
+            aria-label="Replay from start"
+            style={pillBtnStyle(false)}
+            onMouseEnter={(e) => {
+              (e.currentTarget as HTMLButtonElement).style.borderColor = c.muted;
+              (e.currentTarget as HTMLButtonElement).style.color = c.text;
+            }}
+            onMouseLeave={(e) => {
+              (e.currentTarget as HTMLButtonElement).style.borderColor = c.border;
+              (e.currentTarget as HTMLButtonElement).style.color = c.muted;
+            }}
+          >
+            ⏮ replay
+          </button>
+        </div>
+      )}
 
       <audio ref={audioRef} src={src} preload="metadata" />
     </div>
