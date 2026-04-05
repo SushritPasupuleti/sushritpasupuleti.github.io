@@ -1,0 +1,1 @@
+Learn how I built my startup from scratch as a solo developer, leveraging a custom tech stack to create a platform that empowers software professionals to share projects and get feedback.

@@ -146,13 +146,22 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const audioFilePath = path.join(process.cwd(), "public", "audio-blogs", `${params?.slug}.wav`);
   const audioUrl = fs.existsSync(audioFilePath) ? `/audio-blogs/${params?.slug}.wav` : null;
 
+  // Use the Ollama-generated OG summary if available, then frontmatter description,
+  // then fall back to a plain-text excerpt of the content.
+  const summaryFilePath = path.join(process.cwd(), "public", "blog-summaries", `${params?.slug}.txt`);
+  let description: string = data.description || content.replace(/[#*_`>[\]!]/g, "").trim().slice(0, 160);
+  if (fs.existsSync(summaryFilePath)) {
+    const generated = fs.readFileSync(summaryFilePath, "utf8").trim();
+    if (generated) description = generated;
+  }
+
   return {
     props: {
       title: data.title || params?.slug,
       date: data.date || "",
       content,
       cover_img_url: data.cover_img_url || "",
-      description: data.description || content.slice(0, 160),
+      description,
       slug: params?.slug || "",
       tags: Array.isArray(data.tags) ? data.tags : [],
       audioUrl,

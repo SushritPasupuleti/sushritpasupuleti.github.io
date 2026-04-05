@@ -1,0 +1,1 @@
+Discover when and why switching from Vercel to another hosting provider like AWS might be the best decision for your next.js projects.

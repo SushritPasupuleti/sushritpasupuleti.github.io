@@ -35,3 +35,21 @@ audio-model-remove:
 	@echo "Removing Ollama model for audio generation..."
 	@ollama remove llama3.2
 	@echo "Removed model."
+
+# ── Blog OG summaries ────────────────────────────────────────────────────────
+
+summaries:
+	@uv run python generate_blog_summaries.py
+
+summaries-overwrite:
+	@uv run python generate_blog_summaries.py --overwrite
+
+summaries-fast:
+	@uv run python generate_blog_summaries.py --no-ollama
+
+summaries-clean:
+	@echo "Removing generated blog-summaries directory..."
+	@rm -rf web/public/blog-summaries
+	@echo "Removed web/public/blog-summaries/"
+
+.PHONY: summaries summaries-overwrite summaries-fast summaries-clean
