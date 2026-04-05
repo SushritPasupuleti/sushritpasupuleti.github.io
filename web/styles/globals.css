@@ -32,6 +32,10 @@ a {
   margin-left: 2px;
 }
 
+.fab-cursor {
+  animation: blink 1s step-end infinite;
+}
+
 /* Terminal scanline effect */
 .terminal-container {
   position: relative;

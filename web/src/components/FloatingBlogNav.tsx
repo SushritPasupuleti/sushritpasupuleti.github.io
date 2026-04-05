@@ -165,24 +165,24 @@ const FloatingBlogNav: React.FC<FloatingBlogNavProps> = ({ url, title }) => {
       right: "1.5rem",
       width: "240px",
       background: c.surface,
-      border: `1px solid ${c.border}`,
-      borderRadius: "6px",
-      boxShadow: "0 8px 24px rgba(0,0,0,0.45)",
+      border: `1px solid ${c.green}`,
+      borderRadius: "3px",
+      boxShadow: `0 8px 32px rgba(0,0,0,0.6), 0 0 12px ${c.green}33`,
       zIndex: 1001,
       overflow: "hidden",
     }}>
       <div style={{
-        background: c.titleBar,
+        background: c.green,
         padding: "0.5rem 0.75rem",
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
       }}>
-        <span style={{ color: c.green, fontFamily: mono, fontSize: "0.8rem", fontWeight: 600 }}>
-          <span style={{ color: c.dim, fontSize: "0.8em" }}>$ </span>nav
+        <span style={{ color: c.surface, fontFamily: mono, fontSize: "0.8rem", fontWeight: 700 }}>
+          <span style={{ opacity: 0.7, fontSize: "0.8em" }}>$ </span>nav
         </span>
         <span onClick={() => setOpen(false)}
-          style={{ color: c.dim, fontFamily: mono, fontSize: "0.8rem", cursor: "pointer" }}>[x]</span>
+          style={{ color: c.surface, fontFamily: mono, fontSize: "0.8rem", cursor: "pointer", opacity: 0.8 }}>[x]</span>
       </div>
       {quickLinksRow}
       <div style={{ padding: "0.35rem 0" }}>
@@ -233,7 +233,7 @@ const FloatingBlogNav: React.FC<FloatingBlogNavProps> = ({ url, title }) => {
   // ---------- Drawer (mobile) ----------
   const backdrop = (
     <div onClick={() => setOpen(false)}
-      style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.55)", zIndex: 1000 }} />
+      style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.7)", backdropFilter: "blur(2px)", zIndex: 1000 }} />
   );
 
   const drawer = (
@@ -241,29 +241,31 @@ const FloatingBlogNav: React.FC<FloatingBlogNavProps> = ({ url, title }) => {
       position: "fixed",
       bottom: 0, left: 0, right: 0,
       background: c.surface,
-      border: `1px solid ${c.border}`,
-      borderRadius: "12px 12px 0 0",
+      border: `1px solid ${c.green}`,
+      borderTop: `2px solid ${c.green}`,
+      borderRadius: "6px 6px 0 0",
       zIndex: 1001,
       maxHeight: "50vh",
       display: "flex",
       flexDirection: "column",
-      boxShadow: "0 -4px 24px rgba(0,0,0,0.45)",
+      boxShadow: `0 -4px 32px rgba(0,0,0,0.6), 0 0 12px ${c.green}33`,
     }}>
       <div style={{ display: "flex", justifyContent: "center", padding: "0.5rem 0 0.25rem" }}>
-        <div style={{ width: "36px", height: "4px", borderRadius: "2px", background: c.border }} />
+        <div style={{ width: "36px", height: "4px", borderRadius: "2px", background: c.green, opacity: 0.5 }} />
       </div>
       <div style={{
         padding: "0.35rem 0.75rem 0.5rem",
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
-        borderBottom: `1px solid ${c.border}`,
+        borderBottom: `1px solid ${c.green}`,
+        background: c.green,
       }}>
-        <span style={{ color: c.green, fontFamily: mono, fontSize: "0.85rem", fontWeight: 600 }}>
-          <span style={{ color: c.dim, fontSize: "0.8em" }}>$ </span>nav
+        <span style={{ color: c.surface, fontFamily: mono, fontSize: "0.85rem", fontWeight: 700 }}>
+          <span style={{ opacity: 0.7, fontSize: "0.8em" }}>$ </span>nav
         </span>
         <span onClick={() => setOpen(false)}
-          style={{ color: c.dim, fontFamily: mono, fontSize: "0.85rem", cursor: "pointer", padding: "0.25rem" }}>[x]</span>
+          style={{ color: c.surface, fontFamily: mono, fontSize: "0.85rem", cursor: "pointer", padding: "0.25rem", opacity: 0.8 }}>[x]</span>
       </div>
       {quickLinksRow}
       <div style={{ overflowY: "auto", padding: "0.35rem 0", flex: 1 }}>
@@ -324,30 +326,50 @@ const FloatingBlogNav: React.FC<FloatingBlogNavProps> = ({ url, title }) => {
           bottom: "1.5rem",
           right: "1.5rem",
           zIndex: 1002,
-          width: "48px",
-          height: "48px",
-          borderRadius: "50%",
+          height: "auto",
+          width: "auto",
+          borderRadius: "3px",
           border: `1px solid ${c.green}`,
           background: c.surface,
           color: c.green,
           fontFamily: mono,
-          fontSize: "1.1rem",
-          fontWeight: 700,
+          fontSize: "0.75rem",
+          fontWeight: 600,
           cursor: "pointer",
           display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          boxShadow: `0 4px 14px rgba(0,0,0,0.4), 0 0 0 1px ${c.border}`,
-          transition: "transform 0.15s, box-shadow 0.15s",
+          flexDirection: "column",
+          alignItems: "stretch",
+          padding: 0,
+          overflow: "hidden",
+          boxShadow: `0 6px 20px rgba(0,0,0,0.5), 0 0 8px ${c.green}44`,
+          transition: "border-color 0.15s, box-shadow 0.15s, transform 0.15s",
+          lineHeight: 1,
         }}
         onMouseEnter={(e) => {
-          (e.currentTarget as HTMLButtonElement).style.transform = "scale(1.08)";
+          (e.currentTarget as HTMLButtonElement).style.boxShadow = `0 6px 24px rgba(0,0,0,0.5), 0 0 16px ${c.green}66`;
+          (e.currentTarget as HTMLButtonElement).style.transform = "translateY(-2px)";
         }}
         onMouseLeave={(e) => {
-          (e.currentTarget as HTMLButtonElement).style.transform = "scale(1)";
+          (e.currentTarget as HTMLButtonElement).style.boxShadow = `0 6px 20px rgba(0,0,0,0.5), 0 0 8px ${c.green}44`;
+          (e.currentTarget as HTMLButtonElement).style.transform = "translateY(0)";
         }}
       >
-        {open ? "×" : "≡"}
+        <span style={{
+          background: c.green,
+          padding: "0.25rem 0.6rem",
+          color: c.surface,
+          fontSize: "0.65rem",
+          fontWeight: 700,
+          textAlign: "left",
+          borderBottom: `1px solid ${c.green}`,
+        }}>┌ nav</span>
+        <span style={{
+          padding: "0.4rem 0.65rem",
+          color: c.green,
+          letterSpacing: "0.05em",
+          fontSize: "0.8rem",
+          fontWeight: 700,
+        }}>{open ? "[x] close" : <>[≡] menu <span className="fab-cursor">▎</span></>}</span>
       </button>
 
       {open && !isMobile && (
