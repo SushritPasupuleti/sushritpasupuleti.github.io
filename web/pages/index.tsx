@@ -43,8 +43,7 @@ const Home: NextPage = () => {
 			{booting && <TerminalBoot lines={HOME_BOOT_LINES} c={c} onDone={handleBootDone} maxDuration={6000} />}
 			<HomeSEO />
 			<Head>
-				<title>Sushrit Pasupuleti - Resume</title>
-				<link rel="icon" href="/favicon.ico" />
+				<title>Sushrit Pasupuleti - Portfolio</title>
 			</Head>
 			<Navbar />
 			<FloatingTocNav />

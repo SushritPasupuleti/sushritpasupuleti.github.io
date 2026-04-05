@@ -183,6 +183,8 @@ const BlogPost = ({
     { command: "render --format=terminal --with-syntax-highlight", output: ["Rendering markdown...", "Done."] },
   ];
 
+  const readTime = Math.max(1, Math.round(content.trim().split(/\s+/).length / 200));
+
   const [booting, setBooting] = useState(true);
   const handleBootDone = useCallback(() => {
     setBooting(false);
@@ -304,6 +306,10 @@ const BlogPost = ({
               <span style={{ color: c.muted }}>date:</span> {date}
             </div>
           )}
+          <div style={{ color: c.dim, fontSize: "0.8rem", marginTop: "0.25rem" }}>
+            <span style={{ color: c.muted }}>read-time:</span>{" "}
+            <span style={{ color: c.cyan }}>~{readTime} min</span>
+          </div>
           {tags && tags.length > 0 && (
             <div style={{ display: "flex", flexWrap: "wrap", gap: "0.35rem", marginTop: "0.5rem" }}>
               {tags.map((tag) => (
