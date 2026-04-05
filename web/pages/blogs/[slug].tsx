@@ -11,6 +11,7 @@ import TerminalLine from "../../src/components/TerminalLine";
 import FloatingBlogNav from "../../src/components/FloatingBlogNav";
 import Navbar from "../../src/components/Navbar";
 import TerminalBoot from "../../src/components/TerminalBoot";
+import AudioPlayer from "../../src/components/AudioPlayer";
 import ReactMarkdown from "react-markdown";
 import type { Components } from "react-markdown";
 import rehypeSanitize from "rehype-sanitize";
@@ -140,6 +141,11 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const filePath = path.join(postsDir, `${params?.slug}.md`);
   const fileContent = fs.readFileSync(filePath, "utf8");
   const { data, content } = matter(fileContent);
+
+  // Serve audio from /audio-blogs/<slug>.wav if the file has been generated.
+  const audioFilePath = path.join(process.cwd(), "public", "audio-blogs", `${params?.slug}.wav`);
+  const audioUrl = fs.existsSync(audioFilePath) ? `/audio-blogs/${params?.slug}.wav` : null;
+
   return {
     props: {
       title: data.title || params?.slug,
@@ -149,6 +155,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       description: data.description || content.slice(0, 160),
       slug: params?.slug || "",
       tags: Array.isArray(data.tags) ? data.tags : [],
+      audioUrl,
     },
   };
 };
@@ -161,6 +168,7 @@ const BlogPost = ({
   description,
   slug,
   tags,
+  audioUrl,
 }: {
   title: string;
   date: string;
@@ -169,6 +177,7 @@ const BlogPost = ({
   description?: string;
   slug?: string;
   tags?: string[];
+  audioUrl?: string | null;
 }) => {
   const { theme, setTheme } = useNextTheme();
   const [mounted, setMounted] = useState(false);
@@ -357,6 +366,13 @@ const BlogPost = ({
             variant="icons"
           />
         </div>
+
+        {/* Audio player — only shown when a WAV file has been generated */}
+        {audioUrl && (
+          <div style={{ marginBottom: "1.5rem" }}>
+            <AudioPlayer src={audioUrl} c={c} />
+          </div>
+        )}
 
         {/* Content */}
         <div

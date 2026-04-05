@@ -94,4 +94,6 @@ Because the generator reads the website's TypeScript source files directly, upda
 ### TODO
 
 - [ ] An LLM-based tool to summarize the blogs for OpenGraph metadata.
-- [ ] An LLM-based tool to generate audio versions of the blogs for accessibility and podcasting.
+- [x] An LLM-based tool to generate audio versions of the blogs for accessibility and podcasting.
+    - [ ] Add AI-use disclosures to the blog posts that have AI-generated summaries/audio. And explain the local generation process.
+- [ ] FIXME: When directly navigating to a blog URL, it's stuck on the loading screen.

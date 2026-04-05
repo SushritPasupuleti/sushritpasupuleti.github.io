@@ -8,3 +8,4 @@ resume/resume.out
 .do_tasks
 web/.yarn
 resume/resume.fdb_latexmk
+models/kokoro
