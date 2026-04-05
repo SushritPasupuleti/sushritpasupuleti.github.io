@@ -4,6 +4,7 @@ import matter from "gray-matter";
 import { GetStaticProps } from "next";
 import Link from "next/link";
 import React from "react";
+import { useRouter } from "next/router";
 import { useTheme as useNextTheme } from "next-themes";
 import Image from "next/image";
 import yaml from "js-yaml";
@@ -81,8 +82,18 @@ const BlogsPage = ({
   const isDark = theme === "dark";
   const c = isDark ? darkPalette : lightPalette;
 
+  const router = useRouter();
   const [search, setSearch] = React.useState("");
   const [activeTags, setActiveTags] = React.useState<string[]>([]);
+
+  // Initialize active tags from query parameter
+  React.useEffect(() => {
+    const tagParam = router.query.tag;
+    if (tagParam) {
+      const tag = Array.isArray(tagParam) ? tagParam[0] : tagParam;
+      setActiveTags([tag]);
+    }
+  }, [router.query.tag]);
 
   // Collect all unique tags
   const allTags = React.useMemo(() => {

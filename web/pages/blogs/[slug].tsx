@@ -145,6 +145,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       cover_img_url: data.cover_img_url || "",
       description: data.description || content.slice(0, 160),
       slug: params?.slug || "",
+      tags: Array.isArray(data.tags) ? data.tags : [],
     },
   };
 };
@@ -156,6 +157,7 @@ const BlogPost = ({
   cover_img_url,
   description,
   slug,
+  tags,
 }: {
   title: string;
   date: string;
@@ -163,6 +165,7 @@ const BlogPost = ({
   cover_img_url?: string;
   description?: string;
   slug?: string;
+  tags?: string[];
 }) => {
   const { theme, setTheme } = useNextTheme();
   const isDark = theme === "dark";
@@ -263,7 +266,7 @@ const BlogPost = ({
 
         {/* Title block */}
         <div style={{ marginBottom: "1.5rem" }}>
-          <TerminalLine variant="open" label="article" color={c.dim} />
+          <TerminalLine variant="open" label="blog" color={c.dim} />
           <h1 style={{
             color: c.green,
             fontSize: "1.4rem",
@@ -277,6 +280,29 @@ const BlogPost = ({
           {date && (
             <div style={{ color: c.dim, fontSize: "0.8rem" }}>
               <span style={{ color: c.muted }}>date:</span> {date}
+            </div>
+          )}
+          {tags && tags.length > 0 && (
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "0.35rem", marginTop: "0.5rem" }}>
+              {tags.map((tag) => (
+                <Link
+                  key={tag}
+                  href={`/blogs?tag=${encodeURIComponent(tag)}`}
+                  style={{
+                    background: isDark ? "rgba(0,255,65,0.05)" : "rgba(26,122,46,0.08)",
+                    color: c.green,
+                    border: `1px solid ${isDark ? "#1a3a1a" : "#b0d8b0"}`,
+                    borderRadius: "2px",
+                    padding: "0.15rem 0.5rem",
+                    fontSize: "0.7rem",
+                    fontFamily: "'JetBrains Mono', monospace",
+                    textDecoration: "none",
+                    transition: "all 0.15s",
+                  }}
+                >
+                  #{tag}
+                </Link>
+              ))}
             </div>
           )}
           <TerminalLine variant="close" color={c.dim} />
