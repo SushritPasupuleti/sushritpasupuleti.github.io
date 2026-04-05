@@ -36,22 +36,22 @@ function getTerminalComponents(c: typeof darkPalette): Partial<Components> {
   return {
   h1: ({ children }) => (
     <h1 style={{ color: c.green, fontFamily: mono, fontSize: "1.3rem", fontWeight: 700, borderBottom: `1px dashed ${c.separator}`, paddingBottom: "0.5rem", marginTop: "2rem" }}>
-      <span style={{ color: c.dim, fontWeight: 400, fontSize: "0.8em" }}>## </span>{children}
+      <span style={{ color: c.dim, fontWeight: 400, fontSize: "0.8em" }}> </span>{children}
     </h1>
   ),
   h2: ({ children }) => (
     <h2 style={{ color: c.green, fontFamily: mono, fontSize: "1.15rem", fontWeight: 600, borderBottom: `1px dashed ${c.separator}`, paddingBottom: "0.4rem", marginTop: "1.75rem" }}>
-      <span style={{ color: c.dim, fontWeight: 400, fontSize: "0.8em" }}>## </span>{children}
+      <span style={{ color: c.dim, fontWeight: 400, fontSize: "0.8em" }}> </span>{children}
     </h2>
   ),
   h3: ({ children }) => (
     <h3 style={{ color: c.green, fontFamily: mono, fontSize: "1.05rem", fontWeight: 600, borderBottom: `1px dashed ${c.border}`, paddingBottom: "0.3rem", marginTop: "1.5rem" }}>
-      <span style={{ color: c.dim, fontWeight: 400, fontSize: "0.8em" }}>### </span>{children}
+      <span style={{ color: c.dim, fontWeight: 400, fontSize: "0.8em" }}> </span>{children}
     </h3>
   ),
   h4: ({ children }) => (
     <h4 style={{ color: c.green, fontFamily: mono, fontSize: "0.95rem", fontWeight: 600, marginTop: "1.25rem" }}>
-      <span style={{ color: c.dim, fontWeight: 400, fontSize: "0.8em" }}>#### </span>{children}
+      <span style={{ color: c.dim, fontWeight: 400, fontSize: "0.8em" }}> </span>{children}
     </h4>
   ),
   p: ({ children }) => (
