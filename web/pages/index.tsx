@@ -1,5 +1,5 @@
 import type { NextPage } from 'next'
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import Hero from '../src/components/Hero';
@@ -32,10 +32,14 @@ const HOME_BOOT_LINES = [
 
 const Home: NextPage = () => {
 	const { isDark, c, setTheme } = useTerminalTheme();
-	const [booting, setBooting] = useState(true);
+	const [booting, setBooting] = useState(false);
 
 	const handleBootDone = useCallback(() => {
 		setBooting(false);
+	}, []);
+
+	useEffect(() => {
+		setBooting(true);
 	}, []);
 
 	return (

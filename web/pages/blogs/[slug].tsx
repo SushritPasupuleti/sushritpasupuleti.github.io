@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import { GetStaticProps, GetStaticPaths } from "next";
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect, useMemo } from "react";
 import { useTheme as useNextTheme } from "next-themes";
 import Link from "next/link";
 import Head from "next/head";
@@ -16,6 +16,7 @@ import type { Components } from "react-markdown";
 import rehypeSanitize from "rehype-sanitize";
 import rehypeVideo from 'rehype-video';
 import { FiSun, FiMoon } from "react-icons/fi";
+import { getReadTime } from "../../src/utils";
 
 const darkPalette = {
   bg: "#0a0a0a", surface: "#0d0d0d", titleBar: "#1a1a2e",
@@ -170,24 +171,36 @@ const BlogPost = ({
   tags?: string[];
 }) => {
   const { theme, setTheme } = useNextTheme();
-  const isDark = theme === "dark";
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  // Before mount, lock to lightPalette so the client's initial render
+  // matches the SSR output (next-themes resolves the real theme only on the client).
+  const isDark = mounted ? theme === "dark" : false;
   const c = isDark ? darkPalette : lightPalette;
   const terminalComponents = getTerminalComponents(c);
 
-  const bootLines = [
+  const bootLines = useMemo(() => [
     { command: `cd ~/blogs`, output: ["~/blogs"] },
     { command: `stat ${slug}.md`, output: ["Checking file...", "Found."] },
     { command: `cat ${slug}.md`, output: ["Reading frontmatter...", `title: "${title}"`] },
     { command: `head -n 20 ${slug}.md | grep 'tags:'`, output: [tags && tags.length > 0 ? `tags: [${tags.join(", ")}]` : "tags: []"] },
     { command: "source ~/.terminal-theme", output: ["Theme loaded."] },
     { command: "render --format=terminal --with-syntax-highlight", output: ["Rendering markdown...", "Done."] },
-  ];
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  ], [slug, title]);
 
-  const readTime = Math.max(1, Math.round(content.trim().split(/\s+/).length / 200));
+  const readTime = getReadTime(content);
 
-  const [booting, setBooting] = useState(true);
+  const [booting, setBooting] = useState(false);
   const handleBootDone = useCallback(() => {
     setBooting(false);
+  }, []);
+
+  // Start the boot animation only after hydration is complete.
+  // Initialising to false means the overlay is absent from the SSG HTML,
+  // so next-themes' theme-resolution re-render cannot interrupt the animation.
+  useEffect(() => {
+    setBooting(true);
   }, []);
 
   return (

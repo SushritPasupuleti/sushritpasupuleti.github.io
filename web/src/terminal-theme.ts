@@ -43,7 +43,9 @@ export function useTerminalTheme() {
   const { resolvedTheme, setTheme } = useNextTheme();
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
-  const isDark = mounted ? resolvedTheme === "dark" : true;
+  // Default to false (light palette) before mount so the initial client render
+  // matches SSR output — next-themes resolves the real theme only on the client.
+  const isDark = mounted ? resolvedTheme === "dark" : false;
   const c = isDark ? darkPalette : lightPalette;
   return { theme: resolvedTheme, setTheme, isDark, c };
 }

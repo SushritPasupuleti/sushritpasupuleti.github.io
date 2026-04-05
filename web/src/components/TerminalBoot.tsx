@@ -49,6 +49,10 @@ const TerminalBoot: React.FC<TerminalBootProps> = ({
   const [fading, setFading] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const skippedRef = useRef(false);
+  // Keep a ref to onDone so the safety net timer is never affected by
+  // reference changes to the callback (e.g. parent re-renders).
+  const onDoneRef = useRef(onDone);
+  useEffect(() => { onDoneRef.current = onDone; });
 
   const skip = useCallback(() => {
     if (skippedRef.current) return;
@@ -61,10 +65,10 @@ const TerminalBoot: React.FC<TerminalBootProps> = ({
   useEffect(() => {
     const timer = setTimeout(() => {
       setFading(true);
-      setTimeout(onDone, 300);
+      setTimeout(() => onDoneRef.current(), 300);
     }, maxDuration);
     return () => clearTimeout(timer);
-  }, [maxDuration, onDone]);
+  }, [maxDuration]); // intentionally excludes onDone — ref keeps it current
 
   // Type out the current line
   useEffect(() => {

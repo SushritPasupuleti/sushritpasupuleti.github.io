@@ -13,7 +13,7 @@ class MyDocument extends Document {
 
 	render() {
 		return (
-			<Html lang="en">
+			<Html lang="en" suppressHydrationWarning>
 				<Head>
 					<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 					{CssBaseline.flush()}
