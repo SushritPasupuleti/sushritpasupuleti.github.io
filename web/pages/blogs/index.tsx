@@ -13,6 +13,16 @@ import fsExtra from "fs";
 import Head from "next/head";
 import { FiSun, FiMoon } from "react-icons/fi";
 import BlogSearch from "../../src/components/BlogSearch";
+import TerminalBoot from "../../src/components/TerminalBoot";
+
+const BLOGS_BOOT_LINES = [
+  { command: "cd ~/blogs", output: ["~/blogs"] },
+  { command: "find . -name '*.md' -type f | wc -l", output: ["Counting posts..."] },
+  { command: "ls -la *.md | sort -t' ' -k6 -r", output: ["Sorting by date..."] },
+  { command: "cat authors.yml", output: ["Loading authors..."] },
+  { command: "grep -r 'tags:' *.md | cut -d: -f2 | sort -u", output: ["Indexing tags..."] },
+  { command: "render --index --with-search --with-filters", output: ["Building index...", "Done."] },
+];
 
 const darkPalette = {
   bg: "#0a0a0a", surface: "#0d0d0d", titleBar: "#1a1a2e",
@@ -82,6 +92,11 @@ const BlogsPage = ({
   const isDark = theme === "dark";
   const c = isDark ? darkPalette : lightPalette;
 
+  const [booting, setBooting] = React.useState(true);
+  const handleBootDone = React.useCallback(() => {
+    setBooting(false);
+  }, []);
+
   const router = useRouter();
   const [search, setSearch] = React.useState("");
   const [activeTags, setActiveTags] = React.useState<string[]>([]);
@@ -124,6 +139,7 @@ const BlogsPage = ({
 
   return (
   <>
+    {booting && <TerminalBoot lines={BLOGS_BOOT_LINES} c={c} onDone={handleBootDone} maxDuration={6000} />}
     <Head>
       <title>Sushrit&#39;s Blogs</title>
       <meta property="og:title" content="Sushrit&#39;s Blogs" />

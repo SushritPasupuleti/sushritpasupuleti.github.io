@@ -1,4 +1,5 @@
 import type { NextPage } from 'next'
+import React, { useState, useCallback } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import Hero from '../src/components/Hero';
@@ -15,13 +16,31 @@ import CertificatesSection from '../src/components/Sections/Certificates';
 import Navbar from '../src/components/Navbar';
 import TableOfContents from '../src/components/TableOfContents';
 import FloatingTocNav from '../src/components/FloatingTocNav';
+import TerminalBoot from '../src/components/TerminalBoot';
 import { useTerminalTheme, mono } from '../src/terminal-theme';
 import { FiSun, FiMoon } from 'react-icons/fi';
 
+const HOME_BOOT_LINES = [
+	{ command: "ssh guest@sushrit-pasupuleti.dev", output: ["Connection established."] },
+	{ command: "whoami", output: ["guest — welcome to sushrit's terminal"] },
+	{ command: "cat /etc/motd", output: ["Last login: " + new Date().toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric", year: "numeric" })] },
+	{ command: "ls ~/resume/", output: ["skills/  tools/  experience/  projects/  certificates/  blogs/  videos/"] },
+	{ command: "cat resume.md", output: ["Parsing frontmatter...", "Loading sections..."] },
+	{ command: "source ~/.terminal-theme", output: ["Theme loaded."] },
+	{ command: "render --format=terminal --sections=all", output: ["Rendering 10 sections...", "Done. Enjoy your stay!"] },
+];
+
 const Home: NextPage = () => {
 	const { isDark, c, setTheme } = useTerminalTheme();
+	const [booting, setBooting] = useState(true);
+
+	const handleBootDone = useCallback(() => {
+		setBooting(false);
+	}, []);
+
 	return (
 		<>
+			{booting && <TerminalBoot lines={HOME_BOOT_LINES} c={c} onDone={handleBootDone} maxDuration={6000} />}
 			<HomeSEO />
 			<Head>
 				<title>Sushrit Pasupuleti - Resume</title>

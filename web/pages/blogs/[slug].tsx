@@ -2,13 +2,14 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import { GetStaticProps, GetStaticPaths } from "next";
-import React from "react";
+import React, { useState, useCallback } from "react";
 import { useTheme as useNextTheme } from "next-themes";
 import Link from "next/link";
 import Head from "next/head";
 import ShareSheet from "../../src/components/ShareSheet";
 import TerminalLine from "../../src/components/TerminalLine";
 import FloatingBlogNav from "../../src/components/FloatingBlogNav";
+import TerminalBoot from "../../src/components/TerminalBoot";
 import ReactMarkdown from "react-markdown";
 import type { Components } from "react-markdown";
 import rehypeSanitize from "rehype-sanitize";
@@ -171,8 +172,24 @@ const BlogPost = ({
   const isDark = theme === "dark";
   const c = isDark ? darkPalette : lightPalette;
   const terminalComponents = getTerminalComponents(c);
+
+  const bootLines = [
+    { command: `cd ~/blogs`, output: ["~/blogs"] },
+    { command: `stat ${slug}.md`, output: ["Checking file...", "Found."] },
+    { command: `cat ${slug}.md`, output: ["Reading frontmatter...", `title: "${title}"`] },
+    { command: `head -n 20 ${slug}.md | grep 'tags:'`, output: [tags && tags.length > 0 ? `tags: [${tags.join(", ")}]` : "tags: []"] },
+    { command: "source ~/.terminal-theme", output: ["Theme loaded."] },
+    { command: "render --format=terminal --with-syntax-highlight", output: ["Rendering markdown...", "Done."] },
+  ];
+
+  const [booting, setBooting] = useState(true);
+  const handleBootDone = useCallback(() => {
+    setBooting(false);
+  }, []);
+
   return (
   <>
+    {booting && <TerminalBoot lines={bootLines} c={c} onDone={handleBootDone} maxDuration={6000} />}
     <Head>
       <title>{title}</title>
       <meta property="og:title" content={title} />
