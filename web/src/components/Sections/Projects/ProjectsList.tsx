@@ -34,7 +34,7 @@ const Project = (props: any) => {
 				</div>
 				{props.projectInfo.start && (
 					<span style={{ color: c.muted, fontFamily: mono, fontSize: "0.75rem" }}>
-						{props.projectInfo.start} \u2192 {props.projectInfo.end}
+						{props.projectInfo.start} → {props.projectInfo.end}
 					</span>
 				)}
 			</div>

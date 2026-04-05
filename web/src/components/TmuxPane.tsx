@@ -19,6 +19,10 @@ interface TmuxPaneProps {
   defaultOpen?: boolean;
   /** Controlled open state — overrides internal state when provided */
   forceOpen?: boolean;
+  /** Fully controlled open state from parent */
+  controlledOpen?: boolean;
+  /** Callback when open state changes */
+  onToggle?: (open: boolean) => void;
   /** Status badges shown on the right side of the status bar */
   badges?: StatusBadge[];
   children: React.ReactNode;
@@ -32,15 +36,25 @@ const TmuxPane: React.FC<TmuxPaneProps> = ({
   paneNumber = "1",
   defaultOpen = true,
   forceOpen,
+  controlledOpen,
+  onToggle,
   badges,
   children,
 }) => {
-  const [open, setOpen] = useState(defaultOpen);
+  const [internalOpen, setInternalOpen] = useState(defaultOpen);
+  const isControlled = controlledOpen !== undefined;
+  const open = isControlled ? controlledOpen : internalOpen;
 
   // Allow parent to force-open the pane
   useEffect(() => {
-    if (forceOpen) setOpen(true);
-  }, [forceOpen]);
+    if (forceOpen && !isControlled) setInternalOpen(true);
+  }, [forceOpen, isControlled]);
+
+  const handleToggle = () => {
+    const next = !open;
+    if (!isControlled) setInternalOpen(next);
+    onToggle?.(next);
+  };
 
   return (
     <div style={{ marginBottom: "1rem" }}>
@@ -54,7 +68,7 @@ const TmuxPane: React.FC<TmuxPaneProps> = ({
       >
         {/* tmux status bar */}
         <button
-          onClick={() => setOpen((prev) => !prev)}
+          onClick={handleToggle}
           style={{
             background: c.titleBar,
             border: "none",

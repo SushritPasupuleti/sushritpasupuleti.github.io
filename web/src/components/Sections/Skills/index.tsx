@@ -80,14 +80,16 @@ const skillCategories = [
 	{ title: "Other Frameworks & Technologies", subtitle: "Sprinkled on top of the above!", icon: "💻", skills: miscSkills },
 ];
 
-function SkillCategory({ title, subtitle, icon, skills, c, isDark }: { title: string; subtitle: string; icon: string; skills: Array<String>; c: any; isDark: boolean }) {
+function SkillCategory({ title, subtitle, icon, skills, c, isDark, open, onToggle }: { title: string; subtitle: string; icon: string; skills: Array<String>; c: any; isDark: boolean; open: boolean; onToggle: (open: boolean) => void }) {
 	return (
 		<TmuxPane
 			c={c}
 			isDark={isDark}
 			title={`${icon} ${title}`}
 			subtitle={subtitle}
-			defaultOpen={true}
+			controlledOpen={open}
+			onToggle={onToggle}
+			badges={[{ label: `${skills.length} items`, color: "green" }]}
 		>
 			<SkillsList skills={skills} />
 		</TmuxPane>
@@ -96,16 +98,84 @@ function SkillCategory({ title, subtitle, icon, skills, c, isDark }: { title: st
 
 export default function Skills() {
 	const { c, isDark } = useTerminalTheme();
+	const [openMap, setOpenMap] = React.useState<Record<string, boolean>>(() => {
+		const map: Record<string, boolean> = {};
+		skillCategories.forEach((cat, idx) => { map[cat.title] = idx < 2; });
+		return map;
+	});
+
+	const allOpen = skillCategories.every((cat) => openMap[cat.title]);
+	const allClosed = skillCategories.every((cat) => !openMap[cat.title]);
+
+	const expandAll = () => {
+		const map: Record<string, boolean> = {};
+		skillCategories.forEach((cat) => { map[cat.title] = true; });
+		setOpenMap(map);
+	};
+
+	const collapseAll = () => {
+		const map: Record<string, boolean> = {};
+		skillCategories.forEach((cat) => { map[cat.title] = false; });
+		setOpenMap(map);
+	};
+
 	return (
 		<div>
-			<h2 style={{ color: c.green, fontFamily: mono, fontSize: "1.15rem", fontWeight: 600, margin: "0 0 0.5rem 0" }}>
-				<span style={{ color: c.dim, fontSize: "0.8em" }}>## </span>Skills &amp; Technologies
-			</h2>
+			<div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "0.5rem", marginBottom: "0.5rem" }}>
+				<h2 style={{ color: c.green, fontFamily: mono, fontSize: "1.15rem", fontWeight: 600, margin: 0 }}>
+					<span style={{ color: c.dim, fontSize: "0.8em" }}>## </span>Skills &amp; Technologies
+				</h2>
+				<div style={{ display: "flex", gap: "0.35rem" }}>
+					<button
+						onClick={expandAll}
+						disabled={allOpen}
+						style={{
+							background: "transparent",
+							border: `1px solid ${allOpen ? c.border : c.green}`,
+							borderRadius: "2px",
+							color: allOpen ? c.dim : c.green,
+							fontFamily: mono,
+							fontSize: "0.7rem",
+							cursor: allOpen ? "default" : "pointer",
+							padding: "0.15rem 0.5rem",
+							transition: "all 0.15s",
+							opacity: allOpen ? 0.5 : 1,
+						}}
+					>
+						[+] expand all
+					</button>
+					<button
+						onClick={collapseAll}
+						disabled={allClosed}
+						style={{
+							background: "transparent",
+							border: `1px solid ${allClosed ? c.border : c.green}`,
+							borderRadius: "2px",
+							color: allClosed ? c.dim : c.green,
+							fontFamily: mono,
+							fontSize: "0.7rem",
+							cursor: allClosed ? "default" : "pointer",
+							padding: "0.15rem 0.5rem",
+							transition: "all 0.15s",
+							opacity: allClosed ? 0.5 : 1,
+						}}
+					>
+						[-] collapse all
+					</button>
+				</div>
+			</div>
 			<div style={{ marginBottom: "1rem" }}>
 				<SkillKeywords skills={keywords} />
 			</div>
 			{skillCategories.map((cat) => (
-				<SkillCategory key={cat.title} {...cat} c={c} isDark={isDark} />
+				<SkillCategory
+					key={cat.title}
+					{...cat}
+					c={c}
+					isDark={isDark}
+					open={openMap[cat.title] ?? false}
+					onToggle={(isOpen) => setOpenMap((prev) => ({ ...prev, [cat.title]: isOpen }))}
+				/>
 			))}
 		</div>
 	);
