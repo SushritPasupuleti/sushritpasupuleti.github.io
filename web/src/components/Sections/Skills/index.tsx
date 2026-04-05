@@ -95,10 +95,12 @@ function SkillCategory({ title, subtitle, icon, skills, c }: { title: string; su
 					borderRadius: open ? "4px 4px 0 0" : "4px",
 				}}
 			>
-				<div>
-					<span style={{ marginRight: "0.5rem" }}>{icon}</span>
-					<span style={{ color: c.green, fontFamily: mono, fontSize: "0.9rem", fontWeight: 600 }}>{title}</span>
-					<span style={{ color: c.muted, fontFamily: mono, fontSize: "0.75rem", marginLeft: "0.75rem" }}>{subtitle}</span>
+				<div style={{ display: "flex", flexDirection: "column" }}>
+					<div>
+						<span style={{ marginRight: "0.5rem" }}>{icon}</span>
+						<span style={{ color: c.green, fontFamily: mono, fontSize: "0.9rem", fontWeight: 600 }}>{title}</span>
+					</div>
+					<span style={{ color: c.muted, fontFamily: mono, fontSize: "0.75rem", marginLeft: "1.75rem" }}>{subtitle}</span>
 				</div>
 				<span style={{ color: c.dim, fontFamily: mono, fontSize: "0.8rem" }}>{open ? "[-]" : "[+]"}</span>
 			</div>

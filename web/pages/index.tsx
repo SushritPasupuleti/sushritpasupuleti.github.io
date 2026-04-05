@@ -13,6 +13,8 @@ import HomeSEO from '../src/components/SEO';
 import ExtraSection from '../src/components/Sections/Extra';
 import CertificatesSection from '../src/components/Sections/Certificates';
 import Navbar from '../src/components/Navbar';
+import TableOfContents from '../src/components/TableOfContents';
+import FloatingTocNav from '../src/components/FloatingTocNav';
 import { useTerminalTheme, mono } from '../src/terminal-theme';
 import { FiSun, FiMoon } from 'react-icons/fi';
 
@@ -26,6 +28,7 @@ const Home: NextPage = () => {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<Navbar />
+			<FloatingTocNav />
 			<div
 				className="terminal-container"
 				style={{
@@ -126,36 +129,39 @@ const Home: NextPage = () => {
 
 					<div style={{ borderTop: `1px dashed ${c.border}`, margin: "1rem 0" }} />
 
-					<header>
+					<header id="hero">
 						<Hero />
 					</header>
 
 					<div style={{ borderTop: `1px dashed ${c.separator}`, margin: "2rem 0" }} />
-					<section><TedxSection /></section>
+					<TableOfContents />
+					<div style={{ borderTop: `1px dashed ${c.separator}`, margin: "2rem 0" }} />
+
+					<section id="tedx"><TedxSection /></section>
 
 					<div style={{ borderTop: `1px dashed ${c.separator}`, margin: "2rem 0" }} />
-					<section><SkillsSection /></section>
+					<section id="skills"><SkillsSection /></section>
 
 					<div style={{ borderTop: `1px dashed ${c.separator}`, margin: "2rem 0" }} />
-					<section><ToolsSection /></section>
+					<section id="tools"><ToolsSection /></section>
 
 					<div style={{ borderTop: `1px dashed ${c.separator}`, margin: "2rem 0" }} />
-					<section><WorkExperienceSection /></section>
+					<section id="experience"><WorkExperienceSection /></section>
 
 					<div style={{ borderTop: `1px dashed ${c.separator}`, margin: "2rem 0" }} />
-					<section><ProjectsSection /></section>
+					<section id="projects"><ProjectsSection /></section>
 
 					<div style={{ borderTop: `1px dashed ${c.separator}`, margin: "2rem 0" }} />
-					<section><CertificatesSection /></section>
+					<section id="certificates"><CertificatesSection /></section>
 
 					<div style={{ borderTop: `1px dashed ${c.separator}`, margin: "2rem 0" }} />
-					<section><ExtraSection /></section>
+					<section id="extra"><ExtraSection /></section>
 
 					<div style={{ borderTop: `1px dashed ${c.separator}`, margin: "2rem 0" }} />
-					<section><BlogsSection /></section>
+					<section id="blogs"><BlogsSection /></section>
 
 					<div style={{ borderTop: `1px dashed ${c.separator}`, margin: "2rem 0" }} />
-					<section><VideosSection /></section>
+					<section id="videos"><VideosSection /></section>
 
 					{/* Footer */}
 					<div style={{ borderTop: `1px dashed ${c.separator}`, margin: "2rem 0 1rem" }} />
