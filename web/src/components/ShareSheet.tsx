@@ -1,5 +1,6 @@
 import React from "react";
 import { FaTwitter, FaLinkedin, FaWhatsapp, FaFacebook, FaReddit } from "react-icons/fa";
+import TerminalLine from "./TerminalLine";
 
 interface ShareSheetProps {
   url: string;
@@ -82,9 +83,7 @@ const ShareSheet: React.FC<ShareSheetProps> = ({ url, title, variant = "cta" }) 
       marginTop: "1.5rem",
       fontFamily: "'JetBrains Mono', monospace",
     }}>
-      <div style={{ color: "#555", fontSize: "0.75rem", marginBottom: "0.5rem" }}>
-        ┌─── share ────────────────────────────────────
-      </div>
+      <TerminalLine variant="open" label="share" />
       <p style={{ color: "#00ff41", fontSize: "0.85rem", margin: "0 0 0.25rem 0", fontWeight: 600 }}>
         {"// Enjoyed this post?"}
       </p>
@@ -126,9 +125,7 @@ const ShareSheet: React.FC<ShareSheetProps> = ({ url, title, variant = "cta" }) 
           </a>
         ))}
       </div>
-      <div style={{ color: "#555", fontSize: "0.75rem", marginTop: "0.75rem" }}>
-        └──────────────────────────────────────────────
-      </div>
+      <TerminalLine variant="close" />
     </div>
   );
 };

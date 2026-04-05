@@ -7,6 +7,7 @@ import {
 } from "react-icons/bs";
 import { SiBlogger } from "react-icons/si";
 import { useTerminalTheme, mono } from "../../terminal-theme";
+import TerminalLine from "../TerminalLine";
 
 const socialLinks = [
   { href: "https://github.com/SushritPasupuleti", icon: BsGithub, label: "GitHub" },
@@ -23,9 +24,7 @@ const Hero = () => {
     <div>
       {/* Name + title */}
       <div style={{ marginBottom: "1rem" }}>
-        <div style={{ color: c.dim, fontSize: "0.75rem", marginBottom: "0.5rem" }}>
-          ┌─── whoami ──────────────────────────────────
-        </div>
+        <TerminalLine variant="open" label="whoami" color={c.dim} />
         <h1 style={{
           color: c.green,
           fontSize: "1.4rem",
@@ -39,9 +38,7 @@ const Hero = () => {
         <p style={{ color: c.muted, fontSize: "0.85rem", fontFamily: mono, margin: "0.25rem 0" }}>
           Technical Solution Manager @ClaimShark (now known as Lyric) | Entrepreneur | TedX Speaker | Blogger
         </p>
-        <div style={{ color: c.dim, fontSize: "0.75rem", marginTop: "0.5rem" }}>
-          └──────────────────────────────────────────────
-        </div>
+        <TerminalLine variant="close" color={c.dim} />
       </div>
 
       {/* Bio */}

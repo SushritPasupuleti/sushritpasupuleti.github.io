@@ -7,6 +7,7 @@ import { useTheme as useNextTheme } from "next-themes";
 import Link from "next/link";
 import Head from "next/head";
 import ShareSheet from "../../src/components/ShareSheet";
+import TerminalLine from "../../src/components/TerminalLine";
 import ReactMarkdown from "react-markdown";
 import type { Components } from "react-markdown";
 import rehypeSanitize from "rehype-sanitize";
@@ -253,9 +254,7 @@ const BlogPost = ({
 
         {/* Title block */}
         <div style={{ marginBottom: "1.5rem" }}>
-          <div style={{ color: c.dim, fontSize: "0.75rem", marginBottom: "0.5rem" }}>
-            ┌─── article ─────────────────────────────────
-          </div>
+          <TerminalLine variant="open" label="article" color={c.dim} />
           <h1 style={{
             color: c.green,
             fontSize: "1.4rem",
@@ -271,9 +270,7 @@ const BlogPost = ({
               <span style={{ color: c.muted }}>date:</span> {date}
             </div>
           )}
-          <div style={{ color: c.dim, fontSize: "0.75rem", marginTop: "0.5rem" }}>
-            └──────────────────────────────────────────────
-          </div>
+          <TerminalLine variant="close" color={c.dim} />
         </div>
 
         {/* Share icons */}
