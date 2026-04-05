@@ -32,6 +32,8 @@ const BlogSearch: React.FC<BlogSearchProps> = ({
   clearTags,
   defaultExpanded = false,
 }) => {
+  const inputRef = React.useRef<HTMLInputElement>(null);
+
   const badges = React.useMemo(() => {
     const b: { label: string; color: "green" | "cyan" }[] = [];
     if (activeTags.length > 0)
@@ -55,12 +57,13 @@ const BlogSearch: React.FC<BlogSearchProps> = ({
     >
       {/* Search input */}
       <div style={{ marginBottom: "0.75rem" }}>
-        <div style={{ display: "flex", alignItems: "center", fontSize: "0.85rem" }}>
-          <span style={{ color: c.green, flexShrink: 0 }}>guest@sushrit</span>
+        <div style={{ display: "flex", alignItems: "center", fontSize: "0.85rem", cursor: "text" }} onClick={() => inputRef.current?.focus()}>
+          <span style={{ color: c.green, overflow: "hidden", whiteSpace: "nowrap", textOverflow: "ellipsis" }}>guest@sushrit</span>
           <span style={{ color: c.muted, flexShrink: 0 }}>:</span>
           <span style={{ color: c.cyan, flexShrink: 0 }}>~</span>
           <span style={{ color: c.muted, flexShrink: 0 }}> $ grep -i &quot;</span>
           <input
+            ref={inputRef}
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
@@ -74,12 +77,12 @@ const BlogSearch: React.FC<BlogSearchProps> = ({
               fontFamily: "'JetBrains Mono', monospace",
               fontSize: "0.85rem",
               flex: 1,
-              minWidth: 0,
+              minWidth: "5rem",
               padding: 0,
               caretColor: c.green,
             }}
           />
-          <span style={{ color: c.muted, flexShrink: 0 }}>&quot; ./blogs/*</span>
+          <span style={{ color: c.muted, overflow: "hidden", whiteSpace: "nowrap", textOverflow: "ellipsis" }}>&quot; ./blogs/*</span>
         </div>
       </div>
 
