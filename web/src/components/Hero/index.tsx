@@ -48,7 +48,7 @@ const Hero = () => {
           }}>● ONLINE</span>
         </h1>
         <p style={{ color: c.muted, fontSize: "0.85rem", fontFamily: mono, margin: "0.25rem 0" }}>
-          Technical Solution Manager @ClaimShark (now known as Lyric) | Entrepreneur | TedX Speaker | Blogger
+          Senior Manager @ClaimShark (now known as Lyric) | Entrepreneur | TedX Speaker | Blogger
         </p>
         <TerminalLine variant="close" color={c.dim} />
       </div>

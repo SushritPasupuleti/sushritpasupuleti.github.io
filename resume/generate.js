@@ -25,7 +25,7 @@ const CONTACT = {
 };
 
 const SUMMARY = {
-	headline: 'Technical Solution Manager @ClaimShark (now known as Lyric) | Entrepreneur | TedX Speaker | Blogger',
+	headline: 'Senior Manager @ClaimShark (now known as Lyric) | Entrepreneur | TedX Speaker | Blogger',
 	text: 'A technical and business-focused solo entrepreneur with 7+ years of experience building, managing, and scaling products. Quick to learn, adapt, and innovate to ensure product success.',
 	achievements: [
 		'Shipped 4+ enterprise-grade apps and websites with limited resources.',
