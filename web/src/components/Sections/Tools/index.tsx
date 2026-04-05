@@ -1,6 +1,8 @@
 import SkillKeywords from "../Skills/Keywords";
 import { BsGithub } from "react-icons/bs";
 import { useTerminalTheme, mono } from "../../../terminal-theme";
+import TuiSectionHeader from "../../TuiSectionHeader";
+import TuiBox from "../../TuiBox";
 
 const tools: Array<String> = [
 	"NixOS", "Neovim", "tmux", "lazygit", "ranger", "proxmox",
@@ -30,18 +32,14 @@ export default function Tools() {
 	};
 	return (
 		<div>
-			<h2 style={{ color: c.green, fontFamily: mono, fontSize: "1.15rem", fontWeight: 600, margin: "0 0 0.75rem 0" }}>
-				<span style={{ color: c.dim, fontSize: "0.8em" }}>## </span>Tools I Use
-			</h2>
-			<h4 style={{ color: c.textBright, fontFamily: mono, fontSize: "0.9rem", fontWeight: 400, margin: "0 0 0.5rem 0" }}>
-				OS, Editors, Terminals, Servers, and More
-			</h4>
-			<SkillKeywords skills={tools} />
-			<h4 style={{ color: c.textBright, fontFamily: mono, fontSize: "0.9rem", fontWeight: 400, margin: "1.25rem 0 0.5rem 0" }}>
-				Productivity &amp; Product Management
-			</h4>
-			<SkillKeywords skills={toolsPM} />
-			<div style={{ marginTop: "1rem" }}>
+			<TuiSectionHeader c={c} command="neofetch --tools" output={`${tools.length + toolsPM.length} packages loaded`} />
+			<TuiBox c={c} title="Dev Environment" badge={`${tools.length} tools`} badgeColor={c.green}>
+				<SkillKeywords skills={tools} />
+			</TuiBox>
+			<TuiBox c={c} title="Productivity & PM" badge={`${toolsPM.length} tools`} badgeColor={c.cyan}>
+				<SkillKeywords skills={toolsPM} />
+			</TuiBox>
+			<div style={{ marginTop: "0.5rem" }}>
 				<a href="https://github.com/SushritPasupuleti/dots" style={linkStyle}>
 					<BsGithub /> View Dotfiles on GitHub
 				</a>

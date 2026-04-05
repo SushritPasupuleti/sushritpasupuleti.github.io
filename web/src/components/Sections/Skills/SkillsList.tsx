@@ -46,13 +46,16 @@ const Skills: React.FC<{ skills: Array<String>; variant?: "auto" | "chips" | "li
 	}
 
 	return (
-		<ul style={{ color: c.text, fontFamily: mono, fontSize: "0.85rem", lineHeight: 1.8, paddingLeft: "1.25rem", margin: 0, listStyle: "none" }}>
-			{skills.map((skill, index) => (
-				<li key={index} style={{ marginBottom: "0.3rem", position: "relative", paddingLeft: "0.25rem" }}>
-					<span style={{ color: c.green, position: "absolute", left: "-1.25rem" }}>&#8250;</span>
-					{skill}
-				</li>
-			))}
+		<ul style={{ color: c.text, fontFamily: mono, fontSize: "0.85rem", lineHeight: 1.8, paddingLeft: "0", margin: 0, listStyle: "none" }}>
+			{skills.map((skill, index) => {
+				const isLast = index === skills.length - 1;
+				return (
+					<li key={index} style={{ marginBottom: "0.2rem", display: "flex", gap: "0.4rem" }}>
+						<span style={{ color: c.dim, flexShrink: 0, userSelect: "none" }}>{isLast ? "└──" : "├──"}</span>
+						<span>{skill}</span>
+					</li>
+				);
+			})}
 		</ul>
 	);
 }

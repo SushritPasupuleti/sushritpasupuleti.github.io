@@ -2,6 +2,7 @@ import * as React from 'react'
 import VideosList from './VideosList';
 import { BsYoutube } from "react-icons/bs";
 import { useTerminalTheme, mono } from "../../../terminal-theme";
+import TuiSectionHeader from "../../TuiSectionHeader";
 
 const videosList: any = [
 	{
@@ -71,12 +72,7 @@ function Videos() {
 	};
 	return (
 		<div>
-			<h2 style={{ color: c.green, fontFamily: mono, fontSize: "1.15rem", fontWeight: 600, margin: "0 0 0.5rem 0" }}>
-				<span style={{ color: c.dim, fontSize: "0.8em" }}>## </span>Videos
-			</h2>
-			<p style={{ color: c.text, fontFamily: mono, fontSize: "0.85rem", margin: "0 0 0.75rem 0" }}>
-				Some of the videos I have made.
-			</p>
+			<TuiSectionHeader c={c} command="yt-dlp --list ~/videos/" output={`${videosList.length} videos indexed`} />
 			<a href="https://www.youtube.com/channel/UCUDlGMaGAQctgQJTRoBHgAw" style={linkStyle}>
 				<BsYoutube /> Check out all my videos on YouTube
 			</a>

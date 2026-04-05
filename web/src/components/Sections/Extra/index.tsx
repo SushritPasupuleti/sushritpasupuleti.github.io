@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { useTerminalTheme, mono } from "../../../terminal-theme";
+import TuiSectionHeader from "../../TuiSectionHeader";
 
 const extra: any = [
 	"Published my first Application (SAM, mentioned above) at the age of 15, all while organically growing a dedicated blog, FB Page to promote it.",
@@ -23,27 +24,88 @@ function ExtraSection() {
 	const { c } = useTerminalTheme();
 	return (
 		<div>
-			<h2 style={{ color: c.green, fontFamily: mono, fontSize: "1.15rem", fontWeight: 600, margin: "0 0 0.25rem 0" }}>
-				<span style={{ color: c.dim, fontSize: "0.8em" }}>## </span>Accomplishments, Brags and Hobbies!
-			</h2>
-			<p style={{ color: c.textBright, fontFamily: mono, fontSize: "0.9rem", margin: "0 0 0.75rem 0" }}>
-				Cool things I&apos;ve done and things I like to do in my free time!
-			</p>
-			<ul style={{ margin: 0, paddingLeft: "1.25rem", color: c.text, fontFamily: mono, fontSize: "0.85rem", lineHeight: 1.8 }}>
-				{extra.map((item: any, index: number) => (
-					<li key={index}>{item}</li>
-				))}
-				<li>
-					<a
-						href="https://knowyourmeme.com/memes/btw-i-use-arch"
-						target="_blank"
-						rel="noreferrer"
-						style={{ color: c.green, textDecoration: "none", fontWeight: 700 }}
+			<TuiSectionHeader c={c} command="cat -n extras.log" output={`${extra.length + 1} lines`} />
+			<div style={{
+				border: `1px solid ${c.border}`,
+				borderRadius: "2px",
+				overflow: "hidden",
+			}}>
+				<div style={{
+					background: c.titleBar,
+					borderBottom: `1px solid ${c.border}`,
+					padding: "0.3rem 0.6rem",
+					fontSize: "0.75rem",
+					fontFamily: mono,
+				}}>
+					<span style={{ color: c.dim }}>┌─── </span>
+					<span style={{ color: c.green, fontWeight: 600 }}>Accomplishments, Brags & Hobbies!</span>
+				</div>
+				<div style={{ padding: "0.5rem 0" }}>
+					{extra.map((item: any, index: number) => (
+						<div
+							key={index}
+							style={{
+								display: "flex",
+								fontFamily: mono,
+								fontSize: "0.82rem",
+								lineHeight: 1.7,
+								padding: "0.15rem 0.75rem",
+								transition: "background 0.1s",
+							}}
+							onMouseEnter={(e) => {
+								(e.currentTarget as HTMLDivElement).style.background = c.hoverBg ?? c.titleBar;
+							}}
+							onMouseLeave={(e) => {
+								(e.currentTarget as HTMLDivElement).style.background = "transparent";
+							}}
+						>
+							<span style={{
+								color: c.dim,
+								minWidth: "2.5rem",
+								textAlign: "right",
+								marginRight: "1rem",
+								userSelect: "none",
+								flexShrink: 0,
+								borderRight: `1px solid ${c.border}`,
+								paddingRight: "0.75rem",
+							}}>
+								{String(index + 1).padStart(2, " ")}
+							</span>
+							<span style={{ color: c.text }}>{item}</span>
+						</div>
+					))}
+					<div
+						style={{
+							display: "flex",
+							fontFamily: mono,
+							fontSize: "0.82rem",
+							lineHeight: 1.7,
+							padding: "0.15rem 0.75rem",
+						}}
 					>
-						I use Arch btw
-					</a>
-				</li>
-			</ul>
+						<span style={{
+							color: c.dim,
+							minWidth: "2.5rem",
+							textAlign: "right",
+							marginRight: "1rem",
+							userSelect: "none",
+							flexShrink: 0,
+							borderRight: `1px solid ${c.border}`,
+							paddingRight: "0.75rem",
+						}}>
+							{String(extra.length + 1).padStart(2, " ")}
+						</span>
+						<a
+							href="https://knowyourmeme.com/memes/btw-i-use-arch"
+							target="_blank"
+							rel="noreferrer"
+							style={{ color: c.green, textDecoration: "none", fontWeight: 700 }}
+						>
+							I use Arch btw
+						</a>
+					</div>
+				</div>
+			</div>
 		</div>
 	)
 }

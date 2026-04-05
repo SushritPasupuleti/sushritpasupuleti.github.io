@@ -1,12 +1,12 @@
 import { useTerminalTheme, mono } from "../../../terminal-theme";
+import TuiBox from "../../TuiBox";
 
 const CertificateItem = (props: any) => {
 	const { c } = useTerminalTheme();
 	return (
-		<div style={{ border: `1px solid ${c.border}`, borderRadius: "4px", overflow: "hidden" }}>
+		<TuiBox c={c} title={props.title} badge="VERIFIED" badgeColor={c.green}>
 			<embed src={props.url} type="application/pdf" width="100%" height="600px" />
-			<div style={{ padding: "0.75rem", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "0.5rem" }}>
-				<span style={{ color: c.green, fontFamily: mono, fontSize: "0.9rem", fontWeight: 600 }}>{props.title}</span>
+			<div style={{ padding: "0.5rem 0", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "0.5rem" }}>
 				<a
 					href={props.originalUrl}
 					style={{
@@ -19,13 +19,13 @@ const CertificateItem = (props: any) => {
 						textDecoration: "none",
 					}}
 				>
-					View Certificate
+					🔗 View Original Certificate
 				</a>
 			</div>
-			<p style={{ color: c.text, fontFamily: mono, fontSize: "0.85rem", padding: "0 0.75rem 0.75rem", margin: 0, borderLeft: `2px solid ${c.green}`, marginLeft: "0.75rem" }}>
+			<div style={{ color: c.text, fontFamily: mono, fontSize: "0.85rem", borderLeft: `2px solid ${c.green}`, paddingLeft: "0.75rem" }}>
 				{props.description}
-			</p>
-		</div>
+			</div>
+		</TuiBox>
 	);
 };
 

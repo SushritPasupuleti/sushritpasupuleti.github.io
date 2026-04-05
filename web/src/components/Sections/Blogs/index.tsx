@@ -2,6 +2,7 @@ import * as React from 'react'
 import BlogsList from './BlogsList';
 import { BsMedium } from "react-icons/bs";
 import { useTerminalTheme, mono } from "../../../terminal-theme";
+import TuiSectionHeader from "../../TuiSectionHeader";
 
 const blogList: any = [
 	{
@@ -76,12 +77,7 @@ function Videos() {
 	};
 	return (
 		<div>
-			<h2 style={{ color: c.green, fontFamily: mono, fontSize: "1.15rem", fontWeight: 600, margin: "0 0 0.5rem 0" }}>
-				<span style={{ color: c.dim, fontSize: "0.8em" }}>## </span>Blogs
-			</h2>
-			<p style={{ color: c.text, fontFamily: mono, fontSize: "0.85rem", margin: "0 0 0.75rem 0" }}>
-				Some of the Blogs I have published. Together they make up for over 150K+ views.
-			</p>
+			<TuiSectionHeader c={c} command="find ./blogs -type f | head" output={`${blogList.length} articles found — 150K+ total views`} />
 			<a href="https://medium.com/@sushrit.pk21" style={linkStyle}>
 				<BsMedium /> Check out all my Blogs
 			</a>

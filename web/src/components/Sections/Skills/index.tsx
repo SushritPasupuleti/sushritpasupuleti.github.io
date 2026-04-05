@@ -8,6 +8,7 @@ import { BsCodeSlash } from "react-icons/bs";
 import SkillsList from './SkillsList';
 import SkillKeywords from './Keywords';
 import TmuxPane from "../../TmuxPane";
+import TuiSectionHeader from "../../TuiSectionHeader";
 import { useTerminalTheme, mono } from "../../../terminal-theme";
 
 const frontendSkills: Array<String> = [
@@ -121,10 +122,8 @@ export default function Skills() {
 
 	return (
 		<div>
-			<div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "0.5rem", marginBottom: "0.5rem" }}>
-				<h2 style={{ color: c.green, fontFamily: mono, fontSize: "1.15rem", fontWeight: 600, margin: 0 }}>
-					<span style={{ color: c.dim, fontSize: "0.8em" }}>## </span>Skills &amp; Technologies
-				</h2>
+			<TuiSectionHeader c={c} command="apt list --installed" output={`${skillCategories.length} categories, ${skillCategories.reduce((s, cat) => s + cat.skills.length, 0)} packages`} />
+			<div style={{ display: "flex", alignItems: "center", justifyContent: "flex-end", flexWrap: "wrap", gap: "0.5rem", marginBottom: "0.5rem" }}>
 				<div style={{ display: "flex", gap: "0.35rem" }}>
 					<button
 						onClick={expandAll}

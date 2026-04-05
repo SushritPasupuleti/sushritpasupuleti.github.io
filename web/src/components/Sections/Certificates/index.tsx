@@ -1,6 +1,7 @@
 import * as React from 'react'
 import CertificatesList from './certificatesList';
 import { useTerminalTheme, mono } from "../../../terminal-theme";
+import TuiSectionHeader from "../../TuiSectionHeader";
 
 const coursesList: any = [
 	{
@@ -15,10 +16,9 @@ function Certificates() {
 	const { c } = useTerminalTheme();
 	return (
 		<div>
-			<h2 style={{ color: c.green, fontFamily: mono, fontSize: "1.15rem", fontWeight: 600, margin: "0 0 0.5rem 0" }}>
-				<span style={{ color: c.dim, fontSize: "0.8em" }}>## </span>My Certificates
-			</h2>
+			<TuiSectionHeader c={c} command="gpg --list-keys certificates/" output={`${coursesList.length} certificate(s) verified`} />
 			<p style={{ color: c.text, fontFamily: mono, fontSize: "0.85rem", margin: "0 0 0.75rem 0" }}>
+				<span style={{ color: c.dim }}>{'# '}</span>
 				I usually teach myself things online over first-party Docs or FreeCodeCamp and avoid taking courses so that I can move at my pace. Sometimes however if a course is really good and worth the time I do get into it, like the ones below.
 			</p>
 			<CertificatesList certificates={coursesList} />

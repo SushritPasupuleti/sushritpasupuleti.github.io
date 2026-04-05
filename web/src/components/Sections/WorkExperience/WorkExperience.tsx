@@ -1,32 +1,33 @@
 import { useTerminalTheme, mono } from "../../../terminal-theme";
 import TuiBlockquote from "../../TuiBlockquote";
+import TuiBox from "../../TuiBox";
+import TuiTree from "../../TuiTree";
 
 const WorkExperience: React.FC<any> = (props) => {
 	const { c } = useTerminalTheme();
+	const we = props.workExperience;
 	return (
-		<div style={{ marginBottom: "1.5rem", border: `1px solid ${c.border}`, borderRadius: "4px", padding: "0.75rem" }}>
-			<div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", flexWrap: "wrap", gap: "0.5rem" }}>
-				<div>
-					<span style={{ color: c.green, fontFamily: mono, fontSize: "1rem", fontWeight: 600 }}>
-						{props.workExperience.organization}
-					</span>
-					<span style={{ color: c.cyan, fontFamily: mono, fontSize: "0.85rem", marginLeft: "0.75rem" }}>
-						{props.workExperience.position}
-					</span>
-				</div>
-				<span style={{ color: c.muted, fontFamily: mono, fontSize: "0.8rem" }}>
-					{props.workExperience.start} → {props.workExperience.end}
+		<TuiBox
+			c={c}
+			title={we.organization}
+			badge={`${we.start} → ${we.end}`}
+			badgeColor={c.muted}
+		>
+			<div style={{ marginBottom: "0.5rem" }}>
+				<span style={{ color: c.cyan, fontFamily: mono, fontSize: "0.85rem" }}>
+					{we.position}
 				</span>
+				{we.location && (
+					<span style={{ color: c.dim, fontFamily: mono, fontSize: "0.75rem", marginLeft: "0.75rem" }}>
+						📍 {we.location}
+					</span>
+				)}
 			</div>
-			<TuiBlockquote color={c.text} borderColor={c.green} dimColor={c.dim} style={{ margin: "0.75rem 0" }}>
-				{props.workExperience.description}
+			<TuiBlockquote color={c.text} borderColor={c.green} dimColor={c.dim} style={{ margin: "0.5rem 0" }}>
+				{we.description}
 			</TuiBlockquote>
-			<ul style={{ margin: 0, paddingLeft: "1.25rem", color: c.text, fontFamily: mono, fontSize: "0.8rem", lineHeight: 1.7 }}>
-				{props.workExperience.keywords.map((keyword: string, index: number) => (
-					<li key={index}>{keyword}</li>
-				))}
-			</ul>
-		</div>
+			<TuiTree c={c} items={we.keywords.map((kw: string) => kw)} />
+		</TuiBox>
 	)
 }
 

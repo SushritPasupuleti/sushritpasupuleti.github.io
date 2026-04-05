@@ -1,6 +1,7 @@
 import * as React from 'react'
 import WorkExperienceList from './WorkExperience';
 import { useTerminalTheme, mono } from "../../../terminal-theme";
+import TuiSectionHeader from "../../TuiSectionHeader";
 
 const workExperience: any = [
 	{
@@ -66,9 +67,7 @@ function WorkExperience() {
 	const { c } = useTerminalTheme();
 	return (
 		<div>
-			<h2 style={{ color: c.green, fontFamily: mono, fontSize: "1.15rem", fontWeight: 600, margin: "0 0 0.75rem 0" }}>
-				<span style={{ color: c.dim, fontSize: "0.8em" }}>## </span>Work Experience
-			</h2>
+			<TuiSectionHeader c={c} command="cat experience.log" output={`${workExperience.length} entries found`} />
 			<WorkExperienceList workExperienceList={workExperience} />
 		</div>
 	)

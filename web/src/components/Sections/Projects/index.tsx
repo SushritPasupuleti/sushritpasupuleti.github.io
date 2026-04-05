@@ -2,6 +2,7 @@ import * as React from 'react'
 import ProjectsList from './ProjectsList';
 import { BsGithub } from "react-icons/bs";
 import { useTerminalTheme, mono } from "../../../terminal-theme";
+import TuiSectionHeader from "../../TuiSectionHeader";
 
 const projectsList: any = [
 	{
@@ -342,14 +343,14 @@ function Projects() {
 	};
 	return (
 		<div>
-			<h2 style={{ color: c.green, fontFamily: mono, fontSize: "1.15rem", fontWeight: 600, margin: "0 0 0.75rem 0" }}>
-				<span style={{ color: c.dim, fontSize: "0.8em" }}>## </span>Projects
-			</h2>
+			<TuiSectionHeader c={c} command="ls -la ~/projects/" output={`total ${projectsList.length} — showing all entries`} />
 			<p style={{ color: c.text, fontFamily: mono, fontSize: "0.85rem", margin: "0 0 0.5rem 0" }}>
+				<span style={{ color: c.dim }}>{'# '}</span>
 				<b style={{ color: c.textBright }}>Note: </b>
 				I work on a lot of projects, and listing all of them here would make this page too long. So if you&apos;re interested in seeing more of my work, check out my GitHub profile.
 			</p>
 			<p style={{ color: c.text, fontFamily: mono, fontSize: "0.85rem", margin: "0 0 0.75rem 0" }}>
+				<span style={{ color: c.dim }}>{'# '}</span>
 				The most recent repositories should show you where most of my efforts are going, as well as my experiments with new languages/technologies. Some repositories may also be private, as such, feel free to contact me to learn more!
 			</p>
 			<a href="https://github.com/SushritPasupuleti?tab=repositories" style={linkStyle}>

@@ -49,39 +49,44 @@ const TableOfContents: React.FC<Props> = ({ entries = defaultEntries }) => {
       {/* Entries */}
       {open && (
         <div style={{ padding: "0.5rem 0" }}>
-          {entries.map((entry) => (
-            <div
-              key={entry.id}
-              onClick={() => scrollTo(entry.id)}
-              role="link"
-              tabIndex={0}
-              onKeyDown={(e) => { if (e.key === "Enter") scrollTo(entry.id); }}
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "0.5rem",
-                padding: "0.3rem 0.75rem",
-                cursor: "pointer",
-                fontFamily: mono,
-                fontSize: "0.8rem",
-                transition: "background 0.12s",
-              }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLDivElement).style.background = c.hoverBg ?? c.titleBar;
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLDivElement).style.background = "transparent";
-              }}
-            >
-              <span style={{ color: c.dim, minWidth: "1.6rem" }}>
-                {padIndex(entry.index)}
-              </span>
-              <span style={{ color: c.muted }}>→</span>
-              <span style={{ color: c.cyan }}>
-                #{entry.label}
-              </span>
-            </div>
-          ))}
+          {entries.map((entry, idx) => {
+            const isLast = idx === entries.length - 1;
+            return (
+              <div
+                key={entry.id}
+                onClick={() => scrollTo(entry.id)}
+                role="link"
+                tabIndex={0}
+                onKeyDown={(e) => { if (e.key === "Enter") scrollTo(entry.id); }}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "0.5rem",
+                  padding: "0.3rem 0.75rem",
+                  cursor: "pointer",
+                  fontFamily: mono,
+                  fontSize: "0.8rem",
+                  transition: "background 0.12s",
+                }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLDivElement).style.background = c.hoverBg ?? c.titleBar;
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLDivElement).style.background = "transparent";
+                }}
+              >
+                <span style={{ color: c.dim, minWidth: "1.6rem", userSelect: "none" }}>
+                  {isLast ? "└──" : "├──"}
+                </span>
+                <span style={{ color: c.dim, minWidth: "1.6rem" }}>
+                  {padIndex(entry.index)}
+                </span>
+                <span style={{ color: c.cyan }}>
+                  #{entry.label}
+                </span>
+              </div>
+            );
+          })}
         </div>
       )}
     </div>
