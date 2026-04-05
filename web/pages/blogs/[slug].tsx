@@ -9,6 +9,7 @@ import Head from "next/head";
 import ShareSheet from "../../src/components/ShareSheet";
 import TerminalLine from "../../src/components/TerminalLine";
 import FloatingBlogNav from "../../src/components/FloatingBlogNav";
+import Navbar from "../../src/components/Navbar";
 import TerminalBoot from "../../src/components/TerminalBoot";
 import ReactMarkdown from "react-markdown";
 import type { Components } from "react-markdown";
@@ -198,12 +199,16 @@ const BlogPost = ({
       <meta property="og:type" content="article" />
     </Head>
     <FloatingBlogNav url={typeof window !== "undefined" ? window.location.href : ""} title={title} />
+    <Navbar />
     <div
       className="terminal-container"
       style={{
         maxWidth: "860px",
         margin: "0 auto",
-        padding: "2rem 1.5rem",
+        paddingTop: "4.5rem",
+        paddingLeft: "1.5rem",
+        paddingRight: "1.5rem",
+        paddingBottom: "2rem",
         fontFamily: "'JetBrains Mono', monospace",
         color: c.text,
         minHeight: "100vh",

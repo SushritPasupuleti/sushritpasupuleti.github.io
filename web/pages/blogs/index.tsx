@@ -13,6 +13,7 @@ import fsExtra from "fs";
 import Head from "next/head";
 import { FiSun, FiMoon } from "react-icons/fi";
 import BlogSearch from "../../src/components/BlogSearch";
+import Navbar from "../../src/components/Navbar";
 import TerminalBoot from "../../src/components/TerminalBoot";
 
 const BLOGS_BOOT_LINES = [
@@ -149,12 +150,16 @@ const BlogsPage = ({
       />
       <meta property="og:type" content="website" />
     </Head>
+    <Navbar />
     <div
       className="terminal-container"
       style={{
         maxWidth: "860px",
         margin: "0 auto",
-        padding: "2rem 1.5rem",
+        paddingTop: "4.5rem",
+        paddingLeft: "1.5rem",
+        paddingRight: "1.5rem",
+        paddingBottom: "2rem",
         fontFamily: "'JetBrains Mono', monospace",
         color: c.text,
         minHeight: "100vh",

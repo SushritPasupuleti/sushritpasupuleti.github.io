@@ -1,5 +1,7 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { MdArticle } from "react-icons/md";
+import { FiHome } from "react-icons/fi";
 import { useTerminalTheme, mono } from "../terminal-theme";
 import { Download } from "react-iconly";
 import { BsWhatsapp } from "react-icons/bs";
@@ -8,6 +10,8 @@ import React from "react";
 
 const Navbar: React.FC = () => {
   const { isDark, c, setTheme } = useTerminalTheme();
+  const router = useRouter();
+  const isBlogPage = router.pathname.startsWith("/blogs");
 
   const linkStyle: React.CSSProperties = {
     color: c.muted,
@@ -59,13 +63,12 @@ const Navbar: React.FC = () => {
       </Link>
       <div style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
         <Link
-          href="/blogs"
+          href={isBlogPage ? "/" : "/blogs"}
           style={linkStyle}
           onMouseEnter={handleEnter}
           onMouseLeave={handleLeave}
         >
-          <MdArticle size={14} />
-          Blogs
+          {isBlogPage ? <><FiHome size={14} /> Home</> : <><MdArticle size={14} /> Blogs</>}
         </Link>
         <a
           href="/resume/resume.pdf"
