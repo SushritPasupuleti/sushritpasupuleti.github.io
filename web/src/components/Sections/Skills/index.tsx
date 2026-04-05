@@ -7,6 +7,7 @@ import { BiTestTube } from "react-icons/bi";
 import { BsCodeSlash } from "react-icons/bs";
 import SkillsList from './SkillsList';
 import SkillKeywords from './Keywords';
+import TmuxPane from "../../TmuxPane";
 import { useTerminalTheme, mono } from "../../../terminal-theme";
 
 const frontendSkills: Array<String> = [
@@ -79,42 +80,22 @@ const skillCategories = [
 	{ title: "Other Frameworks & Technologies", subtitle: "Sprinkled on top of the above!", icon: "💻", skills: miscSkills },
 ];
 
-function SkillCategory({ title, subtitle, icon, skills, c }: { title: string; subtitle: string; icon: string; skills: Array<String>; c: any }) {
-	const [open, setOpen] = useState(true);
+function SkillCategory({ title, subtitle, icon, skills, c, isDark }: { title: string; subtitle: string; icon: string; skills: Array<String>; c: any; isDark: boolean }) {
 	return (
-		<div style={{ marginBottom: "1rem", border: `1px solid ${c.border}`, borderRadius: "4px" }}>
-			<div
-				onClick={() => setOpen(!open)}
-				style={{
-					padding: "0.5rem 0.75rem",
-					background: c.titleBar,
-					cursor: "pointer",
-					display: "flex",
-					justifyContent: "space-between",
-					alignItems: "center",
-					borderRadius: open ? "4px 4px 0 0" : "4px",
-				}}
-			>
-				<div style={{ display: "flex", flexDirection: "column" }}>
-					<div>
-						<span style={{ marginRight: "0.5rem" }}>{icon}</span>
-						<span style={{ color: c.green, fontFamily: mono, fontSize: "0.9rem", fontWeight: 600 }}>{title}</span>
-					</div>
-					<span style={{ color: c.muted, fontFamily: mono, fontSize: "0.75rem", marginLeft: "1.75rem" }}>{subtitle}</span>
-				</div>
-				<span style={{ color: c.dim, fontFamily: mono, fontSize: "0.8rem" }}>{open ? "[-]" : "[+]"}</span>
-			</div>
-			{open && (
-				<div style={{ padding: "0.75rem" }}>
-					<SkillsList skills={skills} />
-				</div>
-			)}
-		</div>
+		<TmuxPane
+			c={c}
+			isDark={isDark}
+			title={`${icon} ${title}`}
+			subtitle={subtitle}
+			defaultOpen={true}
+		>
+			<SkillsList skills={skills} />
+		</TmuxPane>
 	);
 }
 
 export default function Skills() {
-	const { c } = useTerminalTheme();
+	const { c, isDark } = useTerminalTheme();
 	return (
 		<div>
 			<h2 style={{ color: c.green, fontFamily: mono, fontSize: "1.15rem", fontWeight: 600, margin: "0 0 0.5rem 0" }}>
@@ -124,7 +105,7 @@ export default function Skills() {
 				<SkillKeywords skills={keywords} />
 			</div>
 			{skillCategories.map((cat) => (
-				<SkillCategory key={cat.title} {...cat} c={c} />
+				<SkillCategory key={cat.title} {...cat} c={c} isDark={isDark} />
 			))}
 		</div>
 	);
