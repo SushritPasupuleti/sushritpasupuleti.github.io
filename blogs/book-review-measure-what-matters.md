@@ -1,6 +1,6 @@
 ---
 slug: book-review-measure-what-matters
-title: 'Book Review: Measure What Matters by John Doerr'
+title: 'Book Review: Measure What Matters'
 authors: SushritPasupuleti
 tags: [book-review, startups, business, tech, okrs, product-management]
 cover_img_url: /assets/blogs/measure-what-matters.png
@@ -10,7 +10,7 @@ cover_img_url: /assets/blogs/measure-what-matters.png
 
 > Also, there's no way I'm publishing reviews on Goodreads or some other Big Tech-owned platform. Amazon has a monopoly on online book sales, and they own the largest book review platform, that's totally fine for sure...
 
-[![Book Review: Measure What Matters by John Doerr](/assets/blogs/measure-what-matters.png)](/assets/blogs/book-review-measure-what-matters)
+[![Book Review: Measure What Matters](/assets/blogs/measure-what-matters.png)](/assets/blogs/book-review-measure-what-matters)
 
 ---
 
