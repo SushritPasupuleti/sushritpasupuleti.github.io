@@ -8,6 +8,7 @@ import {
 import { SiBlogger } from "react-icons/si";
 import { useTerminalTheme, mono } from "../../terminal-theme";
 import TerminalLine from "../TerminalLine";
+import TuiBlockquote from "../TuiBlockquote";
 
 const socialLinks = [
   { href: "https://github.com/SushritPasupuleti", icon: BsGithub, label: "GitHub" },
@@ -42,20 +43,11 @@ const Hero = () => {
       </div>
 
       {/* Bio */}
-      <blockquote style={{
-        borderLeft: `3px solid ${c.green}`,
-        marginLeft: 0,
-        paddingLeft: "1rem",
-        color: c.text,
-        fontFamily: mono,
-        fontSize: "0.85rem",
-        lineHeight: 1.8,
-        margin: "1rem 0",
-      }}>
+      <TuiBlockquote color={c.text} borderColor={c.green} dimColor={c.dim}>
         A technical and business-focused solo entrepreneur with 7+ years of
         experience building, managing, and scaling products. Quick to learn,
         adapt, and innovate to ensure product success.
-      </blockquote>
+      </TuiBlockquote>
 
       {/* Key Achievements */}
       <div style={{ margin: "1.25rem 0" }}>

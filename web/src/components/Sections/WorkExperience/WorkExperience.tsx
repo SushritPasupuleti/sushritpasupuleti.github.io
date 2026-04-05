@@ -1,4 +1,5 @@
 import { useTerminalTheme, mono } from "../../../terminal-theme";
+import TuiBlockquote from "../../TuiBlockquote";
 
 const WorkExperience: React.FC<any> = (props) => {
 	const { c } = useTerminalTheme();
@@ -17,16 +18,9 @@ const WorkExperience: React.FC<any> = (props) => {
 					{props.workExperience.start} → {props.workExperience.end}
 				</span>
 			</div>
-			<blockquote style={{
-				borderLeft: `2px solid ${c.green}`,
-				margin: "0.75rem 0",
-				padding: "0.4rem 0.75rem",
-				color: c.text,
-				fontFamily: mono,
-				fontSize: "0.85rem",
-			}}>
+			<TuiBlockquote color={c.text} borderColor={c.green} dimColor={c.dim} style={{ margin: "0.75rem 0" }}>
 				{props.workExperience.description}
-			</blockquote>
+			</TuiBlockquote>
 			<ul style={{ margin: 0, paddingLeft: "1.25rem", color: c.text, fontFamily: mono, fontSize: "0.8rem", lineHeight: 1.7 }}>
 				{props.workExperience.keywords.map((keyword: string, index: number) => (
 					<li key={index}>{keyword}</li>

@@ -78,7 +78,14 @@ function getTerminalComponents(c: typeof darkPalette): Partial<Components> {
     <pre style={{ background: c.bg, border: `1px solid ${c.border}`, borderLeft: `3px solid ${c.green}`, padding: "1rem", overflowX: "auto", fontSize: "0.85em", fontFamily: mono, margin: "1.25rem 0", borderRadius: "2px" }}>{children}</pre>
   ),
   blockquote: ({ children }) => (
-    <blockquote style={{ borderLeft: `3px solid ${c.green}`, marginLeft: 0, paddingLeft: "1rem", color: c.muted, fontStyle: "italic", fontFamily: mono, margin: "1rem 0" }}>{children}</blockquote>
+    <div style={{ display: "flex", gap: "0.5rem", margin: "1rem 0", fontFamily: mono, fontSize: "0.85rem", lineHeight: 1.8 }}>
+      <div style={{ display: "flex", flexDirection: "column" as const, alignItems: "center", flexShrink: 0, color: c.green, userSelect: "none" as const, fontSize: "0.75rem", lineHeight: "1.4" }}>
+        <span>{"/*"}</span>
+        <div style={{ width: "1px", flex: 1, background: c.green, opacity: 0.5 }} />
+        <span>{"*/"}</span>
+      </div>
+      <div style={{ color: c.muted, fontStyle: "italic", flex: 1, minWidth: 0 }}>{children}</div>
+    </div>
   ),
   ul: ({ children }) => (
     <ul style={{ color: c.text, fontFamily: mono, paddingLeft: "1.5rem", lineHeight: 1.8, fontSize: "0.9rem" }}>{children}</ul>

@@ -3,6 +3,7 @@ import Image from "next/image";
 import Tags from "../Skills/Keywords";
 import ImagePopup from "./ImagePopup";
 import { useTerminalTheme, mono } from "../../../terminal-theme";
+import TuiBlockquote from "../../TuiBlockquote";
 
 const Project = (props: any) => {
 	const [popupVisible, setPopupVisible] = React.useState(false);
@@ -37,17 +38,9 @@ const Project = (props: any) => {
 					</span>
 				)}
 			</div>
-			<blockquote style={{
-				borderLeft: `2px solid ${c.green}`,
-				margin: "0.75rem 0",
-				padding: "0.4rem 0.75rem",
-				color: c.text,
-				fontFamily: mono,
-				fontSize: "0.85rem",
-				whiteSpace: "pre-line",
-			}}>
+			<TuiBlockquote color={c.text} borderColor={c.green} dimColor={c.dim} style={{ margin: "0.75rem 0" }}>
 				{props.projectInfo.description}
-			</blockquote>
+			</TuiBlockquote>
 			{props.projectInfo.highlightImage && (
 				<div style={{ padding: "1rem 0" }}>
 					<div style={{ position: "relative", width: "220px", height: "140px", display: "inline-block", background: "transparent" }}>

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { useTerminalTheme, mono } from "../../../terminal-theme";
+import TuiBlockquote from "../../TuiBlockquote";
 
 const TedX = () => {
 	const { c } = useTerminalTheme();
@@ -57,23 +58,13 @@ const TedX = () => {
 				</div>
 			</div>
 
-			<blockquote style={{
-				borderLeft: `3px solid ${c.green}`,
-				marginLeft: 0,
-				paddingLeft: "1rem",
-				color: c.muted,
-				fontStyle: "italic",
-				fontFamily: mono,
-				fontSize: "0.85rem",
-				lineHeight: 1.8,
-				margin: "1rem 0",
-			}}>
+			<TuiBlockquote color={c.muted} borderColor={c.green} dimColor={c.dim}>
 				Everyone&apos;s watched The Terminator and similar movies where AI enslaves
 				humanity or determines our existence to be what remains in it&apos;s way towards a &apos;perfect&apos;
 				world. With the truck loads of AI enabled products flooding the
 				market every second, the paranoia has been higher than ever.. but is it really that
 				scary as the movies show it to be ? Well here are my views on the &apos;Terminator fears&apos;.
-			</blockquote>
+			</TuiBlockquote>
 		</div>
 	);
 };
