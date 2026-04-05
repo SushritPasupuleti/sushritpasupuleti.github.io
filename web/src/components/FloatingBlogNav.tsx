@@ -25,6 +25,23 @@ const FloatingBlogNav: React.FC<FloatingBlogNavProps> = ({ url, title }) => {
   const { c } = useTerminalTheme();
   const [open, setOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [fontScale, setFontScale] = useState(125);
+
+  useEffect(() => {
+    const saved = localStorage.getItem("a11y-font-size");
+    const val = saved ? parseInt(saved, 10) : 125;
+    setFontScale(val);
+    document.documentElement.style.fontSize = `${val}%`;
+  }, []);
+
+  const adjustFontSize = (delta: number) => {
+    setFontScale((prev) => {
+      const next = Math.min(200, Math.max(75, prev + delta));
+      localStorage.setItem("a11y-font-size", String(next));
+      document.documentElement.style.fontSize = `${next}%`;
+      return next;
+    });
+  };
 
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < MOBILE_BP);
@@ -227,6 +244,17 @@ const FloatingBlogNav: React.FC<FloatingBlogNavProps> = ({ url, title }) => {
           </div>
         </div>
       )}
+      <div style={{ borderTop: `1px dashed ${c.border}`, padding: "0.5rem 0.75rem" }}>
+        <span style={{ color: c.dim, fontFamily: mono, fontSize: "0.7rem" }}>accessibility:</span>
+        <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginTop: "0.35rem", flexWrap: "wrap" }}>
+          <span style={{ color: c.muted, fontFamily: mono, fontSize: "0.75rem" }}>font-size</span>
+          <div style={{ display: "flex", alignItems: "center", gap: "0.35rem" }}>
+            <button onClick={() => adjustFontSize(-5)} style={{ background: "transparent", border: `1px solid ${c.border}`, borderRadius: "2px", color: c.muted, fontFamily: mono, fontSize: "0.7rem", fontWeight: 700, cursor: "pointer", padding: "0.1rem 0.4rem", lineHeight: 1 }}>A-</button>
+            <span style={{ color: c.textBright, fontFamily: mono, fontSize: "0.75rem", minWidth: "2.5rem", textAlign: "center" }}>{fontScale}%</span>
+            <button onClick={() => adjustFontSize(5)} style={{ background: "transparent", border: `1px solid ${c.border}`, borderRadius: "2px", color: c.muted, fontFamily: mono, fontSize: "0.7rem", fontWeight: 700, cursor: "pointer", padding: "0.1rem 0.4rem", lineHeight: 1 }}>A+</button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 
@@ -310,6 +338,17 @@ const FloatingBlogNav: React.FC<FloatingBlogNavProps> = ({ url, title }) => {
           </div>
         </div>
       )}
+      <div style={{ borderTop: `1px dashed ${c.border}`, padding: "0.5rem 0.75rem" }}>
+        <span style={{ color: c.dim, fontFamily: mono, fontSize: "0.7rem" }}>accessibility:</span>
+        <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginTop: "0.35rem", flexWrap: "wrap" }}>
+          <span style={{ color: c.muted, fontFamily: mono, fontSize: "0.75rem" }}>font-size</span>
+          <div style={{ display: "flex", alignItems: "center", gap: "0.35rem" }}>
+            <button onClick={() => adjustFontSize(-5)} style={{ background: "transparent", border: `1px solid ${c.border}`, borderRadius: "2px", color: c.muted, fontFamily: mono, fontSize: "0.7rem", fontWeight: 700, cursor: "pointer", padding: "0.1rem 0.4rem", lineHeight: 1 }}>A-</button>
+            <span style={{ color: c.textBright, fontFamily: mono, fontSize: "0.75rem", minWidth: "2.5rem", textAlign: "center" }}>{fontScale}%</span>
+            <button onClick={() => adjustFontSize(5)} style={{ background: "transparent", border: `1px solid ${c.border}`, borderRadius: "2px", color: c.muted, fontFamily: mono, fontSize: "0.7rem", fontWeight: 700, cursor: "pointer", padding: "0.1rem 0.4rem", lineHeight: 1 }}>A+</button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 

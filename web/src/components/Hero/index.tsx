@@ -114,7 +114,7 @@ const Hero = () => {
             <span style={{ color: c.dim }}>export </span>
             <span style={{ color: c.green }}>EMAIL</span>
             <span style={{ color: c.muted }}>=</span>
-            <a href="mailto:sushrit@skillshack.dev" style={{ color: c.cyan, textDecoration: "underline", textDecorationStyle: "dashed" }}>
+            <a href="mailto:sushrit@skillshack.dev" style={{ color: c.cyan, textDecoration: "underline", textDecorationStyle: "dashed", wordBreak: "break-all" }}>
               &quot;sushrit@skillshack.dev&quot;
             </a>
           </div>

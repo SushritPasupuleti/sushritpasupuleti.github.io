@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
 
+html {
+  font-size: 125%;
+}
+
 html,
 body {
   padding: 0;
@@ -39,6 +43,14 @@ a {
 /* Terminal scanline effect */
 .terminal-container {
   position: relative;
+}
+
+@media (max-width: 640px) {
+  .terminal-container {
+    padding-top: 3.5rem !important;
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+  }
 }
 
 .terminal-container::before {
