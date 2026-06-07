@@ -218,18 +218,18 @@ const ReadingList: NextPage<ReadingListProps> = ({ books }) => {
             <pre
               style={{
                 color: c.green,
-                fontSize: '0.6rem',
+                fontSize: '0.7rem',
                 lineHeight: 1.2,
                 margin: '0 0 0.75rem 0',
                 whiteSpace: 'pre',
                 overflowX: 'auto',
+                letterSpacing: '0.05em',
               }}
             >{`
- ____  ___  ___  ____  ___
-| __ )/ _ \/ _ \| ___/ ___|
-|  _ \ (_) | | | |_  \___ \
-| |_) > _ <| |_| |_) |___) |
-|____/_/ \_\___/|____/____/
+ ___  ___  ___  _   _ ___
+| _ )/ _ \\/ _ \\| |/ |/ __|
+| _ \\ (_) \ (_)||   < \\__ \\
+|___/\\___/\\___/|_|\\_\\|___/
 `}</pre>
             <p
               style={{
