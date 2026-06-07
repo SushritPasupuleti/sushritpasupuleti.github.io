@@ -91,8 +91,8 @@ const ReadingListModal: React.FC<ReadingListModalProps> = ({ isOpen, onClose }) 
           </h2>
 
           <p className={styles.description} style={{ color: c.text }}>
-            Explore my personal collection of books—what I've read, what I'm currently reading, and
-            what's on my wishlist.
+            Explore my personal collection of books—what I&apos;ve read, what I&apos;m currently reading, and
+            what&apos;s on my wishlist.
           </p>
 
           <Link href="/reading-list" onClick={onClose}>

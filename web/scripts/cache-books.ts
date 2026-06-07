@@ -59,7 +59,7 @@ const BOOKS = [
   },
 ];
 
-async function fetchBookMetadata(isbn13) {
+async function fetchBookMetadata(isbn13: string) {
   try {
     const response = await fetch(`https://openlibrary.org/isbn/${isbn13}.json`, {
       headers: { 'User-Agent': 'sushrit-portfolio/1.0' },
@@ -84,7 +84,8 @@ async function fetchBookMetadata(isbn13) {
         : undefined,
     };
   } catch (error) {
-    console.error(`Error fetching book data for ISBN ${isbn13}:`, error.message);
+    const errorMessage = error instanceof Error ? error.message : String(error);
+    console.error(`Error fetching book data for ISBN ${isbn13}:`, errorMessage);
     return { isbn13 };
   }
 }
@@ -100,7 +101,7 @@ async function cacheBooksData() {
     fs.mkdirSync(cacheDir, { recursive: true });
   }
 
-  const cachedBooks = {};
+  const cachedBooks: Record<string, any> = {};
 
   for (const book of BOOKS) {
     try {

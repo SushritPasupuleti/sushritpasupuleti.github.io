@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { FiExternalLink } from 'react-icons/fi';
 import { Book } from '../data/books';
 import { useTerminalTheme, mono } from '../terminal-theme';
@@ -29,7 +30,6 @@ const BookCard: React.FC<BookCardProps> = ({ book, onReviewEdit, index }) => {
     c.muted;
 
   const statusLabel = STATUS_LABEL[book.status || ''] || book.status || '—';
-  const showCover = !!book.coverUrl && !imgError;
 
   return (
     <div
@@ -112,18 +112,17 @@ const BookCard: React.FC<BookCardProps> = ({ book, onReviewEdit, index }) => {
       <div style={{ padding: '0.75rem', display: 'flex', gap: '0.75rem', flex: 1 }}>
         {/* Cover image column */}
         <div style={{ flexShrink: 0, width: 68, alignSelf: 'flex-start' }}>
-          {showCover ? (
-            <img
+          {book.coverUrl && !imgError ? (
+            <Image
               src={book.coverUrl}
               alt={book.title}
+              width={68}
+              height={102}
               onError={() => setImgError(true)}
               style={{
-                width: 68,
                 display: 'block',
                 border: `1px solid ${c.border}`,
                 objectFit: 'cover',
-                aspectRatio: '2/3',
-                background: c.titleBar,
               }}
             />
           ) : (
