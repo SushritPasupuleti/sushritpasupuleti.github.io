@@ -156,14 +156,7 @@ const Home: NextPage = () => {
 					</header>
 
 					<div style={{ borderTop: `1px dashed ${c.separator}`, margin: "2rem 0" }} />
-					<TableOfContents />
-					<div style={{ borderTop: `1px dashed ${c.separator}`, margin: "2rem 0" }} />
-
-					<section id="tedx"><TedxSection /></section>
-
-					<div style={{ borderTop: `1px dashed ${c.separator}`, margin: "2rem 0" }} />
-					<section id="skills"><SkillsSection /></section>
-
+				<TableOfContents />
 					<div style={{ borderTop: `1px dashed ${c.separator}`, margin: "2rem 0" }} />
 					<section id="tools"><ToolsSection /></section>
 

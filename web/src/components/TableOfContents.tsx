@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Link from "next/link";
 import { useTerminalTheme, mono } from "../terminal-theme";
 import { TocEntry, defaultEntries, padIndex } from "./toc-data";
 
@@ -14,6 +15,12 @@ const TableOfContents: React.FC<Props> = ({ entries = defaultEntries }) => {
     const el = document.getElementById(id);
     if (el) {
       el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
+  const handleEntryClick = (entry: TocEntry) => {
+    if (entry.id !== "reading-list") {
+      scrollTo(entry.id);
     }
   };
 
@@ -51,30 +58,8 @@ const TableOfContents: React.FC<Props> = ({ entries = defaultEntries }) => {
         <div style={{ padding: "0.5rem 0" }}>
           {entries.map((entry, idx) => {
             const isLast = idx === entries.length - 1;
-            return (
-              <div
-                key={entry.id}
-                onClick={() => scrollTo(entry.id)}
-                role="link"
-                tabIndex={0}
-                onKeyDown={(e) => { if (e.key === "Enter") scrollTo(entry.id); }}
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "0.5rem",
-                  padding: "0.3rem 0.75rem",
-                  cursor: "pointer",
-                  fontFamily: mono,
-                  fontSize: "0.8rem",
-                  transition: "background 0.12s",
-                }}
-                onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLDivElement).style.background = c.hoverBg ?? c.titleBar;
-                }}
-                onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLDivElement).style.background = "transparent";
-                }}
-              >
+            const entryContent = (
+              <>
                 <span style={{ color: c.dim, minWidth: "1.6rem", userSelect: "none" }}>
                   {isLast ? "└──" : "├──"}
                 </span>
@@ -84,6 +69,54 @@ const TableOfContents: React.FC<Props> = ({ entries = defaultEntries }) => {
                 <span style={{ color: c.cyan }}>
                   #{entry.label}
                 </span>
+              </>
+            );
+
+            const commonStyle = {
+              display: "flex" as const,
+              alignItems: "center" as const,
+              gap: "0.5rem",
+              padding: "0.3rem 0.75rem",
+              cursor: "pointer",
+              fontFamily: mono,
+              fontSize: "0.8rem",
+              transition: "background 0.12s",
+            };
+
+            if (entry.id === "reading-list") {
+              return (
+                <Link key={entry.id} href="/reading-list">
+                  <div
+                    style={commonStyle}
+                    onMouseEnter={(e) => {
+                      (e.currentTarget as HTMLDivElement).style.background = c.hoverBg ?? c.titleBar;
+                    }}
+                    onMouseLeave={(e) => {
+                      (e.currentTarget as HTMLDivElement).style.background = "transparent";
+                    }}
+                  >
+                    {entryContent}
+                  </div>
+                </Link>
+              );
+            }
+
+            return (
+              <div
+                key={entry.id}
+                onClick={() => handleEntryClick(entry)}
+                role="link"
+                tabIndex={0}
+                onKeyDown={(e) => { if (e.key === "Enter") handleEntryClick(entry); }}
+                style={commonStyle}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLDivElement).style.background = c.hoverBg ?? c.titleBar;
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLDivElement).style.background = "transparent";
+                }}
+              >
+                {entryContent}
               </div>
             );
           })}

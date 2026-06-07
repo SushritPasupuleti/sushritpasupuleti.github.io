@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { MdArticle } from "react-icons/md";
 import { Download } from "react-iconly";
 import { BsWhatsapp } from "react-icons/bs";
@@ -68,6 +69,7 @@ const QuickLinks: React.FC<{ c: any }> = ({ c }) => (
 
 const FloatingTocNav: React.FC = () => {
   const { c } = useTerminalTheme();
+  const router = useRouter();
   const [open, setOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [fontScale, setFontScale] = useState(125);
@@ -114,10 +116,14 @@ const FloatingTocNav: React.FC = () => {
   }, [open, isMobile]);
 
   const scrollTo = useCallback((id: string) => {
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (id === "reading-list") {
+      router.push("/reading-list");
+    } else {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
     setOpen(false);
-  }, []);
+  }, [router]);
 
   const entryRow = (entry: TocEntry) => (
     <div

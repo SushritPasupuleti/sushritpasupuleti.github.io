@@ -4,6 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "cache-books": "node scripts/cache-books.js",
+    "prebuild": "yarn cache-books",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",

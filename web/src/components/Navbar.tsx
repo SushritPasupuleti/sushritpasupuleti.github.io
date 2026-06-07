@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { MdArticle } from "react-icons/md";
-import { FiHome } from "react-icons/fi";
+import { FiHome, FiBook } from "react-icons/fi";
 import { useTerminalTheme, mono } from "../terminal-theme";
 import { Download } from "react-iconly";
 import { BsWhatsapp } from "react-icons/bs";
@@ -27,13 +27,13 @@ const Navbar: React.FC = () => {
     transition: "color 0.15s, border-color 0.15s",
   };
 
-  const handleEnter = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    (e.currentTarget as HTMLAnchorElement).style.color = c.green;
-    (e.currentTarget as HTMLAnchorElement).style.borderColor = c.green;
+  const handleEnter = (e: React.MouseEvent<HTMLElement>) => {
+    (e.currentTarget as HTMLElement).style.color = c.green;
+    (e.currentTarget as HTMLElement).style.borderColor = c.green;
   };
-  const handleLeave = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    (e.currentTarget as HTMLAnchorElement).style.color = c.muted;
-    (e.currentTarget as HTMLAnchorElement).style.borderColor = c.border;
+  const handleLeave = (e: React.MouseEvent<HTMLElement>) => {
+    (e.currentTarget as HTMLElement).style.color = c.muted;
+    (e.currentTarget as HTMLElement).style.borderColor = c.border;
   };
 
   return (
@@ -69,6 +69,15 @@ const Navbar: React.FC = () => {
           onMouseLeave={handleLeave}
         >
           {isBlogPage ? <><FiHome size={14} /> Home</> : <><MdArticle size={14} /> Blogs</>}
+        </Link>
+        <Link
+          href="/reading-list"
+          style={linkStyle}
+          onMouseEnter={handleEnter}
+          onMouseLeave={handleLeave}
+        >
+          <FiBook size={14} />
+          Reading List
         </Link>
         <a
           href="/resume/resume.pdf"

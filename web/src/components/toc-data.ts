@@ -14,7 +14,8 @@ export const defaultEntries: TocEntry[] = [
   { id: "certificates", label: "certificates",    index: 6 },
   { id: "extra",        label: "extra",           index: 7 },
   { id: "blogs",        label: "blogs",           index: 8 },
-  { id: "videos",       label: "videos",          index: 9 },
+  { id: "reading-list", label: "reading-list",    index: 9 },
+  { id: "videos",       label: "videos",          index: 10 },
 ];
 
 export const padIndex = (n: number) => String(n).padStart(2, "0");

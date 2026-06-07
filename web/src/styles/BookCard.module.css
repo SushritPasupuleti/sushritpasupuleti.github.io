@@ -1,0 +1,220 @@
+.card {
+  border: 1px solid #2a2a2a;
+  border-radius: 4px;
+  background: linear-gradient(135deg, #0d0d0d 0%, #1a1a2e 100%);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+}
+
+.card:hover {
+  border-color: #00ff41;
+  box-shadow: 0 0 20px rgba(0, 255, 65, 0.1);
+  transform: translateY(-2px);
+}
+
+.coverContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 180 / 280;
+  background: #1a1a2a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.coverPlaceholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #1a1a2e, #0d0d0d);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+.placeholderText {
+  color: #666;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.85rem;
+  max-width: 90%;
+  word-break: break-word;
+}
+
+.statusBadge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 4px 8px;
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid;
+  border-radius: 3px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.bookLink {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  padding: 6px 8px;
+  background: rgba(0, 191, 255, 0.1);
+  border: 1px solid rgba(0, 191, 255, 0.3);
+  border-radius: 3px;
+  color: #00bfff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+
+.bookLink:hover {
+  background: rgba(0, 191, 255, 0.2);
+  border-color: rgba(0, 191, 255, 0.6);
+  transform: translateY(-1px);
+}
+
+.content {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  flex: 1;
+}
+
+.title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #e0e0e0;
+  line-height: 1.3;
+}
+
+.author {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #00bfff;
+}
+
+.year {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.rating {
+  font-size: 0.9rem;
+  color: #ffaa00;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ratingValue {
+  color: #999;
+  font-size: 0.8rem;
+}
+
+.reviewBox,
+.thoughtsBox {
+  padding: 0.75rem;
+  background: rgba(0, 255, 65, 0.05);
+  border-left: 2px solid #00ff41;
+  border-radius: 2px;
+}
+
+.thoughtsBox {
+  background: rgba(0, 191, 255, 0.05);
+  border-left-color: #00bfff;
+}
+
+.reviewLabel,
+.thoughtsLabel {
+  margin: 0 0 0.25rem 0;
+  font-size: 0.8rem;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.reviewText,
+.thoughtsText {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #b0b0b0;
+  line-height: 1.4;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.tag {
+  display: inline-block;
+  padding: 2px 6px;
+  background: rgba(0, 191, 255, 0.1);
+  border: 1px solid rgba(0, 191, 255, 0.3);
+  border-radius: 2px;
+  font-size: 0.75rem;
+  color: #00bfff;
+}
+
+.editButton {
+  padding: 0.5rem 0.75rem;
+  background: rgba(0, 255, 65, 0.1);
+  border: 1px solid #00ff41;
+  border-radius: 2px;
+  color: #00ff41;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-family: inherit;
+  transition: all 0.2s;
+  margin-top: auto;
+}
+
+.editButton:hover {
+  background: rgba(0, 255, 65, 0.2);
+  box-shadow: 0 0 10px rgba(0, 255, 65, 0.2);
+}
+
+@media (max-width: 768px) {
+  .card {
+    flex-direction: row;
+  }
+
+  .coverContainer {
+    width: 120px;
+    height: auto;
+    aspect-ratio: 180 / 280;
+    flex-shrink: 0;
+  }
+
+  .content {
+    gap: 0.5rem;
+  }
+
+  .title {
+    font-size: 0.95rem;
+  }
+
+  .reviewBox,
+  .thoughtsBox {
+    padding: 0.5rem;
+  }
+}
