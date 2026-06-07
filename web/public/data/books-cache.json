@@ -1,8 +1,8 @@
 {
-  "9780887307752": {
-    "isbn13": "9780887307752",
+  "9780241290873": {
+    "isbn13": "9780241290873",
     "title": "Measure What Matters",
-    "author": "John Doerr",
+    "author": "",
     "year": 2018,
     "status": "read",
     "rating": 4.5,
@@ -10,10 +10,11 @@
       "productivity",
       "business",
       "goals"
-    ]
+    ],
+    "description": ""
   },
-  "9780135398579": {
-    "isbn13": "9780135398579",
+  "9780132350884": {
+    "isbn13": "9780132350884",
     "title": "Clean Code",
     "author": "",
     "year": 2008,
@@ -24,8 +25,9 @@
       "software-engineering",
       "best-practices"
     ],
-    "description": "",
-    "pageCount": 672
+    "description": "Even bad code can function. But if code isn't clean, it can bring a development organization to its knees. Every year, countless hours and significant resources are lost because of poorly written code. But it doesn't have to be that way.\r\n\r\nNoted software expert Robert C. Martin presents a revolutionary paradigm with Clean Code: A Handbook of Agile Software Craftsmanship . Martin has teamed up with his colleagues from Object Mentor to distill their best agile practice of cleaning code on the fly into a book that will instill within you the values of a software craftsman and make you a better programmer but only if you work at it.\r\n\r\nWhat kind of work will you be doing? You'll be reading code - lots of code. And you will be challenged to think about what's right about that code, and what's wrong with it. More importantly, you will be challenged to reassess your professional values and your commitment to your craft.\r\n\r\nClean Code is divided into three parts. The first describes the principles, patterns, and practices of writing clean code. The second part consists of several case studies of increasing complexity. Each case study is an exercise in cleaning up code - of transforming a code base that has some problems into one that is sound and efficient. The third part is the payoff: a single chapter containing a list of heuristics and \"smells\" gathered while creating the case studies. The result is a knowledge base that describes the way we think when we write, read, and clean code.\r\n\r\nReaders will come away from this book understanding\r\n\r\n - How to tell the difference between good and bad code\r\n - How to write good code and how to transform bad code into good code\r\n - How to create good names, good functions, good objects, and good classes\r\n - How to format code for maximum readability\r\n - How to implement complete error handling without obscuring code logic\r\n - How to unit test and practice test-driven development\r\n\r\nThis book is a must for any developer, software engineer, project manager, team lead, or systems analyst with an interest in producing better code.",
+    "pageCount": 431,
+    "coverUrl": "https://covers.openlibrary.org/b/id/15126503-M.jpg"
   },
   "9780201633610": {
     "isbn13": "9780201633610",
@@ -88,9 +90,9 @@
     "pageCount": 336,
     "coverUrl": "https://covers.openlibrary.org/b/id/10108851-M.jpg"
   },
-  "9798892791700": {
-    "isbn13": "9798892791700",
-    "title": "HBR's 10 Must Reads on Managing People, Updated and Expanded (featuring Are You a Good Boss--Or a Great One? by Linda A. Hill and Kent Lineback)",
+  "9781422158012": {
+    "isbn13": "9781422158012",
+    "title": "HBR's 10 must reads on managing people",
     "author": "",
     "year": 2011,
     "status": "read",
@@ -100,7 +102,8 @@
       "leadership"
     ],
     "description": "",
-    "pageCount": 240
+    "pageCount": 224,
+    "coverUrl": "https://covers.openlibrary.org/b/id/7132002-M.jpg"
   },
   "9781540900937": {
     "isbn13": "9781540900937",
@@ -175,9 +178,9 @@
     "pageCount": 398,
     "coverUrl": "https://covers.openlibrary.org/b/id/12373902-M.jpg"
   },
-  "9780285626591": {
-    "isbn13": "9780285626591",
-    "title": "High output management",
+  "9780062503404": {
+    "isbn13": "9780062503404",
+    "title": "Companion to Narnia A Complete Illustrated Guide to Themes, Characters, and Events of C.S. Lewis's Imaginary World",
     "author": "",
     "year": 1983,
     "status": "read",
@@ -186,28 +189,29 @@
       "business",
       "productivity"
     ],
-    "description": "",
-    "pageCount": 217,
-    "coverUrl": "https://covers.openlibrary.org/b/id/14151309-M.jpg"
+    "description": ""
   },
-  "9780486291429": {
-    "isbn13": "9780486291429",
-    "title": "Meditations",
-    "author": "Marcus Aurelius",
+  "9780140449334": {
+    "isbn13": "9780140449334",
+    "title": "Meditations (Penguin Classics)",
+    "author": "",
     "year": 180,
     "status": "want-to-read",
     "tags": [
       "philosophy",
       "stoicism",
       "self-help"
-    ]
+    ],
+    "description": "",
+    "pageCount": 304,
+    "coverUrl": "https://covers.openlibrary.org/b/id/104363-M.jpg"
   },
   "9781647431747": {
     "isbn13": "9781647431747",
     "title": "How to Listen with Intention",
     "author": "",
     "year": 2020,
-    "status": "want-to-read",
+    "status": "reading",
     "tags": [
       "communication",
       "relationships",
@@ -229,17 +233,20 @@
       "startups"
     ]
   },
-  "9780553345437": {
-    "isbn13": "9780553345437",
-    "title": "What They Don't Teach You at Harvard Business School",
-    "author": "Mark H. McCormack",
+  "9780553345438": {
+    "isbn13": "9780553345438",
+    "title": "It Was Gonna Be Like Paris",
+    "author": "",
     "year": 1984,
     "status": "read",
     "tags": [
       "business",
       "career",
       "wisdom"
-    ]
+    ],
+    "description": "",
+    "pageCount": 176,
+    "coverUrl": "https://covers.openlibrary.org/b/id/369389-M.jpg"
   },
   "9781473695993": {
     "isbn13": "9781473695993",
@@ -256,24 +263,27 @@
     "pageCount": 272,
     "coverUrl": "https://covers.openlibrary.org/b/id/14846733-M.jpg"
   },
-  "9781551446288": {
-    "isbn13": "9781551446288",
+  "9780451205360": {
+    "isbn13": "9780451205360",
     "title": "The Richest Man in Babylon",
-    "author": "George S. Clason",
+    "author": "",
     "year": 1926,
-    "status": "want-to-read",
+    "status": "read",
     "tags": [
       "finance",
       "self-help",
       "wealth"
-    ]
+    ],
+    "description": "",
+    "pageCount": 144,
+    "coverUrl": "https://covers.openlibrary.org/b/id/292916-M.jpg"
   },
-  "9789365895315": {
-    "isbn13": "9789365895315",
+  "9789355421708": {
+    "isbn13": "9789355421708",
     "title": "Observability for Kubernetes Applications",
     "author": "Vikram Venkataraman",
     "year": 2021,
-    "status": "want-to-read",
+    "status": "read",
     "tags": [
       "kubernetes",
       "devops",
@@ -281,8 +291,8 @@
       "programming"
     ]
   },
-  "9789365899610": {
-    "isbn13": "9789365899610",
+  "9789355423146": {
+    "isbn13": "9789355423146",
     "title": "Argo CD and Argo Workflows on Kubernetes",
     "author": "Md Nahlul Kibria",
     "year": 2022,
@@ -294,50 +304,54 @@
       "programming"
     ]
   },
-  "9781491953914": {
-    "isbn13": "9781491953914",
+  "9781098144210": {
+    "isbn13": "9781098144210",
     "title": "Platform Engineering",
     "author": "Evan Bottcher",
     "year": 2023,
-    "status": "want-to-read",
+    "status": "read",
     "tags": [
       "devops",
       "platform",
       "engineering"
     ]
   },
-  "9780321834577": {
-    "isbn13": "9780321834577",
-    "title": "Implementing Domaindriven Design",
+  "9780321125217": {
+    "isbn13": "9780321125217",
+    "title": "Domain-Driven Design",
     "author": "",
     "year": 2003,
-    "status": "want-to-read",
+    "status": "read",
     "tags": [
       "programming",
       "software-design",
       "architecture"
     ],
     "description": "",
-    "coverUrl": "https://covers.openlibrary.org/b/id/7487442-M.jpg"
+    "pageCount": 529,
+    "coverUrl": "https://covers.openlibrary.org/b/id/14596704-M.jpg"
   },
-  "9780137043651": {
-    "isbn13": "9780137043651",
+  "9781847941107": {
+    "isbn13": "9781847941107",
     "title": "Scrum",
-    "author": "Jeff Sutherland",
+    "author": "",
     "year": 2014,
-    "status": "want-to-read",
+    "status": "reading",
     "tags": [
       "agile",
       "project-management",
       "business"
-    ]
+    ],
+    "description": "",
+    "pageCount": 256,
+    "coverUrl": "https://covers.openlibrary.org/b/id/12851665-M.jpg"
   },
-  "9798900667058": {
-    "isbn13": "9798900667058",
+  "9781647432041": {
+    "isbn13": "9781647432041",
     "title": "Better Small Talk",
     "author": "Patrick King",
     "year": 2020,
-    "status": "want-to-read",
+    "status": "reading",
     "tags": [
       "communication",
       "social-skills",
@@ -349,7 +363,7 @@
     "title": "Dare to lead",
     "author": "",
     "year": 2018,
-    "status": "want-to-read",
+    "status": "read",
     "tags": [
       "leadership",
       "courage",
@@ -364,7 +378,7 @@
     "title": "Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow",
     "author": "",
     "year": 2019,
-    "status": "want-to-read",
+    "status": "read",
     "tags": [
       "machine-learning",
       "programming",
@@ -374,17 +388,20 @@
     "pageCount": 856,
     "coverUrl": "https://covers.openlibrary.org/b/id/9388208-M.jpg"
   },
-  "9781492041030": {
-    "isbn13": "9781492041030",
-    "title": "TensorFlow for Deep Learning",
-    "author": "Bharath Ramsundar",
+  "9781491978511": {
+    "isbn13": "9781491978511",
+    "title": "Learning TensorFlow",
+    "author": "",
     "year": 2017,
-    "status": "want-to-read",
+    "status": "read",
     "tags": [
       "deep-learning",
       "machine-learning",
       "tensorflow"
-    ]
+    ],
+    "description": "",
+    "pageCount": 242,
+    "coverUrl": "https://covers.openlibrary.org/b/id/8509905-M.jpg"
   },
   "9781449373320": {
     "isbn13": "9781449373320",
@@ -481,10 +498,10 @@
     ],
     "description": ""
   },
-  "9781492030140": {
-    "isbn13": "9781492030140",
+  "9781942788812": {
+    "isbn13": "9781942788812",
     "title": "Team Topologies",
-    "author": "Matthew Skelton",
+    "author": "",
     "year": 2019,
     "status": "read",
     "tags": [
@@ -492,7 +509,10 @@
       "teams",
       "leadership",
       "devops"
-    ]
+    ],
+    "description": "",
+    "pageCount": 240,
+    "coverUrl": "https://covers.openlibrary.org/b/id/10354937-M.jpg"
   },
   "9781492054801": {
     "isbn13": "9781492054801",
@@ -506,17 +526,19 @@
       "management"
     ]
   },
-  "9781838640032": {
-    "isbn13": "9781838640032",
-    "title": "Software Architecture Metrics",
-    "author": "Christian Ciceri",
+  "9781492097716": {
+    "isbn13": "9781492097716",
+    "title": "Hands-On Differential Privacy",
+    "author": "",
     "year": 2021,
     "status": "read",
     "tags": [
       "architecture",
       "metrics",
       "software-engineering"
-    ]
+    ],
+    "description": "",
+    "pageCount": 362
   },
   "9781491963593": {
     "isbn13": "9781491963593",

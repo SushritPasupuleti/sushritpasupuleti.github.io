@@ -1,17 +1,26 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { MdArticle } from "react-icons/md";
-import { FiHome, FiBook } from "react-icons/fi";
+import { FiHome, FiBook, FiSun, FiMoon } from "react-icons/fi";
 import { useTerminalTheme, mono } from "../terminal-theme";
 import { Download } from "react-iconly";
-import { BsWhatsapp } from "react-icons/bs";
-import { FiSun, FiMoon } from "react-icons/fi";
 import React from "react";
+
+const MOBILE_BP = 540;
 
 const Navbar: React.FC = () => {
   const { isDark, c, setTheme } = useTerminalTheme();
   const router = useRouter();
   const isBlogPage = router.pathname.startsWith("/blogs");
+  const isReadingList = router.pathname === "/reading-list";
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  React.useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < MOBILE_BP);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
 
   const linkStyle: React.CSSProperties = {
     color: c.muted,
@@ -63,40 +72,38 @@ const Navbar: React.FC = () => {
       </Link>
       <div style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
         <Link
-          href={isBlogPage ? "/" : "/blogs"}
+          href={isBlogPage || isReadingList ? "/" : "/blogs"}
           style={linkStyle}
           onMouseEnter={handleEnter}
           onMouseLeave={handleLeave}
+          title={isBlogPage || isReadingList ? "Home" : "Blogs"}
         >
-          {isBlogPage ? <><FiHome size={14} /> Home</> : <><MdArticle size={14} /> Blogs</>}
+          {isBlogPage || isReadingList
+            ? <><FiHome size={14} />{!isMobile && " Home"}</>
+            : <><MdArticle size={14} />{!isMobile && " Blogs"}</>}
         </Link>
-        <Link
-          href="/reading-list"
-          style={linkStyle}
-          onMouseEnter={handleEnter}
-          onMouseLeave={handleLeave}
-        >
-          <FiBook size={14} />
-          Reading List
-        </Link>
+        {!isReadingList && (
+          <Link
+            href="/reading-list"
+            style={linkStyle}
+            onMouseEnter={handleEnter}
+            onMouseLeave={handleLeave}
+            title="Reading List"
+          >
+            <FiBook size={14} />
+            {!isMobile && " Reading List"}
+          </Link>
+        )}
         <a
           href="/resume/resume.pdf"
           style={linkStyle}
           onMouseEnter={handleEnter}
           onMouseLeave={handleLeave}
+          title="Resume"
         >
           <Download set="bold" primaryColor="currentColor" size={14} />
-          Resume
+          {!isMobile && " Resume"}
         </a>
-        {/* <a
-          href="https://wa.me/919182362040"
-          style={linkStyle}
-          onMouseEnter={handleEnter}
-          onMouseLeave={handleLeave}
-        >
-          <BsWhatsapp size={14} />
-          WhatsApp
-        </a> */}
         <button
           onClick={() => setTheme(isDark ? "light" : "dark")}
           aria-label="Toggle theme"

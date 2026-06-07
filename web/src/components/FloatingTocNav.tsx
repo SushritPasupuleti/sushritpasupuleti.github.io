@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { MdArticle } from "react-icons/md";
 import { Download } from "react-iconly";
 import { BsWhatsapp } from "react-icons/bs";
+import { FiBook } from "react-icons/fi";
 import { useTerminalTheme, mono } from "../terminal-theme";
 import { TocEntry, defaultEntries, padIndex } from "./toc-data";
 
@@ -11,6 +12,7 @@ const MOBILE_BP = 640;
 
 const quickLinks = [
   { href: "/blogs", label: "blogs", icon: MdArticle, isExternal: false },
+  { href: "/reading-list", label: "reading-list", icon: FiBook, isExternal: false },
   { href: "/resume/resume.pdf", label: "resume", icon: null, isExternal: false },
   { href: "https://wa.me/919182362040", label: "whatsapp", icon: BsWhatsapp, isExternal: true },
 ];
@@ -126,12 +128,9 @@ const FloatingTocNav: React.FC = () => {
   }, [router]);
 
   const entryRow = (entry: TocEntry) => (
-    <div
+    <button
       key={entry.id}
       onClick={() => scrollTo(entry.id)}
-      role="link"
-      tabIndex={0}
-      onKeyDown={(e) => { if (e.key === "Enter") scrollTo(entry.id); }}
       style={{
         display: "flex",
         alignItems: "center",
@@ -141,18 +140,22 @@ const FloatingTocNav: React.FC = () => {
         fontFamily: mono,
         fontSize: "0.8rem",
         transition: "background 0.12s",
+        background: "transparent",
+        border: "none",
+        width: "100%",
+        textAlign: "left",
       }}
       onMouseEnter={(e) => {
-        (e.currentTarget as HTMLDivElement).style.background = c.hoverBg ?? c.titleBar;
+        (e.currentTarget as HTMLButtonElement).style.background = c.hoverBg ?? c.titleBar;
       }}
       onMouseLeave={(e) => {
-        (e.currentTarget as HTMLDivElement).style.background = "transparent";
+        (e.currentTarget as HTMLButtonElement).style.background = "transparent";
       }}
     >
       <span style={{ color: c.dim, minWidth: "1.6rem" }}>{padIndex(entry.index)}</span>
       <span style={{ color: c.muted }}>→</span>
       <span style={{ color: c.cyan }}>#{entry.label}</span>
-    </div>
+    </button>
   );
 
   // ---------- Popup (desktop) ----------

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { FiHome, FiList, FiArrowUp } from "react-icons/fi";
+import { FiHome, FiList, FiArrowUp, FiBook } from "react-icons/fi";
 import { Download } from "react-iconly";
 import { BsWhatsapp } from "react-icons/bs";
 import { FaTwitter, FaLinkedin, FaWhatsapp, FaFacebook, FaReddit } from "react-icons/fa";
@@ -74,6 +74,7 @@ const FloatingBlogNav: React.FC<FloatingBlogNavProps> = ({ url, title }) => {
   const navItems = [
     { label: "#home", icon: FiHome, href: "/", action: null },
     { label: "#blogs", icon: FiList, href: "/blogs", action: null },
+    { label: "#reading-list", icon: FiBook, href: "/reading-list", action: null },
     { label: "#scroll-to-top", icon: FiArrowUp, href: null, action: scrollToTop },
   ];
 
@@ -83,43 +84,50 @@ const FloatingBlogNav: React.FC<FloatingBlogNavProps> = ({ url, title }) => {
   ];
 
   const navRow = (item: typeof navItems[0]) => {
-    const inner = (
-      <div
-        key={item.label}
-        onClick={item.action ?? undefined}
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "0.5rem",
-          padding: "0.45rem 0.75rem",
-          cursor: "pointer",
-          fontFamily: mono,
-          fontSize: "0.8rem",
-          transition: "background 0.12s",
-          textDecoration: "none",
-          color: "inherit",
-        }}
-        onMouseEnter={(e) => {
-          (e.currentTarget as HTMLDivElement).style.background = c.hoverBg ?? c.titleBar;
-        }}
-        onMouseLeave={(e) => {
-          (e.currentTarget as HTMLDivElement).style.background = "transparent";
-        }}
-      >
+    const sharedStyle: React.CSSProperties = {
+      display: "flex",
+      alignItems: "center",
+      gap: "0.5rem",
+      padding: "0.45rem 0.75rem",
+      cursor: "pointer",
+      fontFamily: mono,
+      fontSize: "0.8rem",
+      transition: "background 0.12s",
+      textDecoration: "none",
+      color: "inherit",
+      background: "transparent",
+      border: "none",
+      width: "100%",
+      textAlign: "left",
+    };
+    const onHoverIn = (e: React.MouseEvent) => {
+      (e.currentTarget as HTMLElement).style.background = c.hoverBg ?? c.titleBar;
+    };
+    const onHoverOut = (e: React.MouseEvent) => {
+      (e.currentTarget as HTMLElement).style.background = "transparent";
+    };
+    const content = (
+      <>
         <item.icon size={14} style={{ color: c.dim, flexShrink: 0 }} />
         <span style={{ color: c.muted }}>→</span>
         <span style={{ color: c.cyan }}>{item.label}</span>
-      </div>
+      </>
     );
 
     if (item.href) {
       return (
-        <Link key={item.label} href={item.href} style={{ textDecoration: "none", color: "inherit" }} onClick={() => setOpen(false)}>
-          {inner}
+        <Link key={item.label} href={item.href} style={{ textDecoration: "none", color: "inherit", display: "block" }} onClick={() => setOpen(false)}>
+          <div style={sharedStyle} onMouseEnter={onHoverIn} onMouseLeave={onHoverOut}>
+            {content}
+          </div>
         </Link>
       );
     }
-    return inner;
+    return (
+      <button key={item.label} onClick={item.action ?? undefined} style={sharedStyle} onMouseEnter={onHoverIn} onMouseLeave={onHoverOut}>
+        {content}
+      </button>
+    );
   };
 
   const linkBtnStyle: React.CSSProperties = {

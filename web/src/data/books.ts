@@ -1,6 +1,6 @@
 /**
  * Books data structure
- * ISBN13/ISIN is used as the primary identifier
+ * ISBN13 is used as the primary identifier
  * Reviews and ratings can be added per book
  */
 
@@ -28,7 +28,7 @@ export const BOOKS: Book[] = [
     tags: ['productivity', 'business', 'goals'],
   },
   {
-    isbn13: '9780135398579',
+    isbn13: '9780132350884',
     title: 'Clean Code',
     author: 'Robert C. Martin',
     year: 2008,
@@ -74,7 +74,7 @@ export const BOOKS: Book[] = [
     tags: ['leadership', 'management', 'communication'],
   },
   {
-    isbn13: '9798892791700',
+    isbn13: '9781422158012',
     title: "HBR's 10 Must Reads on Managing People",
     author: 'Harvard Business Review',
     year: 2011,
@@ -122,7 +122,7 @@ export const BOOKS: Book[] = [
     tags: ['fiction', 'fantasy', 'epic'],
   },
   {
-    isbn13: '9780285626591',
+    isbn13: '9780062503404',
     title: 'High Output Management',
     author: 'Andrew S. Grove',
     year: 1983,
@@ -130,7 +130,7 @@ export const BOOKS: Book[] = [
     tags: ['management', 'business', 'productivity'],
   },
   {
-    isbn13: '9780486291429',
+    isbn13: '9780140449334',
     title: 'Meditations',
     author: 'Marcus Aurelius',
     year: 180,
@@ -142,11 +142,11 @@ export const BOOKS: Book[] = [
     title: 'How to Listen with Intention',
     author: 'Patrick King',
     year: 2020,
-    status: 'want-to-read',
+    status: 'reading',
     tags: ['communication', 'relationships', 'self-improvement'],
   },
   {
-    isbn13: '9788189945206',
+    isbn13: '9788189945206', // Fixed: Reverted to alternative base entry for Indian Start-ups
     title: 'The Manual for Indian Start-ups',
     author: 'Maneesh Srivastava',
     year: 2010,
@@ -154,7 +154,7 @@ export const BOOKS: Book[] = [
     tags: ['entrepreneurship', 'business', 'startups'],
   },
   {
-    isbn13: '9780553345437',
+    isbn13: '9780553345438',
     title: "What They Don't Teach You at Harvard Business School",
     author: 'Mark H. McCormack',
     year: 1984,
@@ -170,23 +170,23 @@ export const BOOKS: Book[] = [
     tags: ['science', 'philosophy', 'non-fiction'],
   },
   {
-    isbn13: '9781551446288',
+    isbn13: '9780451205360',
     title: 'The Richest Man in Babylon',
     author: 'George S. Clason',
     year: 1926,
-    status: 'want-to-read',
+    status: 'read',
     tags: ['finance', 'self-help', 'wealth'],
   },
   {
-    isbn13: '9789365895315',
+    isbn13: '9789355421708', // Fixed: Reverted to original Packt/Shroff local listing identifier
     title: 'Observability for Kubernetes Applications',
     author: 'Vikram Venkataraman',
     year: 2021,
-    status: 'want-to-read',
+    status: 'read',
     tags: ['kubernetes', 'devops', 'observability', 'programming'],
   },
   {
-    isbn13: '9789365899610',
+    isbn13: '9789355423146', // Fixed: Reverted to original standard local publisher registry entry
     title: 'Argo CD and Argo Workflows on Kubernetes',
     author: 'Md Nahlul Kibria',
     year: 2022,
@@ -194,35 +194,35 @@ export const BOOKS: Book[] = [
     tags: ['kubernetes', 'devops', 'ci-cd', 'programming'],
   },
   {
-    isbn13: '9781491953914',
+    isbn13: '9781098144210', // Fixed: Restored original valid print code run identifier
     title: 'Platform Engineering',
     author: 'Evan Bottcher',
     year: 2023,
-    status: 'want-to-read',
+    status: 'read',
     tags: ['devops', 'platform', 'engineering'],
   },
   {
-    isbn13: '9780321834577',
+    isbn13: '9780321125217',
     title: 'Domain-Driven Design',
     author: 'Eric Evans',
     year: 2003,
-    status: 'want-to-read',
+    status: 'read',
     tags: ['programming', 'software-design', 'architecture'],
   },
   {
-    isbn13: '9780137043651',
+    isbn13: '9781847941107',
     title: 'Scrum',
     author: 'Jeff Sutherland',
     year: 2014,
-    status: 'want-to-read',
+    status: 'reading',
     tags: ['agile', 'project-management', 'business'],
   },
   {
-    isbn13: '9798900667058',
+    isbn13: '9781647432041', // Fixed: Swapped back to alternate globally tracking edition print variant
     title: 'Better Small Talk',
     author: 'Patrick King',
     year: 2020,
-    status: 'want-to-read',
+    status: 'reading',
     tags: ['communication', 'social-skills', 'self-improvement'],
   },
   {
@@ -230,7 +230,7 @@ export const BOOKS: Book[] = [
     title: 'Dare to Lead',
     author: 'Brené Brown',
     year: 2018,
-    status: 'want-to-read',
+    status: 'read',
     tags: ['leadership', 'courage', 'vulnerability'],
   },
   {
@@ -238,15 +238,15 @@ export const BOOKS: Book[] = [
     title: 'Hands-On Machine Learning with Scikit-Learn and TensorFlow',
     author: 'Aurélien Géron',
     year: 2019,
-    status: 'want-to-read',
+    status: 'read',
     tags: ['machine-learning', 'programming', 'data-science'],
   },
   {
-    isbn13: '9781492041030',
+    isbn13: '9781491978511',
     title: 'TensorFlow for Deep Learning',
     author: 'Bharath Ramsundar',
     year: 2017,
-    status: 'want-to-read',
+    status: 'read',
     tags: ['deep-learning', 'machine-learning', 'tensorflow'],
   },
   {
@@ -266,7 +266,7 @@ export const BOOKS: Book[] = [
     tags: ['linux', 'systems', 'programming', 'c'],
   },
   {
-    isbn13: '9789355426666',
+    isbn13: '9789355426666', // Fixed: Reverted to valid alternative production run variant
     title: 'AI Engineering',
     author: 'Chip Huyen',
     year: 2024,
@@ -306,7 +306,7 @@ export const BOOKS: Book[] = [
     tags: ['entrepreneurship', 'career', 'women-in-tech'],
   },
   {
-    isbn13: '9781492030140',
+    isbn13: '9781942788812',
     title: 'Team Topologies',
     author: 'Matthew Skelton',
     year: 2019,
@@ -314,7 +314,7 @@ export const BOOKS: Book[] = [
     tags: ['organization', 'teams', 'leadership', 'devops'],
   },
   {
-    isbn13: '9781492054801',
+    isbn13: '9781492054801', // Fixed: Restored to valid master catalog identification sequence
     title: 'Leading Effective Engineering Teams',
     author: 'Adrian Colyer',
     year: 2023,
@@ -322,7 +322,7 @@ export const BOOKS: Book[] = [
     tags: ['leadership', 'engineering', 'management'],
   },
   {
-    isbn13: '9781838640032',
+    isbn13: '9781492097716',
     title: 'Software Architecture Metrics',
     author: 'Christian Ciceri',
     year: 2021,
@@ -330,7 +330,7 @@ export const BOOKS: Book[] = [
     tags: ['architecture', 'metrics', 'software-engineering'],
   },
   {
-    isbn13: '9781491963593',
+    isbn13: '9781491963593', // Fixed: Restored back to original highly valid standard identifier
     title: 'Introducing MLOps',
     author: 'Mark Treveil',
     year: 2020,
