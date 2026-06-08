@@ -552,5 +552,199 @@
       "devops",
       "engineering"
     ]
+  },
+  "9780063215016": {
+    "isbn13": "9780063215016",
+    "title": "Impact Players",
+    "author": "Liz Wiseman",
+    "year": 2021,
+    "status": "want-to-read",
+    "tags": [
+      "leadership",
+      "career",
+      "productivity"
+    ]
+  },
+  "9788183286312": {
+    "isbn13": "9788183286312",
+    "title": "How to Do Things You Hate",
+    "author": "Peter Hollins",
+    "year": 2023,
+    "status": "want-to-read",
+    "tags": [
+      "self-help",
+      "productivity",
+      "discipline"
+    ]
+  },
+  "9789352135479": {
+    "isbn13": "9789352135479",
+    "title": "The Manager's Path",
+    "author": "Camille Fournier",
+    "year": 2017,
+    "status": "want-to-read",
+    "tags": [
+      "management",
+      "engineering",
+      "leadership"
+    ]
+  },
+  "9781492063490": {
+    "isbn13": "9781492063490",
+    "title": "Data Governance",
+    "author": "",
+    "year": 2021,
+    "status": "want-to-read",
+    "tags": [
+      "data",
+      "governance",
+      "architecture"
+    ],
+    "description": "People, Processes, and Tools to Operationalize Data Trustworthiness"
+  },
+  "9781098168346": {
+    "isbn13": "9781098168346",
+    "title": "AI Value Creators",
+    "author": "",
+    "year": 2025,
+    "status": "want-to-read",
+    "tags": [
+      "ai",
+      "business",
+      "strategy"
+    ],
+    "description": "",
+    "pageCount": 300
+  },
+  "9788183286039": {
+    "isbn13": "9788183286039",
+    "title": "Strategic Mindset",
+    "author": "Thibaut Meurisse",
+    "year": 2021,
+    "status": "want-to-read",
+    "tags": [
+      "productivity",
+      "strategy",
+      "mindset"
+    ]
+  },
+  "9780787960759": {
+    "isbn13": "9780787960759",
+    "title": "The Five Dysfunctions of a Team: A Leadership Fable",
+    "author": "",
+    "year": 2002,
+    "status": "want-to-read",
+    "tags": [
+      "leadership",
+      "teams",
+      "management"
+    ],
+    "description": "",
+    "pageCount": 240,
+    "coverUrl": "https://covers.openlibrary.org/b/id/14620714-M.jpg"
+  },
+  "9781861975133": {
+    "isbn13": "9781861975133",
+    "title": "Only the Paranoid Survive",
+    "author": "",
+    "year": 1996,
+    "status": "want-to-read",
+    "tags": [
+      "business",
+      "strategy",
+      "leadership"
+    ],
+    "description": "",
+    "pageCount": 224,
+    "coverUrl": "https://covers.openlibrary.org/b/id/8770230-M.jpg"
+  },
+  "9780062699176": {
+    "isbn13": "9780062699176",
+    "title": "Multipliers, Revised and Updated",
+    "author": "",
+    "year": 2017,
+    "status": "want-to-read",
+    "tags": [
+      "leadership",
+      "management",
+      "growth"
+    ],
+    "description": "",
+    "pageCount": 384,
+    "coverUrl": "https://covers.openlibrary.org/b/id/10087916-M.jpg"
+  },
+  "9781958274040": {
+    "isbn13": "9781958274040",
+    "title": "Second-Hand Love",
+    "author": "",
+    "year": 2023,
+    "status": "want-to-read",
+    "tags": [
+      "management",
+      "leadership",
+      "scaling"
+    ],
+    "description": "",
+    "pageCount": 50
+  },
+  "9781590282601": {
+    "isbn13": "9781590282601",
+    "title": "Discrete mathematics and functional programming",
+    "author": "",
+    "year": 2012,
+    "status": "want-to-read",
+    "tags": [
+      "programming",
+      "mathematics",
+      "computer-science"
+    ],
+    "description": "\"Teaches discrete mathematics in conjunction with computer programming in ML\"--",
+    "pageCount": 670
+  },
+  "9780988262508": {
+    "isbn13": "9780988262508",
+    "title": "The Phoenix Project",
+    "author": "",
+    "year": 2013,
+    "status": "want-to-read",
+    "tags": [
+      "devops",
+      "business",
+      "management",
+      "fiction"
+    ],
+    "description": "Bill is an IT manager at Parts Unlimited. It's Tuesday morning and on his drive into the office, Bill gets a call from the CEO. \t\r\n\tThe company's new IT initiative, code named Phoenix Project, is critical to the future of Parts Unlimited, but the project is massively over budget and very late. The CEO wants Bill to report directly to him and fix the mess in ninety days or else Bill's entire department will be outsourced. \t\r\n\tWith the help of a prospective board member and his mysterious philosophy of The Three Ways, Bill starts to see that IT work has more in common with manufacturing plant work than he ever imagined. With the clock ticking, Bill must organize work flow streamline interdepartmental communications, and effectively serve the other business functions at Parts Unlimited. \t\r\n\tIn a fast-paced and entertaining style, three luminaries of the DevOps movement deliver a story that anyone who works in IT will recognize. Readers will not only learn how to improve their own IT organizations, they'll never view IT the same way again.",
+    "coverUrl": "https://covers.openlibrary.org/b/id/8090274-M.jpg"
+  },
+  "9781942788997": {
+    "isbn13": "9781942788997",
+    "title": "Unicorn Project",
+    "author": "",
+    "year": 2019,
+    "status": "want-to-read",
+    "tags": [
+      "devops",
+      "programming",
+      "fiction",
+      "culture"
+    ],
+    "description": "",
+    "pageCount": 352
+  },
+  "9781942788331": {
+    "isbn13": "9781942788331",
+    "title": "Accelerate: The Science of Lean Software and DevOps",
+    "author": "",
+    "year": 2018,
+    "status": "want-to-read",
+    "tags": [
+      "devops",
+      "metrics",
+      "engineering",
+      "management"
+    ],
+    "description": "",
+    "pageCount": 288,
+    "coverUrl": "https://covers.openlibrary.org/b/id/14651184-M.jpg"
   }
 }
