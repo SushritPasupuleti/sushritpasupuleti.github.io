@@ -460,7 +460,7 @@ const ReadingList: NextPage<ReadingListProps> = ({ books }) => {
           )}
 
           {/* Footer */}
-          <div style={{ paddingTop: '1.5rem', borderTop: `1px dashed ${c.border}`, fontSize: '0.85rem', color: c.muted }}>
+          {/* <div style={{ paddingTop: '1.5rem', borderTop: `1px dashed ${c.border}`, fontSize: '0.85rem', color: c.muted }}>
             <p style={{ margin: 0, marginBottom: '0.5rem' }}>Want to recommend a book?</p>
             <Link
               href="/contact"
@@ -472,7 +472,7 @@ const ReadingList: NextPage<ReadingListProps> = ({ books }) => {
             >
               Let me know!
             </Link>
-          </div>
+          </div> */}
         </div>
       </div>
     </>

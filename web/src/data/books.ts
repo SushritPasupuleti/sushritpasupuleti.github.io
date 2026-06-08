@@ -146,7 +146,7 @@ export const BOOKS: Book[] = [
     tags: ['communication', 'relationships', 'self-improvement'],
   },
   {
-    isbn13: '9788189945206', // Fixed: Reverted to alternative base entry for Indian Start-ups
+    isbn13: '9788189945206',
     title: 'The Manual for Indian Start-ups',
     author: 'Maneesh Srivastava',
     year: 2010,
@@ -178,7 +178,7 @@ export const BOOKS: Book[] = [
     tags: ['finance', 'self-help', 'wealth'],
   },
   {
-    isbn13: '9789355421708', // Fixed: Reverted to original Packt/Shroff local listing identifier
+    isbn13: '9789355421708',
     title: 'Observability for Kubernetes Applications',
     author: 'Vikram Venkataraman',
     year: 2021,
@@ -186,7 +186,7 @@ export const BOOKS: Book[] = [
     tags: ['kubernetes', 'devops', 'observability', 'programming'],
   },
   {
-    isbn13: '9789355423146', // Fixed: Reverted to original standard local publisher registry entry
+    isbn13: '9789355423146',
     title: 'Argo CD and Argo Workflows on Kubernetes',
     author: 'Md Nahlul Kibria',
     year: 2022,
@@ -194,7 +194,7 @@ export const BOOKS: Book[] = [
     tags: ['kubernetes', 'devops', 'ci-cd', 'programming'],
   },
   {
-    isbn13: '9781098144210', // Fixed: Restored original valid print code run identifier
+    isbn13: '9781098144210',
     title: 'Platform Engineering',
     author: 'Evan Bottcher',
     year: 2023,
@@ -218,7 +218,7 @@ export const BOOKS: Book[] = [
     tags: ['agile', 'project-management', 'business'],
   },
   {
-    isbn13: '9781647432041', // Fixed: Swapped back to alternate globally tracking edition print variant
+    isbn13: '9781647432041',
     title: 'Better Small Talk',
     author: 'Patrick King',
     year: 2020,
@@ -266,7 +266,7 @@ export const BOOKS: Book[] = [
     tags: ['linux', 'systems', 'programming', 'c'],
   },
   {
-    isbn13: '9789355426666', // Fixed: Reverted to valid alternative production run variant
+    isbn13: '9789355426666',
     title: 'AI Engineering',
     author: 'Chip Huyen',
     year: 2024,
@@ -314,7 +314,7 @@ export const BOOKS: Book[] = [
     tags: ['organization', 'teams', 'leadership', 'devops'],
   },
   {
-    isbn13: '9781492054801', // Fixed: Restored to valid master catalog identification sequence
+    isbn13: '9781492054801',
     title: 'Leading Effective Engineering Teams',
     author: 'Adrian Colyer',
     year: 2023,
@@ -330,11 +330,124 @@ export const BOOKS: Book[] = [
     tags: ['architecture', 'metrics', 'software-engineering'],
   },
   {
-    isbn13: '9781491963593', // Fixed: Restored back to original highly valid standard identifier
+    isbn13: '9781491963593',
     title: 'Introducing MLOps',
     author: 'Mark Treveil',
     year: 2020,
     status: 'read',
     tags: ['machine-learning', 'mlops', 'devops', 'engineering'],
+  },
+  // --- Newly Appended Books ---
+  {
+    isbn13: '9780063215016',
+    title: 'Impact Players',
+    author: 'Liz Wiseman',
+    year: 2021,
+    status: 'want-to-read',
+    tags: ['leadership', 'career', 'productivity'],
+  },
+  {
+    isbn13: '9788183286312',
+    title: 'How to Do Things You Hate',
+    author: 'Peter Hollins',
+    year: 2023,
+    status: 'want-to-read',
+    tags: ['self-help', 'productivity', 'discipline'],
+  },
+  {
+    isbn13: '9789352135479',
+    title: "The Manager's Path",
+    author: 'Camille Fournier',
+    year: 2017,
+    status: 'want-to-read',
+    tags: ['management', 'engineering', 'leadership'],
+  },
+  {
+    isbn13: '9781492063490',
+    title: 'Data Governance: The Definitive Guide',
+    author: 'Evren Eryurek, Uri Gilad, Valliappa Lakshmanan',
+    year: 2021,
+    status: 'want-to-read',
+    tags: ['data', 'governance', 'architecture'],
+  },
+  {
+    isbn13: '9781098168346',
+    title: 'AI Value Creators',
+    author: 'Rob Thomas, Paul Zikopoulos, Kate Soule',
+    year: 2025,
+    status: 'want-to-read',
+    tags: ['ai', 'business', 'strategy'],
+  },
+  {
+    isbn13: '9788183286039',
+    title: 'Strategic Mindset',
+    author: 'Thibaut Meurisse',
+    year: 2021,
+    status: 'want-to-read',
+    tags: ['productivity', 'strategy', 'mindset'],
+  },
+  {
+    isbn13: '9780787960759',
+    title: 'The Five Dysfunctions of a Team',
+    author: 'Patrick Lencioni',
+    year: 2002,
+    status: 'want-to-read',
+    tags: ['leadership', 'teams', 'management'],
+  },
+  {
+    isbn13: '9781861975133',
+    title: 'Only the Paranoid Survive',
+    author: 'Andrew S. Grove',
+    year: 1996,
+    status: 'want-to-read',
+    tags: ['business', 'strategy', 'leadership'],
+  },
+  {
+    isbn13: '9780062699176',
+    title: 'Multipliers: How the Best Leaders Make Everyone Smarter',
+    author: 'Liz Wiseman',
+    year: 2017,
+    status: 'want-to-read',
+    tags: ['leadership', 'management', 'growth'],
+  },
+  {
+    isbn13: '9781958274040',
+    title: 'Scaling People',
+    author: 'Claire Hughes Johnson',
+    year: 2023,
+    status: 'want-to-read',
+    tags: ['management', 'leadership', 'scaling'],
+  },
+  {
+    isbn13: '9781590282601',
+    title: 'Discrete Mathematics and Functional Programming',
+    author: 'Thomas VanDrunen',
+    year: 2012,
+    status: 'want-to-read',
+    tags: ['programming', 'mathematics', 'computer-science'],
+  },
+  {
+    isbn13: '9780988262508',
+    title: 'The Phoenix Project',
+    author: 'Gene Kim, Kevin Behr, George Spafford',
+    year: 2013,
+    status: 'want-to-read',
+    tags: ['devops', 'business', 'management', 'fiction'],
+  },
+  {
+    isbn13: '9781942788997',
+    title: 'The Unicorn Project',
+    author: 'Gene Kim',
+    year: 2019,
+    status: 'want-to-read',
+    tags: ['devops', 'programming', 'fiction', 'culture'],
+  },
+  {
+    isbn13: '9781942788331',
+    title: 'Accelerate',
+    author: 'Nicole Forsgren, Jez Humble, Gene Kim',
+    year: 2018,
+    status: 'want-to-read',
+    tags: ['devops', 'metrics', 'engineering', 'management'],
   },
 ];
