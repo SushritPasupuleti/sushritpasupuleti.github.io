@@ -1,7 +1,7 @@
 ---
 slug: how-when-and-why-you-should-switch-from-vercel-to-a-different-hosting-provider-especially-for-nextjs
 title:  How, When, and Why you should switch from Vercel to a different Hosting Provider (Especially for Next.js)
-
+date: 2021-02-05
 authors: SushritPasupuleti
 tags: [deployment, startup, next-js, javascript, typescript, aws, cloud, guide, frontend, resources]
 cover_img_url: https://braggi-free-bucket.s3.ap-south-1.amazonaws.com/undefined%20-%20Imgur1644069541547.gif

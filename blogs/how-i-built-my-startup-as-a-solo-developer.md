@@ -2,6 +2,7 @@
 slug: how-i-built-my-startup-as-a-solo-developer
 title: How I built my Startup as a solo developer
 authors: SushritPasupuleti
+date: 2021-12-31
 tags: [launch, guide, personal-update, announcement, fullstack, startup, mern-stack, react-js, next-js, express-js, postgresql, aws]
 cover_img_url: https://braggi-free-bucket.s3.ap-south-1.amazonaws.com/banner-m-21640954520466.png
 ---

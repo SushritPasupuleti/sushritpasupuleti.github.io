@@ -2,6 +2,7 @@
 slug: learn-and-use-these-2-languages-for-90-of-your-career-and-never-look-back
 title: Learn & use these 2 languages for 90% of your career and never look back
 authors: SushritPasupuleti
+date: 2021-09-01
 tags: [javascript, python, frontend, backend, fullstack, web-dev, mobile-developer, guide, beginner-friendly, ml]
 cover_img_url: https://cdn-images-1.medium.com/max/2000/1*zXLl7IPt8lxhkTxndxNceQ.jpeg
 ---

@@ -3,6 +3,7 @@ slug: book-review-measure-what-matters
 title: 'Book Review: Measure What Matters'
 authors: SushritPasupuleti
 tags: [book-review, startups, business, tech, okrs, product-management]
+date: 2026-05-10
 cover_img_url: /assets/blogs/measure-what-matters.png
 ---
 
