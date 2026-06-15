@@ -9,10 +9,10 @@ audio:
 	@uv run python generate_audio_blogs.py --blogs-dir web/public/blogs --output-dir web/public/audio-blogs --voice am_adam
 
 audio-fast:
-	@uv run python generate_audio_blogs.py --no-ollama
+	@uv run python generate_audio_blogs.py --blogs-dir web/public/blogs --output-dir web/public/audio-blogs --voice am_adam --no-ollama
 
 audio-overwrite:
-	@uv run python generate_audio_blogs.py --overwrite
+	@uv run python generate_audio_blogs.py --blogs-dir web/public/blogs --output-dir web/public/audio-blogs --voice am_adam --overwrite
 
 # Download the Kokoro model + default voice to disk without running the full pipeline.
 # Re-running this is safe — files already present are skipped.

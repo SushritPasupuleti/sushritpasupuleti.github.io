@@ -90,6 +90,13 @@ export const getStaticProps: GetStaticProps = async () => {
     const authorsYml = fsExtra.readFileSync(authorsYmlPath, "utf8");
     authorsMap = yaml.load(authorsYml) as Record<string, any>;
   }
+
+  const formatDateString = (d: any): string => {
+    if (typeof d === "string") return d;
+    if (d instanceof Date) return d.toISOString().split("T")[0];
+    return "";
+  };
+
   const posts = files.map((filename) => {
     const filePath = path.join(postsDir, filename);
     const fileContent = fs.readFileSync(filePath, "utf8");
@@ -103,16 +110,25 @@ export const getStaticProps: GetStaticProps = async () => {
       }
     }
 
+    const dateStr = formatDateString(data.date) || formatDateString(data.publishedDate) || "";
+
     return {
       slug: data.slug || filename.replace(/\.md$/, ""),
       title: data.title || filename,
       authors: data.authors || "",
       tags: Array.isArray(data.tags) ? data.tags : [],
-      date: data.date || "",
+      date: dateStr,
       cover_img_url: coverImgUrl,
       readTime: getReadTime(content),
       authorsMap,
     };
+  }).sort((a, b) => {
+    // Sort by date in descending order (newest first)
+    // Expected date format: YYYY-MM-DD
+    if (!a.date || !b.date) {
+      return (b.date ? 1 : 0) - (a.date ? 1 : 0);
+    }
+    return new Date(b.date).getTime() - new Date(a.date).getTime();
   });
   return { props: { posts } };
 };

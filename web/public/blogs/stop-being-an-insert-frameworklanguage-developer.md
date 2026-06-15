@@ -3,6 +3,7 @@ slug: stop-being-an-insert-frameworklanguage-developer
 title:  Stop being an "insert-framework/language" Developer
 authors: SushritPasupuleti
 tags: [advice,fullstack-developer,web-dev,backend,frontend,resources,javascript,python,typescript,react-js,react-native,flutter,express-js,next-js,fastapi,django,go,rust]
+date: 2023-08-13
 cover_img_url: https://braggi-free-bucket.s3.ap-south-1.amazonaws.com/featured1693386498567.gif
 ---
 

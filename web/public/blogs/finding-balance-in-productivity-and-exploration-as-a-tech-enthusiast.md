@@ -3,6 +3,7 @@ slug: finding-balance-in-productivity-and-exploration-as-a-tech-enthusiast
 title: Finding Balance in Productivity and Exploration as a Tech Enthusiast
 authors: SushritPasupuleti
 tags: [launch, guide, personal-update, announcement, fullstack, startup, mern-stack, react-js, next-js, express-js, postgresql, aws]
+date: 2026-04-05
 cover_img_url: /assets/blogs/linux-starter-pack-meme.png
 ---
 

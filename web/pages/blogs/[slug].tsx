@@ -142,6 +142,12 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const fileContent = fs.readFileSync(filePath, "utf8");
   const { data, content } = matter(fileContent);
 
+  const formatDateString = (d: any): string => {
+    if (typeof d === "string") return d;
+    if (d instanceof Date) return d.toISOString().split("T")[0];
+    return "";
+  };
+
   // Serve audio from /audio-blogs/<slug>.wav if the file has been generated.
   const audioFilePath = path.join(process.cwd(), "public", "audio-blogs", `${params?.slug}.wav`);
   const audioUrl = fs.existsSync(audioFilePath) ? `/audio-blogs/${params?.slug}.wav` : null;
@@ -158,7 +164,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   return {
     props: {
       title: data.title || params?.slug,
-      date: data.date || "",
+      date: formatDateString(data.date) || formatDateString(data.publishedDate) || "",
       content,
       cover_img_url: data.cover_img_url || "",
       description,
@@ -167,6 +173,20 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       audioUrl,
     },
   };
+};
+
+const formatDate = (dateStr: string): string => {
+  if (!dateStr) return "";
+  try {
+    const date = new Date(dateStr);
+    return new Intl.DateTimeFormat("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    }).format(date);
+  } catch {
+    return dateStr;
+  }
 };
 
 const BlogPost = ({
@@ -334,7 +354,7 @@ const BlogPost = ({
           </h1>
           {date && (
             <div style={{ color: c.dim, fontSize: "0.8rem" }}>
-              <span style={{ color: c.muted }}>date:</span> {date}
+              <span style={{ color: c.muted }}>date:</span> {formatDate(date)}
             </div>
           )}
           <div style={{ color: c.dim, fontSize: "0.8rem", marginTop: "0.25rem" }}>
