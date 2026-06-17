@@ -115,3 +115,4 @@ make audio
 - [x] An LLM-based tool to generate audio versions of the blogs for accessibility and podcasting.
     - [ ] Add AI-use disclosures to the blog posts that have AI-generated summaries/audio. And explain the local generation process.
 - [x] FIXME: When directly navigating to a blog URL, it's stuck on the loading screen.
+- [ ] Add [cusdis](https://cusdis.com/doc#/self-host/vercel) for comments on the blog posts.
