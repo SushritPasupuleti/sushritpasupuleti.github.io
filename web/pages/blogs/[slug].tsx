@@ -12,6 +12,7 @@ import FloatingBlogNav from "../../src/components/FloatingBlogNav";
 import Navbar from "../../src/components/Navbar";
 import TerminalBoot from "../../src/components/TerminalBoot";
 import AudioPlayer from "../../src/components/AudioPlayer";
+import Giscus from "../../src/components/Giscus";
 import ReactMarkdown from "react-markdown";
 import type { Components } from "react-markdown";
 import rehypeSanitize from "rehype-sanitize";
@@ -426,6 +427,9 @@ const BlogPost = ({
           title={title}
           variant="cta"
         />
+
+        {/* Giscus Comments */}
+        {mounted && <Giscus theme={isDark ? "dark" : "light"} />}
 
         {/* Terminal prompt at bottom */}
         <div style={{ marginTop: "2rem", fontSize: "0.85rem" }}>
